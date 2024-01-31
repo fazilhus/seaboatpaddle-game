@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=3 uid="uid://do6luy1buwhiv"]
+
+[ext_resource type="Script" path="res://scripts/Boat.cs" id="1_rcxjk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ik3mg"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_8v34c"]
+sky_material = SubResource("ProceduralSkyMaterial_ik3mg")
+
+[sub_resource type="Environment" id="Environment_f08u5"]
+background_mode = 2
+sky = SubResource("Sky_8v34c")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_e5a4l"]
+size = Vector2(20, 20)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_f1n2j"]
+data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e4vpw"]
+albedo_color = Color(1, 0.6, 0.6, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ydppt"]
+material = SubResource("StandardMaterial3D_e4vpw")
+size = Vector3(1, 0.5, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j744x"]
+size = Vector3(1, 0.5, 2)
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_f08u5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.492404, 0.0868241, 0, 0.173648, 0.984808, -0.5, 0.852868, -0.150384, 0, 10, 0)
+shadow_enabled = true
+
+[node name="Sea" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_e5a4l")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sea"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sea/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_f1n2j")
+
+[node name="Boat" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+script = ExtResource("1_rcxjk")
+
+[node name="LeftPaddlePivot" type="Node3D" parent="Boat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.25, 0)
+
+[node name="RightPaddlePivot" type="Node3D" parent="Boat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.25, 0)
+
+[node name="Pivot" type="Node3D" parent="Boat"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boat/Pivot"]
+mesh = SubResource("BoxMesh_ydppt")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boat"]
+shape = SubResource("BoxShape3D_j744x")
+
+[node name="Camera3D" type="Camera3D" parent="Boat"]
+transform = Transform3D(-1, 6.69697e-08, -5.61943e-08, 0, 0.642787, 0.766044, 8.74228e-08, 0.766044, -0.642787, 0, 5, -5)
+
+[node name="LeftPaddleTimer" type="Timer" parent="Boat"]
+one_shot = true
+
+[node name="RightPaddleTimer" type="Timer" parent="Boat"]
+one_shot = true
+
+[connection signal="timeout" from="Boat/LeftPaddleTimer" to="Boat" method="_on_left_paddle_timer_timeout"]
+[connection signal="timeout" from="Boat/RightPaddleTimer" to="Boat" method="_on_right_paddle_timer_timeout"]

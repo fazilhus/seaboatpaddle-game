@@ -10,9 +10,9 @@ public partial class Boat : CharacterBody3D
     private Timer _right_paddle_timer;
 
     private Vector3 lpf = new Vector3(0.5f, 0.0f, 1.0f).Normalized();
-    private float lpa = 15;
+    private float lpa = -15;
     private Vector3 rpf = new Vector3(-0.5f, 0.0f, 1.0f).Normalized();
-    private float rpa = -15;
+    private float rpa = 15;
 
     private float power = 2;
 
@@ -39,20 +39,21 @@ public partial class Boat : CharacterBody3D
     {
         Vector3 velocity = Velocity;
         Vector3 rotation = _pivot.Rotation;
+        Vector3 forward = _pivot.Basis.Z;
         
         Vector3 axis = new Vector3(0, 1, 0);
         if (!_left_paddle_timer.IsStopped()) {
             float delta_angle = Mathf.DegToRad(lpa) * (float)delta;
             rotation = rotation + new Vector3(0, delta_angle, 0);
-            velocity += lpf.Rotated(axis, Mathf.DegToRad(lpa)) * power * (float)delta;
-            velocity = velocity.Rotated(axis, delta_angle);
+            velocity += forward * lpf * power * (float)delta;
+            //velocity = velocity.Rotated(axis, delta_angle);
         }
 
         if (!_right_paddle_timer.IsStopped()) {
             float delta_angle = Mathf.DegToRad(rpa) * (float)delta;
             rotation = rotation + new Vector3(0, delta_angle, 0);
-            velocity += rpf.Rotated(axis, Mathf.DegToRad(lpa)) * power * (float)delta;
-            velocity = velocity.Rotated(axis, rotation.Y * (float)delta);
+            velocity += forward * rpf * power * (float)delta;
+            //velocity = velocity.Rotated(axis, rotation.Y * (float)delta);
         }
 
         _pivot.Rotation = rotation;

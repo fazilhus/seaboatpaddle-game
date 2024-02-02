@@ -21,6 +21,11 @@ public partial class Boat : RigidBody3D
     private Vector3 _right_paddle_rotation_old;
     private Vector3 _right_paddle_angular_velocity;
 
+    [Export]
+    public float sideways_force_ratio;
+    [Export]
+    public float forward_force_ratio;
+    
     //BoatPhysicsVariables
 
 	[Export] private float floatForce = 10.0f;
@@ -74,13 +79,13 @@ public partial class Boat : RigidBody3D
 
     public override void _PhysicsProcess(double delta)
     {
-        Vector3 forward = _pivot.Basis.Z;
+        Vector3 forward = Basis.Z;
         Vector3 left_paddle_forward = _left_paddle.Basis.Z;
         Vector3 right_paddle_forward = _right_paddle.Basis.Z;
 
         Vector3 input = Vector3.Zero;
         input.Z = -Input.GetActionStrength("right") + Input.GetActionStrength("left");
-        input.X = -Input.GetActionStrength("backward") + Input.GetActionStrength("forward");
+        input.X = Input.GetActionStrength("backward") - Input.GetActionStrength("forward");
 
         switch (_paddle_side) {
             case PaddleSide.Left: {
@@ -89,13 +94,14 @@ public partial class Boat : RigidBody3D
                 _left_paddle_angular_velocity = (_left_paddle.Rotation - _left_paddle_rotation_old) / (float)delta;
 
                 Vector3 force = new Vector3(_left_paddle_angular_velocity.Z, 0, -_left_paddle_angular_velocity.X);
-                DebugDraw2D.SetText("Left Y", _left_force_point.GlobalPosition.Y);
-                if (_left_force_point.GlobalPosition.Y > 0.5f) {
+                if (_left_force_point.GlobalPosition.Y > GlobalPosition.Y) {
                     force = Vector3.Zero;
                 }
 
-                ApplyForce(-0.125f * force * forward, _left_paddle.Position);
-                ApplyCentralForce(-4 * _left_paddle_angular_velocity.Sign().X * forward);
+                DebugDraw2D.SetText("Left Angular Speed", _left_paddle_angular_velocity);
+                DebugDraw2D.SetText("Sideways force", -sideways_force_ratio * force * forward);
+                ApplyForce(-sideways_force_ratio * force, _left_paddle.Position);
+                ApplyCentralForce(-forward_force_ratio * force.Sign().Z * forward);
                 break;
             }
             case PaddleSide.Right: {
@@ -104,17 +110,21 @@ public partial class Boat : RigidBody3D
                 _right_paddle_angular_velocity = (_right_paddle.Rotation - _right_paddle_rotation_old) / (float)delta;
                 Vector3 force = new Vector3(-_right_paddle_angular_velocity.Z, 0, -_right_paddle_angular_velocity.X);
                 
-                DebugDraw2D.SetText("Right Y", _right_force_point.GlobalPosition.Y);
-                if (_right_force_point.GlobalPosition.Y > 0.5f) {
+                if (_right_force_point.GlobalPosition.Y > GlobalPosition.Y) {
                     force = Vector3.Zero;
                 }
 
-                ApplyForce(-0.125f * force * forward, _right_paddle.Position);
-                ApplyCentralForce(-4 * _right_paddle_angular_velocity.Sign().X * forward);
+                DebugDraw2D.SetText("Right Angular Speed", _right_paddle_angular_velocity);
+                DebugDraw2D.SetText("Sideways force", -sideways_force_ratio * force * forward);
+                ApplyForce(-sideways_force_ratio * force, _right_paddle.Position);
+                ApplyCentralForce(-forward_force_ratio * force.Sign().Z * forward);
                 break;
             }
         }
-        
+
+        DebugDraw2D.SetText("Position", Position);
+        DebugDraw2D.SetText("Rotation", Rotation);
+
         // checking marker3d in the phrobecontainer for simulating the water physics
         isSubmerged = false;
 		foreach(Marker3D p in probeContainer)
@@ -130,7 +140,7 @@ public partial class Boat : RigidBody3D
 		}
         
     }
-     public override void _IntegrateForces(PhysicsDirectBodyState3D state) // changing the simulation state of the object
+    public override void _IntegrateForces(PhysicsDirectBodyState3D state) // changing the simulation state of the object
     {
 		if(isSubmerged)
 		{

@@ -61,7 +61,7 @@ public partial class WaterPlane : MeshInstance3D
 		double UVX = WrapValue((double)worldPosition.X / noiseScale + time * waveSpeed, 0, 1); // UV Cordinates are always between 0 and 1
 		double UVY = WrapValue((double)worldPosition.Z / noiseScale + time * waveSpeed, 0, 1);
 		Vector2 pixelPos = new Vector2((float)UVX * (float)noise.GetWidth(),(float)UVY * (float)noise.GetHeight());
-		GD.Print(UVX);
+		//GD.Print(UVX);
 		return GlobalPosition.Y + noise.GetPixelv((Vector2I)pixelPos).R * HeightScale;
 	}
 }

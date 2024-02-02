@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://catt7cfnf4pd1"
-path="res://.godot/imported/paddle.glb-0b7c986df75a336ba668445003f914ea.scn"
+path="res://.godot/imported/paddle.glb-2baa4890a234ffdcc1ae00d628312b6d.scn"
 
 [deps]
 
-source_file="res://paddle.glb"
-dest_files=["res://.godot/imported/paddle.glb-0b7c986df75a336ba668445003f914ea.scn"]
+source_file="res://CustonAssets/paddle.glb"
+dest_files=["res://.godot/imported/paddle.glb-2baa4890a234ffdcc1ae00d628312b6d.scn"]
 
 [params]
 

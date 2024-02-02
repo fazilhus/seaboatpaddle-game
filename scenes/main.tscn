@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://do6luy1buwhiv"]
 
 [ext_resource type="Script" path="res://scripts/Boat.cs" id="1_rcxjk"]
-[ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://WaterPlane.tscn" id="1_v56uw"]
-[ext_resource type="PackedScene" uid="uid://catt7cfnf4pd1" path="res://paddle.glb" id="2_ctqvj"]
+[ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
+[ext_resource type="PackedScene" uid="uid://catt7cfnf4pd1" path="res://CustonAssets/paddle.glb" id="2_ctqvj"]
 [ext_resource type="ArrayMesh" uid="uid://b7odym8k47kgf" path="res://KennyWaterCraft/Models/watercraftPack_029.obj" id="2_pbon7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ik3mg"]
@@ -103,7 +103,7 @@ transform = Transform3D(0.221889, 0.201904, 0, -0.201904, 0.221889, 0, 0, 0, 0.3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.724065, 0.396974)
 
 [node name="WoodenBoatMesh" type="MeshInstance3D" parent="Boat/Pivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.940339, 0)
+transform = Transform3D(1, 0, 0, 0, 1.2, 0, 0, 0, 1, 0, -0.940339, 0)
 mesh = ExtResource("2_pbon7")
 skeleton = NodePath("../../..")
 
@@ -115,7 +115,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000976566, 0.116021, -0.292
 shape = SubResource("BoxShape3D_nbbgg")
 
 [node name="ProbeContainer" type="Node3D" parent="Boat"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.006, 0.604277, 0.552789)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.006, 0.306042, 0.552789)
 
 [node name="Probe" type="Marker3D" parent="Boat/ProbeContainer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.622535, -0.511684, 0)

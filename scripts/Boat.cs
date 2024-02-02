@@ -22,9 +22,9 @@ public partial class Boat : RigidBody3D
     private Vector3 _right_paddle_angular_velocity;
 
     [Export]
-    public float sideways_force_ratio;
+    public float sideways_force_ratio = 0.5f;
     [Export]
-    public float forward_force_ratio;
+    public float forward_force_ratio = 50;
     
     //BoatPhysicsVariables
 

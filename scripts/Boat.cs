@@ -22,9 +22,9 @@ public partial class Boat : RigidBody3D
     private Vector3 _right_paddle_angular_velocity;
 
     [Export]
-    public float sideways_force_ratio;
+    public float sideways_force_ratio = 0.5f;
     [Export]
-    public float forward_force_ratio;
+    public float forward_force_ratio = 50;
     
     //BoatPhysicsVariables
 
@@ -94,14 +94,15 @@ public partial class Boat : RigidBody3D
                 _left_paddle_angular_velocity = (_left_paddle.Rotation - _left_paddle_rotation_old) / (float)delta;
 
                 Vector3 force = new Vector3(_left_paddle_angular_velocity.Z, 0, -_left_paddle_angular_velocity.X);
-                if (_left_force_point.GlobalPosition.Y > GlobalPosition.Y) {
-                    force = Vector3.Zero;
-                }
-
-                DebugDraw2D.SetText("Left Angular Speed", _left_paddle_angular_velocity);
-                DebugDraw2D.SetText("Sideways force", -sideways_force_ratio * force * forward);
-                ApplyForce(-sideways_force_ratio * force, _left_paddle.Position);
-                ApplyCentralForce(-forward_force_ratio * force.Sign().Z * forward);
+                if (_left_force_point.GlobalPosition.Y < GlobalPosition.Y) {
+                    var sideways_force = -sideways_force_ratio * force;
+                    var forward_force = -forward_force_ratio * Curve(force) * force.Sign().Z * forward;
+                    DebugDraw2D.SetText("Left Angular Speed", _left_paddle_angular_velocity.Length());
+                    DebugDraw2D.SetText("Sideways force", sideways_force);
+                    DebugDraw2D.SetText("Forward force", forward_force);
+                    ApplyForce(sideways_force, _left_paddle.Position);
+                    ApplyCentralForce(forward_force);
+                }                
                 break;
             }
             case PaddleSide.Right: {
@@ -110,20 +111,21 @@ public partial class Boat : RigidBody3D
                 _right_paddle_angular_velocity = (_right_paddle.Rotation - _right_paddle_rotation_old) / (float)delta;
                 Vector3 force = new Vector3(-_right_paddle_angular_velocity.Z, 0, -_right_paddle_angular_velocity.X);
                 
-                if (_right_force_point.GlobalPosition.Y > GlobalPosition.Y) {
-                    force = Vector3.Zero;
-                }
-
-                DebugDraw2D.SetText("Right Angular Speed", _right_paddle_angular_velocity);
-                DebugDraw2D.SetText("Sideways force", -sideways_force_ratio * force * forward);
-                ApplyForce(-sideways_force_ratio * force, _right_paddle.Position);
-                ApplyCentralForce(-forward_force_ratio * force.Sign().Z * forward);
+                if (_right_force_point.GlobalPosition.Y < GlobalPosition.Y) {
+                    var sideways_force = -sideways_force_ratio * force;
+                    var forward_force = -forward_force_ratio * Curve(force) * force.Sign().Z * forward;
+                    DebugDraw2D.SetText("Right Angular Speed", _right_paddle_angular_velocity.Length());
+                    DebugDraw2D.SetText("Sideways force", sideways_force);
+                    DebugDraw2D.SetText("Forward force", forward_force);
+                    ApplyForce(sideways_force, _right_paddle.Position);
+                    ApplyCentralForce(forward_force);
+                }                
                 break;
             }
         }
 
-        DebugDraw2D.SetText("Position", Position);
-        DebugDraw2D.SetText("Rotation", Rotation);
+        //DebugDraw2D.SetText("Position", Position);
+        //DebugDraw2D.SetText("Rotation", Rotation);
 
         // checking marker3d in the phrobecontainer for simulating the water physics
         isSubmerged = false;
@@ -147,5 +149,9 @@ public partial class Boat : RigidBody3D
 			state.LinearVelocity *= 1 - waterDrag;
 			state.AngularVelocity *= 1 - WaterAngularDrag;
 		}
+    }
+
+    private float Curve(Vector3 v) {
+        return Mathf.Pow(v.Length() / 10, 2);
     }
 }

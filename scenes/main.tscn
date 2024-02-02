@@ -44,9 +44,9 @@ mass = 2.0
 physics_material_override = SubResource("PhysicsMaterial_7j168")
 freeze_mode = 1
 script = ExtResource("1_rcxjk")
-sideways_force_ratio = 0.5
-forward_force_ratio = 50.0
+forward_force_ratio = 30.0
 floatForce = 1.0
+waterDrag = 0.03
 water = NodePath("../WaterPlane")
 
 [node name="LeftPaddlePivot" type="Node3D" parent="Boat"]
@@ -102,5 +102,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.661134, -0.439855, -0.81219
 
 [node name="GameCamera" parent="." node_paths=PackedStringArray("Boat") instance=ExtResource("5_rlqlm")]
 Boat = NodePath("../Boat")
-position_offset = Vector3(0, 10, -7)
-rotation_offset = Vector3(-120, 0, 180)

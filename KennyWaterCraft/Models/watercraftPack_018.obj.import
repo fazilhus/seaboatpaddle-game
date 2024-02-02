@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://te81jwjf7fhc"
+path="res://.godot/imported/watercraftPack_018.obj-1c5bc6deeac1972e9533066c263ceffd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/watercraftPack_018.obj-1c5bc6deeac1972e9533066c263ceffd.mesh"]
+
+source_file="res://KennyWaterCraft/Models/watercraftPack_018.obj"
+dest_files=["res://.godot/imported/watercraftPack_018.obj-1c5bc6deeac1972e9533066c263ceffd.mesh", "res://.godot/imported/watercraftPack_018.obj-1c5bc6deeac1972e9533066c263ceffd.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

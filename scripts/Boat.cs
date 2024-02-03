@@ -1,5 +1,8 @@
 using Godot;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Numerics;
 
 enum PaddleSide {
     Left = 0,
@@ -8,18 +11,23 @@ enum PaddleSide {
 
 public partial class Boat : RigidBody3D
 {
+    [Export]
+    public Godot.Collections.Array<Node3D> paddles;
+
+    private List<Godot.Vector3> _player_inputs;
     private Node3D _left_paddle;
     private Node3D _right_paddle;
     private Node3D _left_force_point;
     private Node3D _right_force_point;
     private Node3D _pivot;
 
-    private PaddleSide _paddle_side;
+    //private PaddleSide _paddle_side;
 
-    private Vector3 _left_paddle_rotation_old;
-    private Vector3 _left_paddle_angular_velocity;
-    private Vector3 _right_paddle_rotation_old;
-    private Vector3 _right_paddle_angular_velocity;
+    private List<Godot.Vector3> _paddles_rotation_old;
+    private Godot.Vector3 _left_paddle_rotation_old;
+    private Godot.Vector3 _left_paddle_angular_velocity;
+    private Godot.Vector3 _right_paddle_rotation_old;
+    private Godot.Vector3 _right_paddle_angular_velocity;
 
     [Export]
     public float sideways_force_ratio = 0.5f;
@@ -55,79 +63,95 @@ public partial class Boat : RigidBody3D
         _left_force_point = GetNode<Node3D>("LeftPaddlePivot/ForcePoint");
         _right_force_point = GetNode<Node3D>("RightPaddlePivot/ForcePoint");
         _pivot = GetNode<Node3D>("Pivot");
-        _paddle_side = PaddleSide.Left;
+        //_paddle_side = PaddleSide.Left;
 
-        //instanciate variables for boat physics
+        //instantiate variables for boat physics
         gravity = (float)ProjectSettings.GetSetting("physics/3d/default_gravity");
 		water = GetNode<WaterPlane>("/root/Main/WaterPlane");
 		probeContainer = GetNode<Node3D>("ProbeContainer").GetChildren();
 	
 		initialY = GlobalPosition.Y;
+
+        _player_inputs = new List<Godot.Vector3>();
+        _paddles_rotation_old = new List<Godot.Vector3>();
+        foreach (int device_id in Input.GetConnectedJoypads()) {
+            _player_inputs.Add(Godot.Vector3.Zero);
+            _paddles_rotation_old.Add(Godot.Vector3.Zero);
+        }
+        //GD.Print("Player inputs", _player_inputs.Count);
     }
 
     public override void _Process(double delta)
     {
-        if (Input.IsActionJustPressed("switch_side")) {
-            if (_paddle_side == PaddleSide.Left) {
-                _paddle_side = PaddleSide.Right;
-            }
-            else {
-                _paddle_side = PaddleSide.Left;
-            }
-        }
+        // if (Input.IsActionJustPressed("switch_side")) {
+        //     if (_paddle_side == PaddleSide.Left) {
+        //         _paddle_side = PaddleSide.Right;
+        //     }
+        //     else {
+        //         _paddle_side = PaddleSide.Left;
+        //     }
+        // }
     }
 
     public override void _PhysicsProcess(double delta)
     {
-        Vector3 forward = Basis.Z;
-        Vector3 left_paddle_forward = _left_paddle.Basis.Z;
-        Vector3 right_paddle_forward = _right_paddle.Basis.Z;
-
-        Vector3 input = Vector3.Zero;
-        input.Z = -Input.GetActionStrength("right") + Input.GetActionStrength("left");
-        input.X = Input.GetActionStrength("backward") - Input.GetActionStrength("forward");
-
-        switch (_paddle_side) {
-            case PaddleSide.Left: {
-                _left_paddle_rotation_old = _left_paddle.Rotation;
-                _left_paddle.Rotation = new Vector3(input.X * 0.8f, 0, input.Z * 0.5f);
-                _left_paddle_angular_velocity = (_left_paddle.Rotation - _left_paddle_rotation_old) / (float)delta;
-
-                Vector3 force = new Vector3(_left_paddle_angular_velocity.Z, 0, -_left_paddle_angular_velocity.X);
-                if (_left_force_point.GlobalPosition.Y < GlobalPosition.Y) {
-                    var sideways_force = -sideways_force_ratio * force;
-                    var forward_force = -forward_force_ratio * Curve(force) * force.Sign().Z * forward;
-                    DebugDraw2D.SetText("Left Angular Speed", _left_paddle_angular_velocity.Length());
-                    DebugDraw2D.SetText("Sideways force", sideways_force);
-                    DebugDraw2D.SetText("Forward force", forward_force);
-                    ApplyForce(sideways_force, _left_paddle.Position);
-                    ApplyCentralForce(forward_force);
-                }                
-                break;
+        Godot.Vector3 forward = Basis.Z;
+        foreach (var it in paddles.Select((paddle, i) => new {Paddle = paddle, Index = i})) {
+            if (it.Index >= _player_inputs.Count) {
+                continue;
             }
-            case PaddleSide.Right: {
-                _right_paddle_rotation_old = _right_paddle.Rotation;
-                _right_paddle.Rotation = new Vector3(input.X * 0.8f, 0, input.Z * 0.5f);
-                _right_paddle_angular_velocity = (_right_paddle.Rotation - _right_paddle_rotation_old) / (float)delta;
-                Vector3 force = new Vector3(-_right_paddle_angular_velocity.Z, 0, -_right_paddle_angular_velocity.X);
-                
-                if (_right_force_point.GlobalPosition.Y < GlobalPosition.Y) {
-                    var sideways_force = -sideways_force_ratio * force;
-                    var forward_force = -forward_force_ratio * Curve(force) * force.Sign().Z * forward;
-                    DebugDraw2D.SetText("Right Angular Speed", _right_paddle_angular_velocity.Length());
-                    DebugDraw2D.SetText("Sideways force", sideways_force);
-                    DebugDraw2D.SetText("Forward force", forward_force);
-                    ApplyForce(sideways_force, _right_paddle.Position);
-                    ApplyCentralForce(forward_force);
-                }                
-                break;
+            
+            Godot.Vector3 input = Godot.Vector3.Zero;
+            switch (it.Index) {
+                case 0: {
+                    input.Z = Input.GetAxis("right_p1", "left_p1");
+                    input.X = -Input.GetAxis("backward_p1", "forward_p1");
+                    break;
+                }
+                case 1: {
+                    input.Z = Input.GetAxis("right_p2", "left_p2");
+                    input.X = -Input.GetAxis("backward_p2", "forward_p2");
+                    break;
+                }
+            }
+
+            _paddles_rotation_old[it.Index] = it.Paddle.Rotation;
+            it.Paddle.Rotation = new Godot.Vector3(input.X * 0.8f, 0, input.Z * 0.5f);
+            Godot.Vector3 angular_velocity = (it.Paddle.Rotation - _paddles_rotation_old[it.Index]) / (float)delta;
+
+            Godot.Vector3 force = new Godot.Vector3(angular_velocity.Z, 0, -angular_velocity.X);
+            Node3D force_point = it.Paddle.GetNode<Node3D>("ForcePoint");
+            if (force_point.GlobalPosition.Y < GlobalPosition.Y) {
+                ApplyForce(-sideways_force_ratio * force, it.Paddle.Position);
+                ApplyCentralForce(-forward_force_ratio * Curve(force) * force.Sign().Z * forward);
             }
         }
 
-        //DebugDraw2D.SetText("Position", Position);
-        //DebugDraw2D.SetText("Rotation", Rotation);
+        // Godot.Vector3 input = Godot.Vector3.Zero;
+        // input.Z = -Input.GetActionStrength("right") + Input.GetActionStrength("left");
+        // input.X = Input.GetActionStrength("backward") - Input.GetActionStrength("forward");
 
-        // checking marker3d in the phrobecontainer for simulating the water physics
+        // _left_paddle_rotation_old = _left_paddle.Rotation;
+        // _left_paddle.Rotation = new Godot.Vector3(input.X * 0.8f, 0, input.Z * 0.5f);
+        // _left_paddle_angular_velocity = (_left_paddle.Rotation - _left_paddle_rotation_old) / (float)delta;
+
+        // Godot.Vector3 force = new Godot.Vector3(_left_paddle_angular_velocity.Z, 0, -_left_paddle_angular_velocity.X);
+        // if (_left_force_point.GlobalPosition.Y < GlobalPosition.Y) {
+        //     ApplyForce(-sideways_force_ratio * force, _left_paddle.Position);
+        //     ApplyCentralForce(-forward_force_ratio * Curve(force) * force.Sign().Z * forward);
+        // }                
+
+        // _right_paddle_rotation_old = _right_paddle.Rotation;
+        // _right_paddle.Rotation = new Godot.Vector3(input.X * 0.8f, 0, input.Z * 0.5f);
+        // _right_paddle_angular_velocity = (_right_paddle.Rotation - _right_paddle_rotation_old) / (float)delta;
+        // Godot.Vector3 force = new Godot.Vector3(-_right_paddle_angular_velocity.Z, 0, -_right_paddle_angular_velocity.X);
+        
+        // if (_right_force_point.GlobalPosition.Y < GlobalPosition.Y) {
+        //     ApplyForce(-sideways_force_ratio * force, _right_paddle.Position);
+        //     ApplyCentralForce(-forward_force_ratio * Curve(force) * force.Sign().Z * forward);
+        // }                
+
+        // checking marker3d in the probe container for simulating the water physics
         isSubmerged = false;
 		foreach(Marker3D p in probeContainer)
 		{
@@ -136,7 +160,7 @@ public partial class Boat : RigidBody3D
 			 if(depth > 0)
 			 {
 				isSubmerged = true;
-				ApplyForce(Vector3.Up * floatForce * gravity * depth, p.GlobalPosition - GlobalPosition);
+				ApplyForce(Godot.Vector3.Up * floatForce * gravity * depth, p.GlobalPosition - GlobalPosition);
 			 }
 				
 		}
@@ -151,7 +175,10 @@ public partial class Boat : RigidBody3D
 		}
     }
 
-    private float Curve(Vector3 v) {
+    private float Curve(Godot.Vector3 v) {
         return Mathf.Pow(v.Length() / 10, 2);
     }
+
+    // private void HandleInput(int device, Godot.Vector3 input) {
+    // }
 }

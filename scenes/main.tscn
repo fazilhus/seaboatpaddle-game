@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://do6luy1buwhiv"]
+[gd_scene load_steps=11 format=3 uid="uid://do6luy1buwhiv"]
 
 [ext_resource type="Script" path="res://scripts/Boat.cs" id="1_rcxjk"]
 [ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
 [ext_resource type="PackedScene" uid="uid://catt7cfnf4pd1" path="res://CustonAssets/paddle.glb" id="2_ctqvj"]
 [ext_resource type="ArrayMesh" uid="uid://b7odym8k47kgf" path="res://KennyWaterCraft/Models/watercraftPack_029.obj" id="2_pbon7"]
-[ext_resource type="PackedScene" path="res://scenes/game_camera.tscn" id="5_rlqlm"]
-[ext_resource type="Material" uid="uid://dm8p44anq2ejj" path="res://Shades/AntiWaterMask.tres" id="5_x64jw"]
+[ext_resource type="PackedScene" uid="uid://y7tqwoj3tmif" path="res://scenes/game_camera.tscn" id="5_rlqlm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ik3mg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -38,13 +37,14 @@ shadow_enabled = true
 [node name="WaterPlane" parent="." instance=ExtResource("1_v56uw")]
 skeleton = NodePath("")
 
-[node name="Boat" type="RigidBody3D" parent="." node_paths=PackedStringArray("water")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14478, 0)
+[node name="Boat" type="RigidBody3D" parent="." node_paths=PackedStringArray("paddles", "water")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_mask = 3
 mass = 2.0
 physics_material_override = SubResource("PhysicsMaterial_7j168")
 freeze_mode = 1
 script = ExtResource("1_rcxjk")
+paddles = [NodePath("LeftPaddlePivot"), NodePath("RightPaddlePivot")]
 forward_force_ratio = 30.0
 floatForce = 1.0
 waterDrag = 0.03
@@ -100,11 +100,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.661823, -0.446799, -0.8121
 
 [node name="Probe6" type="Marker3D" parent="Boat/ProbeContainer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.661134, -0.439855, -0.812198)
-
-[node name="AntiWaterMesh" type="MeshInstance3D" parent="Boat"]
-transform = Transform3D(0.901, 0, 0, 0, 0.9, 0, 0, 0, 0.989278, -0.0131295, -0.0127206, 0.391825)
-material_override = ExtResource("5_x64jw")
-mesh = ExtResource("2_pbon7")
 
 [node name="GameCamera" parent="." node_paths=PackedStringArray("Boat") instance=ExtResource("5_rlqlm")]
 Boat = NodePath("../Boat")

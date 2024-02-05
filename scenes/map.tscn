@@ -1,9 +1,142 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdohepiggfmms"]
+[gd_scene load_steps=18 format=3 uid="uid://bdohepiggfmms"]
+
+[ext_resource type="ArrayMesh" uid="uid://1die41imyn83" path="res://art/formation_rock.obj" id="2_ulpyk"]
+[ext_resource type="ArrayMesh" uid="uid://cgw16dqqj8v8x" path="res://art/formationLarge_rock.obj" id="3_gj7vg"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nu5ew"]
-size = Vector2(40, 40)
+size = Vector2(200, 200)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eowqk"]
+albedo_color = Color(0.701961, 0.603922, 0.443137, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhyvv"]
+albedo_color = Color(0.4, 0.509804, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l82e8"]
+size = Vector3(31.8029, 12.2354, 32.2368)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m6u0f"]
+albedo_color = Color(0.65023, 0.554361, 0.396595, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_odw5v"]
+albedo_color = Color(0.301961, 0.396078, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ojlpb"]
+size = Vector3(42.4668, 12.2503, 31.8662)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a7555"]
+albedo_color = Color(0.701961, 0.603922, 0.443137, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0eqtf"]
+albedo_color = Color(0.392157, 0.517647, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c253i"]
+size = Vector3(28.2485, 13.8114, 20.1511)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_awglc"]
+albedo_color = Color(0.768627, 0.643137, 0.439216, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dj5n1"]
+albedo_color = Color(0.309804, 0.462745, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_56qsr"]
+size = Vector3(13.5604, 1, 7.11104)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aiu01"]
+size = Vector3(43.7636, 1, 39.2337)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cn5ub"]
 
 [node name="Map" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_nu5ew")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.800731, 0, 0.599024, 0, 1, 0, -0.599024, 0, -0.800731, -67.5915, 0, -95.8315)
+
+[node name="Pivot1" type="Node3D" parent="StaticBody3D"]
+
+[node name="Island1" type="MeshInstance3D" parent="StaticBody3D/Pivot1"]
+transform = Transform3D(-3, 0, -3.57628e-07, 0, 1, 0, 3.57628e-07, 0, -3, 0, 0, 0)
+mesh = ExtResource("2_ulpyk")
+surface_material_override/0 = SubResource("StandardMaterial3D_eowqk")
+surface_material_override/1 = SubResource("StandardMaterial3D_xhyvv")
+
+[node name="CollisionIsland1" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9016, 6.11768, -16.0787)
+shape = SubResource("BoxShape3D_l82e8")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(0.682024, 0, 0.73133, 0, 1, 0, -0.73133, 0, 0.682024, -41.4029, 0, -90.657)
+
+[node name="Pivot2" type="Node3D" parent="StaticBody3D2"]
+
+[node name="Island2" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
+transform = Transform3D(4, 0, 1.19209e-07, 0, 1, 0, 0, 0, 3, 0, 0, 0)
+mesh = ExtResource("2_ulpyk")
+surface_material_override/0 = SubResource("StandardMaterial3D_m6u0f")
+surface_material_override/1 = SubResource("StandardMaterial3D_odw5v")
+
+[node name="CollisionIsland2" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.24, 6.13249, 15.9726)
+shape = SubResource("BoxShape3D_ojlpb")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="."]
+transform = Transform3D(0.583768, 0, -0.811921, 0, 1, 0, 0.811921, 0, 0.583768, 5.96364, 0, -80.5534)
+
+[node name="Pivot3" type="Node3D" parent="StaticBody3D3"]
+
+[node name="Island3" type="MeshInstance3D" parent="StaticBody3D3/Pivot3"]
+transform = Transform3D(1.90574, 0, -0.606769, 0, 1, 0, 0.606769, 0, 1.90574, 4.06818, 0, 3.8648)
+mesh = ExtResource("3_gj7vg")
+surface_material_override/0 = SubResource("StandardMaterial3D_a7555")
+surface_material_override/1 = SubResource("StandardMaterial3D_0eqtf")
+
+[node name="CollisionIsland3" type="CollisionShape3D" parent="StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6341, 6.93053, 9.42374)
+shape = SubResource("BoxShape3D_c253i")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.66523, 0, -0.746638, 0, 1, 0, 0.746638, 0, -0.66523, 58.3745, 0, -114.987)
+
+[node name="Pivot4" type="Node3D" parent="StaticBody3D4"]
+
+[node name="Island4" type="MeshInstance3D" parent="StaticBody3D4/Pivot4"]
+transform = Transform3D(-4, 0, -3.57628e-07, 0, 0.7, 0, 3.57628e-07, 0, -3, 0, 0, 0)
+mesh = ExtResource("3_gj7vg")
+surface_material_override/0 = SubResource("StandardMaterial3D_awglc")
+surface_material_override/1 = SubResource("StandardMaterial3D_dj5n1")
+
+[node name="CollisionIsland4" type="CollisionShape3D" parent="StaticBody3D4"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 27.1709, 0, -14.2687)
+shape = SubResource("BoxShape3D_56qsr")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.799685, 0, 0.60042, 0, 1, 0, -0.60042, 0, -0.799685, -61.2219, 0, 20.145)
+
+[node name="Pivot5" type="Node3D" parent="StaticBody3D5"]
+
+[node name="Island5" type="MeshInstance3D" parent="StaticBody3D5/Pivot5"]
+transform = Transform3D(2.8586, 0, -1.21354, 0, 1, 0, 0.910153, 0, 3.81147, 4.06819, 0, 3.8648)
+mesh = ExtResource("3_gj7vg")
+surface_material_override/0 = SubResource("StandardMaterial3D_a7555")
+surface_material_override/1 = SubResource("StandardMaterial3D_0eqtf")
+
+[node name="CollisionIsland5" type="CollisionShape3D" parent="StaticBody3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9334, 0, 16.7508)
+shape = SubResource("BoxShape3D_aiu01")
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="."]
+transform = Transform3D(0.226651, 0, -0.973976, 0, 1, 0, 0.973976, 0, 0.226651, 97.1164, 0, -17.9702)
+
+[node name="Pivot6" type="Node3D" parent="StaticBody3D6"]
+
+[node name="Island6" type="MeshInstance3D" parent="StaticBody3D6/Pivot6"]
+transform = Transform3D(3, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 3, 0.0361309, 0, -0.155266)
+mesh = ExtResource("2_ulpyk")
+surface_material_override/0 = SubResource("StandardMaterial3D_m6u0f")
+surface_material_override/1 = SubResource("StandardMaterial3D_odw5v")
+
+[node name="CollisionIsland6" type="CollisionShape3D" parent="StaticBody3D6"]
+shape = SubResource("BoxShape3D_cn5ub")

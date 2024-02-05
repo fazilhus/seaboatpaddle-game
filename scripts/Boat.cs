@@ -37,18 +37,18 @@ public partial class Boat : RigidBody3D
     //BoatPhysicsVariables
 
 	[Export] private float floatForce = 10.0f;
-	[Export] private float waterDrag = 0.05f;
-	[Export] private float WaterAngularDrag = 0.05f;
+	[Export] private float waterDrag = 0.01f;
+	[Export] private float WaterAngularDrag = 0.02f;
 	[Export] private bool isSubmerged = false;
 	private float gravity;
 
 	private float initialY;
 	private double elapsedTime = 0;
 
-	[Export]
-	private float bobbingFactor = 0.1f;
-	[Export]
-	private float bobbingSpeed = 2.0f;
+	//[Export]
+	//private float bobbingFactor = 0.1f;
+	//[Export]
+	//private float bobbingSpeed = 2.0f;
 
 	[Export] public WaterPlane water;
 	

@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://do6luy1buwhiv"]
+[gd_scene load_steps=12 format=3 uid="uid://do6luy1buwhiv"]
 
 [ext_resource type="Script" path="res://scripts/Boat.cs" id="1_rcxjk"]
 [ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
 [ext_resource type="PackedScene" uid="uid://catt7cfnf4pd1" path="res://CustonAssets/paddle.glb" id="2_ctqvj"]
 [ext_resource type="ArrayMesh" uid="uid://b7odym8k47kgf" path="res://KennyWaterCraft/Models/watercraftPack_029.obj" id="2_pbon7"]
-[ext_resource type="PackedScene" uid="uid://y7tqwoj3tmif" path="res://scenes/game_camera.tscn" id="5_rlqlm"]
+[ext_resource type="PackedScene" path="res://scenes/game_camera.tscn" id="5_rlqlm"]
+[ext_resource type="Material" uid="uid://dm8p44anq2ejj" path="res://Shades/AntiWaterMask.tres" id="5_x64jw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ik3mg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -35,6 +36,7 @@ transform = Transform3D(-0.866025, -0.492404, 0.0868241, 0, 0.173648, 0.984808, 
 shadow_enabled = true
 
 [node name="WaterPlane" parent="." instance=ExtResource("1_v56uw")]
+transparency = 0.4
 skeleton = NodePath("")
 
 [node name="Boat" type="RigidBody3D" parent="." node_paths=PackedStringArray("paddles", "water")]
@@ -47,7 +49,6 @@ script = ExtResource("1_rcxjk")
 paddles = [NodePath("LeftPaddlePivot"), NodePath("RightPaddlePivot")]
 forward_force_ratio = 30.0
 floatForce = 1.0
-waterDrag = 0.03
 water = NodePath("../WaterPlane")
 
 [node name="LeftPaddlePivot" type="Node3D" parent="Boat"]
@@ -75,6 +76,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.724065, 0.396974)
 transform = Transform3D(1, 0, 0, 0, 1.2, 0, 0, 0, 1, 0, -0.940339, 0)
 mesh = ExtResource("2_pbon7")
 skeleton = NodePath("../../..")
+
+[node name="AntiWaterMask" type="MeshInstance3D" parent="Boat/Pivot"]
+transform = Transform3D(0.93904, 0, 0, 0, 0.725238, 0, 0, 0, 0.968084, -0.0111108, -0.601063, -0.016066)
+material_override = ExtResource("5_x64jw")
+mesh = ExtResource("2_pbon7")
 
 [node name="BoatCollsionBoxWaterShader" type="CollisionShape3D" parent="Boat"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000976566, 0.116021, -0.292709)

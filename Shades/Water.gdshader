@@ -11,7 +11,7 @@ uniform sampler2D TextureNormal2;
 //Vector 2 Direction 2.0x and 1.0y
 uniform vec2 waveDirection = vec2(2.0, 0.0);
 uniform vec2 waveDirection2 = vec2(0.0, 1.0);
-uniform float timeScale : hint_range(0.0, 0.2, 0.005) = 0.025;
+uniform float timeScale : hint_range(0.0, 0.2, 0.001) = 0.003;
 uniform float waveTime = 1.0f;
 uniform float noiseScale = 10.0f;
 uniform float heightScale = 0.15f;
@@ -69,10 +69,10 @@ void fragment() //Special function, fragment shader is called for every pixel(fr
 	vec3 depthColor = mix(ColorShallow.rgb, colorDeep.rgb, depthBlendPower);
 	vec3 color = mix(ScreenColor * depthColor, depthColor * 0.25, depthBlendPower * 0.5);
 	//Time Calculations for wave (normal map) movements
-	vec2 time = (waveTime * waveDirection) * timeScale; // movement rate of the first wave
-	vec2 time2 = (waveTime * waveDirection2) * timeScale; // movement rate of the second wave
+	vec2 time = (TIME * waveDirection) * timeScale; // movement rate of the first wave
+	vec2 time2 = (TIME * waveDirection2) * timeScale; // movement rate of the second wave
 	//blending normal maps into one
-	vec3 normalBlend = mix(texture(textureNormal, worldPosition.xz + time).rgb, texture(TextureNormal2,UV + time2).rgb, 0.5);
+	vec3 normalBlend = mix(texture(textureNormal, UV + time).rgb, texture(TextureNormal2,UV + time2).rgb, 0.5);
 	//calculate Fresnel
 	float fresnel = fresnel(5.0, NORMAL, VIEW);
 	vec3 surfaceColor = mix(albedo, albedo2, fresnel); // interpolate albedo values by frensel

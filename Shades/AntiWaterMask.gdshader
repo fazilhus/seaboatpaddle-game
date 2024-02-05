@@ -8,7 +8,7 @@ void vertex() {
 
 void fragment() {
 	// Called for every pixel the material is visible on.
-	ALBEDO = textureLod(SCREEN_TEXTURE, SCREEN_UV, 0.0).rgb;
+	ALBEDO = textureLod(SCREEN_TEXTURE, SCREEN_UV, -10.0).rgb;
 }
 
 //void light() {

@@ -74,5 +74,5 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_vfhfh")
 text = "Exit Game
 "
 
-[connection signal="focus_entered" from="HorizontalContainer/MenuContainer/Exit" to="." method="onExitButtonFocused"]
+[connection signal="pressed" from="HorizontalContainer/MenuContainer/Select" to="." method="onSelectButtonPressed"]
 [connection signal="pressed" from="HorizontalContainer/MenuContainer/Exit" to="." method="onExitButtonPressed"]

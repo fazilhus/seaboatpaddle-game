@@ -17,7 +17,7 @@ bg_color = Color(0.952941, 0.4, 0.301961, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vfhfh"]
 bg_color = Color(0.635294, 0, 0.537255, 1)
 
-[node name="MenuContainer" type="MarginContainer"]
+[node name="MainMenu" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -31,13 +31,13 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 20
 script = ExtResource("1_gbn0u")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HorizontalContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="MenuContainer" type="VBoxContainer" parent="HorizontalContainer"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="HorizontalContainer/MenuContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 48
@@ -45,28 +45,34 @@ text = "\"Insert Game Name\"
 "
 horizontal_alignment = 1
 
-[node name="Select" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="Select" type="Button" parent="HorizontalContainer/MenuContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_bottom = NodePath("../Options")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_bl78w")
-theme_override_styles/hover = SubResource("StyleBoxFlat_kj62w")
+theme_override_styles/focus = SubResource("StyleBoxFlat_kj62w")
+keep_pressed_outside = true
 text = "Start Game"
 vertical_icon_alignment = 0
 
-[node name="Options" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="Options" type="Button" parent="HorizontalContainer/MenuContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../Select")
+focus_neighbor_bottom = NodePath("../Exit")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_55jxm")
-theme_override_styles/hover = SubResource("StyleBoxFlat_rlxwq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rlxwq")
 text = "Options
 "
 
-[node name="Exit" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="Exit" type="Button" parent="HorizontalContainer/MenuContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../Options")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_0agtk")
-theme_override_styles/hover = SubResource("StyleBoxFlat_vfhfh")
+theme_override_styles/focus = SubResource("StyleBoxFlat_vfhfh")
 text = "Exit Game
 "
 
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/Exit" to="." method="onExitButtonPressed"]
+[connection signal="focus_entered" from="HorizontalContainer/MenuContainer/Exit" to="." method="onExitButtonFocused"]
+[connection signal="pressed" from="HorizontalContainer/MenuContainer/Exit" to="." method="onExitButtonPressed"]

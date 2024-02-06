@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0pl08ug0b0q1"]
+
+[ext_resource type="Script" path="res://scripts/Survivors.cs" id="1_jj4q8"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_fqwep"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wuyo3"]
+albedo_color = Color(0.0156863, 1, 1, 1)
+emission_enabled = true
+emission = Color(0, 0.537255, 0.603922, 1)
+emission_energy_multiplier = 6.7
+
+[sub_resource type="BoxMesh" id="BoxMesh_xwqc7"]
+size = Vector3(0.8, 0.1, 0.2)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3l8px"]
+
+[node name="Survivors" type="RigidBody3D"]
+script = ExtResource("1_jj4q8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_fqwep")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.494346, 0.414228)
+material_override = SubResource("StandardMaterial3D_wuyo3")
+mesh = SubResource("BoxMesh_xwqc7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_3l8px")
+
+[node name="ProbeContainer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.266695, 0)
+
+[node name="Probe" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.708668, 0, 0.496295)
+
+[node name="Probe2" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.708668, 0, -0.48854)
+
+[node name="Probe3" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.672353, 0, 0.496295)
+
+[node name="Probe4" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.672353, 0, -0.48854)

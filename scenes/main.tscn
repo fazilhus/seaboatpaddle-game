@@ -1,11 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://do6luy1buwhiv"]
+[gd_scene load_steps=13 format=3 uid="uid://do6luy1buwhiv"]
 
 [ext_resource type="Script" path="res://scripts/Boat.cs" id="1_rcxjk"]
 [ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
 [ext_resource type="PackedScene" uid="uid://catt7cfnf4pd1" path="res://CustonAssets/paddle.glb" id="2_ctqvj"]
 [ext_resource type="ArrayMesh" uid="uid://b7odym8k47kgf" path="res://KennyWaterCraft/Models/watercraftPack_029.obj" id="2_pbon7"]
-[ext_resource type="PackedScene" path="res://scenes/game_camera.tscn" id="5_rlqlm"]
+[ext_resource type="PackedScene" uid="uid://y7tqwoj3tmif" path="res://scenes/game_camera.tscn" id="5_rlqlm"]
 [ext_resource type="Material" uid="uid://dm8p44anq2ejj" path="res://Shades/AntiWaterMask.tres" id="5_x64jw"]
+[ext_resource type="PackedScene" uid="uid://c0pl08ug0b0q1" path="res://scenes/survivors.tscn" id="7_xgtxt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ik3mg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -28,6 +29,9 @@ size = Vector3(1.4668, 0.621826, 2.27103)
 
 [node name="Main" type="Node3D"]
 
+[node name="Survivors" parent="." instance=ExtResource("7_xgtxt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.3936)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_f08u5")
 
@@ -48,7 +52,6 @@ freeze_mode = 1
 script = ExtResource("1_rcxjk")
 paddles = [NodePath("LeftPaddlePivot"), NodePath("RightPaddlePivot")]
 forward_force_ratio = 30.0
-floatForce = 1.0
 waterDrag = 0.02
 WaterAngularDrag = 0.04
 water = NodePath("../WaterPlane")

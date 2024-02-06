@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bl7exwjna2nwi"]
 
-[ext_resource type="Script" path="res://scripts/MenuManager.cs" id="1_gbn0u"]
+[ext_resource type="Script" path="res://scripts/MainMenu.cs" id="1_3nrlc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bl78w"]
 
@@ -29,7 +29,7 @@ theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 20
-script = ExtResource("1_gbn0u")
+script = ExtResource("1_3nrlc")
 
 [node name="HorizontalContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -45,7 +45,7 @@ text = "\"Insert Game Name\"
 "
 horizontal_alignment = 1
 
-[node name="Select" type="Button" parent="HorizontalContainer/MenuContainer"]
+[node name="Start" type="Button" parent="HorizontalContainer/MenuContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_bottom = NodePath("../Options")
@@ -58,7 +58,7 @@ vertical_icon_alignment = 0
 [node name="Options" type="Button" parent="HorizontalContainer/MenuContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_top = NodePath("../Select")
+focus_neighbor_top = NodePath("../Start")
 focus_neighbor_bottom = NodePath("../Exit")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_55jxm")
 theme_override_styles/focus = SubResource("StyleBoxFlat_rlxwq")
@@ -74,5 +74,5 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_vfhfh")
 text = "Exit Game
 "
 
-[connection signal="pressed" from="HorizontalContainer/MenuContainer/Select" to="." method="onSelectButtonPressed"]
+[connection signal="pressed" from="HorizontalContainer/MenuContainer/Start" to="." method="onStartButtonPressed"]
 [connection signal="pressed" from="HorizontalContainer/MenuContainer/Exit" to="." method="onExitButtonPressed"]

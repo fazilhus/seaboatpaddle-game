@@ -13,8 +13,8 @@ public partial class Boat : RigidBody3D
     [Export]
     public Godot.Collections.Array<Node3D> paddles;
 
-    private List<Godot.Vector3> _player_inputs;
-    private List<Godot.Vector3> _paddles_rotation_old;
+    private List<Vector3> _player_inputs;
+    private List<Vector3> _paddles_rotation_old;
 
     [Export]
     public float sideways_force_ratio = 0.5f;
@@ -52,41 +52,30 @@ public partial class Boat : RigidBody3D
 	
 		initialY = GlobalPosition.Y;
 
-        _player_inputs = new List<Godot.Vector3>();
-        _paddles_rotation_old = new List<Godot.Vector3>();
+        _player_inputs = new List<Vector3>();
+        _paddles_rotation_old = new List<Vector3>();
         foreach (int device_id in Input.GetConnectedJoypads()) {
-            _player_inputs.Add(Godot.Vector3.Zero);
-            _paddles_rotation_old.Add(Godot.Vector3.Zero);
+            _player_inputs.Add(Vector3.Zero);
+            _paddles_rotation_old.Add(Vector3.Zero);
         }
     }
 
     public override void _PhysicsProcess(double delta)
     {
-        Godot.Vector3 forward = Basis.Z;
+        Vector3 forward = Basis.Z;
         foreach (var it in paddles.Select((paddle, i) => new {Paddle = paddle, Index = i})) {
             if (it.Index >= _player_inputs.Count) {
                 continue;
             }
             
-            Godot.Vector3 input = Godot.Vector3.Zero;
-            switch (it.Index) {
-                case 0: {
-                    input.Z = Input.GetAxis("right_p1", "left_p1");
-                    input.X = -Input.GetAxis("backward_p1", "forward_p1");
-                    break;
-                }
-                case 1: {
-                    input.Z = Input.GetAxis("right_p2", "left_p2");
-                    input.X = -Input.GetAxis("backward_p2", "forward_p2");
-                    break;
-                }
-            }
+            Vector3 input = GetPlayerInput(it.Index);
+            //Vector3 input = _player_inputs[it.Index];
 
             _paddles_rotation_old[it.Index] = it.Paddle.Rotation;
-            it.Paddle.Rotation = new Godot.Vector3(input.X * 0.8f, 0, input.Z * 0.5f);
-            Godot.Vector3 angular_velocity = (it.Paddle.Rotation - _paddles_rotation_old[it.Index]) / (float)delta;
+            it.Paddle.Rotation = new Vector3(input.X * 0.8f, 0, input.Z * 0.5f);
+            Vector3 angular_velocity = (it.Paddle.Rotation - _paddles_rotation_old[it.Index]) / (float)delta;
+            Vector3 force = new Vector3(angular_velocity.Z, 0, -angular_velocity.X);
 
-            Godot.Vector3 force = new Godot.Vector3(angular_velocity.Z, 0, -angular_velocity.X);
             Node3D force_point = it.Paddle.GetNode<Node3D>("ForcePoint");
             if (force_point.GlobalPosition.Y < GlobalPosition.Y) {
                 ApplyForce(-sideways_force_ratio * force, it.Paddle.Position);
@@ -100,14 +89,12 @@ public partial class Boat : RigidBody3D
 		{
 			float depth = (float)water.getHeight(GlobalPosition) - p.GlobalPosition.Y;
 
-			 if(depth > 0)
-			 {
-				isSubmerged = true;
-				ApplyForce(Godot.Vector3.Up * floatForce * gravity * depth, p.GlobalPosition - GlobalPosition);
-			 }
-				
+            if(depth > 0)
+            {
+            isSubmerged = true;
+            ApplyForce(Vector3.Up * floatForce * gravity * depth, p.GlobalPosition - GlobalPosition);
+            }
 		}
-        
     }
     public override void _IntegrateForces(PhysicsDirectBodyState3D state) // changing the simulation state of the object
     {
@@ -116,9 +103,30 @@ public partial class Boat : RigidBody3D
 			state.LinearVelocity *= 1 - waterDrag;
 			state.AngularVelocity *= 1 - WaterAngularDrag;
 		}
+
+        if (state.LinearVelocity.Length() >= 8) {
+            state.LinearVelocity = 8 * state.LinearVelocity.Normalized();
+        }
     }
 
-    private float Curve(Godot.Vector3 v) {
+    private float Curve(Vector3 v) {
         return Mathf.Pow(v.Length() / 10, 2);
+    }
+
+    private Vector3 GetPlayerInput(int device_id) {
+        Vector3 input = Vector3.Zero;
+        switch (device_id) {
+            case 0: {
+                input.Z = Input.GetAxis("right_p1", "left_p1");
+                input.X = -Input.GetAxis("backward_p1", "forward_p1");
+                break;
+            }
+            case 1: {
+                input.Z = Input.GetAxis("right_p2", "left_p2");
+                input.X = -Input.GetAxis("backward_p2", "forward_p2");
+                break;
+            }
+        }
+        return input;
     }
 }

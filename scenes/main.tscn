@@ -49,6 +49,8 @@ script = ExtResource("1_rcxjk")
 paddles = [NodePath("LeftPaddlePivot"), NodePath("RightPaddlePivot")]
 forward_force_ratio = 30.0
 floatForce = 1.0
+waterDrag = 0.02
+WaterAngularDrag = 0.04
 water = NodePath("../WaterPlane")
 
 [node name="LeftPaddlePivot" type="Node3D" parent="Boat"]

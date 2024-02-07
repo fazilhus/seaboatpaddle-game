@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0pl08ug0b0q1"]
+[gd_scene load_steps=7 format=3 uid="uid://d3ycrupshfcm"]
 
 [ext_resource type="Script" path="res://scripts/Survivors.cs" id="1_jj4q8"]
 
@@ -19,6 +19,7 @@ size = Vector3(0.8, 0.1, 0.2)
 radius = 5.0
 
 [node name="Survivors" type="RigidBody3D"]
+transform = Transform3D(-0.994794, 0, 0.101907, 0, 1, 0, -0.101907, 0, -0.994794, -0.488563, 1.41551, 8.01294)
 script = ExtResource("1_jj4q8")
 
 [node name="SurvivorMeshInstance" type="MeshInstance3D" parent="."]
@@ -33,7 +34,7 @@ mesh = SubResource("BoxMesh_xwqc7")
 shape = SubResource("CapsuleShape3D_3l8px")
 
 [node name="ProbeContainer" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.266695, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.358234, 0)
 
 [node name="Probe" type="Marker3D" parent="ProbeContainer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.708668, 0, 0.496295)
@@ -47,7 +48,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.672353, 0, 0.496295)
 [node name="Probe4" type="Marker3D" parent="ProbeContainer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.672353, 0, -0.48854)
 
-[node name="Area3DTrigger" type="Area3D" parent="."]
+[node name="Area3DTrigger" type="Area3D" parent="." groups=["Survivors"]]
 
 [node name="TriggerCollider" type="CollisionShape3D" parent="Area3DTrigger"]
 shape = SubResource("CylinderShape3D_2nvr6")
+
+[connection signal="area_entered" from="Area3DTrigger" to="." method="OnArea3DTiggerAreaEntered"]

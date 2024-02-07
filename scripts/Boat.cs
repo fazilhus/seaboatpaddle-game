@@ -51,7 +51,7 @@ public partial class Boat : RigidBody3D
         gravity = (float)ProjectSettings.GetSetting("physics/3d/default_gravity");
 		water = GetNode<WaterPlane>("/root/Main/WaterPlane");
 		probeContainer = GetNode<Node3D>("ProbeContainer").GetChildren();
-        survivors = GetNode<Survivors>("Survivors");
+        survivors = GetNode<Survivors>("/root/Main/Survivors");
         
 	
 		initialY = GlobalPosition.Y;

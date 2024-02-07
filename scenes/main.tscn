@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
 [ext_resource type="PackedScene" uid="uid://catt7cfnf4pd1" path="res://CustonAssets/paddle.glb" id="2_ctqvj"]
 [ext_resource type="ArrayMesh" uid="uid://b7odym8k47kgf" path="res://KennyWaterCraft/Models/watercraftPack_029.obj" id="2_pbon7"]
-[ext_resource type="PackedScene" path="res://scenes/game_camera.tscn" id="5_rlqlm"]
+[ext_resource type="PackedScene" uid="uid://y7tqwoj3tmif" path="res://scenes/game_camera.tscn" id="5_rlqlm"]
 [ext_resource type="Material" uid="uid://dm8p44anq2ejj" path="res://Shades/AntiWaterMask.tres" id="5_x64jw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ik3mg"]
@@ -48,7 +48,6 @@ freeze_mode = 1
 script = ExtResource("1_rcxjk")
 paddles = [NodePath("LeftPaddlePivot"), NodePath("RightPaddlePivot")]
 forward_force_ratio = 30.0
-floatForce = 1.0
 waterDrag = 0.02
 WaterAngularDrag = 0.04
 water = NodePath("../WaterPlane")

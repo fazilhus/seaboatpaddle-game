@@ -1,16 +1,18 @@
-[gd_scene load_steps=18 format=3 uid="uid://bdohepiggfmms"]
+[gd_scene load_steps=72 format=3 uid="uid://bdohepiggfmms"]
 
 [ext_resource type="ArrayMesh" uid="uid://1die41imyn83" path="res://art/formation_rock.obj" id="2_ulpyk"]
-[ext_resource type="ArrayMesh" uid="uid://cgw16dqqj8v8x" path="res://art/formationLarge_rock.obj" id="3_gj7vg"]
+[ext_resource type="ArrayMesh" uid="uid://b0h7flq7emf5q" path="res://art/formationLarge_rock.obj" id="3_gj7vg"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nu5ew"]
 size = Vector2(200, 200)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eowqk"]
-albedo_color = Color(0.701961, 0.603922, 0.443137, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cwe22"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhyvv"]
-albedo_color = Color(0.4, 0.509804, 0, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4fjnr"]
+albedo_color = Color(0.74902, 0.67451, 0.447059, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ht123"]
+albedo_color = Color(0.372549, 0.517647, 0.109804, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l82e8"]
 size = Vector3(31.8029, 12.2354, 32.2368)
@@ -19,16 +21,44 @@ size = Vector3(31.8029, 12.2354, 32.2368)
 albedo_color = Color(0.65023, 0.554361, 0.396595, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_odw5v"]
-albedo_color = Color(0.301961, 0.396078, 0, 1)
+albedo_color = Color(0.309804, 0.392157, 0.0509804, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ojlpb"]
 size = Vector3(42.4668, 12.2503, 31.8662)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4kdaf"]
+size = Vector3(42.2811, 1, 32.0312)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_htkpc"]
+_surfaces = [{
+"aabb": AABB(-13.6235, 0, 0, 13.6235, 13.8016, 9.468),
+"attribute_data": PackedByteArray(46, 18, 61, 93, 107, 19, 85, 124, 2, 11, 61, 93, 0, 0, 85, 124, 196, 37, 220, 80, 129, 25, 228, 105, 9, 24, 114, 70, 59, 9, 228, 105, 172, 0, 42, 83, 129, 25, 173, 114, 250, 57, 229, 128, 250, 57, 3, 72, 175, 62, 18, 74, 138, 76, 196, 120, 196, 90, 255, 126, 196, 90, 198, 61, 255, 127, 177, 110, 255, 127, 20, 78, 4, 150, 82, 46, 177, 150, 218, 5, 226, 163, 82, 46, 51, 162, 218, 5, 34, 226, 95, 130, 163, 188, 95, 130, 130, 223, 51, 68, 67, 191, 51, 68, 94, 149, 42, 76, 4, 150, 100, 51, 126, 165, 42, 76, 226, 163, 100, 51, 197, 97, 148, 40, 34, 67, 148, 40, 14, 95, 35, 0, 160, 69, 35, 0, 191, 146, 54, 133, 94, 149, 10, 71, 82, 158, 54, 133, 126, 165, 10, 71, 75, 171, 171, 103, 158, 181, 10, 71, 254, 182, 171, 103, 149, 75, 114, 68, 182, 48, 114, 68, 119, 72, 193, 43, 91, 49, 193, 43, 130, 223, 204, 68, 67, 191, 204, 68, 114, 220, 32, 44, 182, 192, 32, 44, 7, 77, 8, 71, 12, 45, 8, 71, 212, 75, 90, 46, 83, 48, 90, 46, 3, 186, 176, 64, 195, 153, 176, 64, 143, 184, 5, 40, 212, 156, 5, 40, 22, 172, 5, 40, 160, 106, 114, 63, 128, 90, 114, 63, 250, 105, 172, 38, 28, 92, 172, 38, 212, 75, 122, 44, 83, 48, 122, 44, 128, 73, 7, 4, 172, 50, 7, 4, 114, 220, 29, 43, 182, 192, 29, 43, 56, 218, 173, 2, 51, 195, 173, 2, 143, 184, 122, 40, 22, 172, 122, 40, 4, 184, 0, 0, 170, 173, 0, 0, 116, 88, 120, 158, 178, 59, 120, 158, 113, 77, 96, 127, 211, 68, 96, 127, 198, 189, 79, 154, 143, 199, 55, 123, 240, 220, 79, 154, 207, 211, 55, 123, 235, 177, 81, 134, 126, 161, 81, 134, 156, 174, 80, 121, 203, 165, 80, 121, 125, 230, 158, 121, 84, 228, 134, 90, 195, 246, 158, 121, 251, 236, 134, 90, 218, 104, 26, 133, 133, 81, 26, 133, 59, 102, 239, 70, 171, 68, 144, 103, 155, 68, 144, 103, 251, 69, 239, 70, 4, 108, 29, 98, 74, 104, 13, 86, 160, 106, 38, 65, 128, 90, 38, 65, 253, 80, 13, 86, 96, 74, 38, 65, 114, 77, 12, 108, 145, 72, 12, 108, 163, 188, 108, 127, 51, 167, 108, 127, 3, 186, 65, 65, 25, 159, 177, 115, 154, 154, 39, 108, 95, 152, 56, 98, 195, 153, 65, 65, 139, 66, 227, 110, 69, 49, 227, 110, 187, 64, 253, 67, 124, 32, 253, 67, 102, 43, 109, 118, 220, 29, 40, 130, 76, 35, 40, 130, 128, 94, 4, 148, 130, 51, 4, 148, 51, 90, 3, 135, 207, 55, 3, 135, 253, 158, 12, 122, 255, 115, 12, 122, 176, 154, 11, 109, 76, 120, 11, 109, 255, 103, 229, 128, 1, 61, 229, 128, 178, 99, 229, 115, 227, 89, 229, 115, 78, 65, 229, 115, 162, 97, 139, 107, 100, 89, 139, 107, 255, 139, 73, 160, 146, 107, 73, 160, 178, 135, 72, 147, 128, 118, 72, 147, 225, 110, 72, 147, 201, 115, 158, 110, 177, 92, 158, 110, 71, 108, 166, 88, 29, 92, 166, 88, 72, 152, 179, 105, 100, 123, 179, 105, 89, 149, 103, 83, 32, 129, 103, 83, 215, 172, 148, 110, 51, 168, 148, 110, 90, 172, 130, 100, 33, 171, 72, 88, 251, 174, 72, 88, 162, 97, 242, 107, 100, 89, 242, 107, 26, 96, 67, 85, 86, 90, 67, 85, 108, 97, 66, 87, 100, 96, 57, 109, 176, 90, 66, 87, 198, 86, 57, 109, 110, 71, 209, 112, 117, 71, 168, 90, 93, 77, 209, 112, 244, 77, 168, 90, 207, 96, 199, 115, 233, 73, 199, 115, 100, 96, 62, 108, 198, 86, 62, 108, 40, 77, 62, 108, 176, 154, 206, 109, 76, 120, 206, 109, 72, 152, 163, 101, 100, 123, 163, 101, 203, 165, 190, 120, 51, 168, 148, 112, 156, 174, 190, 120, 215, 172, 148, 112, 83, 73, 74, 127, 125, 49, 74, 127, 203, 73, 94, 119, 198, 53, 94, 119, 141, 120, 195, 115, 15, 93, 195, 115, 201, 115, 57, 108, 177, 92, 57, 108, 128, 118, 63, 150, 225, 110, 63, 150, 40, 118, 176, 141, 87, 113, 176, 141),
+"format": 34896613399,
+"index_count": 330,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 2, 0, 1, 0, 4, 0, 5, 0, 6, 0, 7, 0, 6, 0, 5, 0, 8, 0, 6, 0, 7, 0, 5, 0, 4, 0, 9, 0, 9, 0, 4, 0, 10, 0, 4, 0, 11, 0, 10, 0, 11, 0, 12, 0, 10, 0, 10, 0, 12, 0, 13, 0, 13, 0, 12, 0, 14, 0, 12, 0, 15, 0, 14, 0, 14, 0, 15, 0, 16, 0, 17, 0, 16, 0, 15, 0, 18, 0, 19, 0, 20, 0, 21, 0, 20, 0, 19, 0, 22, 0, 23, 0, 24, 0, 25, 0, 24, 0, 23, 0, 26, 0, 27, 0, 28, 0, 29, 0, 28, 0, 27, 0, 30, 0, 31, 0, 32, 0, 33, 0, 32, 0, 31, 0, 34, 0, 35, 0, 36, 0, 37, 0, 36, 0, 35, 0, 38, 0, 36, 0, 37, 0, 39, 0, 38, 0, 37, 0, 40, 0, 38, 0, 39, 0, 41, 0, 42, 0, 43, 0, 44, 0, 43, 0, 42, 0, 45, 0, 46, 0, 47, 0, 48, 0, 47, 0, 46, 0, 49, 0, 50, 0, 51, 0, 52, 0, 51, 0, 50, 0, 53, 0, 54, 0, 55, 0, 56, 0, 55, 0, 54, 0, 57, 0, 55, 0, 56, 0, 58, 0, 59, 0, 60, 0, 61, 0, 60, 0, 59, 0, 62, 0, 63, 0, 64, 0, 65, 0, 64, 0, 63, 0, 66, 0, 67, 0, 68, 0, 69, 0, 68, 0, 67, 0, 70, 0, 71, 0, 72, 0, 73, 0, 72, 0, 71, 0, 74, 0, 75, 0, 76, 0, 77, 0, 76, 0, 75, 0, 78, 0, 79, 0, 80, 0, 81, 0, 80, 0, 79, 0, 82, 0, 83, 0, 84, 0, 85, 0, 84, 0, 83, 0, 86, 0, 87, 0, 88, 0, 89, 0, 88, 0, 87, 0, 90, 0, 91, 0, 92, 0, 93, 0, 92, 0, 91, 0, 94, 0, 92, 0, 93, 0, 95, 0, 92, 0, 94, 0, 96, 0, 97, 0, 98, 0, 99, 0, 98, 0, 97, 0, 100, 0, 99, 0, 97, 0, 101, 0, 99, 0, 100, 0, 102, 0, 101, 0, 100, 0, 103, 0, 101, 0, 102, 0, 104, 0, 105, 0, 106, 0, 107, 0, 106, 0, 105, 0, 108, 0, 106, 0, 107, 0, 109, 0, 106, 0, 108, 0, 110, 0, 106, 0, 109, 0, 111, 0, 112, 0, 113, 0, 113, 0, 112, 0, 114, 0, 112, 0, 115, 0, 114, 0, 114, 0, 115, 0, 116, 0, 117, 0, 116, 0, 115, 0, 118, 0, 119, 0, 120, 0, 121, 0, 120, 0, 119, 0, 122, 0, 123, 0, 124, 0, 125, 0, 124, 0, 123, 0, 126, 0, 127, 0, 128, 0, 129, 0, 128, 0, 127, 0, 130, 0, 129, 0, 127, 0, 128, 0, 129, 0, 131, 0, 132, 0, 131, 0, 129, 0, 133, 0, 134, 0, 135, 0, 136, 0, 135, 0, 134, 0, 137, 0, 136, 0, 134, 0, 138, 0, 139, 0, 140, 0, 141, 0, 140, 0, 139, 0, 142, 0, 143, 0, 144, 0, 145, 0, 144, 0, 143, 0, 146, 0, 147, 0, 148, 0, 149, 0, 148, 0, 147, 0, 150, 0, 148, 0, 149, 0, 151, 0, 152, 0, 153, 0, 154, 0, 153, 0, 152, 0, 155, 0, 156, 0, 157, 0, 158, 0, 157, 0, 156, 0, 159, 0, 160, 0, 161, 0, 162, 0, 161, 0, 160, 0, 163, 0, 164, 0, 165, 0, 166, 0, 165, 0, 164, 0, 167, 0, 166, 0, 164, 0, 168, 0, 169, 0, 170, 0, 171, 0, 170, 0, 169, 0, 172, 0, 173, 0, 174, 0, 175, 0, 174, 0, 173, 0, 176, 0, 177, 0, 178, 0, 179, 0, 178, 0, 177, 0, 180, 0, 181, 0, 182, 0, 183, 0, 182, 0, 181, 0, 184, 0, 185, 0, 186, 0, 187, 0, 186, 0, 185, 0),
+"name": "wood",
+"primitive": 3,
+"uv_scale": Vector4(215.676, 284.322, 0, 0),
+"vertex_count": 188,
+"vertex_data": PackedByteArray(98, 54, 107, 59, 51, 159, 115, 162, 149, 74, 0, 0, 50, 183, 115, 162, 49, 44, 107, 59, 221, 173, 115, 162, 250, 46, 0, 0, 236, 222, 115, 162, 149, 74, 0, 0, 50, 183, 255, 191, 237, 49, 0, 0, 187, 87, 255, 191, 250, 46, 0, 0, 236, 222, 255, 191, 53, 17, 0, 0, 187, 87, 255, 191, 0, 0, 0, 0, 107, 174, 255, 191, 237, 49, 0, 0, 61, 54, 255, 191, 55, 115, 0, 0, 0, 0, 255, 191, 55, 115, 0, 0, 244, 216, 255, 191, 173, 124, 0, 0, 23, 209, 255, 191, 137, 152, 0, 0, 1, 31, 255, 191, 35, 181, 0, 0, 63, 7, 255, 191, 35, 181, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 111, 69, 255, 191, 255, 255, 0, 0, 207, 193, 255, 191, 237, 66, 152, 174, 179, 63, 19, 192, 225, 72, 255, 255, 167, 65, 7, 192, 237, 66, 152, 174, 208, 103, 19, 192, 225, 72, 255, 255, 243, 98, 7, 192, 237, 49, 0, 0, 61, 54, 171, 234, 55, 115, 0, 0, 0, 0, 171, 234, 17, 59, 12, 125, 212, 61, 172, 234, 55, 115, 12, 125, 47, 15, 172, 234, 17, 59, 12, 125, 212, 61, 19, 192, 237, 66, 152, 174, 179, 63, 19, 192, 17, 59, 12, 125, 122, 108, 14, 192, 237, 66, 152, 174, 208, 103, 19, 192, 239, 136, 152, 174, 160, 41, 150, 180, 223, 119, 152, 174, 201, 126, 150, 180, 251, 130, 255, 255, 85, 47, 150, 180, 210, 116, 255, 255, 4, 118, 150, 180, 237, 49, 0, 0, 61, 54, 7, 192, 17, 59, 12, 125, 212, 61, 19, 192, 237, 49, 0, 0, 187, 87, 7, 192, 17, 59, 12, 125, 122, 108, 14, 192, 69, 54, 107, 59, 65, 125, 7, 192, 17, 59, 12, 125, 31, 155, 7, 192, 69, 54, 107, 59, 27, 159, 7, 192, 93, 171, 12, 125, 122, 108, 186, 142, 161, 120, 12, 125, 48, 135, 186, 142, 129, 163, 152, 174, 208, 103, 186, 142, 223, 119, 152, 174, 201, 126, 186, 142, 17, 59, 12, 125, 212, 61, 172, 234, 55, 115, 12, 125, 47, 15, 172, 234, 237, 66, 152, 174, 179, 63, 172, 234, 55, 115, 152, 174, 150, 23, 172, 234, 161, 120, 12, 125, 48, 135, 99, 140, 17, 59, 12, 125, 122, 108, 99, 140, 223, 119, 152, 174, 201, 126, 55, 140, 237, 66, 152, 174, 208, 103, 56, 140, 55, 115, 12, 125, 47, 15, 172, 234, 93, 171, 12, 125, 212, 61, 172, 234, 55, 115, 152, 174, 150, 23, 173, 234, 129, 163, 152, 174, 179, 63, 173, 234, 239, 136, 152, 174, 160, 41, 174, 240, 93, 171, 12, 125, 212, 61, 19, 192, 93, 171, 12, 125, 122, 108, 14, 192, 129, 163, 152, 174, 179, 63, 36, 192, 129, 163, 152, 174, 208, 103, 36, 192, 223, 119, 152, 174, 201, 126, 55, 140, 237, 66, 152, 174, 208, 103, 56, 140, 210, 116, 255, 255, 4, 118, 19, 140, 225, 72, 255, 255, 243, 98, 19, 140, 237, 66, 152, 174, 179, 63, 172, 234, 55, 115, 152, 174, 150, 23, 172, 234, 225, 72, 255, 255, 167, 65, 170, 234, 245, 112, 255, 255, 91, 32, 170, 234, 55, 115, 152, 174, 150, 23, 173, 234, 239, 136, 152, 174, 160, 41, 173, 234, 245, 112, 255, 255, 91, 32, 172, 234, 251, 130, 255, 255, 85, 47, 172, 234, 250, 46, 0, 0, 236, 222, 115, 156, 0, 0, 0, 0, 107, 174, 115, 156, 49, 44, 107, 59, 221, 173, 115, 156, 29, 30, 107, 59, 84, 159, 115, 156, 53, 17, 0, 0, 187, 87, 31, 204, 225, 36, 107, 59, 65, 125, 31, 204, 0, 0, 0, 0, 107, 174, 31, 204, 29, 30, 107, 59, 84, 159, 31, 204, 137, 152, 0, 0, 1, 31, 54, 235, 35, 181, 0, 0, 63, 7, 54, 235, 201, 165, 152, 23, 224, 44, 40, 235, 35, 181, 152, 23, 31, 32, 40, 235, 237, 49, 0, 0, 187, 87, 255, 255, 69, 54, 107, 59, 65, 125, 255, 255, 53, 17, 0, 0, 187, 87, 255, 255, 225, 36, 107, 59, 65, 125, 255, 255, 55, 115, 0, 0, 244, 216, 114, 149, 149, 74, 0, 0, 50, 183, 114, 149, 55, 115, 12, 125, 196, 201, 114, 149, 98, 54, 107, 59, 51, 159, 114, 149, 69, 54, 107, 59, 27, 159, 114, 149, 17, 59, 12, 125, 31, 155, 114, 149, 54, 176, 189, 58, 206, 57, 7, 192, 112, 174, 0, 83, 148, 68, 7, 192, 93, 171, 12, 125, 212, 61, 19, 192, 93, 171, 12, 125, 122, 108, 14, 192, 112, 174, 0, 83, 253, 135, 7, 192, 93, 171, 12, 125, 31, 155, 7, 192, 172, 177, 195, 38, 62, 146, 7, 192, 172, 177, 195, 38, 92, 160, 7, 192, 55, 115, 0, 0, 0, 0, 171, 234, 137, 152, 0, 0, 1, 31, 171, 234, 55, 115, 12, 125, 47, 15, 172, 234, 201, 165, 152, 23, 224, 44, 171, 234, 15, 173, 195, 38, 194, 52, 171, 234, 54, 176, 189, 58, 206, 57, 171, 234, 93, 171, 12, 125, 212, 61, 172, 234, 172, 177, 195, 38, 92, 160, 114, 149, 152, 147, 195, 38, 88, 185, 114, 149, 93, 171, 12, 125, 31, 155, 114, 149, 55, 115, 12, 125, 196, 201, 114, 149, 237, 137, 152, 23, 56, 195, 114, 149, 55, 115, 0, 0, 244, 216, 114, 149, 173, 124, 0, 0, 23, 209, 114, 149, 255, 255, 0, 0, 207, 193, 249, 155, 35, 181, 0, 0, 255, 255, 249, 155, 6, 241, 152, 23, 95, 181, 249, 155, 35, 181, 152, 23, 31, 231, 249, 155, 35, 181, 0, 0, 63, 7, 54, 235, 255, 255, 0, 0, 111, 69, 54, 235, 35, 181, 152, 23, 31, 32, 40, 235, 6, 241, 152, 23, 223, 81, 41, 235, 255, 255, 0, 0, 111, 69, 5, 194, 255, 255, 0, 0, 207, 193, 5, 194, 6, 241, 152, 23, 223, 81, 3, 194, 6, 241, 152, 23, 64, 110, 3, 194, 6, 241, 152, 23, 95, 181, 5, 194, 113, 231, 195, 38, 215, 87, 73, 193, 113, 231, 195, 38, 174, 111, 59, 193, 35, 181, 0, 0, 255, 255, 249, 155, 173, 124, 0, 0, 23, 209, 249, 155, 35, 181, 152, 23, 31, 231, 249, 155, 50, 151, 152, 23, 63, 206, 94, 156, 237, 137, 152, 23, 56, 195, 127, 156, 113, 231, 195, 38, 174, 111, 179, 128, 3, 185, 195, 38, 174, 111, 81, 128, 90, 216, 0, 83, 244, 108, 82, 129, 218, 183, 0, 83, 244, 108, 82, 129, 35, 181, 195, 38, 13, 46, 231, 234, 113, 231, 195, 38, 215, 87, 233, 234, 35, 181, 0, 83, 3, 63, 190, 234, 90, 216, 0, 83, 68, 92, 190, 234, 15, 173, 195, 38, 194, 52, 229, 234, 35, 181, 195, 38, 13, 46, 231, 234, 54, 176, 189, 58, 206, 57, 190, 234, 35, 181, 0, 83, 3, 63, 190, 234, 112, 174, 0, 83, 148, 68, 190, 234, 113, 231, 195, 38, 215, 87, 73, 193, 113, 231, 195, 38, 174, 111, 59, 193, 90, 216, 0, 83, 68, 92, 166, 192, 90, 216, 0, 83, 244, 108, 166, 192, 218, 183, 0, 83, 244, 108, 98, 199, 3, 185, 195, 38, 174, 111, 99, 199, 74, 186, 0, 83, 28, 128, 98, 199, 128, 188, 195, 38, 12, 139, 100, 199, 172, 177, 195, 38, 62, 146, 112, 146, 112, 174, 0, 83, 253, 135, 112, 146, 128, 188, 195, 38, 12, 139, 112, 146, 74, 186, 0, 83, 28, 128, 112, 146, 192, 185, 152, 23, 64, 110, 102, 199, 13, 194, 152, 23, 104, 175, 102, 199, 3, 185, 195, 38, 174, 111, 99, 199, 128, 188, 195, 38, 12, 139, 100, 199, 252, 191, 195, 38, 105, 166, 102, 199, 35, 181, 152, 23, 31, 32, 40, 235, 6, 241, 152, 23, 223, 81, 41, 235, 35, 181, 195, 38, 13, 46, 231, 234, 113, 231, 195, 38, 215, 87, 233, 234, 35, 181, 152, 23, 31, 32, 40, 235, 35, 181, 195, 38, 13, 46, 231, 234, 201, 165, 152, 23, 224, 44, 40, 235, 15, 173, 195, 38, 194, 52, 229, 234, 13, 194, 152, 23, 104, 175, 201, 150, 50, 151, 152, 23, 63, 206, 201, 150, 252, 191, 195, 38, 105, 166, 201, 150, 252, 155, 195, 38, 80, 192, 201, 150, 6, 241, 152, 23, 64, 110, 6, 130, 192, 185, 152, 23, 64, 110, 6, 130, 113, 231, 195, 38, 174, 111, 179, 128, 3, 185, 195, 38, 174, 111, 81, 128, 50, 151, 152, 23, 63, 206, 94, 156, 237, 137, 152, 23, 56, 195, 127, 156, 252, 155, 195, 38, 80, 192, 51, 157, 152, 147, 195, 38, 88, 185, 51, 157, 166, 173, 71, 32, 166, 173, 71, 32, 166, 173, 71, 32, 166, 173, 71, 32, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 46, 133, 160, 245, 93, 131, 67, 249, 53, 133, 147, 245, 93, 131, 67, 249, 234, 128, 164, 251, 234, 128, 164, 251, 21, 129, 218, 250, 22, 129, 215, 250, 34, 133, 184, 245, 46, 133, 160, 245, 140, 132, 228, 246, 53, 133, 147, 245, 29, 134, 125, 3, 29, 134, 125, 3, 29, 134, 125, 3, 29, 134, 125, 3, 93, 131, 67, 249, 34, 133, 184, 245, 93, 131, 67, 249, 140, 132, 228, 246, 93, 131, 67, 249, 93, 131, 67, 249, 93, 131, 67, 249, 237, 156, 147, 24, 237, 156, 147, 24, 237, 156, 147, 24, 237, 156, 147, 24, 21, 129, 218, 250, 22, 129, 215, 250, 248, 128, 99, 251, 247, 128, 104, 251, 8, 155, 248, 224, 8, 155, 248, 224, 109, 150, 65, 230, 134, 150, 37, 230, 39, 133, 22, 1, 36, 133, 22, 1, 88, 133, 33, 1, 252, 133, 68, 1, 53, 158, 53, 30, 69, 138, 35, 5, 26, 137, 141, 4, 186, 141, 221, 6, 186, 141, 221, 6, 109, 150, 65, 230, 134, 150, 37, 230, 1, 145, 122, 236, 1, 145, 122, 236, 248, 128, 99, 251, 247, 128, 104, 251, 165, 128, 237, 252, 165, 128, 237, 252, 88, 133, 33, 1, 142, 133, 44, 1, 172, 132, 252, 0, 172, 132, 252, 0, 193, 166, 197, 204, 193, 166, 197, 204, 193, 166, 197, 204, 193, 166, 197, 204, 51, 140, 158, 227, 51, 140, 158, 227, 51, 140, 158, 227, 51, 140, 158, 227, 19, 134, 60, 227, 19, 134, 60, 227, 211, 133, 109, 228, 213, 133, 96, 228, 255, 127, 29, 238, 255, 127, 29, 238, 255, 127, 29, 238, 255, 127, 29, 238, 183, 139, 34, 241, 183, 139, 34, 241, 183, 139, 34, 241, 183, 139, 35, 241, 183, 139, 35, 241, 183, 139, 34, 241, 186, 134, 93, 3, 186, 134, 93, 3, 69, 138, 35, 5, 26, 137, 141, 4, 186, 134, 93, 3, 186, 134, 93, 3, 186, 134, 93, 3, 186, 134, 93, 3, 89, 132, 235, 0, 89, 132, 235, 0, 39, 133, 22, 1, 89, 132, 235, 0, 89, 132, 235, 0, 89, 132, 235, 0, 36, 133, 22, 1, 219, 142, 184, 11, 219, 142, 184, 11, 219, 142, 184, 11, 219, 142, 184, 11, 219, 142, 184, 11, 219, 142, 184, 11, 219, 142, 184, 11, 128, 194, 115, 52, 128, 194, 115, 52, 128, 194, 115, 52, 128, 194, 115, 52, 193, 156, 19, 6, 193, 156, 19, 6, 157, 155, 214, 5, 165, 155, 215, 5, 38, 168, 19, 20, 38, 168, 19, 20, 26, 168, 13, 20, 29, 168, 14, 20, 38, 168, 19, 20, 252, 161, 254, 16, 116, 161, 186, 16, 114, 180, 125, 189, 114, 180, 125, 189, 114, 180, 125, 189, 79, 181, 102, 188, 149, 181, 13, 188, 0, 0, 255, 127, 0, 0, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 99, 148, 79, 4, 181, 148, 96, 4, 184, 140, 176, 2, 184, 140, 176, 2, 65, 132, 217, 235, 78, 132, 154, 235, 175, 130, 70, 243, 175, 130, 70, 243, 175, 130, 70, 243, 252, 161, 254, 16, 116, 161, 186, 16, 2, 154, 1, 13, 2, 154, 1, 13, 152, 129, 185, 0, 96, 131, 137, 1, 152, 129, 185, 0, 6, 132, 212, 1, 169, 162, 107, 28, 169, 162, 107, 28, 169, 162, 107, 28, 169, 162, 107, 28, 26, 133, 82, 2, 26, 133, 82, 2, 96, 131, 137, 1, 6, 132, 212, 1, 26, 133, 82, 2, 157, 155, 214, 5, 165, 155, 215, 5, 99, 148, 79, 4, 181, 148, 96, 4, 213, 133, 96, 228, 78, 132, 154, 235, 211, 133, 109, 228, 65, 132, 217, 235, 44, 186, 16, 47, 44, 186, 16, 47, 44, 186, 16, 47, 44, 186, 16, 47, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 79, 181, 102, 188, 149, 181, 13, 188, 252, 182, 70, 186, 252, 182, 70, 186)
+}, {
+"aabb": AABB(-12.0208, 1.27204, 1.19679, 11.2241, 12.5296, 7.35121),
+"attribute_data": PackedByteArray(118, 150, 15, 78, 118, 150, 173, 68, 106, 170, 129, 94, 225, 168, 173, 68, 54, 174, 122, 53, 127, 167, 232, 57, 54, 174, 95, 91, 214, 198, 81, 103, 220, 206, 149, 63, 13, 209, 188, 111, 195, 231, 77, 74, 195, 231, 5, 93, 244, 175, 242, 68, 244, 175, 185, 42, 180, 204, 238, 53, 197, 207, 128, 16, 150, 239, 242, 68, 150, 239, 185, 42, 104, 180, 30, 94, 104, 180, 145, 71, 119, 195, 134, 106, 34, 205, 167, 58, 78, 242, 131, 59, 78, 242, 123, 40, 41, 252, 131, 59, 4, 248, 47, 32, 255, 255, 91, 40, 62, 242, 110, 40, 123, 136, 242, 67, 123, 136, 247, 27, 205, 167, 242, 67, 25, 163, 81, 31, 106, 170, 0, 0, 98, 187, 251, 13, 171, 184, 208, 21, 97, 172, 199, 39, 69, 164, 96, 36, 62, 166, 194, 51, 97, 172, 182, 47, 108, 189, 187, 25),
+"format": 34896613399,
+"index_count": 78,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 2, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 4, 0, 3, 0, 6, 0, 2, 0, 4, 0, 7, 0, 8, 0, 9, 0, 10, 0, 9, 0, 8, 0, 11, 0, 9, 0, 10, 0, 12, 0, 13, 0, 14, 0, 15, 0, 14, 0, 13, 0, 16, 0, 14, 0, 15, 0, 17, 0, 16, 0, 15, 0, 18, 0, 19, 0, 20, 0, 21, 0, 20, 0, 19, 0, 22, 0, 23, 0, 24, 0, 25, 0, 24, 0, 23, 0, 26, 0, 24, 0, 25, 0, 23, 0, 27, 0, 25, 0, 28, 0, 29, 0, 30, 0, 31, 0, 30, 0, 29, 0, 29, 0, 32, 0, 31, 0, 33, 0, 31, 0, 32, 0, 34, 0, 35, 0, 36, 0, 37, 0, 36, 0, 35, 0, 38, 0, 37, 0, 35, 0, 39, 0, 35, 0, 34, 0),
+"name": "sand",
+"primitive": 3,
+"uv_scale": Vector4(189.304, 132.614, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray(12, 226, 112, 65, 40, 77, 255, 255, 12, 226, 112, 65, 166, 98, 255, 255, 78, 183, 112, 65, 123, 39, 255, 255, 153, 186, 112, 65, 166, 98, 255, 255, 44, 175, 112, 65, 120, 133, 255, 255, 144, 189, 112, 65, 82, 123, 255, 255, 44, 175, 112, 65, 166, 46, 255, 255, 110, 122, 255, 255, 73, 19, 255, 255, 62, 105, 255, 255, 82, 110, 255, 255, 141, 100, 255, 255, 0, 0, 255, 255, 232, 51, 255, 255, 195, 85, 255, 255, 232, 51, 255, 255, 225, 42, 255, 255, 113, 171, 193, 111, 9, 98, 255, 255, 113, 171, 193, 111, 28, 158, 255, 255, 222, 109, 193, 111, 112, 132, 255, 255, 75, 103, 193, 111, 48, 218, 255, 255, 36, 35, 193, 111, 9, 98, 255, 255, 36, 35, 193, 111, 28, 158, 255, 255, 231, 161, 85, 166, 94, 40, 255, 255, 231, 161, 85, 166, 8, 92, 255, 255, 167, 129, 85, 166, 240, 11, 255, 255, 242, 108, 85, 166, 158, 121, 255, 255, 82, 29, 118, 39, 165, 119, 255, 255, 82, 29, 118, 39, 62, 163, 255, 255, 53, 8, 118, 39, 165, 119, 255, 255, 22, 17, 118, 39, 65, 182, 255, 255, 0, 0, 118, 39, 136, 163, 255, 255, 117, 29, 118, 39, 93, 163, 255, 255, 255, 255, 0, 0, 82, 100, 255, 255, 255, 255, 0, 0, 235, 191, 255, 255, 232, 188, 0, 0, 82, 100, 255, 255, 251, 198, 0, 0, 62, 184, 255, 255, 78, 183, 0, 0, 255, 255, 255, 255, 246, 146, 0, 0, 245, 223, 255, 255, 199, 152, 181, 16, 4, 206, 255, 255, 25, 179, 181, 16, 220, 164, 255, 255, 121, 196, 181, 16, 167, 172, 255, 255, 62, 192, 181, 16, 104, 137, 255, 255, 25, 179, 181, 16, 174, 146, 255, 255, 152, 142, 181, 16, 10, 197, 255, 255, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191)
+}]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a7555"]
 albedo_color = Color(0.701961, 0.603922, 0.443137, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0eqtf"]
-albedo_color = Color(0.392157, 0.517647, 0, 1)
+albedo_color = Color(0.372549, 0.501961, 0.101961, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c253i"]
 size = Vector3(28.2485, 13.8114, 20.1511)
@@ -42,45 +72,206 @@ albedo_color = Color(0.309804, 0.462745, 0, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_56qsr"]
 size = Vector3(13.5604, 1, 7.11104)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_d6cu0"]
+size = Vector3(40.8508, 1, 28.453)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b62pp"]
+albedo_color = Color(0.831373, 0.67451, 0.466667, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2qosh"]
+albedo_color = Color(0.368627, 0.462745, 0.196078, 1)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_aiu01"]
-size = Vector3(43.7636, 1, 39.2337)
+size = Vector3(40.9613, 1, 37.6945)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4e04"]
+albedo_color = Color(0.898039, 0.713726, 0.462745, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ea4ra"]
+albedo_color = Color(0.368627, 0.490196, 0.156863, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cn5ub"]
+size = Vector3(26.4239, 1, 29.6034)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svm8l"]
+albedo_color = Color(0.784314, 0.666667, 0.521569, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ewxg1"]
+albedo_color = Color(0.431373, 0.486275, 0.180392, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s4om7"]
+size = Vector3(33.1175, 12.6395, 24.8119)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uqgis"]
+albedo_color = Color(0.839216, 0.717647, 0.541176, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trjhu"]
+albedo_color = Color(0.372549, 0.462745, 0.101961, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1a2xw"]
+size = Vector3(17.0746, 6.94141, 14.7148)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ppnwd"]
+albedo_color = Color(0.917647, 0.737255, 0.513726, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xndyi"]
+albedo_color = Color(0.431373, 0.552941, 0.113725, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6x2pq"]
+size = Vector3(41.4073, 17.1063, 28.6248)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_posen"]
+albedo_color = Color(0.752941, 0.694118, 0.501961, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j2xcq"]
+albedo_color = Color(0.392157, 0.466667, 0.133333, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6mvdy"]
+size = Vector3(16.9683, 7.2948, 14.8171)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eowqk"]
+albedo_color = Color(0.701961, 0.603922, 0.443137, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhyvv"]
+albedo_color = Color(0.4, 0.509804, 0.137255, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_80lp3"]
+size = Vector3(29.5929, 12.7199, 33.1393)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ul608"]
+size = Vector3(23.6774, 14.1005, 24.0341)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hl611"]
+albedo_color = Color(0.941176, 0.760784, 0.517647, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_80r5q"]
+albedo_color = Color(0.466667, 0.603922, 0.0588235, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dkgd5"]
+size = Vector3(27.1403, 1, 18.8508)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aguar"]
+albedo_color = Color(0.752941, 0.654902, 0.478431, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j1skh"]
+albedo_color = Color(0.396078, 0.501961, 0.192157, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4bqgg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bntvd"]
+albedo_color = Color(0.752941, 0.654902, 0.478431, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8xgkp"]
+albedo_color = Color(0.396078, 0.501961, 0.192157, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1i045"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h88bp"]
+albedo_color = Color(0.752941, 0.654902, 0.478431, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gfp6m"]
+albedo_color = Color(0.396078, 0.501961, 0.192157, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_62v4k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eijol"]
+albedo_color = Color(0.752941, 0.654902, 0.478431, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nspii"]
+albedo_color = Color(0.396078, 0.501961, 0.192157, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ab32e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uy60q"]
+albedo_color = Color(0.870588, 0.741176, 0.580392, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0dfc"]
+albedo_color = Color(0.403922, 0.494118, 0.211765, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sj03a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_68muj"]
+albedo_color = Color(0.870588, 0.741176, 0.580392, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_er1np"]
+albedo_color = Color(0.403922, 0.494118, 0.211765, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ufabh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_htvg3"]
+albedo_color = Color(0.870588, 0.741176, 0.580392, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ggknw"]
+albedo_color = Color(0.403922, 0.494118, 0.211765, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lmqvb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8cnld"]
+albedo_color = Color(0.972549, 0.815686, 0.611765, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2scxu"]
+albedo_color = Color(0.490196, 0.678431, 0.231373, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vlu6t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_itj05"]
+albedo_color = Color(0.972549, 0.815686, 0.611765, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_suep8"]
+albedo_color = Color(0.490196, 0.678431, 0.231373, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yes84"]
 
 [node name="Map" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_nu5ew")
+surface_material_override/0 = SubResource("StandardMaterial3D_cwe22")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(-0.800731, 0, 0.599024, 0, 1, 0, -0.599024, 0, -0.800731, -67.5915, 0, -95.8315)
 
 [node name="Pivot1" type="Node3D" parent="StaticBody3D"]
 
-[node name="Island1" type="MeshInstance3D" parent="StaticBody3D/Pivot1"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/Pivot1"]
 transform = Transform3D(-3, 0, -3.57628e-07, 0, 1, 0, 3.57628e-07, 0, -3, 0, 0, 0)
 mesh = ExtResource("2_ulpyk")
-surface_material_override/0 = SubResource("StandardMaterial3D_eowqk")
-surface_material_override/1 = SubResource("StandardMaterial3D_xhyvv")
+surface_material_override/0 = SubResource("StandardMaterial3D_4fjnr")
+surface_material_override/1 = SubResource("StandardMaterial3D_ht123")
 
 [node name="CollisionIsland1" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9016, 6.11768, -16.0787)
 shape = SubResource("BoxShape3D_l82e8")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+[node name="StaticBody3D2a" type="StaticBody3D" parent="."]
 transform = Transform3D(0.682024, 0, 0.73133, 0, 1, 0, -0.73133, 0, 0.682024, -41.4029, 0, -90.657)
 
-[node name="Pivot2" type="Node3D" parent="StaticBody3D2"]
+[node name="Pivot2a" type="Node3D" parent="StaticBody3D2a"]
 
-[node name="Island2" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
+[node name="Island2a" type="MeshInstance3D" parent="StaticBody3D2a/Pivot2a"]
 transform = Transform3D(4, 0, 1.19209e-07, 0, 1, 0, 0, 0, 3, 0, 0, 0)
 mesh = ExtResource("2_ulpyk")
 surface_material_override/0 = SubResource("StandardMaterial3D_m6u0f")
 surface_material_override/1 = SubResource("StandardMaterial3D_odw5v")
 
-[node name="CollisionIsland2" type="CollisionShape3D" parent="StaticBody3D2"]
+[node name="CollisionIsland2a" type="CollisionShape3D" parent="StaticBody3D2a"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.24, 6.13249, 15.9726)
 shape = SubResource("BoxShape3D_ojlpb")
+
+[node name="StaticBody3D2b" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.984196, 0, -0.177085, 0, 1, 0, 0.177085, 0, -0.984196, -72.0864, 0, -44.5229)
+
+[node name="Pivot2b" type="Node3D" parent="StaticBody3D2b"]
+
+[node name="Island2b" type="MeshInstance3D" parent="StaticBody3D2b/Pivot2b"]
+transform = Transform3D(4, 0, 1.19209e-07, 0, 1, 0, 0, 0, 3, 0, 0, 0)
+mesh = ExtResource("2_ulpyk")
+surface_material_override/0 = SubResource("StandardMaterial3D_m6u0f")
+surface_material_override/1 = SubResource("StandardMaterial3D_odw5v")
+
+[node name="CollisionIsland2b" type="CollisionShape3D" parent="StaticBody3D2b"]
+transform = Transform3D(0.999966, 0, -4.61936e-07, 0, 1, 0, 4.61936e-07, 0, 0.999966, -21.1384, 0, 16.0152)
+shape = SubResource("BoxShape3D_4kdaf")
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="."]
 transform = Transform3D(0.583768, 0, -0.811921, 0, 1, 0, 0.811921, 0, 0.583768, 5.96364, 0, -80.5534)
@@ -89,7 +280,7 @@ transform = Transform3D(0.583768, 0, -0.811921, 0, 1, 0, 0.811921, 0, 0.583768, 
 
 [node name="Island3" type="MeshInstance3D" parent="StaticBody3D3/Pivot3"]
 transform = Transform3D(1.90574, 0, -0.606769, 0, 1, 0, 0.606769, 0, 1.90574, 4.06818, 0, 3.8648)
-mesh = ExtResource("3_gj7vg")
+mesh = SubResource("ArrayMesh_htkpc")
 surface_material_override/0 = SubResource("StandardMaterial3D_a7555")
 surface_material_override/1 = SubResource("StandardMaterial3D_0eqtf")
 
@@ -97,34 +288,49 @@ surface_material_override/1 = SubResource("StandardMaterial3D_0eqtf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6341, 6.93053, 9.42374)
 shape = SubResource("BoxShape3D_c253i")
 
-[node name="StaticBody3D4" type="StaticBody3D" parent="."]
+[node name="StaticBody3D4a" type="StaticBody3D" parent="."]
 transform = Transform3D(-0.66523, 0, -0.746638, 0, 1, 0, 0.746638, 0, -0.66523, 58.3745, 0, -114.987)
 
-[node name="Pivot4" type="Node3D" parent="StaticBody3D4"]
+[node name="Pivot4a" type="Node3D" parent="StaticBody3D4a"]
 
-[node name="Island4" type="MeshInstance3D" parent="StaticBody3D4/Pivot4"]
+[node name="Island4a" type="MeshInstance3D" parent="StaticBody3D4a/Pivot4a"]
 transform = Transform3D(-4, 0, -3.57628e-07, 0, 0.7, 0, 3.57628e-07, 0, -3, 0, 0, 0)
-mesh = ExtResource("3_gj7vg")
+mesh = SubResource("ArrayMesh_htkpc")
 surface_material_override/0 = SubResource("StandardMaterial3D_awglc")
 surface_material_override/1 = SubResource("StandardMaterial3D_dj5n1")
 
-[node name="CollisionIsland4" type="CollisionShape3D" parent="StaticBody3D4"]
+[node name="CollisionIsland4a" type="CollisionShape3D" parent="StaticBody3D4a"]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 27.1709, 0, -14.2687)
 shape = SubResource("BoxShape3D_56qsr")
+
+[node name="StaticBody3D4b" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.317305, 0, -0.948323, 0, 1, 0, 0.948323, 0, -0.317305, 29.7717, 0, -109.266)
+
+[node name="Pivot4b" type="Node3D" parent="StaticBody3D4b"]
+
+[node name="Island4b" type="MeshInstance3D" parent="StaticBody3D4b/Pivot4b"]
+transform = Transform3D(-3, 0, -7.7486e-07, 0, 0.7, 0, 7.7486e-07, 0, -3, 8.82018, 0, -8.96928)
+mesh = SubResource("ArrayMesh_htkpc")
+surface_material_override/0 = SubResource("StandardMaterial3D_awglc")
+surface_material_override/1 = SubResource("StandardMaterial3D_dj5n1")
+
+[node name="CollisionIsland4b" type="CollisionShape3D" parent="StaticBody3D4b"]
+transform = Transform3D(1, 0, 1.78814e-07, 0, 1, 0, -1.78814e-07, 0, 1, 29.2635, 0, -23.1636)
+shape = SubResource("BoxShape3D_d6cu0")
 
 [node name="StaticBody3D5" type="StaticBody3D" parent="."]
 transform = Transform3D(-0.799685, 0, 0.60042, 0, 1, 0, -0.60042, 0, -0.799685, -61.2219, 0, 20.145)
 
 [node name="Pivot5" type="Node3D" parent="StaticBody3D5"]
 
-[node name="Island5" type="MeshInstance3D" parent="StaticBody3D5/Pivot5"]
-transform = Transform3D(2.8586, 0, -1.21354, 0, 1, 0, 0.910153, 0, 3.81147, 4.06819, 0, 3.8648)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D5/Pivot5"]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0, 0)
 mesh = ExtResource("3_gj7vg")
-surface_material_override/0 = SubResource("StandardMaterial3D_a7555")
-surface_material_override/1 = SubResource("StandardMaterial3D_0eqtf")
+surface_material_override/0 = SubResource("StandardMaterial3D_b62pp")
+surface_material_override/1 = SubResource("StandardMaterial3D_2qosh")
 
 [node name="CollisionIsland5" type="CollisionShape3D" parent="StaticBody3D5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9334, 0, 16.7508)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4288, 0, 18.9609)
 shape = SubResource("BoxShape3D_aiu01")
 
 [node name="StaticBody3D6" type="StaticBody3D" parent="."]
@@ -133,10 +339,242 @@ transform = Transform3D(0.226651, 0, -0.973976, 0, 1, 0, 0.973976, 0, 0.226651, 
 [node name="Pivot6" type="Node3D" parent="StaticBody3D6"]
 
 [node name="Island6" type="MeshInstance3D" parent="StaticBody3D6/Pivot6"]
-transform = Transform3D(3, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 3, 0.0361309, 0, -0.155266)
+transform = Transform3D(2.5, 0, 0, 0, 1, 0, 0, 0, 2.8, 1.69936, 0, -0.957947)
 mesh = ExtResource("2_ulpyk")
-surface_material_override/0 = SubResource("StandardMaterial3D_m6u0f")
-surface_material_override/1 = SubResource("StandardMaterial3D_odw5v")
+surface_material_override/0 = SubResource("StandardMaterial3D_n4e04")
+surface_material_override/1 = SubResource("StandardMaterial3D_ea4ra")
 
 [node name="CollisionIsland6" type="CollisionShape3D" parent="StaticBody3D6"]
+transform = Transform3D(1, 0, -4.47035e-08, 0, 1, 0, 4.47035e-08, 0, 1, -11.4661, 0, 14.0567)
 shape = SubResource("BoxShape3D_cn5ub")
+
+[node name="StaticBody3D7a" type="StaticBody3D" parent="."]
+transform = Transform3D(0.226651, 0, -0.973976, 0, 1, 0, 0.973976, 0, 0.226651, 56.7467, 0, 91.6797)
+
+[node name="Pivot7a" type="Node3D" parent="StaticBody3D7a"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D7a/Pivot7a"]
+transform = Transform3D(-0.758912, 0, 2.77563, 0, 1, 0, -1.85042, 0, -1.13837, -37.1603, 0, 10.9374)
+mesh = ExtResource("2_ulpyk")
+surface_material_override/0 = SubResource("StandardMaterial3D_svm8l")
+surface_material_override/1 = SubResource("StandardMaterial3D_ewxg1")
+
+[node name="CollisionIsland7a" type="CollisionShape3D" parent="StaticBody3D7a"]
+transform = Transform3D(1, 0, -4.47035e-08, 0, 1, 0, 4.47035e-08, 0, 1, -17.7323, 5.81976, 15.6991)
+shape = SubResource("BoxShape3D_s4om7")
+
+[node name="StaticBody3D7b" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.953717, 0, -0.300706, 0, 1, 0, 0.300706, 0, -0.953717, 20.4487, 0, 95.2775)
+
+[node name="Pivot7b" type="Node3D" parent="StaticBody3D7b"]
+
+[node name="Island7b" type="MeshInstance3D" parent="StaticBody3D7b/Pivot7b"]
+transform = Transform3D(0.803896, 0, 1.83133, 0, 0.5, 0, -1.83133, 0, 0.803896, -17.5881, 0, -5.0574)
+mesh = ExtResource("3_gj7vg")
+surface_material_override/0 = SubResource("StandardMaterial3D_uqgis")
+surface_material_override/1 = SubResource("StandardMaterial3D_trjhu")
+
+[node name="CollisionIsland7b" type="CollisionShape3D" parent="StaticBody3D7b"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4655, 3.47461, 4.69164)
+shape = SubResource("BoxShape3D_1a2xw")
+
+[node name="StaticBody3D8" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.313379, 0, -0.949628, 0, 1, 0, 0.949628, 0, -0.313379, 100.592, 0, 90.5914)
+
+[node name="Pivot8" type="Node3D" parent="StaticBody3D8"]
+
+[node name="Island8" type="MeshInstance3D" parent="StaticBody3D8/Pivot8"]
+transform = Transform3D(3, 0, -1.78814e-07, 0, 1, 0, 1.78814e-07, 0, 3, 0.887299, 0, -2.38633)
+mesh = ExtResource("3_gj7vg")
+surface_material_override/0 = SubResource("StandardMaterial3D_ppnwd")
+surface_material_override/1 = SubResource("StandardMaterial3D_xndyi")
+
+[node name="CollisionIsland8" type="CollisionShape3D" parent="StaticBody3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3936, 8.05316, 11.7599)
+shape = SubResource("BoxShape3D_6x2pq")
+
+[node name="StaticBody3D9" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.313379, 0, -0.949628, 0, 1, 0, 0.949628, 0, -0.313379, 78.7734, 0, 52.054)
+
+[node name="Pivot9" type="Node3D" parent="StaticBody3D9"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D9/Pivot9"]
+transform = Transform3D(-1.19386, 0, 0.151584, 0, 1, 0, -0.121267, 0, -1.49232, -30.1137, 0, 10.3992)
+mesh = ExtResource("3_gj7vg")
+surface_material_override/0 = SubResource("StandardMaterial3D_posen")
+surface_material_override/1 = SubResource("StandardMaterial3D_j2xcq")
+
+[node name="CollisionIsland9" type="CollisionShape3D" parent="StaticBody3D9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4381, 3.1474, 4.62587)
+shape = SubResource("BoxShape3D_6mvdy")
+
+[node name="StaticBody3D10a" type="StaticBody3D" parent="."]
+transform = Transform3D(0.943223, 0, -0.332161, 0, 1, 0, 0.332161, 0, 0.943223, 33.5154, 0, 36.9716)
+
+[node name="Pivot10a" type="Node3D" parent="StaticBody3D10a"]
+
+[node name="Island10a" type="MeshInstance3D" parent="StaticBody3D10a/Pivot10a"]
+transform = Transform3D(-2.8, 0, -5.96046e-07, 0, 1, 0, 5.36442e-07, 0, -3.1, 0, 0, 0)
+mesh = ExtResource("2_ulpyk")
+surface_material_override/0 = SubResource("StandardMaterial3D_eowqk")
+surface_material_override/1 = SubResource("StandardMaterial3D_xhyvv")
+
+[node name="CollisionIsland10a" type="CollisionShape3D" parent="StaticBody3D10a"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 14.8164, 5.85994, -16.4689)
+shape = SubResource("BoxShape3D_80lp3")
+
+[node name="StaticBody3D10b" type="StaticBody3D" parent="."]
+transform = Transform3D(0.943223, 0, -0.332161, 0, 1, 0, 0.332161, 0, 0.943223, 22.6982, -4.06349, 35.6463)
+
+[node name="Pivot10b" type="Node3D" parent="StaticBody3D10b"]
+
+[node name="Island10b" type="MeshInstance3D" parent="StaticBody3D10b/Pivot10b"]
+transform = Transform3D(-2.8, 0, -5.96046e-07, 0, 1, 0, 5.36442e-07, 0, -3.1, 0, 0, 0)
+mesh = ExtResource("2_ulpyk")
+surface_material_override/0 = SubResource("StandardMaterial3D_eowqk")
+surface_material_override/1 = SubResource("StandardMaterial3D_xhyvv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D10b"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 14.2273, 6.55026, -16.6153)
+shape = SubResource("BoxShape3D_ul608")
+
+[node name="StaticBody3D11" type="StaticBody3D" parent="."]
+transform = Transform3D(0.999999, 0, -0.00174533, 0, 1, 0, 0.00174533, 0, 0.999999, 99.8716, 0, -107.894)
+
+[node name="Pivot11" type="Node3D" parent="StaticBody3D11"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D11/Pivot11"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0.509087, 0, -1.27921)
+mesh = ExtResource("3_gj7vg")
+surface_material_override/0 = SubResource("StandardMaterial3D_hl611")
+surface_material_override/1 = SubResource("StandardMaterial3D_80r5q")
+
+[node name="CollisionIsland11" type="CollisionShape3D" parent="StaticBody3D11"]
+transform = Transform3D(0.999984, 0, 3.95812e-09, 0, 1, 0, -3.95812e-09, 0, 0.999984, -13.111, 0, 8.24001)
+shape = SubResource("BoxShape3D_dkgd5")
+
+[node name="StaticBody3D12a" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.25038, 0, 0.968148, 0, 1, 0, -0.968148, 0, -0.25038, -90.1395, 0, -2.15012)
+
+[node name="Pivot12a" type="Node3D" parent="StaticBody3D12a"]
+
+[node name="Island12a" type="MeshInstance3D" parent="StaticBody3D12a/Pivot12a"]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 1.78814e-07, 0, 2, 26.2413, 0, -14.4825)
+mesh = ExtResource("3_gj7vg")
+surface_material_override/0 = SubResource("StandardMaterial3D_aguar")
+surface_material_override/1 = SubResource("StandardMaterial3D_j1skh")
+
+[node name="CollisionIsland12" type="CollisionShape3D" parent="StaticBody3D12a"]
+shape = SubResource("BoxShape3D_4bqgg")
+
+[node name="StaticBody3D12b" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.0505929, 0, -0.998719, 0, 1, 0, 0.998719, 0, -0.0505929, -90.9665, 0, 17.0355)
+
+[node name="Pivot12b" type="Node3D" parent="StaticBody3D12b"]
+
+[node name="Island12b" type="MeshInstance3D" parent="StaticBody3D12b/Pivot12b"]
+transform = Transform3D(3, 0, 0, 0, 1, 0, -1.19209e-07, 0, 2, 27.5954, 0, -3.66125)
+mesh = ExtResource("3_gj7vg")
+surface_material_override/0 = SubResource("StandardMaterial3D_bntvd")
+surface_material_override/1 = SubResource("StandardMaterial3D_8xgkp")
+
+[node name="CollisionIsland12b" type="CollisionShape3D" parent="StaticBody3D12b"]
+shape = SubResource("BoxShape3D_1i045")
+
+[node name="StaticBody3D12c" type="StaticBody3D" parent="."]
+transform = Transform3D(0.919135, 0, -0.393942, 0, 1, 0, 0.393942, 0, 0.919135, -69.3826, 0, 8.84856)
+
+[node name="Pivot12c" type="Node3D" parent="StaticBody3D12c"]
+
+[node name="Island12c" type="MeshInstance3D" parent="StaticBody3D12c/Pivot12c"]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 2, -0.466854, 0, 2.89927)
+mesh = ExtResource("3_gj7vg")
+surface_material_override/0 = SubResource("StandardMaterial3D_h88bp")
+surface_material_override/1 = SubResource("StandardMaterial3D_gfp6m")
+
+[node name="CollisionIsland12c" type="CollisionShape3D" parent="StaticBody3D12c"]
+shape = SubResource("BoxShape3D_62v4k")
+
+[node name="StaticBody3D12d" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.801776, 0, 0.597625, 0, 1, 0, -0.597625, 0, -0.801776, -113.028, 0, 35.9164)
+
+[node name="Pivot12d" type="Node3D" parent="StaticBody3D12d"]
+
+[node name="Island12d" type="MeshInstance3D" parent="StaticBody3D12d/Pivot12d"]
+transform = Transform3D(4, 0, 3.57628e-07, 0, 1, 0, -4.76837e-07, 0, 3, 4.58328, 0, 0.492981)
+mesh = ExtResource("3_gj7vg")
+surface_material_override/0 = SubResource("StandardMaterial3D_eijol")
+surface_material_override/1 = SubResource("StandardMaterial3D_nspii")
+
+[node name="CollisionIsland12d" type="CollisionShape3D" parent="StaticBody3D12d"]
+shape = SubResource("BoxShape3D_ab32e")
+
+[node name="StaticBody3D13a" type="StaticBody3D" parent="."]
+transform = Transform3D(0.890213, 0, -0.455545, 0, 1, 0, 0.455545, 0, 0.890213, -60.7243, 0, 87.443)
+
+[node name="Pivot13a" type="Node3D" parent="StaticBody3D13a"]
+
+[node name="Island13a" type="MeshInstance3D" parent="StaticBody3D13a/Pivot13a"]
+transform = Transform3D(3.5, 0, 0, 0, 1, 0, 0, 0, 3, 16.2741, 0, -15.7883)
+mesh = ExtResource("2_ulpyk")
+surface_material_override/0 = SubResource("StandardMaterial3D_uy60q")
+surface_material_override/1 = SubResource("StandardMaterial3D_j0dfc")
+
+[node name="CollisionIsland13a" type="CollisionShape3D" parent="StaticBody3D13a"]
+shape = SubResource("BoxShape3D_sj03a")
+
+[node name="StaticBody3D13b" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.248, 0, 90.7035)
+
+[node name="Pivot13b" type="Node3D" parent="StaticBody3D13b"]
+
+[node name="Island13b" type="MeshInstance3D" parent="StaticBody3D13b/Pivot13b"]
+transform = Transform3D(4.5, 0, 0, 0, 1, 0, 0, 0, 4.5, 19.1889, -4.60089, -10.2017)
+mesh = ExtResource("2_ulpyk")
+surface_material_override/0 = SubResource("StandardMaterial3D_68muj")
+surface_material_override/1 = SubResource("StandardMaterial3D_er1np")
+
+[node name="CollisionIsland13b" type="CollisionShape3D" parent="StaticBody3D13b"]
+shape = SubResource("BoxShape3D_ufabh")
+
+[node name="StaticBody3D13c" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.759271, 0, -0.650774, 0, 1, 0, 0.650774, 0, -0.759271, -29.1397, 0, 110.371)
+
+[node name="Pivot13c" type="Node3D" parent="StaticBody3D13c"]
+
+[node name="Island13c" type="MeshInstance3D" parent="StaticBody3D13c/Pivot13c"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
+mesh = ExtResource("3_gj7vg")
+surface_material_override/0 = SubResource("StandardMaterial3D_htvg3")
+surface_material_override/1 = SubResource("StandardMaterial3D_ggknw")
+
+[node name="CollisionIsland13c" type="CollisionShape3D" parent="StaticBody3D13c"]
+shape = SubResource("BoxShape3D_lmqvb")
+
+[node name="StaticBody3D14a" type="StaticBody3D" parent="."]
+transform = Transform3D(0.584958, 0, -0.811064, 0, 1, 0, 0.811064, 0, 0.584958, -26.9291, 0, 69.8821)
+
+[node name="Pivot14a" type="Node3D" parent="StaticBody3D14a"]
+
+[node name="Island14a" type="MeshInstance3D" parent="StaticBody3D14a/Pivot14a"]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, -5.96046e-08, 0, 2, 3.42474, 0, -4.93875)
+mesh = ExtResource("3_gj7vg")
+surface_material_override/0 = SubResource("StandardMaterial3D_8cnld")
+surface_material_override/1 = SubResource("StandardMaterial3D_2scxu")
+
+[node name="CollisionIsland14a" type="CollisionShape3D" parent="StaticBody3D14a"]
+shape = SubResource("BoxShape3D_vlu6t")
+
+[node name="StaticBody3D14b" type="StaticBody3D" parent="."]
+transform = Transform3D(0.0174523, 0, 0.999848, 0, 1, 0, -0.999848, 0, 0.0174523, -35.1636, 0, 54.5258)
+
+[node name="Pivot14b" type="Node3D" parent="StaticBody3D14b"]
+
+[node name="Island14b" type="MeshInstance3D" parent="StaticBody3D14b/Pivot14b"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.869907, 0, -0.0909729)
+mesh = ExtResource("3_gj7vg")
+surface_material_override/0 = SubResource("StandardMaterial3D_itj05")
+surface_material_override/1 = SubResource("StandardMaterial3D_suep8")
+
+[node name="CollisionIsland14b" type="CollisionShape3D" parent="StaticBody3D14b"]
+shape = SubResource("BoxShape3D_yes84")

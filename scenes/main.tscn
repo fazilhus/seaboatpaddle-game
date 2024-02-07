@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d3ycrupshfcm" path="res://scenes/survivors.tscn" id="1_pprra"]
 [ext_resource type="Script" path="res://scripts/Boat.cs" id="1_rcxjk"]
-[ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
+[ext_resource type="PackedScene" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
 [ext_resource type="PackedScene" uid="uid://catt7cfnf4pd1" path="res://CustonAssets/paddle.glb" id="2_ctqvj"]
 [ext_resource type="ArrayMesh" uid="uid://b7odym8k47kgf" path="res://KennyWaterCraft/Models/watercraftPack_029.obj" id="2_pbon7"]
 [ext_resource type="PackedScene" uid="uid://y7tqwoj3tmif" path="res://scenes/game_camera.tscn" id="5_rlqlm"]
@@ -45,7 +45,7 @@ shadow_enabled = true
 transparency = 0.4
 skeleton = NodePath("")
 
-[node name="Boat" type="RigidBody3D" parent="." node_paths=PackedStringArray("paddles", "water")]
+[node name="Boat" type="RigidBody3D" parent="." node_paths=PackedStringArray("paddles")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_mask = 3
 mass = 2.0

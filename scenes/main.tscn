@@ -1,12 +1,28 @@
-[gd_scene load_steps=13 format=3 uid="uid://do6luy1buwhiv"]
+[gd_scene load_steps=19 format=3 uid="uid://do6luy1buwhiv"]
 
+[ext_resource type="Script" path="res://scripts/Survivors.cs" id="1_dj4ou"]
 [ext_resource type="Script" path="res://scripts/Boat.cs" id="1_rcxjk"]
 [ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
 [ext_resource type="PackedScene" uid="uid://catt7cfnf4pd1" path="res://CustonAssets/paddle.glb" id="2_ctqvj"]
 [ext_resource type="ArrayMesh" uid="uid://b7odym8k47kgf" path="res://KennyWaterCraft/Models/watercraftPack_029.obj" id="2_pbon7"]
 [ext_resource type="PackedScene" uid="uid://y7tqwoj3tmif" path="res://scenes/game_camera.tscn" id="5_rlqlm"]
 [ext_resource type="Material" uid="uid://dm8p44anq2ejj" path="res://Shades/AntiWaterMask.tres" id="5_x64jw"]
-[ext_resource type="PackedScene" uid="uid://c0pl08ug0b0q1" path="res://scenes/survivors.tscn" id="7_xgtxt"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_fqwep"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wuyo3"]
+albedo_color = Color(0.0156863, 1, 1, 1)
+emission_enabled = true
+emission = Color(0, 0.537255, 0.603922, 1)
+emission_energy_multiplier = 6.7
+
+[sub_resource type="BoxMesh" id="BoxMesh_xwqc7"]
+size = Vector3(0.8, 0.1, 0.2)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3l8px"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2nvr6"]
+radius = 5.0
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ik3mg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -27,10 +43,45 @@ friction = 0.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_nbbgg"]
 size = Vector3(1.4668, 0.621826, 2.27103)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_r0jpl"]
+size = Vector3(1.74646, 1, 3.0321)
+
 [node name="Main" type="Node3D"]
 
-[node name="Survivors" parent="." instance=ExtResource("7_xgtxt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.3936)
+[node name="Survivors" type="RigidBody3D" parent="."]
+transform = Transform3D(-0.994794, 0, 0.101907, 0, 1, 0, -0.101907, 0, -0.994794, -0.488563, 1.41551, 8.01294)
+script = ExtResource("1_dj4ou")
+
+[node name="SurvivorMeshInstance" type="MeshInstance3D" parent="Survivors"]
+mesh = SubResource("CapsuleMesh_fqwep")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Survivors/SurvivorMeshInstance"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.494346, 0.414228)
+material_override = SubResource("StandardMaterial3D_wuyo3")
+mesh = SubResource("BoxMesh_xwqc7")
+
+[node name="SurvivorCollisionShape" type="CollisionShape3D" parent="Survivors"]
+shape = SubResource("CapsuleShape3D_3l8px")
+
+[node name="ProbeContainer" type="Node3D" parent="Survivors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.266695, 0)
+
+[node name="Probe" type="Marker3D" parent="Survivors/ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.708668, 0, 0.496295)
+
+[node name="Probe2" type="Marker3D" parent="Survivors/ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.708668, 0, -0.48854)
+
+[node name="Probe3" type="Marker3D" parent="Survivors/ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.672353, 0, 0.496295)
+
+[node name="Probe4" type="Marker3D" parent="Survivors/ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.672353, 0, -0.48854)
+
+[node name="Area3DTrigger" type="Area3D" parent="Survivors" groups=["Survivors"]]
+
+[node name="TriggerCollider" type="CollisionShape3D" parent="Survivors/Area3DTrigger"]
+shape = SubResource("CylinderShape3D_2nvr6")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_f08u5")
@@ -87,7 +138,7 @@ transform = Transform3D(0.93904, 0, 0, 0, 0.725238, 0, 0, 0, 0.968084, -0.011110
 material_override = ExtResource("5_x64jw")
 mesh = ExtResource("2_pbon7")
 
-[node name="BoatCollsionBoxWaterShader" type="CollisionShape3D" parent="Boat"]
+[node name="meshInstance3D" type="CollisionShape3D" parent="Boat"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000976566, 0.116021, -0.292709)
 shape = SubResource("BoxShape3D_nbbgg")
 
@@ -112,5 +163,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.661823, -0.446799, -0.8121
 [node name="Probe6" type="Marker3D" parent="Boat/ProbeContainer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.661134, -0.439855, -0.812198)
 
+[node name="Area3DTriggerBoat" type="Area3D" parent="Boat" groups=["ThePlayers"]]
+
+[node name="TriggerCollider" type="CollisionShape3D" parent="Boat/Area3DTriggerBoat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0178721, 0.327538, 0.247244)
+shape = SubResource("BoxShape3D_r0jpl")
+
 [node name="GameCamera" parent="." node_paths=PackedStringArray("Boat") instance=ExtResource("5_rlqlm")]
 Boat = NodePath("../Boat")
+
+[connection signal="area_entered" from="Survivors/Area3DTrigger" to="Survivors" method="OnArea3DTiggerAreaEntered"]
+[connection signal="area_entered" from="Boat/Area3DTriggerBoat" to="Boat" method="OnArea3dTriggerBoatAreaEntered"]

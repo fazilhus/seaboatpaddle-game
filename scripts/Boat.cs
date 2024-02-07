@@ -23,9 +23,9 @@ public partial class Boat : RigidBody3D
     
     //BoatPhysicsVariables
 
-	[Export] private float floatForce = 10.0f;
-	[Export] private float waterDrag = 0.01f;
-	[Export] private float WaterAngularDrag = 0.02f;
+	[Export] private float floatForce = 1.0f;
+	[Export] private float waterDrag = 0.005f;
+	[Export] private float WaterAngularDrag = 0.01f;
 	[Export] private bool isSubmerged = false;
 	private float gravity;
 
@@ -42,6 +42,8 @@ public partial class Boat : RigidBody3D
 	public double time = 0;
 
 	public Godot.Collections.Array<Node> probeContainer;
+    
+    [Export] Survivors survivors;
 
     public override void _Ready()
     {
@@ -49,6 +51,8 @@ public partial class Boat : RigidBody3D
         gravity = (float)ProjectSettings.GetSetting("physics/3d/default_gravity");
 		water = GetNode<WaterPlane>("/root/Main/WaterPlane");
 		probeContainer = GetNode<Node3D>("ProbeContainer").GetChildren();
+        survivors = GetNode<Survivors>("Survivors");
+        
 	
 		initialY = GlobalPosition.Y;
 
@@ -95,6 +99,9 @@ public partial class Boat : RigidBody3D
             ApplyForce(Vector3.Up * floatForce * gravity * depth, p.GlobalPosition - GlobalPosition);
             }
 		}
+
+
+        
     }
     public override void _IntegrateForces(PhysicsDirectBodyState3D state) // changing the simulation state of the object
     {
@@ -128,5 +135,13 @@ public partial class Boat : RigidBody3D
             }
         }
         return input;
+    }
+    public void OnArea3dTriggerBoatAreaEntered(Area3D area)
+    {
+        if(area.IsInGroup("Survivors"))
+        {
+              GD.Print("boat is colliding with survivors!");
+        }
+      
     }
 }

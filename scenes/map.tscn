@@ -1,15 +1,9 @@
-[gd_scene load_steps=80 format=3 uid="uid://bdohepiggfmms"]
+[gd_scene load_steps=78 format=3 uid="uid://bdohepiggfmms"]
 
 [ext_resource type="ArrayMesh" uid="uid://baig6pl5q2d8i" path="res://art/palm_detailed_long.obj" id="2_hu2xk"]
 [ext_resource type="ArrayMesh" uid="uid://1die41imyn83" path="res://art/formation_rock.obj" id="2_ulpyk"]
 [ext_resource type="ArrayMesh" uid="uid://d2mywo6xom1p0" path="res://art/palm_detailed_short.obj" id="3_6jyh4"]
 [ext_resource type="ArrayMesh" uid="uid://b0h7flq7emf5q" path="res://art/formationLarge_rock.obj" id="3_gj7vg"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_nu5ew"]
-size = Vector2(200, 200)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cwe22"]
-albedo_color = Color(0.482353, 0.698039, 0.705882, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4fjnr"]
 albedo_color = Color(0.74902, 0.67451, 0.447059, 1)
@@ -248,10 +242,6 @@ albedo_color = Color(0.490196, 0.678431, 0.231373, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_vlu6t"]
 
 [node name="Map" type="Node3D"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_nu5ew")
-surface_material_override/0 = SubResource("StandardMaterial3D_cwe22")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(-0.800731, 0, 0.599024, 0, 1, 0, -0.599024, 0, -0.800731, -67.5915, 0, -95.8315)
@@ -784,7 +774,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_hl611")
 surface_material_override/1 = SubResource("StandardMaterial3D_80r5q")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D11"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_ka0y2")
 
 [node name="StaticBody3D12" type="StaticBody3D" parent="."]

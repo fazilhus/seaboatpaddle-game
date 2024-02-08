@@ -55,6 +55,8 @@ physics_material_override = SubResource("PhysicsMaterial_7j168")
 freeze_mode = 1
 script = ExtResource("1_rcxjk")
 paddles = [NodePath("LeftPaddlePivot"), NodePath("RightPaddlePivot")]
+floatForce = 1.5
+waterDrag = 0.02
 water = NodePath("../WaterPlane")
 survivors = NodePath("../Node3D/Survivors")
 

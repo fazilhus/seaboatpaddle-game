@@ -43,6 +43,7 @@ public partial class PlayerMenu : MarginContainer
             GD.Print(playerIds[playerAmount]);
             GetNode("VerticalContainer/HorizontalContainer").GetChild(playerAmount).Set("visible", true);
             playerAmount++;
+            
 
              GD.Print(playerId);
             GD.Print(playerAmount);

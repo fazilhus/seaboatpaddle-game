@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://c678fjuhox1q2"]
+[gd_scene load_steps=3 format=3 uid="uid://c678fjuhox1q2"]
 
-[ext_resource type="Script" path="res://LevelSelectorMenu.cs" id="1_dbuws"]
+[ext_resource type="Script" path="res://scripts/LevelSelectorMenu.cs" id="1_sv6xd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jrsh8"]
+bg_color = Color(0.0823529, 0.686275, 0.678431, 1)
 
 [node name="LevelSelectorMenu" type="MarginContainer"]
 offset_right = 1152.0
@@ -9,7 +12,7 @@ theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 10
-script = ExtResource("1_dbuws")
+script = ExtResource("1_sv6xd")
 
 [node name="LevelContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -24,6 +27,7 @@ text = "Level 1"
 
 [node name="Level1Button" type="Button" parent="LevelContainer/Level"]
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_jrsh8")
 text = "LEVEL 1"
 
 [node name="Notices" type="VBoxContainer" parent="LevelContainer"]

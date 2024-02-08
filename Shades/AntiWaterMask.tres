@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dm8p44anq2ejj"]
+
+[ext_resource type="Shader" path="res://Shades/AntiWaterMask.gdshader" id="1_5qs0c"]
+
+[resource]
+render_priority = 1
+shader = ExtResource("1_5qs0c")

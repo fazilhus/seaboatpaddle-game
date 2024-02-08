@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpy6qtyat5uyr"]
+[gd_scene load_steps=6 format=3 uid="uid://rixh0m5oekos"]
 
 [ext_resource type="Script" path="res://scripts/LevelManager.cs" id="1_vfio7"]
-[ext_resource type="PackedScene" uid="uid://bl7exwjna2nwi" path="res://scenes/mainmenu.tscn" id="2_6i36b"]
-[ext_resource type="PackedScene" uid="uid://derkxbhef341u" path="res://scenes/playerMenu.tscn" id="3_46qyl"]
-[ext_resource type="PackedScene" uid="uid://c678fjuhox1q2" path="res://scenes/LevelSelectorMenu.tscn" id="4_gcbph"]
-[ext_resource type="PackedScene" uid="uid://do6luy1buwhiv" path="res://scenes/WorldScene.tscn" id="5_8tneq"]
+[ext_resource type="PackedScene" uid="uid://dkkboa0pmk8f1" path="res://scenes/mainmenu.tscn" id="2_6i36b"]
+[ext_resource type="PackedScene" path="res://scenes/playerMenu.tscn" id="3_46qyl"]
+[ext_resource type="PackedScene" path="res://scenes/LevelSelectorMenu.tscn" id="4_gcbph"]
+[ext_resource type="PackedScene" uid="uid://42il0yi2fel2" path="res://scenes/WorldScene.tscn" id="5_15ar2"]
 
 [node name="Main" type="Node3D"]
 
@@ -15,6 +15,6 @@ script = ExtResource("1_vfio7")
 mainMenu = ExtResource("2_6i36b")
 playerMenu = ExtResource("3_46qyl")
 levelSelectorMenu = ExtResource("4_gcbph")
-levels = Array[PackedScene]([ExtResource("5_8tneq")])
+levels = Array[PackedScene]([ExtResource("5_15ar2")])
 
 [node name="CameraController" type="Node3D" parent="."]

@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://bl7exwjna2nwi"]
+
+[ext_resource type="Script" path="res://scripts/MainMenu.cs" id="1_3nrlc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bl78w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kj62w"]
+bg_color = Color(0.419608, 0.596078, 0.917647, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_55jxm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rlxwq"]
+bg_color = Color(0.952941, 0.4, 0.301961, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0agtk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vfhfh"]
+bg_color = Color(0.635294, 0, 0.537255, 1)
+
+[node name="MainMenu" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+script = ExtResource("1_3nrlc")
+
+[node name="HorizontalContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MenuContainer" type="VBoxContainer" parent="HorizontalContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="HorizontalContainer/MenuContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 48
+text = "\"Insert Game Name\"
+"
+horizontal_alignment = 1
+
+[node name="Start" type="Button" parent="HorizontalContainer/MenuContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_bottom = NodePath("../Options")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bl78w")
+theme_override_styles/focus = SubResource("StyleBoxFlat_kj62w")
+keep_pressed_outside = true
+text = "Start Game"
+vertical_icon_alignment = 0
+
+[node name="Options" type="Button" parent="HorizontalContainer/MenuContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../Start")
+focus_neighbor_bottom = NodePath("../Exit")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_55jxm")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rlxwq")
+text = "Options
+"
+
+[node name="Exit" type="Button" parent="HorizontalContainer/MenuContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../Options")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0agtk")
+theme_override_styles/focus = SubResource("StyleBoxFlat_vfhfh")
+text = "Exit Game
+"
+
+[connection signal="pressed" from="HorizontalContainer/MenuContainer/Start" to="." method="onStartButtonPressed"]
+[connection signal="pressed" from="HorizontalContainer/MenuContainer/Exit" to="." method="onExitButtonPressed"]

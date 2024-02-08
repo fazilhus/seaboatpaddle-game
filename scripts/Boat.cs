@@ -48,10 +48,11 @@ public partial class Boat : RigidBody3D
     public override void _Ready()
     {
         //instantiate variables for boat physics
+        var parent = GetParent();
         gravity = (float)ProjectSettings.GetSetting("physics/3d/default_gravity");
-		water = GetNode<WaterPlane>("/root/Main/WaterPlane");
+		//water = parent.GetNode<WaterPlane>("WaterPlane");
 		probeContainer = GetNode<Node3D>("ProbeContainer").GetChildren();
-        survivors = GetNode<Survivors>("/root/Main/Survivors");
+        survivors = parent.GetNode<Survivors>("Survivors");
         
 	
 		initialY = GlobalPosition.Y;

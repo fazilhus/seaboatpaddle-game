@@ -54,6 +54,7 @@ layout_mode = 2
 
 [node name="ContinueNotice" type="Label" parent="VerticalContainer"]
 layout_mode = 2
+text = "Press start to select level"
 horizontal_alignment = 2
 
 [node name="ReturnNotice" type="Label" parent="VerticalContainer"]

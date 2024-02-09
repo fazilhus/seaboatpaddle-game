@@ -73,11 +73,19 @@ public partial class Boat : RigidBody3D
                 continue;
             }
             
+           // Grab a row, make tuple of paddles from children 
+           //assign index of row to deviceId frontROw(index 0 = deviceID)
+           //check for inputs from controller
+           // returns a tuple (leftSTick,rightStick)
+           //Angular velocity depending on which stick
+           //
             Vector3 input = GetPlayerInput(it.Index);
             //Vector3 input = _player_inputs[it.Index];
 
-            _paddles_rotation_old[it.Index] = it.Paddle.Rotation;
-            it.Paddle.Rotation = new Vector3(input.X * 0.8f, 0, input.Z * 0.5f);
+            _paddles_rotation_old[it.Index] = it.Paddle.Rotation;//Previous frame rotation
+            it.Paddle.Rotation = new Vector3(input.X * 0.8f, 0, input.Z * 0.5f); //Visual rotation
+            //row.whichpaddle(tuple.rotation
+            
             Vector3 angular_velocity = (it.Paddle.Rotation - _paddles_rotation_old[it.Index]) / (float)delta;
             Vector3 force = new Vector3(angular_velocity.Z, 0, -angular_velocity.X);
 
@@ -123,10 +131,16 @@ public partial class Boat : RigidBody3D
 
     private Vector3 GetPlayerInput(int device_id) {
         Vector3 input = Vector3.Zero;
-        switch (device_id) {
+        input.Z = Input.GetJoyAxis(device_id, JoyAxis.RightX);
+        input.X = Input.GetJoyAxis(device_id, JoyAxis.RightY);
+        
+       /* switch (device_id) {
             case 0: {
-                input.Z = Input.GetAxis("right_p1", "left_p1");
-                input.X = -Input.GetAxis("backward_p1", "forward_p1");
+                //input.Z = Input.GetAxis("right_p1", "left_p1");
+                
+                    
+                // input.X = -Input.GetAxis("backward_p1", "forward_p1");
+                
                 break;
             }
             case 1: {
@@ -134,7 +148,8 @@ public partial class Boat : RigidBody3D
                 input.X = -Input.GetAxis("backward_p2", "forward_p2");
                 break;
             }
-        }
+        }*/
+
         return input;
     }
     public void OnArea3dTriggerBoatAreaEntered(Area3D area)

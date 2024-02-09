@@ -55,26 +55,28 @@ mass = 2.0
 physics_material_override = SubResource("PhysicsMaterial_7j168")
 freeze_mode = 1
 script = ExtResource("1_rcxjk")
-paddles = [NodePath("LeftPaddlePivot"), NodePath("RightPaddlePivot")]
+paddles = [NodePath("Row/LeftPaddlePivot"), NodePath("Row/RightPaddlePivot")]
 water = NodePath("../WaterPlane")
 survivors = NodePath("../Survivors")
 
-[node name="LeftPaddlePivot" type="Node3D" parent="Boat"]
+[node name="Row" type="Node3D" parent="Boat"]
+
+[node name="LeftPaddlePivot" type="Node3D" parent="Boat/Row"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0.75, 0)
 
-[node name="ForcePoint" type="Node3D" parent="Boat/LeftPaddlePivot"]
+[node name="ForcePoint" type="Node3D" parent="Boat/Row/LeftPaddlePivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, -1, 0)
 
-[node name="paddle" parent="Boat/LeftPaddlePivot" instance=ExtResource("2_ctqvj")]
+[node name="paddle" parent="Boat/Row/LeftPaddlePivot" instance=ExtResource("2_ctqvj")]
 transform = Transform3D(0.306418, -0.257115, 0, 0.257115, 0.306418, 0, 0, 0, 0.4, 0.55, -0.5, 0)
 
-[node name="RightPaddlePivot" type="Node3D" parent="Boat"]
+[node name="RightPaddlePivot" type="Node3D" parent="Boat/Row"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0.75, 0)
 
-[node name="ForcePoint" type="Node3D" parent="Boat/RightPaddlePivot"]
+[node name="ForcePoint" type="Node3D" parent="Boat/Row/RightPaddlePivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, -1, 0)
 
-[node name="paddle" parent="Boat/RightPaddlePivot" instance=ExtResource("2_ctqvj")]
+[node name="paddle" parent="Boat/Row/RightPaddlePivot" instance=ExtResource("2_ctqvj")]
 transform = Transform3D(0.306418, 0.257115, 0, -0.257115, 0.306418, 0, 0, 0, 0.4, -0.55, -0.5, 0)
 
 [node name="Pivot" type="Node3D" parent="Boat"]

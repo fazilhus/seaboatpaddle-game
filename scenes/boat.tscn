@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://bro3rrf66ro1h"]
+
+[ext_resource type="Script" path="res://scripts/Boat.cs" id="1_tk55w"]
+[ext_resource type="PackedScene" uid="uid://catt7cfnf4pd1" path="res://CustonAssets/paddle.glb" id="2_32au7"]
+[ext_resource type="ArrayMesh" uid="uid://b7odym8k47kgf" path="res://KennyWaterCraft/Models/watercraftPack_029.obj" id="3_6y5mw"]
+[ext_resource type="Material" uid="uid://dm8p44anq2ejj" path="res://Shades/AntiWaterMask.tres" id="4_2xej0"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7j168"]
+friction = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nbbgg"]
+size = Vector3(1.4668, 0.621826, 2.27103)
+
+[node name="Boat" type="RigidBody3D" node_paths=PackedStringArray("paddles")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_mask = 3
+mass = 2.0
+physics_material_override = SubResource("PhysicsMaterial_7j168")
+freeze_mode = 1
+script = ExtResource("1_tk55w")
+paddles = [null, null]
+forward_force_ratio = 30.0
+
+[node name="LeftPaddlePivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0.75, 0)
+
+[node name="ForcePoint" type="Node3D" parent="LeftPaddlePivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, -1, 0)
+
+[node name="paddle" parent="LeftPaddlePivot" instance=ExtResource("2_32au7")]
+transform = Transform3D(0.306418, -0.257115, 0, 0.257115, 0.306418, 0, 0, 0, 0.4, 0.55, -0.5, 0)
+
+[node name="RightPaddlePivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0.75, 0)
+
+[node name="ForcePoint" type="Node3D" parent="RightPaddlePivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, -1, 0)
+
+[node name="paddle" parent="RightPaddlePivot" instance=ExtResource("2_32au7")]
+transform = Transform3D(0.306418, 0.257115, 0, -0.257115, 0.306418, 0, 0, 0, 0.4, -0.55, -0.5, 0)
+
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.724065, 0.396974)
+
+[node name="WoodenBoatMesh" type="MeshInstance3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1.2, 0, 0, 0, 1, 0, -0.940339, 0)
+mesh = ExtResource("3_6y5mw")
+skeleton = NodePath("../../..")
+
+[node name="AntiWaterMask" type="MeshInstance3D" parent="Pivot"]
+transform = Transform3D(0.93904, 0, 0, 0, 0.725238, 0, 0, 0, 0.968084, -0.0111108, -0.601063, -0.016066)
+material_override = ExtResource("4_2xej0")
+mesh = ExtResource("3_6y5mw")
+
+[node name="BoatCollsionBoxWaterShader" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000976566, 0.116021, -0.292709)
+shape = SubResource("BoxShape3D_nbbgg")
+
+[node name="ProbeContainer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.006, 0.306042, 0.552789)
+
+[node name="Probe" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.622535, -0.511684, 0)
+
+[node name="Probe2" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.662439, -0.463084, 0)
+
+[node name="Probe3" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.661823, -0.446799, -1.83745)
+
+[node name="Probe4" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.661134, -0.439855, -1.83745)
+
+[node name="Probe5" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.661823, -0.446799, -0.812198)
+
+[node name="Probe6" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.661134, -0.439855, -0.812198)

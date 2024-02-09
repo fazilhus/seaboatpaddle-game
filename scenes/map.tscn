@@ -1,9 +1,10 @@
-[gd_scene load_steps=78 format=3 uid="uid://bdohepiggfmms"]
+[gd_scene load_steps=119 format=3 uid="uid://bdohepiggfmms"]
 
 [ext_resource type="ArrayMesh" uid="uid://baig6pl5q2d8i" path="res://art/palm_detailed_long.obj" id="2_hu2xk"]
 [ext_resource type="ArrayMesh" uid="uid://1die41imyn83" path="res://art/formation_rock.obj" id="2_ulpyk"]
 [ext_resource type="ArrayMesh" uid="uid://d2mywo6xom1p0" path="res://art/palm_detailed_short.obj" id="3_6jyh4"]
 [ext_resource type="ArrayMesh" uid="uid://b0h7flq7emf5q" path="res://art/formationLarge_rock.obj" id="3_gj7vg"]
+[ext_resource type="ArrayMesh" uid="uid://bio6g1t46vk1f" path="res://art/ship_light.obj" id="5_fmdl5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4fjnr"]
 albedo_color = Color(0.74902, 0.67451, 0.447059, 1)
@@ -241,6 +242,123 @@ albedo_color = Color(0.490196, 0.678431, 0.231373, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vlu6t"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pxtl2"]
+albedo_color = Color(0.329412, 0.203922, 0.0431373, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rrkb2"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2cxm0"]
+albedo_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ixt6v"]
+albedo_color = Color(0.937255, 0.623529, 0.0588235, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6bwnu"]
+albedo_color = Color(0.172549, 0.356863, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ty7c"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1vhc2"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vkdjc"]
+albedo_color = Color(0.615686, 0.4, 0.121569, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gv73b"]
+albedo_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_puayc"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nbae6"]
+albedo_color = Color(0.615686, 0.4, 0.121569, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ufyax"]
+albedo_color = Color(0.00392157, 0.00392157, 0.00392157, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sgc03"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ka1b1"]
+albedo_color = Color(0.4, 0.384314, 0.360784, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5sy3"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rw72i"]
+albedo_color = Color(0.4, 0.384314, 0.360784, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j6000"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qp7mb"]
+albedo_color = Color(0.4, 0.384314, 0.360784, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vaoou"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bdmeg"]
+albedo_color = Color(0.4, 0.384314, 0.360784, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n06y5"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_spew8"]
+albedo_color = Color(0.615686, 0.4, 0.121569, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ajsr"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6sybd"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rp5m3"]
+albedo_color = Color(0.4, 0.384314, 0.360784, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u08r6"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ykeey"]
+albedo_color = Color(0.4, 0.384314, 0.360784, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3iad8"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n08j3"]
+albedo_color = Color(0.4, 0.384314, 0.360784, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a6kwm"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kerip"]
+albedo_color = Color(0.4, 0.384314, 0.360784, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m3any"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iiqi7"]
+albedo_color = Color(0.615686, 0.4, 0.121569, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ksqgf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d112e"]
+albedo_color = Color(0.615686, 0.4, 0.121569, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ovvar"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ycqu"]
+albedo_color = Color(0.615686, 0.4, 0.121569, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tsqvi"]
+albedo_color = Color(0.615686, 0.4, 0.121569, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xip3m"]
+albedo_color = Color(0.317647, 0.196078, 0.0431373, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3l27m"]
+points = PackedVector3Array(-0.00279045, -1.80478e-15, -19.1769, -0.00279045, 4.78638, -31.5737, 2.84294, -1.80478e-15, -17.6075, -2.84573, -1.80478e-15, -17.6075, 4.73731, 4.78638, -28.9501, -4.7401, 4.78638, -28.9501, -0.901149, 15.3651, -48.4965, 0.898358, 15.3651, -48.4965, 10.8277, 4.78638, -19.2879, 6.49776, -1.80478e-15, -11.8054, -10.8333, 4.78638, -19.2879, -6.50055, -1.80478e-15, -11.8054, 6.2355, 11.1746, -36.5673, 14.251, 11.1746, -23.8534, -6.23829, 11.1746, -36.5673, -0.901149, 16.5121, -48.4965, -14.251, 11.1746, -23.8534, -13.5395, 16.5121, -26.8813, -13.5395, 39.0599, -26.8972, 0.898358, 16.5121, -48.4965, 13.5368, 39.0599, -26.8972, 13.5368, 16.5121, -26.8813, 10.8277, 4.78638, 21.6042, 6.49776, -1.80478e-15, 21.6042, -10.8333, 4.78638, 21.6042, -6.50055, -1.80478e-15, 21.6042, 13.5368, 39.5341, -26.8972, 13.5368, 40.0082, -26.4216, 13.5368, 60.0636, 24.7747, 14.251, 11.1746, 27.9929, -13.5395, 39.5341, -26.8972, -0.111598, 44.6408, -25.7637, -0.00279045, 44.6408, -25.7796, -13.5395, 40.0082, -26.4216, -14.251, 11.1746, 27.9929, -13.5395, 60.0636, 24.7747, 0.108808, 44.6408, -25.7637, 0.0809078, 59.205, -8.81715, 0.159026, 59.205, -8.78544, 0.225985, 59.205, -8.72996, 0.276203, 59.205, -8.66655, 0.365481, 65.4587, 25.2583, 0.41012, 65.4587, 25.3613, 0.424069, 65.4587, 25.4643, 13.5368, 60.0636, 25.282, 13.5368, 30.3778, 31.9877, 13.5368, 23.1438, 31.9877, -0.0836983, 59.205, -8.81715, -0.00279045, 59.205, -8.82507, -0.281783, 59.205, -8.66655, -0.228775, 59.205, -8.72996, -0.161817, 59.205, -8.78544, -12.7416, 23.1438, 31.9877, -13.5395, 23.1438, 31.1951, -13.5395, 30.3778, 31.1951, -13.5395, 60.0636, 25.282, -0.42686, 65.4587, 25.4643, -0.41291, 65.4587, 25.3613, -0.368272, 65.4587, 25.2583, -0.00279045, 65.4587, 25.0443, 0.108808, 65.4587, 25.0601, 0.212035, 65.4587, 25.0997, 0.298523, 65.4587, 25.1711, 0.41012, 65.4587, 25.5753, 0.136706, 65.0038, 32.0987, 0.100437, 65.0038, 32.2335, 0.0530081, 65.0038, 32.3603, 0, 65.0038, 32.4792, 0, 61.1145, 32.4792, -0.214825, 65.4587, 25.0997, -0.111598, 65.4587, 25.0601, -0.301313, 65.4587, 25.1711, -12.7416, 30.3778, 31.9877, -0.41291, 65.4587, 25.5753, 0.365481, 65.4587, 25.6784, -0.00279045, 65.4587, 25.8924, -0.111598, 65.4587, 25.8765, -0.214825, 65.4587, 25.8369, -0.301313, 65.4587, 25.7655, -0.368272, 65.4587, 25.6784, 0.298523, 65.4587, 25.7655, 0.212035, 65.4587, 25.8369, 0.108808, 65.4587, 25.8765)
+
 [node name="Map" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
@@ -372,97 +490,97 @@ skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_m6u0f")
 surface_material_override/1 = SubResource("StandardMaterial3D_odw5v")
 
-[node name="PalmA1" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
+[node name="PalmA2" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -23.1733, 2.99254, -3.08046)
 mesh = ExtResource("2_hu2xk")
 surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
 surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
 
-[node name="PalmB1" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
+[node name="PalmB2" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
 transform = Transform3D(0.33, 0, -1.49012e-08, 0, 0.33, 0, 1.49012e-08, 0, 0.33, -28.3958, 1.0262, -2.00629)
 mesh = ExtResource("2_hu2xk")
 surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
 surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
 
-[node name="PalmC1" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
+[node name="PalmC2" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
 transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, -8.55888, 3.8783, 13.7788)
 mesh = ExtResource("2_hu2xk")
 surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
 surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
 
-[node name="PalmD1" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
+[node name="PalmD2" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
 transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, -40.4142, 5.95447, 0.711243)
 mesh = ExtResource("2_hu2xk")
 surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
 surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
 
-[node name="PalmE1" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
+[node name="PalmE2" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
 transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, -36.7024, 1.68694, 8.70087)
 mesh = ExtResource("3_6jyh4")
 surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
 surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
 
-[node name="PalmF1" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
+[node name="PalmF2" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
 transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, -32.0274, 7.70086, 16.5978)
 mesh = ExtResource("3_6jyh4")
 surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
 surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
 
-[node name="PalmG1" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
+[node name="PalmG2" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
 transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, -29.9406, 7.94839, 7.38052)
 mesh = ExtResource("3_6jyh4")
 surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
 surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
 
-[node name="PalmH1" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
+[node name="PalmH2" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
 transform = Transform3D(0.27, 0, -2.98023e-08, 0, 0.27, 0, 2.98023e-08, 0, 0.27, -29.6647, 6.70989, 15.2009)
 mesh = ExtResource("3_6jyh4")
 surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
 surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
 
-[node name="PalmI1" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
+[node name="PalmI2" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
 transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, -10.4229, 3.66539, 19.1311)
 mesh = ExtResource("3_6jyh4")
 surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
 surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
 
-[node name="PalmJ1" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
+[node name="PalmJ2" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
 transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, -11.2902, 3.46178, 21.749)
 mesh = ExtResource("3_6jyh4")
 surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
 surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
 
-[node name="PalmK1" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
+[node name="PalmK2" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
 transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, -13.3844, 2.73745, 23.0465)
 mesh = ExtResource("3_6jyh4")
 surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
 surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
 
-[node name="PalmL1" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
+[node name="PalmL2" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
 transform = Transform3D(0.27, 0, -2.98023e-08, 0, 0.27, 0, 2.98023e-08, 0, 0.27, -29.2358, 3.37523, 21.6367)
 mesh = ExtResource("3_6jyh4")
 surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
 surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
 
-[node name="PalmM1" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
+[node name="PalmM2" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -23.981, 10.1795, 11.6945)
 mesh = ExtResource("2_hu2xk")
 surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
 surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
 
-[node name="PalmN1" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
+[node name="PalmN2" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
 transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, -21.3245, 10.3273, 11.8643)
 mesh = ExtResource("2_hu2xk")
 surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
 surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
 
-[node name="PalmO1" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
+[node name="PalmO2" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
 transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, -15.7273, 7.83626, 10.6577)
 mesh = ExtResource("2_hu2xk")
 surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
 surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
 
-[node name="PalmP1" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
+[node name="PalmP2" type="MeshInstance3D" parent="StaticBody3D2/Pivot2"]
 transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, -25.5334, 7.59604, 4.6843)
 mesh = ExtResource("2_hu2xk")
 surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
@@ -663,11 +781,107 @@ transform = Transform3D(-0.799685, 0, 0.60042, 0, 1, 0, -0.60042, 0, -0.799685, 
 
 [node name="Pivot5" type="Node3D" parent="StaticBody3D5"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D5/Pivot5"]
+[node name="Island3" type="MeshInstance3D" parent="StaticBody3D5/Pivot5"]
 transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0, 0)
 mesh = ExtResource("3_gj7vg")
 surface_material_override/0 = SubResource("StandardMaterial3D_b62pp")
 surface_material_override/1 = SubResource("StandardMaterial3D_2qosh")
+
+[node name="PalmA1" type="MeshInstance3D" parent="StaticBody3D5/Pivot5"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -5.95701, -0.0588555, 17.7833)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="PalmB1" type="MeshInstance3D" parent="StaticBody3D5/Pivot5"]
+transform = Transform3D(0.33, 0, -4.47035e-08, 0, 0.33, 0, 4.47035e-08, 0, 0.33, -9.19177, 1.84801, 21.4833)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="PalmC1" type="MeshInstance3D" parent="StaticBody3D5/Pivot5"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, -5.78502, 1.04904, 25.7207)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="PalmD1" type="MeshInstance3D" parent="StaticBody3D5/Pivot5"]
+transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, -28.9889, 5.5885, 16.7916)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="PalmE1" type="MeshInstance3D" parent="StaticBody3D5/Pivot5"]
+transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, -21.5413, 6.50802, 18.9847)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmF1" type="MeshInstance3D" parent="StaticBody3D5/Pivot5"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, -4.5788, 1.11147, 25.1848)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmG1" type="MeshInstance3D" parent="StaticBody3D5/Pivot5"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, -29.7753, 2.87605, 22.0443)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="PalmH1" type="MeshInstance3D" parent="StaticBody3D5/Pivot5"]
+transform = Transform3D(0.27, 0, -1.49012e-08, 0, 0.27, 0, 1.49012e-08, 0, 0.27, -9.88481, 4.03243, 10.9918)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="PalmI1" type="MeshInstance3D" parent="StaticBody3D5/Pivot5"]
+transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, -15.6907, 8.51137, 12.305)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmJ1" type="MeshInstance3D" parent="StaticBody3D5/Pivot5"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, -23.1573, 12.6806, 16.5007)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmK1" type="MeshInstance3D" parent="StaticBody3D5/Pivot5"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, -23.0009, 13.2244, 10.0144)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="PalmL1" type="MeshInstance3D" parent="StaticBody3D5/Pivot5"]
+transform = Transform3D(0.27, 0, -1.49012e-08, 0, 0.27, 0, 1.49012e-08, 0, 0.27, -20.7494, 13.5622, 7.69779)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="PalmM1" type="MeshInstance3D" parent="StaticBody3D5/Pivot5"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -9.52332, 0.914718, 28.6291)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="PalmN1" type="MeshInstance3D" parent="StaticBody3D5/Pivot5"]
+transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, -20.6161, 6.37519, 24.4083)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="PalmO1" type="MeshInstance3D" parent="StaticBody3D5/Pivot5"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, -16.3607, 4.99748, 23.245)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="PalmP1" type="MeshInstance3D" parent="StaticBody3D5/Pivot5"]
+transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, -18.9786, 7.40056, 9.46605)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
 
 [node name="CollisionIsland5" type="CollisionShape3D" parent="StaticBody3D5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4288, 0, 18.9609)
@@ -677,12 +891,109 @@ shape = SubResource("BoxShape3D_aiu01")
 transform = Transform3D(0.226651, 0, -0.973976, 0, 1, 0, 0.973976, 0, 0.226651, 97.1164, 0, -17.9702)
 
 [node name="Pivot6" type="Node3D" parent="StaticBody3D6"]
+transform = Transform3D(1, 0, -4.47035e-08, 0, 1, 0, 4.47035e-08, 0, 1, 0, 0, 0)
 
 [node name="Island6" type="MeshInstance3D" parent="StaticBody3D6/Pivot6"]
 transform = Transform3D(2.5, 0, 0, 0, 1, 0, 0, 0, 2.8, 1.69936, 0, -0.957947)
 mesh = ExtResource("2_ulpyk")
 surface_material_override/0 = SubResource("StandardMaterial3D_n4e04")
 surface_material_override/1 = SubResource("StandardMaterial3D_ea4ra")
+
+[node name="PalmA1" type="MeshInstance3D" parent="StaticBody3D6/Pivot6"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -7.15344, 3.86327, 19.7144)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="PalmB1" type="MeshInstance3D" parent="StaticBody3D6/Pivot6"]
+transform = Transform3D(0.33, 0, -2.98023e-08, 0, 0.33, 0, 2.98023e-08, 0, 0.33, -4.2159, 2.48205, 17.1393)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="PalmC1" type="MeshInstance3D" parent="StaticBody3D6/Pivot6"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, -13.3941, 8.12893, 17.0859)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="PalmD1" type="MeshInstance3D" parent="StaticBody3D6/Pivot6"]
+transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, -13.6346, 7.15446, 15.7004)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="PalmE1" type="MeshInstance3D" parent="StaticBody3D6/Pivot6"]
+transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, -17.1799, 4.90367, 4.44249)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmF1" type="MeshInstance3D" parent="StaticBody3D6/Pivot6"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, -8.68207, 7.50032, 12.6693)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmG1" type="MeshInstance3D" parent="StaticBody3D6/Pivot6"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, -1.69321, 6.24973, 12.4226)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="PalmH1" type="MeshInstance3D" parent="StaticBody3D6/Pivot6"]
+transform = Transform3D(0.27, 0, -1.11759e-08, 0, 0.27, 0, 1.11759e-08, 0, 0.27, -4.5482, 2.37221, 3.73875)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="PalmI1" type="MeshInstance3D" parent="StaticBody3D6/Pivot6"]
+transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, -8.89618, 8.17408, 4.41384)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmJ1" type="MeshInstance3D" parent="StaticBody3D6/Pivot6"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, -16.7967, 4.93912, 7.33327)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmK1" type="MeshInstance3D" parent="StaticBody3D6/Pivot6"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, -15.5372, 2.12899, 1.87508)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="PalmL1" type="MeshInstance3D" parent="StaticBody3D6/Pivot6"]
+transform = Transform3D(0.27, 0, -1.11759e-08, 0, 0.27, 0, 1.11759e-08, 0, 0.27, -19.4086, 2.39327, 8.03643)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="PalmM1" type="MeshInstance3D" parent="StaticBody3D6/Pivot6"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -12.7969, 9.55805, 9.98649)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="PalmN1" type="MeshInstance3D" parent="StaticBody3D6/Pivot6"]
+transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, -10.4072, 10.3273, 8.70655)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="PalmO1" type="MeshInstance3D" parent="StaticBody3D6/Pivot6"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, -15.6152, 8.26482, 12.1938)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="PalmP1" type="MeshInstance3D" parent="StaticBody3D6/Pivot6"]
+transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, -18.7751, 3.36599, 19.6606)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
 
 [node name="CollisionIsland6" type="CollisionShape3D" parent="StaticBody3D6"]
 transform = Transform3D(1, 0, -4.47035e-08, 0, 1, 0, 4.47035e-08, 0, 1, -11.4661, 0, 14.0567)
@@ -706,6 +1017,102 @@ skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_uqgis")
 surface_material_override/1 = SubResource("StandardMaterial3D_trjhu")
 
+[node name="PalmA1" type="MeshInstance3D" parent="StaticBody3D7/Pivot7"]
+transform = Transform3D(0.3, 0, 1.49012e-08, 0, 0.3, 0, -1.49012e-08, 0, 0.3, -7.7865, -0.0790677, 22.4279)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="PalmB1" type="MeshInstance3D" parent="StaticBody3D7/Pivot7"]
+transform = Transform3D(0.33, 0, -2.98023e-08, 0, 0.33, 0, 2.98023e-08, 0, 0.33, -8.47359, 1.70966, 18.6486)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="PalmC1" type="MeshInstance3D" parent="StaticBody3D7/Pivot7"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, -10.658, 2.86843, 24.1291)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="PalmD1" type="MeshInstance3D" parent="StaticBody3D7/Pivot7"]
+transform = Transform3D(0.086734, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.086734, -16.6882, 1.87562, 23.0558)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="PalmE1" type="MeshInstance3D" parent="StaticBody3D7/Pivot7"]
+transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, -16.2585, 3.09836, 21.2982)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmF1" type="MeshInstance3D" parent="StaticBody3D7/Pivot7"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, -21.3236, 4.69095, 26.3688)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmG1" type="MeshInstance3D" parent="StaticBody3D7/Pivot7"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, -21.2823, 3.15948, 23.4115)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="PalmH1" type="MeshInstance3D" parent="StaticBody3D7/Pivot7"]
+transform = Transform3D(0.27, 0, -3.72529e-09, 0, 0.27, 0, 3.72529e-09, 0, 0.27, -22.3227, 7.66655, 17.3375)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="PalmI1" type="MeshInstance3D" parent="StaticBody3D7/Pivot7"]
+transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, -14.5844, 8.17408, 17.7782)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmJ1" type="MeshInstance3D" parent="StaticBody3D7/Pivot7"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, -13.0579, 6.51074, 18.1256)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmK1" type="MeshInstance3D" parent="StaticBody3D7/Pivot7"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, -12.1019, 7.35464, 13.3)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="PalmL1" type="MeshInstance3D" parent="StaticBody3D7/Pivot7"]
+transform = Transform3D(0.27, 0, -3.72529e-09, 0, 0.27, 0, 3.72529e-09, 0, 0.27, -10.9937, 4.16792, 6.79143)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="PalmM1" type="MeshInstance3D" parent="StaticBody3D7/Pivot7"]
+transform = Transform3D(0.3, 0, 2.23517e-08, 0, 0.3, 0, -2.23517e-08, 0, 0.3, -14.634, 4.41016, 7.13704)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="PalmN1" type="MeshInstance3D" parent="StaticBody3D7/Pivot7"]
+transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, -24.414, 1.99073, 11.1504)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="PalmO1" type="MeshInstance3D" parent="StaticBody3D7/Pivot7"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, -19.225, 7.11073, 14.9477)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="PalmP1" type="MeshInstance3D" parent="StaticBody3D7/Pivot7"]
+transform = Transform3D(0.086734, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.086734, -20.9534, 10.7898, 16.2629)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
 [node name="CollisionIsland7" type="CollisionShape3D" parent="StaticBody3D7"]
 transform = Transform3D(1, 0, -4.47035e-08, 0, 1, 0, 4.47035e-08, 0, 1, -17.7323, 5.81976, 15.6991)
 shape = SubResource("BoxShape3D_s4om7")
@@ -721,6 +1128,102 @@ mesh = ExtResource("3_gj7vg")
 surface_material_override/0 = SubResource("StandardMaterial3D_ppnwd")
 surface_material_override/1 = SubResource("StandardMaterial3D_xndyi")
 
+[node name="PalmA1" type="MeshInstance3D" parent="StaticBody3D8/Pivot8"]
+transform = Transform3D(0.3, 0, 2.23517e-08, 0, 0.3, 0, -2.23517e-08, 0, 0.3, -4.80144, 0, 10.4027)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="PalmB1" type="MeshInstance3D" parent="StaticBody3D8/Pivot8"]
+transform = Transform3D(0.330001, 0, -7.45058e-09, 0, 0.33, 0, 7.45058e-09, 0, 0.330001, -7.89502, 1.82264, 12.1024)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="PalmC1" type="MeshInstance3D" parent="StaticBody3D8/Pivot8"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, -29.4456, 3.03266, 13.8829)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="PalmD1" type="MeshInstance3D" parent="StaticBody3D8/Pivot8"]
+transform = Transform3D(0.086734, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.086734, -28.188, 5.40875, 9.72056)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="PalmE1" type="MeshInstance3D" parent="StaticBody3D8/Pivot8"]
+transform = Transform3D(0.33, 0, -7.45058e-08, 0, 0.33, 0, 7.45058e-08, 0, 0.33, -22.0129, 6.31834, 11.1154)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmF1" type="MeshInstance3D" parent="StaticBody3D8/Pivot8"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, -18.6487, 6.51074, 16.3681)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmG1" type="MeshInstance3D" parent="StaticBody3D8/Pivot8"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, -13.0722, 6.5971, 12.4162)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="PalmH1" type="MeshInstance3D" parent="StaticBody3D8/Pivot8"]
+transform = Transform3D(0.27, 0, 2.23517e-08, 0, 0.27, 0, -2.23517e-08, 0, 0.27, -10.7249, 0.992487, 18.0542)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="PalmI1" type="MeshInstance3D" parent="StaticBody3D8/Pivot8"]
+transform = Transform3D(0.33, 0, -7.45058e-08, 0, 0.33, 0, 7.45058e-08, 0, 0.33, -15.7302, 9.21723, 5.64877)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmJ1" type="MeshInstance3D" parent="StaticBody3D8/Pivot8"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, -16.033, 9.16618, 8.32589)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmK1" type="MeshInstance3D" parent="StaticBody3D8/Pivot8"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, -20.7137, 13.6031, 6.01627)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="PalmL1" type="MeshInstance3D" parent="StaticBody3D8/Pivot8"]
+transform = Transform3D(0.27, 0, 2.23517e-08, 0, 0.27, 0, -2.23517e-08, 0, 0.27, -19.0128, 12.859, 2.18784)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="PalmM1" type="MeshInstance3D" parent="StaticBody3D8/Pivot8"]
+transform = Transform3D(0.3, 0, 7.45058e-09, 0, 0.3, 0, -7.45058e-09, 0, 0.3, -23.6635, 11.6908, 3.89838)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="PalmN1" type="MeshInstance3D" parent="StaticBody3D8/Pivot8"]
+transform = Transform3D(0.33, 0, -7.45058e-08, 0, 0.33, 0, 7.45058e-08, 0, 0.33, -6.8924, 4.18016, 5.02894)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="PalmO1" type="MeshInstance3D" parent="StaticBody3D8/Pivot8"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, -8.94685, 3.48147, 10.3813)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="PalmP1" type="MeshInstance3D" parent="StaticBody3D8/Pivot8"]
+transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, -22.1892, 5.43598, 14.4152)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
 [node name="CollisionIsland8" type="CollisionShape3D" parent="StaticBody3D8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3936, 8.05316, 11.7599)
 shape = SubResource("BoxShape3D_6x2pq")
@@ -730,11 +1233,41 @@ transform = Transform3D(-0.313379, 0, -0.949628, 0, 1, 0, 0.949628, 0, -0.313379
 
 [node name="Pivot9" type="Node3D" parent="StaticBody3D9"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D9/Pivot9"]
+[node name="Island9" type="MeshInstance3D" parent="StaticBody3D9/Pivot9"]
 transform = Transform3D(-1.19386, 0, 0.151584, 0, 1, 0, -0.121267, 0, -1.49232, -30.1137, 0, 10.3992)
 mesh = ExtResource("3_gj7vg")
 surface_material_override/0 = SubResource("StandardMaterial3D_posen")
 surface_material_override/1 = SubResource("StandardMaterial3D_j2xcq")
+
+[node name="PalmA1" type="MeshInstance3D" parent="StaticBody3D9/Pivot9"]
+transform = Transform3D(0.3, 0, 7.45058e-09, 0, 0.3, 0, -7.45058e-09, 0, 0.3, -23.8811, 0, 1.12578)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="PalmB1" type="MeshInstance3D" parent="StaticBody3D9/Pivot9"]
+transform = Transform3D(0.33, 0, -1.49012e-08, 0, 0.33, 0, 1.49012e-08, 0, 0.33, -21.2362, 0.98547, -2.77617)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="PalmC1" type="MeshInstance3D" parent="StaticBody3D9/Pivot9"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, -18.5904, 3.8783, 3.18147)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="PalmD1" type="MeshInstance3D" parent="StaticBody3D9/Pivot9"]
+transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, -19.9623, 5.43598, -0.409782)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="PalmE1" type="MeshInstance3D" parent="StaticBody3D9/Pivot9"]
+transform = Transform3D(0.33, 0, -7.45058e-08, 0, 0.33, 0, 7.45058e-08, 0, 0.33, -19.9153, 9.03139, 3.78569)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
 
 [node name="CollisionIsland9" type="CollisionShape3D" parent="StaticBody3D9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4381, 3.1474, 4.62587)
@@ -758,6 +1291,102 @@ skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_eowqk")
 surface_material_override/1 = SubResource("StandardMaterial3D_xhyvv")
 
+[node name="PalmA1" type="MeshInstance3D" parent="StaticBody3D10/Pivot10"]
+transform = Transform3D(0.3, 0, 7.45058e-09, 0, 0.3, 0, -7.45058e-09, 0, 0.3, 23.6157, 2.37706, -27.2383)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="PalmB1" type="MeshInstance3D" parent="StaticBody3D10/Pivot10"]
+transform = Transform3D(0.33, 0, -2.23517e-08, 0, 0.33, 0, 2.23517e-08, 0, 0.33, 26.2202, 4.67018, -11.8883)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="PalmC1" type="MeshInstance3D" parent="StaticBody3D10/Pivot10"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, 26.6764, 7.361, -14.6029)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="PalmD1" type="MeshInstance3D" parent="StaticBody3D10/Pivot10"]
+transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, 20.439, 8.14989, -20.4112)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="PalmE1" type="MeshInstance3D" parent="StaticBody3D10/Pivot10"]
+transform = Transform3D(0.33, 0, -6.70552e-08, 0, 0.33, 0, 6.70552e-08, 0, 0.33, 21.7175, 8.44907, -22.2397)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmF1" type="MeshInstance3D" parent="StaticBody3D10/Pivot10"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, 13.8315, 4.31664, -23.2444)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmG1" type="MeshInstance3D" parent="StaticBody3D10/Pivot10"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, 12.7765, 4.26394, -23.2702)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="PalmH1" type="MeshInstance3D" parent="StaticBody3D10/Pivot10"]
+transform = Transform3D(0.27, 0, 2.23517e-08, 0, 0.27, 0, -2.23517e-08, 0, 0.27, 2.02458, 0.340409, -23.2493)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="PalmI1" type="MeshInstance3D" parent="StaticBody3D10/Pivot10"]
+transform = Transform3D(0.33, 0, -6.70552e-08, 0, 0.33, 0, 6.70552e-08, 0, 0.33, 0.806519, 0.233193, -21.1611)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmJ1" type="MeshInstance3D" parent="StaticBody3D10/Pivot10"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, 4.0995, 4.04085, -15.6384)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmK1" type="MeshInstance3D" parent="StaticBody3D10/Pivot10"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, 4.53627, 3.92414, -13.9146)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="PalmL1" type="MeshInstance3D" parent="StaticBody3D10/Pivot10"]
+transform = Transform3D(0.27, 0, 2.23517e-08, 0, 0.27, 0, -2.23517e-08, 0, 0.27, 9.56335, 7.08769, -14.6702)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="PalmM1" type="MeshInstance3D" parent="StaticBody3D10/Pivot10"]
+transform = Transform3D(0.3, 0, 7.45058e-09, 0, 0.3, 0, -7.45058e-09, 0, 0.3, 14.3032, 8.23159, -16.9602)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="PalmN1" type="MeshInstance3D" parent="StaticBody3D10/Pivot10"]
+transform = Transform3D(0.33, 0, -6.70552e-08, 0, 0.33, 0, 6.70552e-08, 0, 0.33, 20.4607, 10.3273, -16.4005)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="PalmO1" type="MeshInstance3D" parent="StaticBody3D10/Pivot10"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, 12.7329, 3.34997, -6.70618)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="PalmP1" type="MeshInstance3D" parent="StaticBody3D10/Pivot10"]
+transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, 4.10629, 3.75361, -9.16616)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
 [node name="CollisionIsland10" type="CollisionShape3D" parent="StaticBody3D10"]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 14.8164, 5.85994, -16.4689)
 shape = SubResource("BoxShape3D_80lp3")
@@ -772,6 +1401,66 @@ transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0.509087, 0, -1.27921)
 mesh = ExtResource("3_gj7vg")
 surface_material_override/0 = SubResource("StandardMaterial3D_hl611")
 surface_material_override/1 = SubResource("StandardMaterial3D_80r5q")
+
+[node name="Island3" type="MeshInstance3D" parent="StaticBody3D11/Pivot11"]
+transform = Transform3D(1.90574, 0, -0.606769, 0, 1, 0, 0.606769, 0, 1.90574, 4.06818, 0, 3.8648)
+mesh = SubResource("ArrayMesh_htkpc")
+surface_material_override/0 = SubResource("StandardMaterial3D_a7555")
+surface_material_override/1 = SubResource("StandardMaterial3D_0eqtf")
+
+[node name="PalmA3" type="MeshInstance3D" parent="StaticBody3D11/Pivot11"]
+transform = Transform3D(0.3, 0, 1.49012e-08, 0, 0.3, 0, -1.49012e-08, 0, 0.3, -5.74861, -0.28344, 13.0261)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="PalmB3" type="MeshInstance3D" parent="StaticBody3D11/Pivot11"]
+transform = Transform3D(0.33, 0, -2.98023e-08, 0, 0.33, 0, 2.98023e-08, 0, 0.33, -2.50847, 0.98547, 10.0788)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="PalmC3" type="MeshInstance3D" parent="StaticBody3D11/Pivot11"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, -12.5747, 3.8783, 11.7997)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="PalmD3" type="MeshInstance3D" parent="StaticBody3D11/Pivot11"]
+transform = Transform3D(0.086734, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.086734, -13.0764, 5.43598, 9.20004)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="PalmE3" type="MeshInstance3D" parent="StaticBody3D11/Pivot11"]
+transform = Transform3D(0.33, 0, -2.98023e-08, 0, 0.33, 0, 2.98023e-08, 0, 0.33, -17.6889, 2.14582, 4.74107)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmF3" type="MeshInstance3D" parent="StaticBody3D11/Pivot11"]
+transform = Transform3D(-0.118784, 0, -0.242468, 0, 0.27, 0, 0.242468, 0, -0.118784, -14.4991, 11.8407, 5.99355)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmG3" type="MeshInstance3D" parent="StaticBody3D11/Pivot11"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, -9.37698, 12.5429, 3.22663)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="PalmH3" type="MeshInstance3D" parent="StaticBody3D11/Pivot11"]
+transform = Transform3D(0.27, 0, 1.49012e-08, 0, 0.27, 0, -1.49012e-08, 0, 0.27, -6.80389, 8.66858, 4.38597)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="PalmI3" type="MeshInstance3D" parent="StaticBody3D11/Pivot11"]
+transform = Transform3D(0.33, 0, -2.98023e-08, 0, 0.33, 0, 2.98023e-08, 0, 0.33, -13.5473, 6.23713, 5.71387)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D11"]
 shape = SubResource("BoxShape3D_ka0y2")
@@ -808,6 +1497,198 @@ skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_eijol")
 surface_material_override/1 = SubResource("StandardMaterial3D_nspii")
 
+[node name="PalmA12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 19.3146, 0, -6.84087)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="PalmB12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(0.33, 0, -1.04308e-07, 0, 0.33, 0, 1.04308e-07, 0, 0.33, 16.6734, 0.98547, -6.34918)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="PalmC12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, 13.9139, 5.99508, -3.11485)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="PalmD12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, 6.17292, 5.43598, -6.49548)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="PalmE12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(0.33, 0, -1.3411e-07, 0, 0.33, 0, 1.3411e-07, 0, 0.33, 6.26665, 6.13251, -4.64976)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmF12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, -1.54819, 6.51074, -2.00122)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmG12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, 10.5487, 9.26949, -8.24903)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="PalmH12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(0.27, 0, -2.98023e-08, 0, 0.27, 0, 2.98023e-08, 0, 0.27, 21.7435, 1.17918, -4.25401)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="PalmI12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(0.33, 0, -1.3411e-07, 0, 0.33, 0, 1.3411e-07, 0, 0.33, 3.24768, 11.8333, -12.5861)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmJ12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, 3.43245, 13.2849, -6.73061)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmK12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, -12.7649, 4.2999, 1.8224)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="PalmL12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(0.27, 0, -2.98023e-08, 0, 0.27, 0, 2.98023e-08, 0, 0.27, -13.6099, 6.38341, -6.31214)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="PalmM12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -9.40081, 8.89611, -4.94054)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="PalmN12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(0.33, 0, -1.19209e-07, 0, 0.33, 0, 1.19209e-07, 0, 0.33, -5.06591, 10.3273, -9.21463)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="PalmO12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, -19.1528, 0.794909, 2.76937)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="PalmP12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, -23.6888, 1.08848, -4.2752)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="PalmQ12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -24.95, 7.18469, -13.4766)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="PalmR12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(0.33, 0, -1.19209e-07, 0, 0.33, 0, 1.19209e-07, 0, 0.33, -27.7107, 1.79484, -8.84018)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="PalmS12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, -32.4176, 5.76304, -8.78795)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="PalmT12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, -36.9927, 5.43598, -6.21712)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="PalmU12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(0.33, 0, -1.3411e-07, 0, 0.33, 0, 1.3411e-07, 0, 0.33, -36.4358, 6.05537, -5.74873)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmV12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, -41.1557, 6.56277, 2.2984)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmW12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, -48.6465, 3.11695, 5.63454)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="PalmX12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(0.27, 0, -2.98023e-08, 0, 0.27, 0, 2.98023e-08, 0, 0.27, -43.0334, 6.67323, -1.86565)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="PalmY12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(0.33, 0, -1.19209e-07, 0, 0.33, 0, 1.19209e-07, 0, 0.33, -36.8091, 8.17408, -14.8186)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmJZ12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, -45.5862, 12.8626, -6.14816)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmAA12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, -45.614, 12.8543, -6.77981)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="PalmBB12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(0.27, 0, -2.98023e-08, 0, 0.27, 0, 2.98023e-08, 0, 0.27, -19.5083, 13.1359, -9.90511)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="PalmCC12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -31.0969, 3.94675, -19.9964)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="PalmDD12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(0.33, 0, -1.3411e-07, 0, 0.33, 0, 1.3411e-07, 0, 0.33, -36.0083, 0.31025, -21.896)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="PalmEE12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, -36.1573, 3.8783, 0.336533)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="PalmFF12" type="MeshInstance3D" parent="StaticBody3D12/Pivot12"]
+transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, -48.4934, 5.43598, 1.36272)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
 [node name="CollisionIsland12" type="CollisionShape3D" parent="StaticBody3D12"]
 shape = SubResource("BoxShape3D_4bqgg")
 
@@ -836,6 +1717,162 @@ skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_htvg3")
 surface_material_override/1 = SubResource("StandardMaterial3D_ggknw")
 
+[node name="PalmA13" type="MeshInstance3D" parent="StaticBody3D13/Pivot13"]
+transform = Transform3D(0.3, 0, 2.23517e-08, 0, 0.3, 0, -2.23517e-08, 0, 0.3, 39.4499, 1.65808, -21.2599)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="PalmB13" type="MeshInstance3D" parent="StaticBody3D13/Pivot13"]
+transform = Transform3D(0.33, 0, -1.04308e-07, 0, 0.33, 0, 1.04308e-07, 0, 0.33, 37.1231, 4.9908, -17.1665)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="PalmC13" type="MeshInstance3D" parent="StaticBody3D13/Pivot13"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, 35.3803, 5.99508, -10.3371)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="PalmD13" type="MeshInstance3D" parent="StaticBody3D13/Pivot13"]
+transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, 37.9783, 11.7102, -14.4228)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="PalmE13" type="MeshInstance3D" parent="StaticBody3D13/Pivot13"]
+transform = Transform3D(0.33, 0, -1.3411e-07, 0, 0.33, 0, 1.3411e-07, 0, 0.33, 43.3272, 12.3506, -11.2686)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmF13" type="MeshInstance3D" parent="StaticBody3D13/Pivot13"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, 29.4885, 1.39983, -2.01012)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmG13" type="MeshInstance3D" parent="StaticBody3D13/Pivot13"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, 33.8868, 2.26622, -3.26814)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="PalmH13" type="MeshInstance3D" parent="StaticBody3D13/Pivot13"]
+transform = Transform3D(0.27, 0, -2.98023e-08, 0, 0.27, 0, 2.98023e-08, 0, 0.27, 29.1506, 1.96504, -3.106)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="PalmI13" type="MeshInstance3D" parent="StaticBody3D13/Pivot13"]
+transform = Transform3D(0.0559704, -1.49993e-06, -0.325219, 5.96144e-07, 0.33, -1.41938e-06, 0.325219, -3.46769e-07, 0.0559704, 25.0494, 3.69389, 1.06691)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmJ13" type="MeshInstance3D" parent="StaticBody3D13/Pivot13"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, 19.4671, 3.49741, 0.937424)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmK13" type="MeshInstance3D" parent="StaticBody3D13/Pivot13"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, 17.9139, 3.47471, -1.41321)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="PalmL13" type="MeshInstance3D" parent="StaticBody3D13/Pivot13"]
+transform = Transform3D(0.27, 0, -2.98023e-08, 0, 0.27, 0, 2.98023e-08, 0, 0.27, 19.5405, 6.38341, 4.47294)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="PalmM13" type="MeshInstance3D" parent="StaticBody3D13/Pivot13"]
+transform = Transform3D(0.3, 0, 7.45058e-09, 0, 0.3, 0, -7.45058e-09, 0, 0.3, 16.1863, 7.45186, 3.0128)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="PalmN13" type="MeshInstance3D" parent="StaticBody3D13/Pivot13"]
+transform = Transform3D(0.33, 0, -1.19209e-07, 0, 0.33, 0, 1.19209e-07, 0, 0.33, 21.7115, 7.37295, 5.88994)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="PalmO13" type="MeshInstance3D" parent="StaticBody3D13/Pivot13"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, 11.9508, 3.8948, -0.0956879)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="PalmP13" type="MeshInstance3D" parent="StaticBody3D13/Pivot13"]
+transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, 5.80495, 5.91649, -4.08241)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="PalmQ13" type="MeshInstance3D" parent="StaticBody3D13/Pivot13"]
+transform = Transform3D(0.3, 0, 7.45058e-09, 0, 0.3, 0, -7.45058e-09, 0, 0.3, 6.25373, 2.26416, -10.6314)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="PalmR13" type="MeshInstance3D" parent="StaticBody3D13/Pivot13"]
+transform = Transform3D(0.33, 0, -1.04308e-07, 0, 0.33, 0, 1.04308e-07, 0, 0.33, 3.3154, 6.05412, -4.96351)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="PalmS13" type="MeshInstance3D" parent="StaticBody3D13/Pivot13"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, 1.1266, 8.36725, -5.96466)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="PalmT13" type="MeshInstance3D" parent="StaticBody3D13/Pivot13"]
+transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, -7.52954, 7.62976, -9.30094)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="PalmU13" type="MeshInstance3D" parent="StaticBody3D13/Pivot13"]
+transform = Transform3D(0.33, 0, -1.3411e-07, 0, 0.33, 0, 1.3411e-07, 0, 0.33, -3.32956, 10.9305, -4.70023)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmV13" type="MeshInstance3D" parent="StaticBody3D13/Pivot13"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, -11.8181, 8.34195, 0.807373)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmW13" type="MeshInstance3D" parent="StaticBody3D13/Pivot13"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, -9.22882, 4.40976, -9.24538)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="PalmX13" type="MeshInstance3D" parent="StaticBody3D13/Pivot13"]
+transform = Transform3D(0.27, 0, -2.98023e-08, 0, 0.27, 0, 2.98023e-08, 0, 0.27, -14.5261, 2.37157, -7.04709)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="PalmY13" type="MeshInstance3D" parent="StaticBody3D13/Pivot13"]
+transform = Transform3D(0.33, 0, -1.19209e-07, 0, 0.33, 0, 1.19209e-07, 0, 0.33, -8.61835, 3.27276, 6.26477)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmJZ13" type="MeshInstance3D" parent="StaticBody3D13/Pivot13"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, -8.77993, 7.78391, 5.11777)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
 [node name="CollisionIsland13" type="CollisionShape3D" parent="StaticBody3D13"]
 shape = SubResource("BoxShape3D_sj03a")
 
@@ -857,5 +1894,116 @@ skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_itj05")
 surface_material_override/1 = SubResource("StandardMaterial3D_suep8")
 
+[node name="PalmA12" type="MeshInstance3D" parent="StaticBody3D14/Pivot14"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -11.3994, 0.692843, 4.6487)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="PalmB12" type="MeshInstance3D" parent="StaticBody3D14/Pivot14"]
+transform = Transform3D(0.33, 0, -1.19209e-07, 0, 0.33, 0, 1.19209e-07, 0, 0.33, -7.5649, 4.18537, 3.47838)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="PalmC12" type="MeshInstance3D" parent="StaticBody3D14/Pivot14"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, -2.76885, 6.12342, 5.56563)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="PalmD12" type="MeshInstance3D" parent="StaticBody3D14/Pivot14"]
+transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, -3.05637, 0.890017, 7.03292)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="PalmE12" type="MeshInstance3D" parent="StaticBody3D14/Pivot14"]
+transform = Transform3D(0.33, 0, -1.3411e-07, 0, 0.33, 0, 1.3411e-07, 0, 0.33, 1.45036, 0.823339, 3.3896)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmF12" type="MeshInstance3D" parent="StaticBody3D14/Pivot14"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, -1.70288, 3.9342, 4.61547)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmG12" type="MeshInstance3D" parent="StaticBody3D14/Pivot14"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, -2.37973, 9.1578, 0.896446)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="PalmH12" type="MeshInstance3D" parent="StaticBody3D14/Pivot14"]
+transform = Transform3D(0.27, 0, -2.98023e-08, 0, 0.27, 0, 2.98023e-08, 0, 0.27, -10.1807, 1.12082, -8.28106)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="PalmI12" type="MeshInstance3D" parent="StaticBody3D14/Pivot14"]
+transform = Transform3D(0.33, 0, -1.3411e-07, 0, 0.33, 0, 1.3411e-07, 0, 0.33, -8.16381, 5.92607, -6.0407)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmJ12" type="MeshInstance3D" parent="StaticBody3D14/Pivot14"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, -8.38376, 13.1365, 3.53352)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
 [node name="CollisionIsland14" type="CollisionShape3D" parent="StaticBody3D14"]
 shape = SubResource("BoxShape3D_vlu6t")
+
+[node name="StaticBody3D15" type="StaticBody3D" parent="."]
+
+[node name="Pivot15" type="Node3D" parent="StaticBody3D15"]
+
+[node name="ShipWreck" type="MeshInstance3D" parent="StaticBody3D15/Pivot15"]
+transform = Transform3D(0.19869, 0.30907, 0.339114, -0.355568, 0.337279, -0.0990674, -0.289989, -0.201788, 0.353819, 0, -7.24573, -14.2915)
+mesh = ExtResource("5_fmdl5")
+surface_material_override/0 = SubResource("StandardMaterial3D_pxtl2")
+surface_material_override/1 = SubResource("StandardMaterial3D_rrkb2")
+surface_material_override/2 = SubResource("StandardMaterial3D_2cxm0")
+surface_material_override/3 = SubResource("StandardMaterial3D_ixt6v")
+surface_material_override/4 = SubResource("StandardMaterial3D_6bwnu")
+surface_material_override/5 = SubResource("StandardMaterial3D_4ty7c")
+surface_material_override/6 = SubResource("StandardMaterial3D_1vhc2")
+surface_material_override/7 = SubResource("StandardMaterial3D_vkdjc")
+surface_material_override/8 = SubResource("StandardMaterial3D_gv73b")
+surface_material_override/9 = SubResource("StandardMaterial3D_puayc")
+surface_material_override/10 = SubResource("StandardMaterial3D_nbae6")
+surface_material_override/11 = SubResource("StandardMaterial3D_ufyax")
+surface_material_override/12 = SubResource("StandardMaterial3D_sgc03")
+surface_material_override/13 = SubResource("StandardMaterial3D_ka1b1")
+surface_material_override/14 = SubResource("StandardMaterial3D_i5sy3")
+surface_material_override/15 = SubResource("StandardMaterial3D_rw72i")
+surface_material_override/16 = SubResource("StandardMaterial3D_j6000")
+surface_material_override/17 = SubResource("StandardMaterial3D_qp7mb")
+surface_material_override/18 = SubResource("StandardMaterial3D_vaoou")
+surface_material_override/19 = SubResource("StandardMaterial3D_bdmeg")
+surface_material_override/20 = SubResource("StandardMaterial3D_n06y5")
+surface_material_override/21 = SubResource("StandardMaterial3D_spew8")
+surface_material_override/22 = SubResource("StandardMaterial3D_3ajsr")
+surface_material_override/23 = SubResource("StandardMaterial3D_6sybd")
+surface_material_override/24 = SubResource("StandardMaterial3D_rp5m3")
+surface_material_override/25 = SubResource("StandardMaterial3D_u08r6")
+surface_material_override/26 = SubResource("StandardMaterial3D_ykeey")
+surface_material_override/27 = SubResource("StandardMaterial3D_3iad8")
+surface_material_override/28 = SubResource("StandardMaterial3D_n08j3")
+surface_material_override/29 = SubResource("StandardMaterial3D_a6kwm")
+surface_material_override/30 = SubResource("StandardMaterial3D_kerip")
+surface_material_override/31 = SubResource("StandardMaterial3D_m3any")
+surface_material_override/32 = SubResource("StandardMaterial3D_iiqi7")
+surface_material_override/33 = SubResource("StandardMaterial3D_ksqgf")
+surface_material_override/34 = SubResource("StandardMaterial3D_d112e")
+surface_material_override/35 = SubResource("StandardMaterial3D_ovvar")
+surface_material_override/36 = SubResource("StandardMaterial3D_5ycqu")
+surface_material_override/37 = SubResource("StandardMaterial3D_tsqvi")
+surface_material_override/38 = SubResource("StandardMaterial3D_xip3m")
+
+[node name="CollisionShip3D" type="CollisionShape3D" parent="StaticBody3D15"]
+transform = Transform3D(0.19869, 0.30907, 0.339114, -0.355568, 0.337279, -0.0990674, -0.289989, -0.201788, 0.353819, 0, -7.24573, -14.2915)
+shape = SubResource("ConvexPolygonShape3D_3l27m")

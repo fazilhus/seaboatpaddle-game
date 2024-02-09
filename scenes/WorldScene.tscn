@@ -1,11 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://42il0yi2fel2"]
+[gd_scene load_steps=16 format=3 uid="uid://42il0yi2fel2"]
 
-[ext_resource type="PackedScene" path="res://scenes/survivors.tscn" id="1_pprra"]
+[ext_resource type="PackedScene" uid="uid://d3ycrupshfcm" path="res://scenes/survivors.tscn" id="1_pprra"]
 [ext_resource type="Script" path="res://scripts/Boat.cs" id="1_rcxjk"]
-[ext_resource type="PackedScene" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
+[ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
 [ext_resource type="PackedScene" uid="uid://catt7cfnf4pd1" path="res://CustonAssets/paddle.glb" id="2_ctqvj"]
 [ext_resource type="ArrayMesh" uid="uid://b7odym8k47kgf" path="res://KennyWaterCraft/Models/watercraftPack_029.obj" id="2_pbon7"]
-[ext_resource type="PackedScene" path="res://scenes/game_camera.tscn" id="5_rlqlm"]
+[ext_resource type="PackedScene" uid="uid://y7tqwoj3tmif" path="res://scenes/game_camera.tscn" id="5_rlqlm"]
 [ext_resource type="Material" uid="uid://dm8p44anq2ejj" path="res://Shades/AntiWaterMask.tres" id="5_x64jw"]
 [ext_resource type="PackedScene" uid="uid://bdohepiggfmms" path="res://scenes/map.tscn" id="8_lgk5l"]
 
@@ -31,11 +31,10 @@ size = Vector3(1.4668, 0.621826, 2.27103)
 [sub_resource type="BoxShape3D" id="BoxShape3D_r0jpl"]
 size = Vector3(1.74646, 1, 3.0321)
 
-[node name="Level" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_m45on"]
+size = Vector3(100, 10, 1)
 
-[node name="Survivors" parent="." node_paths=PackedStringArray("water", "boatCollider") instance=ExtResource("1_pprra")]
-water = NodePath("../WaterPlane")
-boatCollider = NodePath("../Boat/Area3DTriggerBoat")
+[node name="Level" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_f08u5")
@@ -56,8 +55,10 @@ physics_material_override = SubResource("PhysicsMaterial_7j168")
 freeze_mode = 1
 script = ExtResource("1_rcxjk")
 paddles = [NodePath("LeftPaddlePivot"), NodePath("RightPaddlePivot")]
+floatForce = 1.5
+waterDrag = 0.02
 water = NodePath("../WaterPlane")
-survivors = NodePath("../Survivors")
+survivors = NodePath("../Node3D/Survivors")
 
 [node name="LeftPaddlePivot" type="Node3D" parent="Boat"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0.75, 0)
@@ -123,8 +124,87 @@ shape = SubResource("BoxShape3D_r0jpl")
 
 [node name="GameCamera" parent="." node_paths=PackedStringArray("Boat") instance=ExtResource("5_rlqlm")]
 Boat = NodePath("../Boat")
+position_offset = Vector3(0, 15, -10)
 
 [node name="Map" parent="." instance=ExtResource("8_lgk5l")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.799383, 0)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Survivors" parent="Node3D" node_paths=PackedStringArray("water", "boatCollider") instance=ExtResource("1_pprra")]
+transform = Transform3D(-0.994794, 0, 0.101907, 0, 1, 0, -0.101907, 0, -0.994794, -10.4886, 1.41551, 39.0129)
+water = NodePath("../../WaterPlane")
+boatCollider = NodePath("../../Boat/Area3DTriggerBoat")
+
+[node name="Survivors2" parent="Node3D" node_paths=PackedStringArray("water", "boatCollider") instance=ExtResource("1_pprra")]
+transform = Transform3D(-0.994794, 0, 0.101907, 0, 1, 0, -0.101907, 0, -0.994794, 26.3782, 1.41551, 39.0129)
+water = NodePath("../../WaterPlane")
+boatCollider = NodePath("../../Boat/Area3DTriggerBoat")
+
+[node name="Survivors3" parent="Node3D" node_paths=PackedStringArray("water", "boatCollider") instance=ExtResource("1_pprra")]
+transform = Transform3D(-0.994794, 0, 0.101907, 0, 1, 0, -0.101907, 0, -0.994794, 34.2903, 1.41551, 18.0561)
+water = NodePath("../../WaterPlane")
+boatCollider = NodePath("../../Boat/Area3DTriggerBoat")
+
+[node name="Survivors4" parent="Node3D" node_paths=PackedStringArray("water", "boatCollider") instance=ExtResource("1_pprra")]
+transform = Transform3D(-0.994794, 0, 0.101907, 0, 1, 0, -0.101907, 0, -0.994794, 34.2903, 1.41551, -5.15347)
+water = NodePath("../../WaterPlane")
+boatCollider = NodePath("../../Boat/Area3DTriggerBoat")
+
+[node name="Survivors5" parent="Node3D" node_paths=PackedStringArray("water", "boatCollider") instance=ExtResource("1_pprra")]
+transform = Transform3D(-0.994794, 0, 0.101907, 0, 1, 0, -0.101907, 0, -0.994794, 16.3503, 1.41551, -6.77188)
+water = NodePath("../../WaterPlane")
+boatCollider = NodePath("../../Boat/Area3DTriggerBoat")
+
+[node name="Survivors6" parent="Node3D" node_paths=PackedStringArray("water", "boatCollider") instance=ExtResource("1_pprra")]
+transform = Transform3D(-0.994794, 0, 0.101907, 0, 1, 0, -0.101907, 0, -0.994794, -6.70929, 1.41551, 15.9002)
+water = NodePath("../../WaterPlane")
+boatCollider = NodePath("../../Boat/Area3DTriggerBoat")
+
+[node name="Survivors7" parent="Node3D" node_paths=PackedStringArray("water", "boatCollider") instance=ExtResource("1_pprra")]
+transform = Transform3D(-0.994794, 0, 0.101907, 0, 1, 0, -0.101907, 0, -0.994794, -35.4666, 1.41551, 15.9002)
+water = NodePath("../../WaterPlane")
+boatCollider = NodePath("../../Boat/Area3DTriggerBoat")
+
+[node name="Survivors8" parent="Node3D" node_paths=PackedStringArray("water", "boatCollider") instance=ExtResource("1_pprra")]
+transform = Transform3D(-0.994794, 0, 0.101907, 0, 1, 0, -0.101907, 0, -0.994794, -42.079, 1.41551, -32.0788)
+water = NodePath("../../WaterPlane")
+boatCollider = NodePath("../../Boat/Area3DTriggerBoat")
+
+[node name="Survivors9" parent="Node3D" node_paths=PackedStringArray("water", "boatCollider") instance=ExtResource("1_pprra")]
+transform = Transform3D(-0.994794, 0, 0.101907, 0, 1, 0, -0.101907, 0, -0.994794, 3.18325, 1.41551, -42.6154)
+water = NodePath("../../WaterPlane")
+boatCollider = NodePath("../../Boat/Area3DTriggerBoat")
+
+[node name="Survivors10" parent="Node3D" node_paths=PackedStringArray("water", "boatCollider") instance=ExtResource("1_pprra")]
+transform = Transform3D(-0.994794, 0, 0.101907, 0, 1, 0, -0.101907, 0, -0.994794, 37.4021, 1.41551, -42.6154)
+water = NodePath("../../WaterPlane")
+boatCollider = NodePath("../../Boat/Area3DTriggerBoat")
+
+[node name="Borders" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Borders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Borders/StaticBody3D"]
+shape = SubResource("BoxShape3D_m45on")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Borders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Borders/StaticBody3D2"]
+shape = SubResource("BoxShape3D_m45on")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Borders"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 50, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Borders/StaticBody3D3"]
+shape = SubResource("BoxShape3D_m45on")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="Borders"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -50, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Borders/StaticBody3D4"]
+shape = SubResource("BoxShape3D_m45on")
 
 [connection signal="area_entered" from="Boat/Area3DTriggerBoat" to="Boat" method="OnArea3dTriggerBoatAreaEntered"]

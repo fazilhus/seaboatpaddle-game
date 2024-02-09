@@ -39,16 +39,23 @@ public partial class PlayerMenu : MarginContainer
         if (!playerAlreadyIn)
         {
 
-             playerIds[playerAmount] = playerId;
-            GD.Print(playerIds[playerAmount]);
+            playerIds[playerAmount] = playerId;
+            //GD.Print(playerIds[playerAmount]);
             GetNode("VerticalContainer/HorizontalContainer").GetChild(playerAmount).Set("visible", true);
             playerAmount++;
             
 
-             GD.Print(playerId);
-            GD.Print(playerAmount);
+            //GD.Print(playerId);
+            //GD.Print(playerAmount);
 
-           
+            string playerAmountLabel = "";
+            if (playerAmount != 2) {
+                playerAmountLabel = playerAmount + " / 2 players";
+            }
+            else {
+                playerAmountLabel = "Press 'Start' to play";
+            }
+            GetNode<Label>("VerticalContainer/ContinueNotice").Text = playerAmountLabel;
            
         }
         
@@ -69,8 +76,9 @@ public partial class PlayerMenu : MarginContainer
         }
         if(@event.IsActionPressed("ui_continue")) //Need to add this to inputmap if not there already
         {
-            
-            GetParent<LevelManager>().loadLevelSelector();
+            if (playerAmount == 2) {
+                GetParent<LevelManager>().loadLevelSelector();
+            }
         }
         
     }

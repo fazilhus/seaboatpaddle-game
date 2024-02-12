@@ -66,7 +66,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2628)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0.75, 0)
 
 [node name="ForcePoint" type="Node3D" parent="Boat/Row/LeftPaddlePivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, -1, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, -1, 0)
 
 [node name="paddle" parent="Boat/Row/LeftPaddlePivot" instance=ExtResource("2_ctqvj")]
 transform = Transform3D(0.306418, -0.257115, 0, 0.257115, 0.306418, 0, 0, 0, 0.4, 0.55, -0.5, 0)
@@ -75,7 +75,7 @@ transform = Transform3D(0.306418, -0.257115, 0, 0.257115, 0.306418, 0, 0, 0, 0.4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0.75, 0)
 
 [node name="ForcePoint" type="Node3D" parent="Boat/Row/RightPaddlePivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, -1, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, -1, 0)
 
 [node name="paddle" parent="Boat/Row/RightPaddlePivot" instance=ExtResource("2_ctqvj")]
 transform = Transform3D(0.306418, 0.257115, 0, -0.257115, 0.306418, 0, 0, 0, 0.4, -0.55, -0.5, 0)
@@ -87,7 +87,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.73146)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0.75, 0)
 
 [node name="ForcePoint" type="Node3D" parent="Boat/Row2/LeftPaddlePivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, -1, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, -1, 0)
 
 [node name="paddle" parent="Boat/Row2/LeftPaddlePivot" instance=ExtResource("2_ctqvj")]
 transform = Transform3D(0.306418, -0.257115, 0, 0.257115, 0.306418, 0, 0, 0, 0.4, 0.55, -0.5, 0)
@@ -96,7 +96,7 @@ transform = Transform3D(0.306418, -0.257115, 0, 0.257115, 0.306418, 0, 0, 0, 0.4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0.75, 0)
 
 [node name="ForcePoint" type="Node3D" parent="Boat/Row2/RightPaddlePivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, -1, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, -1, 0)
 
 [node name="paddle" parent="Boat/Row2/RightPaddlePivot" instance=ExtResource("2_ctqvj")]
 transform = Transform3D(0.306418, 0.257115, 0, -0.257115, 0.306418, 0, 0, 0, 0.4, -0.55, -0.5, 0)

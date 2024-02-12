@@ -77,12 +77,15 @@ public partial class PlayerMenu : MarginContainer
         if(@event.IsActionPressed("ui_continue")) //Need to add this to inputmap if not there already
         {
 
-            if (playerAmount == 2) {
+            if (playerAmount >= 2) {
+                
+                GetParent<LevelManager>().GetParent<Node3D>().GetChild<PlayerController>(0).AddPlayers(playerIds);
                 GetParent<LevelManager>().loadLevelSelector();
             }
         }
         if(Input.IsKeyPressed(Key.F1))
         {
+            GetParent<LevelManager>().GetParent<Node3D>().GetChild<PlayerController>(0).AddPlayers(playerIds);
             GetParent<LevelManager>().loadLevelSelector();
         }
     }

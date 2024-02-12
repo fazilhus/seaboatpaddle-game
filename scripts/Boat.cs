@@ -11,7 +11,7 @@ enum PaddleSide {
 public partial class Boat : RigidBody3D
 {
     [Export]
-    public Godot.Collections.Array<Node3D> paddles;
+    public Godot.Collections.Array<Node3D> rows;
 
     private List<Vector3> _player_inputs;
     private List<Vector3> _paddles_rotation_old;
@@ -62,14 +62,15 @@ public partial class Boat : RigidBody3D
         foreach (int device_id in Input.GetConnectedJoypads()) {
             _player_inputs.Add(Vector3.Zero);
             _paddles_rotation_old.Add(Vector3.Zero);
+            _paddles_rotation_old.Add(Vector3.Zero);
         }
     }
 
     public override void _PhysicsProcess(double delta)
     {
         Vector3 forward = Basis.Z;
-        foreach (var it in paddles.Select((paddle, i) => new {Paddle = paddle, Index = i})) {
-            if (it.Index >= _player_inputs.Count) {
+        foreach (var row in rows.Select((row,i) => new {Row=row, Index = i})) {
+            if (row.Index >= _player_inputs.Count) {
                 continue;
             }
             
@@ -79,21 +80,69 @@ public partial class Boat : RigidBody3D
            // returns a tuple (leftSTick,rightStick)
            //Angular velocity depending on which stick
            //
-            Vector3 input = GetPlayerInput(it.Index);
-            //Vector3 input = _player_inputs[it.Index];
+           int playerId = GetTree().CurrentScene.GetChild<PlayerController>(0).playerIds[row.Index];
 
-            _paddles_rotation_old[it.Index] = it.Paddle.Rotation;//Previous frame rotation
+            (Vector3,Vector3) inputs = GetPlayerInput(playerId);
+            GD.Print(inputs.Item1);
+            //Vector3 input = _player_inputs[it.Index];
+            if(row.Index==0)
+            {
+                _paddles_rotation_old[0]=row.Row.GetChild<Node3D>(0).Rotation;
+                _paddles_rotation_old[1]=row.Row.GetChild<Node3D>(1).Rotation;
+                row.Row.GetChild<Node3D>(0).Rotation = new Vector3(inputs.Item1.X * 0.8f, 0, inputs.Item1.Z * 0.5f);
+                row.Row.GetChild<Node3D>(1).Rotation = new Vector3(inputs.Item2.X * 0.8f, 0, inputs.Item2.Z * 0.5f);
+                Vector3 angular_velocity_left = (row.Row.GetChild<Node3D>(0).Rotation - _paddles_rotation_old[0]) / (float)delta;
+                Vector3 angular_velocity_right = (row.Row.GetChild<Node3D>(1).Rotation - _paddles_rotation_old[1]) / (float)delta;
+                Vector3 leftForce = new Vector3(angular_velocity_left.Z, 0, -angular_velocity_left.X);
+                Vector3 rightForce = new Vector3(angular_velocity_right.Z, 0, -angular_velocity_right.X);
+                Node3D force_point_left = row.Row.GetChild<Node3D>(0).GetNode<Node3D>("ForcePoint");
+                Node3D force_point_right = row.Row.GetChild<Node3D>(1).GetNode<Node3D>("ForcePoint");
+                if (force_point_left.GlobalPosition.Y < GlobalPosition.Y)
+                {
+                    ApplyForce(-sideways_force_ratio * leftForce, row.Row.GetChild<Node3D>(0).Position);
+                    ApplyCentralForce(-forward_force_ratio * Curve(leftForce) * leftForce.Sign().Z * forward);
+                }
+                if (force_point_right.GlobalPosition.Y < GlobalPosition.Y)
+                {
+                    ApplyForce(-sideways_force_ratio * rightForce, row.Row.GetChild<Node3D>(1).Position);
+                    ApplyCentralForce(-forward_force_ratio * Curve(rightForce) * rightForce.Sign().Z * forward);
+                }
+            }
+            else if(row.Index==1)
+            {
+                _paddles_rotation_old[2] = row.Row.GetChild<Node3D>(0).Rotation;
+                _paddles_rotation_old[3] = row.Row.GetChild<Node3D>(1).Rotation;
+                row.Row.GetChild<Node3D>(0).Rotation = new Vector3(inputs.Item1.X * 0.8f, 0, inputs.Item1.Z * 0.5f);
+                row.Row.GetChild<Node3D>(1).Rotation = new Vector3(inputs.Item2.X * 0.8f, 0, inputs.Item2.Z * 0.5f);
+                Vector3 angular_velocity_left = (row.Row.GetChild<Node3D>(0).Rotation - _paddles_rotation_old[2]) / (float)delta;
+                Vector3 angular_velocity_right = (row.Row.GetChild<Node3D>(1).Rotation - _paddles_rotation_old[3]) / (float)delta;
+                Vector3 leftForce = new Vector3(angular_velocity_left.Z, 0, -angular_velocity_left.X);
+                Vector3 rightForce = new Vector3(angular_velocity_right.Z, 0, -angular_velocity_right.X);
+                Node3D force_point_left = row.Row.GetChild<Node3D>(0).GetNode<Node3D>("ForcePoint");
+                Node3D force_point_right = row.Row.GetChild<Node3D>(1).GetNode<Node3D>("ForcePoint");
+                if (force_point_left.GlobalPosition.Y < GlobalPosition.Y)
+                {
+                    ApplyForce(-sideways_force_ratio * leftForce, row.Row.GetChild<Node3D>(0).Position);
+                    ApplyCentralForce(-forward_force_ratio * Curve(leftForce) * leftForce.Sign().Z * forward);
+                }
+                if (force_point_right.GlobalPosition.Y < GlobalPosition.Y)
+                {
+                    ApplyForce(-sideways_force_ratio * rightForce, row.Row.GetChild<Node3D>(1).Position);
+                    ApplyCentralForce(-forward_force_ratio * Curve(rightForce) * rightForce.Sign().Z * forward);
+                }
+            }
+            /*_paddles_rotation_old[it.Index] = it.Paddle.Rotation;//Previous frame rotation
             it.Paddle.Rotation = new Vector3(input.X * 0.8f, 0, input.Z * 0.5f); //Visual rotation
-            //row.whichpaddle(tuple.rotation
+            
             
             Vector3 angular_velocity = (it.Paddle.Rotation - _paddles_rotation_old[it.Index]) / (float)delta;
             Vector3 force = new Vector3(angular_velocity.Z, 0, -angular_velocity.X);
-
+            
             Node3D force_point = it.Paddle.GetNode<Node3D>("ForcePoint");
             if (force_point.GlobalPosition.Y < GlobalPosition.Y) {
-                ApplyForce(-sideways_force_ratio * force, it.Paddle.Position);
+                ApplyForce(-sideways_force_ratio * force, it.Paddle.Position);  
                 ApplyCentralForce(-forward_force_ratio * Curve(force) * force.Sign().Z * forward);
-            }
+            }*/
         }              
 
         // checking marker3d in the probe container for simulating the water physics
@@ -129,10 +178,13 @@ public partial class Boat : RigidBody3D
         return Mathf.Pow(v.Length() / 10, 2);
     }
 
-    private Vector3 GetPlayerInput(int device_id) {
-        Vector3 input = Vector3.Zero;
-        input.Z = Input.GetJoyAxis(device_id, JoyAxis.RightX);
-        input.X = Input.GetJoyAxis(device_id, JoyAxis.RightY);
+    private (Vector3,Vector3) GetPlayerInput(int device_id) {
+        Vector3 rightInput = Vector3.Zero;
+        Vector3 leftInput = Vector3.Zero;
+        rightInput.Z = -1 * Input.GetJoyAxis(device_id, JoyAxis.RightX);
+        rightInput.X = Input.GetJoyAxis(device_id, JoyAxis.RightY);
+        leftInput.X=  Input.GetJoyAxis(device_id,JoyAxis.LeftY);
+        leftInput.Z = -1*Input.GetJoyAxis(device_id, JoyAxis.LeftX);
         
        /* switch (device_id) {
             case 0: {
@@ -150,7 +202,7 @@ public partial class Boat : RigidBody3D
             }
         }*/
 
-        return input;
+        return (leftInput,rightInput);
     }
     public void OnArea3dTriggerBoatAreaEntered(Area3D area)
     {

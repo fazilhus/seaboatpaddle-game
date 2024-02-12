@@ -48,24 +48,25 @@ shadow_enabled = true
 transparency = 0.4
 skeleton = NodePath("")
 
-[node name="Boat" type="RigidBody3D" parent="." node_paths=PackedStringArray("paddles", "water", "survivors")]
+[node name="Boat" type="RigidBody3D" parent="." node_paths=PackedStringArray("rows", "water", "survivors")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_mask = 3
 mass = 2.0
 physics_material_override = SubResource("PhysicsMaterial_7j168")
 freeze_mode = 1
 script = ExtResource("1_rcxjk")
-paddles = [NodePath("Row/LeftPaddlePivot"), NodePath("Row/RightPaddlePivot")]
+rows = [NodePath("Row"), NodePath("Row2")]
 water = NodePath("../WaterPlane")
 survivors = NodePath("../Survivors")
 
 [node name="Row" type="Node3D" parent="Boat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2628)
 
 [node name="LeftPaddlePivot" type="Node3D" parent="Boat/Row"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0.75, 0)
 
 [node name="ForcePoint" type="Node3D" parent="Boat/Row/LeftPaddlePivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, -1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, -1, -0.5)
 
 [node name="paddle" parent="Boat/Row/LeftPaddlePivot" instance=ExtResource("2_ctqvj")]
 transform = Transform3D(0.306418, -0.257115, 0, 0.257115, 0.306418, 0, 0, 0, 0.4, 0.55, -0.5, 0)
@@ -74,9 +75,30 @@ transform = Transform3D(0.306418, -0.257115, 0, 0.257115, 0.306418, 0, 0, 0, 0.4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0.75, 0)
 
 [node name="ForcePoint" type="Node3D" parent="Boat/Row/RightPaddlePivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, -1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, -1, -0.5)
 
 [node name="paddle" parent="Boat/Row/RightPaddlePivot" instance=ExtResource("2_ctqvj")]
+transform = Transform3D(0.306418, 0.257115, 0, -0.257115, 0.306418, 0, 0, 0, 0.4, -0.55, -0.5, 0)
+
+[node name="Row2" type="Node3D" parent="Boat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.73146)
+
+[node name="LeftPaddlePivot" type="Node3D" parent="Boat/Row2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0.75, 0)
+
+[node name="ForcePoint" type="Node3D" parent="Boat/Row2/LeftPaddlePivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, -1, 0.5)
+
+[node name="paddle" parent="Boat/Row2/LeftPaddlePivot" instance=ExtResource("2_ctqvj")]
+transform = Transform3D(0.306418, -0.257115, 0, 0.257115, 0.306418, 0, 0, 0, 0.4, 0.55, -0.5, 0)
+
+[node name="RightPaddlePivot" type="Node3D" parent="Boat/Row2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0.75, 0)
+
+[node name="ForcePoint" type="Node3D" parent="Boat/Row2/RightPaddlePivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, -1, 0.5)
+
+[node name="paddle" parent="Boat/Row2/RightPaddlePivot" instance=ExtResource("2_ctqvj")]
 transform = Transform3D(0.306418, 0.257115, 0, -0.257115, 0.306418, 0, 0, 0, 0.4, -0.55, -0.5, 0)
 
 [node name="Pivot" type="Node3D" parent="Boat"]

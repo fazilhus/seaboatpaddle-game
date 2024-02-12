@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpy6qtyat5uyr"]
+[gd_scene load_steps=7 format=3 uid="uid://dpy6qtyat5uyr"]
 
+[ext_resource type="Script" path="res://scenes/PlayerController.cs" id="1_lik0s"]
 [ext_resource type="Script" path="res://scripts/LevelManager.cs" id="1_vfio7"]
 [ext_resource type="PackedScene" uid="uid://bl7exwjna2nwi" path="res://scenes/mainmenu.tscn" id="2_6i36b"]
 [ext_resource type="PackedScene" uid="uid://derkxbhef341u" path="res://scenes/playerMenu.tscn" id="3_46qyl"]
@@ -9,6 +10,7 @@
 [node name="Main" type="Node3D"]
 
 [node name="PlayerController" type="Node3D" parent="."]
+script = ExtResource("1_lik0s")
 
 [node name="LevelController" type="Node3D" parent="."]
 script = ExtResource("1_vfio7")

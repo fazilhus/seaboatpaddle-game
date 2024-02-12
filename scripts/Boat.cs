@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 
 enum PaddleSide {
@@ -10,6 +11,9 @@ enum PaddleSide {
 
 public partial class Boat : RigidBody3D
 {
+    [Signal]
+    public delegate void NoBoatHealthEventHandler();
+
     [Export]
     public Godot.Collections.Array<Node3D> paddles;
 
@@ -43,7 +47,7 @@ public partial class Boat : RigidBody3D
 
 	public Godot.Collections.Array<Node> probeContainer;
     
-    [Export] Survivors survivors;
+    //[Export] Survivors survivors;
 
     public override void _Ready()
     {
@@ -52,7 +56,7 @@ public partial class Boat : RigidBody3D
         gravity = (float)ProjectSettings.GetSetting("physics/3d/default_gravity");
 		//water = parent.GetNode<WaterPlane>("WaterPlane");
 		probeContainer = GetNode<Node3D>("ProbeContainer").GetChildren();
-        survivors = parent.GetNode<Survivors>("Survivors");
+        //survivors = parent.GetNode<Survivors>("Survivors");
         
 	
 		initialY = GlobalPosition.Y;
@@ -63,6 +67,15 @@ public partial class Boat : RigidBody3D
             _player_inputs.Add(Vector3.Zero);
             _paddles_rotation_old.Add(Vector3.Zero);
         }
+    }
+
+    public override void _Process(double delta)
+    {
+        if (Input.IsKeyPressed(Key.F2)) {
+            GetNode<HealthComponent>("HealthComponent").SubtractHealth(100);
+        }
+        
+        DebugDraw2D.SetText("Health: ", GetNode<HealthComponent>("HealthComponent").health);
     }
 
     public override void _PhysicsProcess(double delta)
@@ -144,5 +157,23 @@ public partial class Boat : RigidBody3D
               GD.Print("boat is colliding with survivors!");
         }
       
+    }
+
+    public void OnHealthComponentNoHealthEvent() {
+        GD.Print("Boat lost all durability: You Lose");
+        EmitSignal(SignalName.NoBoatHealth);
+    }
+
+    public void OnBodyEntered(Node node) {
+        GD.Print(node.Name);
+        if (node.IsInGroup("Rock")) {
+            GD.Print("Crashed a rock!!!");
+            var speed = LinearVelocity.Length();
+            if (speed < 5) {
+                return;
+            }
+            GD.Print("Lost ", 3 * (int)speed, " health");
+            GetNode<HealthComponent>("HealthComponent").SubtractHealth(3 * (int)speed);
+        }
     }
 }

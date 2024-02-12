@@ -80,6 +80,8 @@ public partial class PlayerMenu : MarginContainer
                 GetParent<LevelManager>().loadLevelSelector();
             }
         }
-        
+        if (Input.IsKeyPressed(Key.F1)) {
+            GetParent<LevelManager>().loadLevelSelector();
+        }
     }
 }

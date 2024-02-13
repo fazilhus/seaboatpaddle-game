@@ -207,6 +207,9 @@ public partial class Boat : RigidBody3D
         if (area.IsInGroup("VortexDamage")) {
             GetNode<Timer>("VortexDamageTimer").Stop();
         }
+		{
+			  GD.Print("boat is colliding with modifiers!");
+		}
 	}
 
     private Vector3 GetPlayerInput(int device_id) {
@@ -236,6 +239,8 @@ public partial class Boat : RigidBody3D
             GD.Print("Boom!!!");
             healthComp.SubtractHealth(100);
         }
+
+        if(area.IsInGroup("Modifiers"))
 
 		if (area.IsInGroup("Vortex"))
 		{

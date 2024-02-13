@@ -1,6 +1,7 @@
 using Godot;
 using System;
 
+
 public partial class Modifiers : RigidBody3D
 {
 	
@@ -53,14 +54,54 @@ public partial class Modifiers : RigidBody3D
 		}
 	}
 	
+	private Random random;
+
+	public NumberGenerator()
+	{
+		// Initialize the random number generator
+		random = new Random();
+	}
+
+	public int GenerateNumber()
+	{
+		// Generate a random number between 1 and 5 (inclusive)
+		return random.Next(1, 6);
+	}
+	
 	public void OnArea3dTriggerAreaEntered(Area3D area)
 	{
 		if (area.IsInGroup("ThePlayers"))
 		{
 			GD.Print("ThePlayers are colliding with modifiers");
 			QueueFree();
-			//Add functions calls for actuall modifiers here
+			
+			NumberGenerator generator = new NumberGenerator();
+			int randomNumber = generator.GenerateNumber();
+			if randomNumber == 1
+			{
+				//Add extra time
+				GD.Print("Extra time added");
+			}
+			if randomNumber == 2
+			{
+				//Drunken capten, swinging camera
+				GD.Print("Drunken Captain mode on");
+			}
+			if randomNumber == 3
+			{
+				//Repairing boat
+				GD.Print("Repairkit found, boat repaired");
+			}
+			if randomNumber == 4
+			{
+				//Control inversion
+				GD.Print("The controlls are now inverted");
+			}
+			if randomNumber == 5
+			{
+				//Speed boost
+				GD.Print("You found a speed boost, press A to use it and get a speedboost straight a head");
+			}
 		}
-	
 	}
 }

@@ -46,6 +46,7 @@ public partial class Boat : RigidBody3D
 	public double time = 0;
 
 	public Godot.Collections.Array<Node> probeContainer;
+    private HealthComponent healthComp;
     
     //[Export] Survivors survivors;
 
@@ -61,13 +62,15 @@ public partial class Boat : RigidBody3D
 	
 		initialY = GlobalPosition.Y;
 
-		_player_inputs = new List<Vector3>();
-		_paddles_rotation_old = new List<Vector3>();
-		foreach (int device_id in Input.GetConnectedJoypads()) {
-			_player_inputs.Add(Vector3.Zero);
-			_paddles_rotation_old.Add(Vector3.Zero);
-		}
-	}
+        _player_inputs = new List<Vector3>();
+        _paddles_rotation_old = new List<Vector3>();
+        foreach (int device_id in Input.GetConnectedJoypads()) {
+            _player_inputs.Add(Vector3.Zero);
+            _paddles_rotation_old.Add(Vector3.Zero);
+        }
+
+        healthComp = GetNode<HealthComponent>("HealthComponent");
+    }
 
     public override void _Process(double delta)
     {
@@ -152,11 +155,15 @@ public partial class Boat : RigidBody3D
     }
     public void OnArea3dTriggerBoatAreaEntered(Area3D area)
     {
-        if(area.IsInGroup("Survivors"))
+        if (area.IsInGroup("Survivors"))
         {
               GD.Print("boat is colliding with survivors!");
         }
-      
+        
+        if (area.IsInGroup("SeaMine")) {
+            GD.Print("Boom!!!");
+            healthComp.SubtractHealth(100);
+        }
     }
 
     public void OnHealthComponentNoHealthEvent() {
@@ -173,7 +180,7 @@ public partial class Boat : RigidBody3D
                 return;
             }
             GD.Print("Lost ", 3 * (int)speed, " health");
-            GetNode<HealthComponent>("HealthComponent").SubtractHealth(3 * (int)speed);
+            healthComp.SubtractHealth(3 * (int)speed);
         }
     }
 }

@@ -20,6 +20,13 @@ public partial class Modifiers : RigidBody3D
 	
 	public Godot.Collections.Array<Node> probeContainer;
 	
+	private Boat boatInstance;
+
+	public void SetBoatInstance(Boat boat)
+	{
+		boatInstance = boat;
+	}
+	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -75,18 +82,21 @@ public partial class Modifiers : RigidBody3D
 			}
 			if (randomNumber == 3)
 			{
-				//Repairing boat
-				GD.Print("Repair kit found, boat repaired");
+				if(boatInstance != null)
+				boatInstance.RepairKit = true;
+				GD.Print("Repair kit found, press A to repair boat");
 			}
 			if (randomNumber == 4)
 			{
-				//Control inversion
+				if(boatInstance != null)
+				boatInstance.ControlInversion = true;
 				GD.Print("'Controll Inversion' mode on");
 			}
 			if (randomNumber == 5)
 			{
-				//Speed boost
-				GD.Print("Speed Boost found, press A to use it and get a speedboost straight a head");
+				if(boatInstance != null)
+				boatInstance.SpeedBoost = true;
+				GD.Print("Speed Boost found, press A to use it and get a speed boost straight a head");
 			}
 		}
 	}

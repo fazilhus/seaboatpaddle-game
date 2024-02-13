@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://42il0yi2fel2"]
+[gd_scene load_steps=17 format=3 uid="uid://42il0yi2fel2"]
 
 [ext_resource type="PackedScene" uid="uid://d3ycrupshfcm" path="res://scenes/survivors.tscn" id="1_pprra"]
 [ext_resource type="Script" path="res://scripts/Boat.cs" id="1_rcxjk"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://y7tqwoj3tmif" path="res://scenes/game_camera.tscn" id="5_rlqlm"]
 [ext_resource type="Material" uid="uid://dm8p44anq2ejj" path="res://Shades/AntiWaterMask.tres" id="5_x64jw"]
 [ext_resource type="PackedScene" uid="uid://bdohepiggfmms" path="res://scenes/map.tscn" id="8_lgk5l"]
+[ext_resource type="PackedScene" uid="uid://jht7pcjo6kqe" path="res://scenes/Modifiers.tscn" id="9_e5cou"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ik3mg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -206,5 +207,10 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -50, 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Borders/StaticBody3D4"]
 shape = SubResource("BoxShape3D_m45on")
+
+[node name="Node3D2" type="Node3D" parent="."]
+
+[node name="Modifiers" parent="Node3D2" instance=ExtResource("9_e5cou")]
+transform = Transform3D(0.983559, 0, 0.180588, 0.0326213, 0.983549, -0.177669, -0.177617, 0.180639, 0.967379, 3.88858, 0.795655, 12.5771)
 
 [connection signal="area_entered" from="Boat/Area3DTriggerBoat" to="Boat" method="OnArea3dTriggerBoatAreaEntered"]

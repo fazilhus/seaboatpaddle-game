@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://beoci1a615ffi"]
+
+[ext_resource type="Script" path="res://scripts/sea_mine.cs" id="1_p8gtb"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_8yb2u"]
+radius = 1.0
+height = 2.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_23dtq"]
+radius = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_n4tm5"]
+radius = 1.25
+
+[node name="SeaMine" type="RigidBody3D"]
+script = ExtResource("1_p8gtb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_8yb2u")
+skeleton = NodePath("")
+
+[node name="ProbeContainer" type="Node3D" parent="."]
+
+[node name="Probe" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="Probe2" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="Probe3" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Probe4" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_23dtq")
+
+[node name="CollisionTrigger" type="Area3D" parent="." groups=["SeaMine"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionTrigger"]
+shape = SubResource("SphereShape3D_n4tm5")
+
+[connection signal="area_entered" from="CollisionTrigger" to="." method="OnArea3DTriggerAreaEntered"]

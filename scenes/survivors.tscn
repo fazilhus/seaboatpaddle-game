@@ -19,7 +19,7 @@ size = Vector3(0.8, 0.1, 0.2)
 radius = 3.0
 
 [node name="Survivors" type="RigidBody3D"]
-transform = Transform3D(-0.994794, 0, 0.101907, 0, 1, 0, -0.101907, 0, -0.994794, -0.488563, 1.41551, 8.01294)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_jj4q8")
 
 [node name="SurvivorMeshInstance" type="MeshInstance3D" parent="."]
@@ -53,4 +53,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.672353, 0, -0.48854)
 [node name="TriggerCollider" type="CollisionShape3D" parent="Area3DTrigger"]
 shape = SubResource("CylinderShape3D_2nvr6")
 
-[connection signal="area_entered" from="Area3DTrigger" to="." method="OnArea3DTiggerAreaEntered"]
+[connection signal="area_entered" from="Area3DTrigger" to="." method="OnArea3DTriggerAreaEntered"]

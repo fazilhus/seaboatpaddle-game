@@ -1,8 +1,7 @@
 using Godot;
 using System;
-using System.Security.Cryptography.X509Certificates;
 
-public partial class Survivors : RigidBody3D
+public partial class sea_mine : RigidBody3D
 {
 	[Export] private float floatForce = 1.0f;
 	[Export] private float waterDrag = 0.005f;
@@ -23,7 +22,9 @@ public partial class Survivors : RigidBody3D
 		gravity = (float)ProjectSettings.GetSetting("physics/3d/default_gravity");
 		//water = GetNode<WaterPlane>("/root/Main/WaterPlane");
 		probeContainer = GetNode<Node3D>("ProbeContainer").GetChildren();
+		
 
+	
 		initialY = GlobalPosition.Y;
 	}
 
@@ -55,7 +56,7 @@ public partial class Survivors : RigidBody3D
 	{
 		if (area.IsInGroup("ThePlayers"))
 		{
-			GD.Print("ThePlayers are colliding with survivors");
+			GD.Print("ThePlayers are colliding with the mine");
 			QueueFree();
 		}
 	

@@ -11,15 +11,16 @@ friction = 0.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_nbbgg"]
 size = Vector3(1.4668, 0.621826, 2.27103)
 
-[node name="Boat" type="RigidBody3D" node_paths=PackedStringArray("paddles")]
+[node name="Boat" type="RigidBody3D" node_paths=PackedStringArray("rows")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_mask = 3
 mass = 2.0
 physics_material_override = SubResource("PhysicsMaterial_7j168")
 freeze_mode = 1
 script = ExtResource("1_tk55w")
-paddles = [null, null]
-forward_force_ratio = 30.0
+rows = []
+sideways_force_ratio = 0.25
+forward_force_ratio = 15.0
 
 [node name="LeftPaddlePivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0.75, 0)

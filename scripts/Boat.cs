@@ -74,15 +74,15 @@ public partial class Boat : RigidBody3D
                 continue;
             }
             
-           // Grab a row, make tuple of paddles from children 
-           //assign index of row to deviceId frontROw(index 0 = deviceID)
-           //check for inputs from controller
-           // returns a tuple (leftSTick,rightStick)
-           //Angular velocity depending on which stick
-           //
-           int playerId = GetTree().CurrentScene.GetChild<PlayerController>(0).playerIds[row.Index];
+            // Grab a row, make tuple of paddles from children 
+            //assign index of row to deviceId frontROw(index 0 = deviceID)
+            //check for inputs from controller
+            // returns a tuple (leftSTick,rightStick)
+            //Angular velocity depending on which stick
+            //
+            int playerId = GetTree().CurrentScene.GetChild<PlayerController>(0).playerIds[row.Index];
 
-            (Vector3,Vector3) inputs = GetPlayerInput(playerId);
+            (Vector3,Vector3) inputs = GetPlayerInput(row.Index);
             GD.Print(inputs.Item1);
             //Vector3 input = _player_inputs[it.Index];
             if(row.Index==0)
@@ -99,12 +99,16 @@ public partial class Boat : RigidBody3D
                 Node3D force_point_right = row.Row.GetChild<Node3D>(1).GetNode<Node3D>("ForcePoint");
                 if (force_point_left.GlobalPosition.Y < GlobalPosition.Y)
                 {
-                    ApplyForce(-sideways_force_ratio * leftForce, row.Row.GetChild<Node3D>(0).Position);
+                    var origin = row.Row.GetChild<Node3D>(0).Position;
+                    var pos = new Vector3(origin.X, origin.Y - 0.3f, origin.Z);
+                    ApplyForce(-sideways_force_ratio * leftForce, pos);
                     ApplyCentralForce(-forward_force_ratio * Curve(leftForce) * leftForce.Sign().Z * forward);
                 }
                 if (force_point_right.GlobalPosition.Y < GlobalPosition.Y)
                 {
-                    ApplyForce(-sideways_force_ratio * rightForce, row.Row.GetChild<Node3D>(1).Position);
+                    var origin = row.Row.GetChild<Node3D>(1).Position;
+                    var pos = new Vector3(origin.X, origin.Y - 0.3f, origin.Z);
+                    ApplyForce(-sideways_force_ratio * rightForce, pos);
                     ApplyCentralForce(-forward_force_ratio * Curve(rightForce) * rightForce.Sign().Z * forward);
                 }
             }
@@ -122,12 +126,16 @@ public partial class Boat : RigidBody3D
                 Node3D force_point_right = row.Row.GetChild<Node3D>(1).GetNode<Node3D>("ForcePoint");
                 if (force_point_left.GlobalPosition.Y < GlobalPosition.Y)
                 {
-                    ApplyForce(-sideways_force_ratio * leftForce, row.Row.GetChild<Node3D>(0).Position);
+                    var origin = row.Row.GetChild<Node3D>(0).Position;
+                    var pos = new Vector3(origin.X, origin.Y - 0.3f, origin.Z);
+                    ApplyForce(-sideways_force_ratio * leftForce, pos);
                     ApplyCentralForce(-forward_force_ratio * Curve(leftForce) * leftForce.Sign().Z * forward);
                 }
                 if (force_point_right.GlobalPosition.Y < GlobalPosition.Y)
                 {
-                    ApplyForce(-sideways_force_ratio * rightForce, row.Row.GetChild<Node3D>(1).Position);
+                    var origin = row.Row.GetChild<Node3D>(1).Position;
+                    var pos = new Vector3(origin.X, origin.Y - 0.3f, origin.Z);
+                    ApplyForce(-sideways_force_ratio * rightForce, pos);
                     ApplyCentralForce(-forward_force_ratio * Curve(rightForce) * rightForce.Sign().Z * forward);
                 }
             }

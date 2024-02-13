@@ -10,6 +10,7 @@ enum PaddleSide {
 
 public partial class Boat : RigidBody3D
 {
+	
 	[Export]
 	public Godot.Collections.Array<Node3D> paddles;
 
@@ -31,6 +32,8 @@ public partial class Boat : RigidBody3D
 
 	private float initialY;
 	private double elapsedTime = 0;
+	
+	[Export] private bool SpeedBoost = true;
 
 	//[Export]
 	//private float bobbingFactor = 0.1f;
@@ -63,6 +66,18 @@ public partial class Boat : RigidBody3D
 			_player_inputs.Add(Vector3.Zero);
 			_paddles_rotation_old.Add(Vector3.Zero);
 		}
+	}
+	
+	public void ApplySpeedBoost(float boostForce)
+	{
+		// Get the forward direction of the boat
+		Vector3 forwardDirection = Basis.Z;
+
+		// Calculate the force to apply for the speed boost
+		Vector3 boostForceVector = forwardDirection * boostForce;
+
+		// Apply the boost force to the boat
+		ApplyCentralForce(boostForceVector);
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -100,10 +115,19 @@ public partial class Boat : RigidBody3D
 			ApplyForce(Vector3.Up * floatForce * gravity * depth, p.GlobalPosition - GlobalPosition);
 			}
 		}
-
-
-		
 	}
+	public override void _UnhandledInput(InputEvent @event)
+	{
+		if(@event.IsActionPressed("ui_accept"))
+		{
+			if (SpeedBoost)
+			{
+				ApplySpeedBoost(1000);
+			}
+		}
+	}
+		
+	
 	public override void _IntegrateForces(PhysicsDirectBodyState3D state) // changing the simulation state of the object
 	{
 		if(isSubmerged)

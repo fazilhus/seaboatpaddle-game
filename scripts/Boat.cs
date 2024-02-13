@@ -33,8 +33,10 @@ public partial class Boat : RigidBody3D
 	private float initialY;
 	private double elapsedTime = 0;
 	
-	[Export] private bool SpeedBoost = true;
-
+	public bool SpeedBoost = true;
+	public bool ControlInversion = false;
+	public bool RepairKit = false;
+	
 	//[Export]
 	//private float bobbingFactor = 0.1f;
 	//[Export]
@@ -68,16 +70,20 @@ public partial class Boat : RigidBody3D
 		}
 	}
 	
-	public void ApplySpeedBoost(float boostForce)
+	public void ApplySpeedBoost(float boostForce, float duration)
 	{
 		// Get the forward direction of the boat
 		Vector3 forwardDirection = Basis.Z;
 
 		// Calculate the force to apply for the speed boost
 		Vector3 boostForceVector = forwardDirection * boostForce;
-
 		// Apply the boost force to the boat
 		ApplyCentralForce(boostForceVector);
+	}
+	
+	public void RepairBoat(int life)
+	{
+		//logic for restoring health to boat
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -102,7 +108,7 @@ public partial class Boat : RigidBody3D
 				ApplyCentralForce(-forward_force_ratio * Curve(force) * force.Sign().Z * forward);
 			}
 		}              
-
+		
 		// checking marker3d in the probe container for simulating the water physics
 		isSubmerged = false;
 		foreach(Marker3D p in probeContainer)
@@ -116,17 +122,23 @@ public partial class Boat : RigidBody3D
 			}
 		}
 	}
+	
 	public override void _UnhandledInput(InputEvent @event)
 	{
 		if(@event.IsActionPressed("ui_accept"))
 		{
 			if (SpeedBoost)
 			{
-				ApplySpeedBoost(1000);
+				ApplySpeedBoost(7000, 2);
+				SpeedBoost = true;
+			}
+			if (RepairKit)
+			{
+				RepairBoat(5);
+				RepairKit = false;
 			}
 		}
 	}
-		
 	
 	public override void _IntegrateForces(PhysicsDirectBodyState3D state) // changing the simulation state of the object
 	{
@@ -161,6 +173,7 @@ public partial class Boat : RigidBody3D
 		}
 		return input;
 	}
+	
 	public void OnArea3dTriggerBoatAreaEntered(Area3D area)
 	{
 		if(area.IsInGroup("Survivors"))
@@ -171,6 +184,5 @@ public partial class Boat : RigidBody3D
 		{
 			  GD.Print("boat is colliding with modifiers!");
 		}
-	  
 	}
 }

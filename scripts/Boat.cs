@@ -143,6 +143,10 @@ public partial class Boat : RigidBody3D
 		{
 			  GD.Print("boat is colliding with survivors!");
 		}
+		if(area.IsInGroup("Modifiers"))
+		{
+			  GD.Print("boat is colliding with modifiers!");
+		}
 	  
 	}
 }

@@ -86,7 +86,7 @@ public partial class Boat : RigidBody3D
             int playerId = GetTree().CurrentScene.GetChild<PlayerController>(0).playerIds[row.Index];
 
             (Vector3,Vector3) inputs = GetPlayerInput(row.Index); // Change to state and vector. State to track which paddle
-            GD.Print(inputs.Item1);
+            
             //Vector3 input = _player_inputs[it.Index];
             if(row.Index==0)
             {

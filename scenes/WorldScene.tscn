@@ -145,8 +145,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.661134, -0.439855, -0.81219
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0178721, 0.327538, 0.247244)
 shape = SubResource("BoxShape3D_r0jpl")
 
+[node name="CameraAnchor" type="Node3D" parent="Boat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.55006)
+
+[node name="CameraPosition" type="Node3D" parent="Boat/CameraAnchor"]
+transform = Transform3D(-1, -7.20474e-08, 4.95168e-08, 0, 0.566406, 0.824126, -8.74228e-08, 0.824126, -0.566406, 0, 10, -5.5)
+
 [node name="GameCamera" parent="." node_paths=PackedStringArray("Boat") instance=ExtResource("5_rlqlm")]
-Boat = NodePath("../Boat")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+Boat = NodePath("../Boat/CameraAnchor/CameraPosition")
+followSpeed = 5.0
 
 [node name="Map" parent="." instance=ExtResource("8_lgk5l")]
 

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvggjn3ynv5t4"]
+
+[ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_2ttre"]
+[ext_resource type="PackedScene" uid="uid://c6qklle5ve34l" path="res://scenes/vortex_3d.tscn" id="2_cbtfe"]
+
+[node name="WaterControll" type="Node3D"]
+
+[node name="WaterPlane" parent="." instance=ExtResource("1_2ttre")]
+
+[node name="Vortex3D" parent="." instance=ExtResource("2_cbtfe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07531, 0)

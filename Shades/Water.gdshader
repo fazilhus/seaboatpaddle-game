@@ -29,7 +29,6 @@ uniform float near = 1.0;
 uniform float far = 100.0;
 uniform vec3 edgeColor : source_color;
 
-
 //varying variables are used to pass data between vertex shader and the fragment shader.
 varying float height;
 varying vec3 worldPosition;
@@ -50,7 +49,6 @@ void vertex() // Called for every vertex the material is visible on.
 	worldPosition = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 	height = texture(wave, worldPosition.xz / noiseScale + TIME *timeScale).r;
 	VERTEX.y += height * heightScale;
-
 }
 
 void fragment() //Special function, fragment shader is called for every pixel(fragment) that needs to be rendered on the screen

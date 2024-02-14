@@ -1,53 +1,32 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6qklle5ve34l"]
+[gd_scene load_steps=4 format=3 uid="uid://c6qklle5ve34l"]
 
-[ext_resource type="Shader" path="res://vortex.gdshader" id="1_kvc31"]
+[ext_resource type="Material" uid="uid://cw64j22d2031w" path="res://Shades/Vortex.tres" id="2_vjeqg"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_vqckp"]
+lightmap_size_hint = Vector2i(316, 104)
 top_radius = 0.0
 bottom_radius = 10.0
 height = 0.001
 rings = 10
+cap_top = false
 cap_bottom = false
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_37dn1"]
-noise_type = 3
-frequency = 0.0156
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3qban"]
-seamless = true
-as_normal_map = true
-noise = SubResource("FastNoiseLite_37dn1")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_geuh7"]
-seed = 10
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iu7b6"]
-seamless = true
-as_normal_map = true
-bump_strength = 0.0
-noise = SubResource("FastNoiseLite_geuh7")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pks74"]
-render_priority = 1
-shader = ExtResource("1_kvc31")
-shader_parameter/whirlpool_strength = 0.0
-shader_parameter/rotation_speed = -0.155
-shader_parameter/whirlpool_depth = 2.241
-shader_parameter/inner_radius = 6.813
-shader_parameter/albedo = Color(0, 0.580392, 0.709804, 1)
-shader_parameter/metallic = 0.0
-shader_parameter/roughness = 0.2
-shader_parameter/edgeColor = Color(1, 1, 1, 1)
-shader_parameter/edgeScale = 0.1
-shader_parameter/circle_radius = 1.116
-shader_parameter/edge_softness = 1.0
-shader_parameter/textureNormal = SubResource("NoiseTexture2D_iu7b6")
-shader_parameter/TextureNormal2 = SubResource("NoiseTexture2D_3qban")
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_w5l80"]
+height = 3.87925
+radius = 8.9806
 
 [node name="Vortex3D" type="Node3D"]
 
 [node name="vortex" type="MeshInstance3D" parent="."]
+layers = 2
 cast_shadow = 0
+lod_bias = 0.001
 mesh = SubResource("CylinderMesh_vqckp")
 skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_pks74")
+surface_material_override/0 = ExtResource("2_vjeqg")
+
+[node name="VortexArea3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VortexArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.371864, 0)
+shape = SubResource("CylinderShape3D_w5l80")

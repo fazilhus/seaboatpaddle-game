@@ -3,5 +3,5 @@
 [ext_resource type="Shader" path="res://Shades/AntiWaterMask.gdshader" id="1_5qs0c"]
 
 [resource]
-render_priority = 2
+render_priority = 1
 shader = ExtResource("1_5qs0c")

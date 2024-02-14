@@ -18,7 +18,7 @@ public partial class WaterPlane : MeshInstance3D
 		this.MaterialOverride = this.material;
 		material = (ShaderMaterial)MaterialOverride;
 		noise = GD.Load<NoiseTexture2D>("res://Shades/Water.tres::NoiseTexture2D_cwxk6").GetImage();
-		noiseScale = 1000;//(float)material.GetShaderParameter("noiseScale");
+		noiseScale = 1000.0f;//(float)material.GetShaderParameter("noiseScale");
 		waveSpeed = 0.01f;//(float)material.GetShaderParameter("timeScale");
 		HeightScale = 2;//(float)material.GetShaderParameter("heightSale");
 		time = 0;

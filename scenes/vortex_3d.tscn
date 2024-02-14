@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6qklle5ve34l"]
+
+[ext_resource type="Material" uid="uid://cw64j22d2031w" path="res://Shades/Vortex.tres" id="2_vjeqg"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vqckp"]
+lightmap_size_hint = Vector2i(316, 104)
+top_radius = 0.0
+bottom_radius = 10.0
+height = 0.001
+rings = 10
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_w5l80"]
+height = 3.87925
+radius = 8.9806
+
+[node name="Vortex3D" type="Node3D"]
+
+[node name="vortex" type="MeshInstance3D" parent="."]
+layers = 2
+cast_shadow = 0
+lod_bias = 0.001
+mesh = SubResource("CylinderMesh_vqckp")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_vjeqg")
+
+[node name="VortexArea3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VortexArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.371864, 0)
+shape = SubResource("CylinderShape3D_w5l80")

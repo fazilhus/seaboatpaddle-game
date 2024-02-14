@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 
 enum PaddleSide {
-    Left = 0,
-    Right = 1,
+    Neutral = 0,
+    Left = 1,
+    Right = 2,
 }
 
 public partial class Boat : RigidBody3D
@@ -45,6 +46,7 @@ public partial class Boat : RigidBody3D
     
     [Export] Survivors survivors;
 
+    PaddleSide[] rowPadddleChoice = new PaddleSide[4];
     public override void _Ready()
     {
         //instantiate variables for boat physics
@@ -61,6 +63,7 @@ public partial class Boat : RigidBody3D
         _paddles_rotation_old = new List<Vector3>();
         foreach (int device_id in Input.GetConnectedJoypads()) {
             _player_inputs.Add(Vector3.Zero);
+            rowPadddleChoice[device_id] = PaddleSide.Neutral;
             _paddles_rotation_old.Add(Vector3.Zero);
             _paddles_rotation_old.Add(Vector3.Zero);
         }
@@ -82,66 +85,115 @@ public partial class Boat : RigidBody3D
             //
             int playerId = GetTree().CurrentScene.GetChild<PlayerController>(0).playerIds[row.Index];
 
-            (Vector3,Vector3) inputs = GetPlayerInput(row.Index);
+            (Vector3,Vector3) inputs = GetPlayerInput(row.Index); // Change to state and vector. State to track which paddle
             GD.Print(inputs.Item1);
             //Vector3 input = _player_inputs[it.Index];
             if(row.Index==0)
             {
-                Node3D leftPaddle = row.Row.GetChild<Node3D>(0);
-                Node3D rightPaddle = row.Row.GetChild<Node3D>(1);
-                _paddles_rotation_old[0]=leftPaddle.Rotation;
-                _paddles_rotation_old[1]=rightPaddle.Rotation;
+                
+                if(Input.IsJoyButtonPressed(playerId,JoyButton.LeftShoulder))
+                {
+                    rowPadddleChoice[row.Index] = PaddleSide.Left;
+                }
+                else if(Input.IsJoyButtonPressed(playerId, JoyButton.RightShoulder))
+                {
+                    rowPadddleChoice[row.Index] = PaddleSide.Right;
+                }
 
-                row.Row.GetChild<Node3D>(0).Rotation = new Vector3(inputs.Item1.X * 0.8f, 0, inputs.Item1.Z * 0.5f);
-                row.Row.GetChild<Node3D>(1).Rotation = new Vector3(inputs.Item2.X * 0.8f, 0, inputs.Item2.Z * 0.5f);
-                Vector3 angular_velocity_left = (row.Row.GetChild<Node3D>(0).Rotation - _paddles_rotation_old[0]) / (float)delta;
-                Vector3 angular_velocity_right = (row.Row.GetChild<Node3D>(1).Rotation - _paddles_rotation_old[1]) / (float)delta;
-                Vector3 leftForce = new Vector3(angular_velocity_left.Z, 0, -angular_velocity_left.X);
-                Vector3 rightForce = new Vector3(angular_velocity_right.Z, 0, -angular_velocity_right.X);
-                Node3D force_point_left = row.Row.GetChild<Node3D>(0).GetNode<Node3D>("ForcePoint");
-                Node3D force_point_right = row.Row.GetChild<Node3D>(1).GetNode<Node3D>("ForcePoint");
-                if (force_point_left.GlobalPosition.Y < GlobalPosition.Y)
+                if (rowPadddleChoice[row.Index] == PaddleSide.Left)
                 {
-                    var origin = row.Row.GetChild<Node3D>(0).Position; // This is the PaddlePivot node
-                    var pos = new Vector3(origin.X, origin.Y - 0.3f, origin.Z);
-                    ApplyForce(-sideways_force_ratio * leftForce, pos);
-                    ApplyCentralForce(-forward_force_ratio * Curve(leftForce) * leftForce.Sign().Z * forward);
+                    Node3D leftPaddle = row.Row.GetChild<Node3D>(0);
+                    _paddles_rotation_old[0] = leftPaddle.Rotation;
+                    row.Row.GetChild<Node3D>(0).Rotation = new Vector3(inputs.Item1.X * 0.8f, 0, inputs.Item1.Z * 0.5f);
+                    Vector3 angular_velocity_left = (row.Row.GetChild<Node3D>(0).Rotation - _paddles_rotation_old[0]) / (float)delta;
+                    Vector3 leftForce = new Vector3(angular_velocity_left.Z, 0, -angular_velocity_left.X);
+                    Node3D force_point_left = row.Row.GetChild<Node3D>(0).GetNode<Node3D>("ForcePoint");
+                    if (force_point_left.GlobalPosition.Y < GlobalPosition.Y)
+                    {
+                        var origin = row.Row.GetChild<Node3D>(0).Position; // This is the PaddlePivot node
+                        var pos = new Vector3(origin.X, origin.Y - 0.3f, origin.Z);
+                        ApplyForce(-sideways_force_ratio * leftForce, pos);
+                        ApplyCentralForce(-forward_force_ratio * Curve(leftForce) * leftForce.Sign().Z * forward);
+                    }
                 }
-                if (force_point_right.GlobalPosition.Y < GlobalPosition.Y)
+                else if(rowPadddleChoice[row.Index] == PaddleSide.Right)
                 {
-                    var origin = row.Row.GetChild<Node3D>(1).Position;
-                    var pos = new Vector3(origin.X, origin.Y - 0.3f, origin.Z);
-                    ApplyForce(-sideways_force_ratio * rightForce, pos);
-                    ApplyCentralForce(-forward_force_ratio * Curve(rightForce) * rightForce.Sign().Z * forward);
+                    Node3D rightPaddle = row.Row.GetChild<Node3D>(1);
+
+                    _paddles_rotation_old[1] = rightPaddle.Rotation;
+
+
+                    row.Row.GetChild<Node3D>(1).Rotation = new Vector3(inputs.Item2.X * 0.8f, 0, inputs.Item2.Z * 0.5f);
+
+                    Vector3 angular_velocity_right = (row.Row.GetChild<Node3D>(1).Rotation - _paddles_rotation_old[1]) / (float)delta;
+
+                    Vector3 rightForce = new Vector3(angular_velocity_right.Z, 0, -angular_velocity_right.X);
+
+                    Node3D force_point_right = row.Row.GetChild<Node3D>(1).GetNode<Node3D>("ForcePoint");
+
+                    if (force_point_right.GlobalPosition.Y < GlobalPosition.Y)
+                    {
+                        var origin = row.Row.GetChild<Node3D>(1).Position;
+                        var pos = new Vector3(origin.X, origin.Y - 0.3f, origin.Z);
+                        ApplyForce(-sideways_force_ratio * rightForce, pos);
+                        ApplyCentralForce(-forward_force_ratio * Curve(rightForce) * rightForce.Sign().Z * forward);
+                    }
+
                 }
+                
+                
             }
             else if(row.Index==1)
             {
-                Node3D leftPaddle = row.Row.GetChild<Node3D>(0);
-                Node3D rightPaddle = row.Row.GetChild<Node3D>(1);
-                _paddles_rotation_old[2] = leftPaddle.Rotation;
-                _paddles_rotation_old[3] = rightPaddle.Rotation;
-                leftPaddle.Rotation = new Vector3(inputs.Item1.X * 0.8f, 0, inputs.Item1.Z * 0.5f);
-                rightPaddle.Rotation = new Vector3(inputs.Item2.X * 0.8f, 0, inputs.Item2.Z * 0.5f);
-                Vector3 angular_velocity_left = (leftPaddle.Rotation - _paddles_rotation_old[2]) / (float)delta;
-                Vector3 angular_velocity_right = (rightPaddle.Rotation - _paddles_rotation_old[3]) / (float)delta;
-                Vector3 leftForce = new Vector3(angular_velocity_left.Z, 0, -angular_velocity_left.X);
-                Vector3 rightForce = new Vector3(angular_velocity_right.Z, 0, -angular_velocity_right.X);
-                Node3D force_point_left = leftPaddle.GetNode<Node3D>("ForcePoint");
-                Node3D force_point_right = rightPaddle.GetNode<Node3D>("ForcePoint");
-                if (force_point_left.GlobalPosition.Y < GlobalPosition.Y)
+               
+                if (Input.IsJoyButtonPressed(playerId, JoyButton.LeftShoulder))
                 {
-                    var origin = leftPaddle.Position;
-                    var pos = new Vector3(origin.X, origin.Y - 0.3f, origin.Z);
-                    ApplyForce(-sideways_force_ratio * leftForce, pos);
-                    ApplyCentralForce(-forward_force_ratio * Curve(leftForce) * leftForce.Sign().Z * forward);
+                    rowPadddleChoice[row.Index] = PaddleSide.Left;
                 }
-                if (force_point_right.GlobalPosition.Y < GlobalPosition.Y)
+                else if (Input.IsJoyButtonPressed(playerId, JoyButton.RightShoulder))
                 {
-                    var origin = rightPaddle.Position;
-                    var pos = new Vector3(origin.X, origin.Y - 0.3f, origin.Z);
-                    ApplyForce(-sideways_force_ratio * rightForce, pos);
-                    ApplyCentralForce(-forward_force_ratio * Curve(rightForce) * rightForce.Sign().Z * forward);
+                    rowPadddleChoice[row.Index] = PaddleSide.Right;
+                }
+
+                if (rowPadddleChoice[row.Index] == PaddleSide.Left)
+                {
+                    Node3D leftPaddle = row.Row.GetChild<Node3D>(0);
+                    _paddles_rotation_old[2] = leftPaddle.Rotation;
+                    row.Row.GetChild<Node3D>(0).Rotation = new Vector3(inputs.Item1.X * 0.8f, 0, inputs.Item1.Z * 0.5f);
+                    Vector3 angular_velocity_left = (row.Row.GetChild<Node3D>(0).Rotation - _paddles_rotation_old[2]) / (float)delta;
+                    Vector3 leftForce = new Vector3(angular_velocity_left.Z, 0, -angular_velocity_left.X);
+                    Node3D force_point_left = row.Row.GetChild<Node3D>(0).GetNode<Node3D>("ForcePoint");
+                    if (force_point_left.GlobalPosition.Y < GlobalPosition.Y)
+                    {
+                        var origin = row.Row.GetChild<Node3D>(0).Position; // This is the PaddlePivot node
+                        var pos = new Vector3(origin.X, origin.Y - 0.3f, origin.Z);
+                        ApplyForce(-sideways_force_ratio * leftForce, pos);
+                        ApplyCentralForce(-forward_force_ratio * Curve(leftForce) * leftForce.Sign().Z * forward);
+                    }
+                }
+                else if (rowPadddleChoice[row.Index] == PaddleSide.Right)
+                {
+                    Node3D rightPaddle = row.Row.GetChild<Node3D>(1);
+
+                    _paddles_rotation_old[3] = rightPaddle.Rotation;
+
+
+                    row.Row.GetChild<Node3D>(1).Rotation = new Vector3(inputs.Item2.X * 0.8f, 0, inputs.Item2.Z * 0.5f);
+
+                    Vector3 angular_velocity_right = (row.Row.GetChild<Node3D>(1).Rotation - _paddles_rotation_old[3]) / (float)delta;
+
+                    Vector3 rightForce = new Vector3(angular_velocity_right.Z, 0, -angular_velocity_right.X);
+
+                    Node3D force_point_right = row.Row.GetChild<Node3D>(1).GetNode<Node3D>("ForcePoint");
+
+                    if (force_point_right.GlobalPosition.Y < GlobalPosition.Y)
+                    {
+                        var origin = row.Row.GetChild<Node3D>(1).Position;
+                        var pos = new Vector3(origin.X, origin.Y - 0.3f, origin.Z);
+                        ApplyForce(-sideways_force_ratio * rightForce, pos);
+                        ApplyCentralForce(-forward_force_ratio * Curve(rightForce) * rightForce.Sign().Z * forward);
+                    }
+
                 }
             }
             /*_paddles_rotation_old[it.Index] = it.Paddle.Rotation;//Previous frame rotation

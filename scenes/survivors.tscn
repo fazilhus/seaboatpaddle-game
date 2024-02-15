@@ -19,7 +19,6 @@ size = Vector3(0.8, 0.1, 0.2)
 radius = 3.0
 
 [node name="Survivors" type="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_jj4q8")
 
 [node name="SurvivorMeshInstance" type="MeshInstance3D" parent="."]

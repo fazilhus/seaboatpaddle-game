@@ -3,6 +3,10 @@ using System;
 
 public partial class GameCamera : Node3D
 {
+	
+	private Timer countdownTimer;
+	private int remainingTime = 800;
+	
 	[Export]
 	public Node3D Boat;
 	[Export]
@@ -27,6 +31,8 @@ public partial class GameCamera : Node3D
 	
 	public override void _Ready()
 	{
+		GetNode<Timer>("countdownTimer").Start();
+		
 		LabelPlayers = GetNodeOrNull<Label>("CanvasLayer/LabelPlayers");
 		LabelTime = GetNodeOrNull<Label>("CanvasLayer/LabelTime");
 		LabelModifiers = GetNodeOrNull<Label>("CanvasLayer/LabelModifiers");
@@ -42,8 +48,6 @@ public partial class GameCamera : Node3D
 		Position = Boat.Position + position_offset;
 		RotationDegrees = new Vector3(0, Boat.Rotation.Y, 0) + rotation_offset;
 		
-		LabelTime.Text = "Time";
-		
 		if(DrunkenCaptain)
 		{
 			float swayAngle = Mathf.Sin(swayTimer) * swayAmount;
@@ -53,4 +57,27 @@ public partial class GameCamera : Node3D
 			swayTimer += (float)delta * swaySpeed;
 		}
 	}
+	private void OnCountdownTimerTimeout()
+	{
+		// Decrement remaining time
+		if (remainingTime > 0)
+		{
+			remainingTime--;
+		}
+		
+
+		// Update the display to show the remaining time
+		LabelTime.Text = "Time: " + remainingTime.ToString();
+
+		// Check if the countdown has reached zero
+		if (remainingTime <= 0)
+		{
+			// Handle timer expiration (e.g., game over)
+			GD.Print("Time's up!");
+			countdownTimer.Stop(); // Stop the timer if needed
+		}
+	}
 }
+
+
+

@@ -57,6 +57,7 @@ public partial class GameCamera : Node3D
 			swayTimer += (float)delta * swaySpeed;
 		}
 	}
+	
 	private void OnCountdownTimerTimeout()
 	{
 		// Decrement remaining time
@@ -65,14 +66,10 @@ public partial class GameCamera : Node3D
 			remainingTime--;
 		}
 		
+		LabelTime.Text = "Time Left: " + remainingTime.ToString();
 
-		// Update the display to show the remaining time
-		LabelTime.Text = "Time: " + remainingTime.ToString();
-
-		// Check if the countdown has reached zero
 		if (remainingTime <= 0)
 		{
-			// Handle timer expiration (e.g., game over)
 			GD.Print("Time's up!");
 			countdownTimer.Stop(); // Stop the timer if needed
 		}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bqgpgxpoqkw6w"]
+[gd_scene load_steps=15 format=3 uid="uid://bqgpgxpoqkw6w"]
 
 [ext_resource type="PackedScene" uid="uid://donyuxtadnlyj" path="res://scenes/survivors.tscn" id="1_pprra"]
 [ext_resource type="Script" path="res://scripts/WorldScene.cs" id="1_qx545"]
@@ -9,6 +9,10 @@
 [ext_resource type="PackedScene" path="res://scenes/sea_mine.tscn" id="7_sombh"]
 [ext_resource type="PackedScene" uid="uid://bdohepiggfmms" path="res://scenes/map.tscn" id="8_lgk5l"]
 [ext_resource type="PackedScene" uid="uid://hl4r2ylauhog" path="res://scenes/Modifiers.tscn" id="9_e5cou"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kspm4"]
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ik3mg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -41,10 +45,13 @@ offset_right = 54.0
 offset_bottom = 25.0
 
 [node name="LabelTime" type="Label" parent="GameCamera/CanvasLayer"]
-offset_left = 1077.0
+offset_left = 1013.0
 offset_top = 3.0
 offset_right = 1150.0
 offset_bottom = 26.0
+text = "
+"
+label_settings = SubResource("LabelSettings_kspm4")
 
 [node name="LabelModifiers" type="Label" parent="GameCamera/CanvasLayer"]
 offset_left = 3.0

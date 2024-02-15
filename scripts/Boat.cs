@@ -11,11 +11,11 @@ enum PaddleSide {
 
 public partial class Boat : RigidBody3D
 {
-    [Signal]
-    public delegate void NoBoatHealthEventHandler();
+	[Signal]
+	public delegate void NoBoatHealthEventHandler();
 
-    [Export]
-    public Godot.Collections.Array<Node3D> paddles;
+	[Export]
+	public Godot.Collections.Array<Node3D> paddles;
 
 	private List<Vector3> _player_inputs;
 	private List<Vector3> _paddles_rotation_old;
@@ -50,43 +50,43 @@ public partial class Boat : RigidBody3D
 	
 	[Export] Survivors survivors;
 	[Export] private bool isVortexCollided;
-    [Export] private float maxDistance = 20.0f; // Example maximum distance from the center
+	[Export] private float maxDistance = 20.0f; // Example maximum distance from the center
 
 	 // Define the vortex center
-    private Vector3 vortexCenter = new Vector3(10, 5, 0); // Example vortex center position
+	private Vector3 vortexCenter = new Vector3(10, 5, 0); // Example vortex center position
 
-    // Define the base force magnitude
-    [Export]
+	// Define the base force magnitude
+	[Export]
 	public float baseForceMagnitude = 100.0f; // Example base force magnitude
 	[Export]
 	public float rotationalForceMagnitude = 10.0f;
 	[Export]
 	public float rotationalVelocity = 5;
 
-    public bool ControlInversion { get; private set; } = false;
+	public bool ControlInversion { get; private set; } = false;
 	public bool RepairKit { get; private set; } = false;
 	public bool SpeedBoost { get; private set; } = false;
 
 	public void ActivateControlInversion()
 	{
-        GetNode<Timer>("ControlInversionTimer").Start();
+		GetNode<Timer>("ControlInversionTimer").Start();
 		ControlInversion = true;
 	}
 	public void ActivateRepairKit()
 	{
 		//RepairKit = true;
-        healthComp.AddHealth(25);
+		healthComp.AddHealth(25);
 	}
 	public void ActivateSpeedBoost()
 	{
-        GetNode<Timer>("SpeedBoostTimer").Start();
+		GetNode<Timer>("SpeedBoostTimer").Start();
 		SpeedBoost = true;
 	}
 
 	private float strengthFactor; 
-    private HealthComponent healthComp;
-    
-    //[Export] Survivors survivors;
+	private HealthComponent healthComp;
+	
+	//[Export] Survivors survivors;
 
 	public override void _Ready()
 	{
@@ -95,40 +95,40 @@ public partial class Boat : RigidBody3D
 		gravity = (float)ProjectSettings.GetSetting("physics/3d/default_gravity");
 		//water = parent.GetNode<WaterPlane>("WaterPlane");
 		probeContainer = GetNode<Node3D>("ProbeContainer").GetChildren();
-        //survivors = parent.GetNode<Survivors>("Survivors");
-        
+		//survivors = parent.GetNode<Survivors>("Survivors");
+		
 	
 		initialY = GlobalPosition.Y;
 
-        _player_inputs = new List<Vector3>();
-        _paddles_rotation_old = new List<Vector3>();
-        foreach (int device_id in Input.GetConnectedJoypads()) {
-            _player_inputs.Add(Vector3.Zero);
-            _paddles_rotation_old.Add(Vector3.Zero);
-        }
+		_player_inputs = new List<Vector3>();
+		_paddles_rotation_old = new List<Vector3>();
+		foreach (int device_id in Input.GetConnectedJoypads()) {
+			_player_inputs.Add(Vector3.Zero);
+			_paddles_rotation_old.Add(Vector3.Zero);
+		}
 
-        healthComp = GetNode<HealthComponent>("HealthComponent");
-    }
+		healthComp = GetNode<HealthComponent>("HealthComponent");
+	}
 
-    public override void _Process(double delta)
-    {
-        if (Input.IsKeyPressed(Key.F2)) {
-            GetNode<HealthComponent>("HealthComponent").SubtractHealth(100);
-        }
-        
-        DebugDraw2D.SetText("Health: ", GetNode<HealthComponent>("HealthComponent").health);
-    }
+	public override void _Process(double delta)
+	{
+		if (Input.IsKeyPressed(Key.F2)) {
+			GetNode<HealthComponent>("HealthComponent").SubtractHealth(100);
+		}
+		
+		DebugDraw2D.SetText("Health: ", GetNode<HealthComponent>("HealthComponent").health);
+	}
 
-    public override void _PhysicsProcess(double delta)
-    {
-        Vector3 forward = Basis.Z;
-        foreach (var it in paddles.Select((paddle, i) => new {Paddle = paddle, Index = i})) {
-            if (it.Index >= _player_inputs.Count) {
-                continue;
-            }
-            
-            Vector3 input = GetPlayerInput(it.Index);
-            //Vector3 input = _player_inputs[it.Index];
+	public override void _PhysicsProcess(double delta)
+	{
+		Vector3 forward = Basis.Z;
+		foreach (var it in paddles.Select((paddle, i) => new {Paddle = paddle, Index = i})) {
+			if (it.Index >= _player_inputs.Count) {
+				continue;
+			}
+			
+			Vector3 input = GetPlayerInput(it.Index);
+			//Vector3 input = _player_inputs[it.Index];
 			if (ControlInversion) {
 				input.Z *= -1;
 			}
@@ -144,8 +144,8 @@ public partial class Boat : RigidBody3D
 				ApplyCentralForce(-forward_force_ratio * Curve(force) * force.Sign().Z * forward);
 			}
 
-            if (SpeedBoost) {
-                ApplyCentralForce(1000 * forward * (float)delta);
+			if (SpeedBoost) {
+				ApplyCentralForce(1000 * forward * (float)delta);
 			}
 		}              
 		
@@ -203,8 +203,8 @@ public partial class Boat : RigidBody3D
 				ApplyForce(Vector3.Up * floatForce * gravity * depth, p.GlobalPosition - GlobalPosition);
 			}
 			else {
-                isSubmerged = false;
-            }
+				isSubmerged = false;
+			}
 		}
 		
 	}
@@ -233,30 +233,30 @@ public partial class Boat : RigidBody3D
 			isVortexCollided = false;
 		}
 
-        if (area.IsInGroup("VortexDamage")) {
-            GetNode<Timer>("VortexDamageTimer").Stop();
-        }
+		if (area.IsInGroup("VortexDamage")) {
+			GetNode<Timer>("VortexDamageTimer").Stop();
+		}
 	}
 
-    private Vector3 GetPlayerInput(int device_id) {
-        Vector3 input = Vector3.Zero;
+	private Vector3 GetPlayerInput(int device_id) {
+		Vector3 input = Vector3.Zero;
 		input.Z = Input.GetJoyAxis(device_id, JoyAxis.LeftX);
 		input.X = -Input.GetJoyAxis(device_id, JoyAxis.LeftY);
-        return input;
-    }
-    public void OnArea3dTriggerBoatAreaEntered(Area3D area)
-    {
-        if (area.IsInGroup("Survivors"))
-        {
-              GD.Print("boat is colliding with survivors!");
-        }
-        
-        if (area.IsInGroup("SeaMine")) {
-            GD.Print("Boom!!!");
-            healthComp.SubtractHealth(100);
-        }
+		return input;
+	}
+	public void OnArea3dTriggerBoatAreaEntered(Area3D area)
+	{
+		if (area.IsInGroup("Survivors"))
+		{
+			  GD.Print("boat is colliding with survivors!");
+		}
+		
+		if (area.IsInGroup("SeaMine")) {
+			GD.Print("Boom!!!");
+			healthComp.SubtractHealth(100);
+		}
 
-        if(area.IsInGroup("Modifiers")) {
+		if(area.IsInGroup("Modifiers")) {
 			GD.Print("boat is colliding with modifiers!");
 		}
 
@@ -268,40 +268,40 @@ public partial class Boat : RigidBody3D
 		
 		}
 
-        if (area.IsInGroup("VortexDamage")) {
-            GetNode<Timer>("VortexDamageTimer").Start();
-        }
-    }
+		if (area.IsInGroup("VortexDamage")) {
+			GetNode<Timer>("VortexDamageTimer").Start();
+		}
+	}
 
-    public void OnHealthComponentNoHealthEvent() {
-        GD.Print("Boat lost all durability: You Lose");
-        EmitSignal(SignalName.NoBoatHealth);
-    }
+	public void OnHealthComponentNoHealthEvent() {
+		GD.Print("Boat lost all durability: You Lose");
+		EmitSignal(SignalName.NoBoatHealth);
+	}
 
-    public void OnBodyEntered(Node node) {
-        GD.Print(node.Name);
-        if (node.IsInGroup("Rock")) {
-            GD.Print("Crashed a rock!!!");
-            var speed = LinearVelocity.Length();
-            if (speed < 5) {
-                return;
-            }
-            GD.Print("Lost ", 3 * (int)speed, " health");
-            healthComp.SubtractHealth(3 * (int)speed);
-        }
-    }
+	public void OnBodyEntered(Node node) {
+		GD.Print(node.Name);
+		if (node.IsInGroup("Rock")) {
+			GD.Print("Crashed a rock!!!");
+			var speed = LinearVelocity.Length();
+			if (speed < 5) {
+				return;
+			}
+			GD.Print("Lost ", 3 * (int)speed, " health");
+			healthComp.SubtractHealth(3 * (int)speed);
+		}
+	}
 
-    public void OnControlInversionTimerTimeout() {
-        GD.Print("'Control Inversion' modifier has ended");
-        ControlInversion = false;
-    }
+	public void OnControlInversionTimerTimeout() {
+		GD.Print("'Control Inversion' modifier has ended");
+		ControlInversion = false;
+	}
 
-    public void OnSpeedBoostTimerTimeout() {
-        GD.Print("'Speed Boost' modifier has ended");
-        SpeedBoost = false;
-    }
+	public void OnSpeedBoostTimerTimeout() {
+		GD.Print("'Speed Boost' modifier has ended");
+		SpeedBoost = false;
+	}
 
-    public void OnVortexDamageTimerTimeout() {
-        healthComp.SubtractHealth(10);
-    }
+	public void OnVortexDamageTimerTimeout() {
+		healthComp.SubtractHealth(10);
+	}
 }

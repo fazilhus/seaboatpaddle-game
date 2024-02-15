@@ -61,17 +61,17 @@ public partial class Modifiers : RigidBody3D
 			
 			NumberGenerator generator = new NumberGenerator();
 			int randomNumber = generator.GenerateNumber();
-			// if (randomNumber == 1)
-			// {
-			// 	//Add extra time
-			// 	GD.Print("Extra time added");
-			// }
-			// if (randomNumber == 2)
-			// {
-			// 	GameCamera.ActivateDrunkenCaptain();
-			// 	GameCamera.swayAmount += 3;
-			// 	GD.Print("Rum found");
-			// }
+			if (randomNumber == 1)
+			{
+				//Add extra time
+				GD.Print("Extra time added");
+			}
+			if (randomNumber == 2)
+			{
+				GameCamera.ActivateDrunkenCaptain();
+				GameCamera.swayAmount += 3;
+				GD.Print("Rum found");
+			}
 			if (randomNumber == 3)
 			{
 				boat.ActivateRepairKit();

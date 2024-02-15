@@ -5,9 +5,9 @@ using System;
 public partial class Modifiers : RigidBody3D
 {
 	
-	[Export] private float floatForce = 1.0f;
-	[Export] private float waterDrag = 0.005f;
-	[Export] private float WaterAngularDrag = 0.01f;
+	[Export] private float floatForce = 0.7f;
+	[Export] private float waterDrag = 0.05f;
+	[Export] private float WaterAngularDrag = 0.5f;
 	[Export] private bool isSubmerged = false;
 	private float gravity;
 
@@ -19,19 +19,6 @@ public partial class Modifiers : RigidBody3D
 	public double time = 0;
 	
 	public Godot.Collections.Array<Node> probeContainer;
-	
-	private Boat boatInstance;
-	private GameCamera cameraInstance;
-
-	public void SetCameraInstance(GameCamera camera)
-	{
-		cameraInstance = camera;
-	}
-	
-	public void SetBoatInstance(Boat boat)
-	{
-		boatInstance = boat;
-	}
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -83,27 +70,23 @@ public partial class Modifiers : RigidBody3D
 			}
 			if (randomNumber == 2)
 			{
-				if(cameraInstance != null)
-				cameraInstance.DrunkenCaptain = true;
-				cameraInstance.swayAmount += 3;
+				GameCamera.ActivateDrunkenCaptain();
+				GameCamera.swayAmount += 3;
 				GD.Print("Rum found");
 			}
 			if (randomNumber == 3)
 			{
-				if(boatInstance != null)
-				boatInstance.RepairKit = true;
+				Boat.ActivateRepairKit();
 				GD.Print("Repair kit found, press A to repair boat");
 			}
 			if (randomNumber == 4)
 			{
-				if(boatInstance != null)
-				boatInstance.ControlInversion = true;
+				Boat.ActivateControlInversion();
 				GD.Print("'Controll Inversion' mode on");
 			}
 			if (randomNumber == 5)
 			{
-				if(boatInstance != null)
-				boatInstance.SpeedBoost = true;
+				Boat.ActivateSpeedBoost();
 				GD.Print("Speed Boost found, press A to use it and get a speed boost straight a head");
 			}
 		}

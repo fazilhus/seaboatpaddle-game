@@ -10,13 +10,16 @@ public partial class GameCamera : Node3D
 	[Export]
 	public Vector3 rotation_offset = new Vector3(-120, 0, 180);
 	[Export]
-	public float swayAmount = 0;
+	public static float swayAmount = 0;
 	[Export]
 	public float swaySpeed = 2f;
-	
 	private float swayTimer = 0f;
+	public static bool DrunkenCaptain { get; private set; } = false;
 	
-	public bool DrunkenCaptain = false;
+	public static void ActivateDrunkenCaptain()
+	{
+		DrunkenCaptain = true;
+	}
 	
 	public override void _Process(double delta)
 	{

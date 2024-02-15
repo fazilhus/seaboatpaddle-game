@@ -308,7 +308,7 @@ public partial class Boat : RigidBody3D
 	public override void _UnhandledInput(InputEvent @event)
 	{
 	   
-		if(@event.IsActionPressed("ui_cancel"))
+		if(@event.IsActionPressed("ui_cancel")) //Press B
 		{
 			if(RepairKit)
 			{
@@ -316,7 +316,7 @@ public partial class Boat : RigidBody3D
 				RepairKit = false;
 			}
 		}
-		if(@event.IsActionPressed("ui_accept"))
+		if(@event.IsActionPressed("ui_accept")) //Press A
 		{
 			if(SpeedBoost)
 			{

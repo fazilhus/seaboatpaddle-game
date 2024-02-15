@@ -35,10 +35,24 @@ public partial class Boat : RigidBody3D
 
 	private float initialY;
 	private double elapsedTime = 0;
-	
-	public bool SpeedBoost = false;
-	public bool ControlInversion = false;
-	public bool RepairKit = false;
+
+
+	public static bool ControlInversion { get; private set; } = false;
+	public static bool RepairKit { get; private set; } = false;
+	public static bool SpeedBoost { get; private set; } = false;
+
+	public static void ActivateControlInversion()
+	{
+		ControlInversion = true;
+	}
+	public static void ActivateRepairKit()
+	{
+		RepairKit = true;
+	}
+	public static void ActivateSpeedBoost()
+	{
+		SpeedBoost = true;
+	}
 	
 	//[Export]
 	//private float bobbingFactor = 0.1f;

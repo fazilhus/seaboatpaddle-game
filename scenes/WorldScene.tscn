@@ -145,7 +145,52 @@ water = NodePath("../../WaterPlane")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.15837, 1.45815, 15.1394)
 
 [node name="Modifiers" parent="Node3D2" node_paths=PackedStringArray("water", "boatCollider") instance=ExtResource("9_e5cou")]
-transform = Transform3D(0.983559, 0, 0.180588, 0.0326213, 0.983549, -0.177669, -0.177617, 0.180639, 0.967379, 3.88858, 1.10274, 12.5771)
+transform = Transform3D(1, 0, 0, 0, 0.951057, 0.309017, 0, -0.309017, 0.951057, 25.2224, 0.871637, 24.0646)
+water = NodePath("../../WaterPlane")
+boatCollider = NodePath("../../Boat/Area3DTriggerBoat")
+
+[node name="Modifiers6" parent="Node3D2" node_paths=PackedStringArray("water", "boatCollider") instance=ExtResource("9_e5cou")]
+transform = Transform3D(1, 0, 0, 0, 0.951057, 0.309017, 0, -0.309017, 0.951057, 27.6512, 0.871637, -32.5263)
+water = NodePath("../../WaterPlane")
+boatCollider = NodePath("../../Boat/Area3DTriggerBoat")
+
+[node name="Modifiers7" parent="Node3D2" node_paths=PackedStringArray("water", "boatCollider") instance=ExtResource("9_e5cou")]
+transform = Transform3D(1, 0, 0, 0, 0.951057, 0.309017, 0, -0.309017, 0.951057, -35.2544, 0.871637, 51.5099)
+water = NodePath("../../WaterPlane")
+boatCollider = NodePath("../../Boat/Area3DTriggerBoat")
+
+[node name="Modifiers8" parent="Node3D2" node_paths=PackedStringArray("water", "boatCollider") instance=ExtResource("9_e5cou")]
+transform = Transform3D(1, 0, 0, 0, 0.951057, 0.309017, 0, -0.309017, 0.951057, -48.6128, 0.871637, 27.9506)
+water = NodePath("../../WaterPlane")
+boatCollider = NodePath("../../Boat/Area3DTriggerBoat")
+
+[node name="Modifiers9" parent="Node3D2" node_paths=PackedStringArray("water", "boatCollider") instance=ExtResource("9_e5cou")]
+transform = Transform3D(1, 0, 0, 0, 0.951057, 0.309017, 0, -0.309017, 0.951057, 45.3814, 0.871637, 20.1785)
+water = NodePath("../../WaterPlane")
+boatCollider = NodePath("../../Boat/Area3DTriggerBoat")
+
+[node name="Modifiers10" parent="Node3D2" node_paths=PackedStringArray("water", "boatCollider") instance=ExtResource("9_e5cou")]
+transform = Transform3D(1, 0, 0, 0, 0.951057, 0.309017, 0, -0.309017, 0.951057, -28.9663, 0.871637, -42.9345)
+water = NodePath("../../WaterPlane")
+boatCollider = NodePath("../../Boat/Area3DTriggerBoat")
+
+[node name="Modifiers5" parent="Node3D2" node_paths=PackedStringArray("water", "boatCollider") instance=ExtResource("9_e5cou")]
+transform = Transform3D(1, 0, 0, 0, 0.951057, 0.309017, 0, -0.309017, 0.951057, 22.6205, 0.871637, -15.2706)
+water = NodePath("../../WaterPlane")
+boatCollider = NodePath("../../Boat/Area3DTriggerBoat")
+
+[node name="Modifiers4" parent="Node3D2" node_paths=PackedStringArray("water", "boatCollider") instance=ExtResource("9_e5cou")]
+transform = Transform3D(1, 0, 0, 0, 0.951057, 0.309017, 0, -0.309017, 0.951057, -12.4242, 0.871637, -26.2041)
+water = NodePath("../../WaterPlane")
+boatCollider = NodePath("../../Boat/Area3DTriggerBoat")
+
+[node name="Modifiers2" parent="Node3D2" node_paths=PackedStringArray("water", "boatCollider") instance=ExtResource("9_e5cou")]
+transform = Transform3D(1, 0, 0, 0, 0.951057, 0.309017, 0, -0.309017, 0.951057, -24.9548, 0.957332, 34.2074)
+water = NodePath("../../WaterPlane")
+boatCollider = NodePath("../../Boat/Area3DTriggerBoat")
+
+[node name="Modifiers3" parent="Node3D2" node_paths=PackedStringArray("water", "boatCollider") instance=ExtResource("9_e5cou")]
+transform = Transform3D(0.587785, -0.25, -0.769421, 0, 0.951057, -0.309017, 0.809017, 0.181636, 0.559017, -21.5861, 0.667751, -3.25296)
 water = NodePath("../../WaterPlane")
 boatCollider = NodePath("../../Boat/Area3DTriggerBoat")
 mass = 2.0

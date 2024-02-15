@@ -201,6 +201,10 @@ public partial class Boat : RigidBody3D
 		{
 			isVortexCollided = false;
 		}
+
+        if (area.IsInGroup("VortexDamage")) {
+            GetNode<Timer>("VortexDamageTimer").Stop();
+        }
 	}
 
     private Vector3 GetPlayerInput(int device_id) {
@@ -231,13 +235,17 @@ public partial class Boat : RigidBody3D
             healthComp.SubtractHealth(100);
         }
 
-		if(area.IsInGroup("Vortex"))
+		if (area.IsInGroup("Vortex"))
 		{
 			isVortexCollided = true;
 			vortexCenter = area.GlobalPosition;
 			GD.Print("Collided with vortex!", area.GlobalPosition);
 		
 		}
+
+        if (area.IsInGroup("VortexDamage")) {
+            GetNode<Timer>("VortexDamageTimer").Start();
+        }
     }
 
     public void OnHealthComponentNoHealthEvent() {
@@ -256,5 +264,9 @@ public partial class Boat : RigidBody3D
             GD.Print("Lost ", 3 * (int)speed, " health");
             healthComp.SubtractHealth(3 * (int)speed);
         }
+    }
+
+    public void OnVortexDamageTimerTimeout() {
+        healthComp.SubtractHealth(25);
     }
 }

@@ -31,7 +31,7 @@ forward_force_ratio = 40.0
 floatForce = 1.5
 waterDrag = 0.02
 WaterAngularDrag = 0.03
-baseForceMagnitude = 500.0
+baseForceMagnitude = 350.0
 rotationalForceMagnitude = 1.0
 rotationalVelocity = 35.0
 
@@ -104,7 +104,11 @@ shape = SubResource("BoxShape3D_r0jpl")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionTrigger"]
 shape = SubResource("BoxShape3D_bo0p4")
 
+[node name="VortexDamageTimer" type="Timer" parent="."]
+wait_time = 1.5
+
 [connection signal="area_entered" from="Area3DTriggerBoat" to="." method="OnArea3dTriggerBoatAreaEntered"]
 [connection signal="area_exited" from="Area3DTriggerBoat" to="." method="OnBoatArea3dBodyExited"]
 [connection signal="body_entered" from="Area3DTriggerBoat" to="." method="OnBodyEntered"]
 [connection signal="NoHealth" from="HealthComponent" to="." method="OnHealthComponentNoHealthEvent"]
+[connection signal="timeout" from="VortexDamageTimer" to="." method="OnVortexDamageTimerTimeout"]

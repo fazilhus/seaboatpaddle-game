@@ -83,9 +83,10 @@ public partial class Modifiers : RigidBody3D
 			}
 			if (randomNumber == 2)
 			{
+				if(cameraInstance != null)
 				cameraInstance.DrunkenCaptain = true;
 				cameraInstance.swayAmount += 3;
-				GD.Print("Rom found");
+				GD.Print("Rum found");
 			}
 			if (randomNumber == 3)
 			{

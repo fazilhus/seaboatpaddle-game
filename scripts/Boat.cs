@@ -96,7 +96,12 @@ public partial class Boat : RigidBody3D
 			
 			Vector3 input = GetPlayerInput(it.Index);
 			//Vector3 input = _player_inputs[it.Index];
-
+			
+			if(ControlInversion)
+			{
+				input.Z *= -1;
+			}
+			
 			_paddles_rotation_old[it.Index] = it.Paddle.Rotation;
 			it.Paddle.Rotation = new Vector3(input.X * 0.8f, 0, input.Z * 0.5f);
 			Vector3 angular_velocity = (it.Paddle.Rotation - _paddles_rotation_old[it.Index]) / (float)delta;

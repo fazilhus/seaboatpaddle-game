@@ -1,9 +1,10 @@
-[gd_scene load_steps=144 format=3 uid="uid://bdohepiggfmms"]
+[gd_scene load_steps=151 format=3 uid="uid://bdohepiggfmms"]
 
 [ext_resource type="ArrayMesh" uid="uid://baig6pl5q2d8i" path="res://art/palm_detailed_long.obj" id="2_hu2xk"]
 [ext_resource type="ArrayMesh" uid="uid://1die41imyn83" path="res://art/formation_rock.obj" id="2_ulpyk"]
 [ext_resource type="ArrayMesh" uid="uid://d2mywo6xom1p0" path="res://art/palm_detailed_short.obj" id="3_6jyh4"]
 [ext_resource type="ArrayMesh" uid="uid://b0h7flq7emf5q" path="res://art/formationLarge_rock.obj" id="3_gj7vg"]
+[ext_resource type="ArrayMesh" uid="uid://dqofb48fch41k" path="res://art/rockFlat.obj" id="4_xpl0j"]
 [ext_resource type="ArrayMesh" uid="uid://bio6g1t46vk1f" path="res://art/ship_light.obj" id="5_fmdl5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4fjnr"]
@@ -65,6 +66,15 @@ albedo_color = Color(0, 0.439216, 0.0627451, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l82e8"]
 size = Vector3(31.8029, 12.2354, 32.2368)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6lyvn"]
+albedo_color = Color(0.729412, 0.662745, 0.470588, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3okqi"]
+albedo_color = Color(0.729412, 0.662745, 0.470588, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ti31y"]
+albedo_color = Color(0.729412, 0.662745, 0.470588, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m6u0f"]
 albedo_color = Color(0.65023, 0.554361, 0.396595, 1)
@@ -434,6 +444,13 @@ albedo_color = Color(0.317647, 0.196078, 0.0431373, 1)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3l27m"]
 points = PackedVector3Array(-0.00279045, -1.80478e-15, -19.1769, -0.00279045, 4.78638, -31.5737, 2.84294, -1.80478e-15, -17.6075, -2.84573, -1.80478e-15, -17.6075, 4.73731, 4.78638, -28.9501, -4.7401, 4.78638, -28.9501, -0.901149, 15.3651, -48.4965, 0.898358, 15.3651, -48.4965, 10.8277, 4.78638, -19.2879, 6.49776, -1.80478e-15, -11.8054, -10.8333, 4.78638, -19.2879, -6.50055, -1.80478e-15, -11.8054, 6.2355, 11.1746, -36.5673, 14.251, 11.1746, -23.8534, -6.23829, 11.1746, -36.5673, -0.901149, 16.5121, -48.4965, -14.251, 11.1746, -23.8534, -13.5395, 16.5121, -26.8813, -13.5395, 39.0599, -26.8972, 0.898358, 16.5121, -48.4965, 13.5368, 39.0599, -26.8972, 13.5368, 16.5121, -26.8813, 10.8277, 4.78638, 21.6042, 6.49776, -1.80478e-15, 21.6042, -10.8333, 4.78638, 21.6042, -6.50055, -1.80478e-15, 21.6042, 13.5368, 39.5341, -26.8972, 13.5368, 40.0082, -26.4216, 13.5368, 60.0636, 24.7747, 14.251, 11.1746, 27.9929, -13.5395, 39.5341, -26.8972, -0.111598, 44.6408, -25.7637, -0.00279045, 44.6408, -25.7796, -13.5395, 40.0082, -26.4216, -14.251, 11.1746, 27.9929, -13.5395, 60.0636, 24.7747, 0.108808, 44.6408, -25.7637, 0.0809078, 59.205, -8.81715, 0.159026, 59.205, -8.78544, 0.225985, 59.205, -8.72996, 0.276203, 59.205, -8.66655, 0.365481, 65.4587, 25.2583, 0.41012, 65.4587, 25.3613, 0.424069, 65.4587, 25.4643, 13.5368, 60.0636, 25.282, 13.5368, 30.3778, 31.9877, 13.5368, 23.1438, 31.9877, -0.0836983, 59.205, -8.81715, -0.00279045, 59.205, -8.82507, -0.281783, 59.205, -8.66655, -0.228775, 59.205, -8.72996, -0.161817, 59.205, -8.78544, -12.7416, 23.1438, 31.9877, -13.5395, 23.1438, 31.1951, -13.5395, 30.3778, 31.1951, -13.5395, 60.0636, 25.282, -0.42686, 65.4587, 25.4643, -0.41291, 65.4587, 25.3613, -0.368272, 65.4587, 25.2583, -0.00279045, 65.4587, 25.0443, 0.108808, 65.4587, 25.0601, 0.212035, 65.4587, 25.0997, 0.298523, 65.4587, 25.1711, 0.41012, 65.4587, 25.5753, 0.136706, 65.0038, 32.0987, 0.100437, 65.0038, 32.2335, 0.0530081, 65.0038, 32.3603, 0, 65.0038, 32.4792, 0, 61.1145, 32.4792, -0.214825, 65.4587, 25.0997, -0.111598, 65.4587, 25.0601, -0.301313, 65.4587, 25.1711, -12.7416, 30.3778, 31.9877, -0.41291, 65.4587, 25.5753, 0.365481, 65.4587, 25.6784, -0.00279045, 65.4587, 25.8924, -0.111598, 65.4587, 25.8765, -0.214825, 65.4587, 25.8369, -0.301313, 65.4587, 25.7655, -0.368272, 65.4587, 25.6784, 0.298523, 65.4587, 25.7655, 0.212035, 65.4587, 25.8369, 0.108808, 65.4587, 25.8765)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_5qrag"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7lg57"]
+albedo_color = Color(0.219608, 0.168627, 0.0901961, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ghdt"]
+
 [node name="Map" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
@@ -554,6 +571,21 @@ surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9016, 6.11768, -16.0787)
 visible = false
 shape = SubResource("BoxShape3D_l82e8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(20, 0, -4.76837e-06, 0, 60, 0, 2.86102e-06, 0, 30, 12.2463, -9.76459, -19.9031)
+mesh = ExtResource("4_xpl0j")
+surface_material_override/0 = SubResource("StandardMaterial3D_6lyvn")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(-6.18034, 0, 28.5317, 0, 60, 0, -19.0211, 0, -9.27051, 16.0928, -9.76459, -10.4246)
+mesh = ExtResource("4_xpl0j")
+surface_material_override/0 = SubResource("StandardMaterial3D_3okqi")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(11.7557, 0, -24.2705, 0, 60, 0, 16.1803, 0, 17.6336, 23.0086, -9.76459, -26.9394)
+mesh = ExtResource("4_xpl0j")
+surface_material_override/0 = SubResource("StandardMaterial3D_ti31y")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="."]
 transform = Transform3D(0.682024, 0, 0.73133, 0, 1, 0, -0.73133, 0, 0.682024, -41.5281, 0, -90.657)
@@ -2187,11 +2219,11 @@ surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
 visible = false
 shape = SubResource("BoxShape3D_vlu6t")
 
-[node name="StaticBody3D15" type="StaticBody3D" parent="."]
+[node name="StaticBodyShip" type="StaticBody3D" parent="."]
 
-[node name="Pivot15" type="Node3D" parent="StaticBody3D15"]
+[node name="Pivot15" type="Node3D" parent="StaticBodyShip"]
 
-[node name="ShipWreck" type="MeshInstance3D" parent="StaticBody3D15/Pivot15"]
+[node name="ShipWreck" type="MeshInstance3D" parent="StaticBodyShip/Pivot15"]
 transform = Transform3D(0.19869, 0.30907, 0.339114, -0.355568, 0.337279, -0.0990674, -0.289989, -0.201788, 0.353819, 0, -7.24573, -14.2915)
 mesh = ExtResource("5_fmdl5")
 surface_material_override/0 = SubResource("StandardMaterial3D_pxtl2")
@@ -2234,6 +2266,17 @@ surface_material_override/36 = SubResource("StandardMaterial3D_5ycqu")
 surface_material_override/37 = SubResource("StandardMaterial3D_tsqvi")
 surface_material_override/38 = SubResource("StandardMaterial3D_xip3m")
 
-[node name="CollisionShip3D" type="CollisionShape3D" parent="StaticBody3D15"]
+[node name="CollisionShip3D" type="CollisionShape3D" parent="StaticBodyShip"]
 transform = Transform3D(0.19869, 0.30907, 0.339114, -0.355568, 0.337279, -0.0990674, -0.289989, -0.201788, 0.353819, 0, -7.24573, -14.2915)
 shape = SubResource("ConvexPolygonShape3D_3l27m")
+
+[node name="StaticBodyseabottom" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBodyseabottom"]
+transform = Transform3D(200, 0, 0, 0, 1, 0, 0, 0, 200, 0, -9.75864, 0)
+mesh = SubResource("PlaneMesh_5qrag")
+surface_material_override/0 = SubResource("StandardMaterial3D_7lg57")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBodyseabottom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.764, 0)
+shape = SubResource("BoxShape3D_0ghdt")

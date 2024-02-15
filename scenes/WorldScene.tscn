@@ -77,7 +77,7 @@ transparency = 0.4
 skeleton = NodePath("")
 
 [node name="Vortex3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.56193, 1.10184, 15.9299)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.56193, 1.10184, 37.373)
 
 [node name="vortex" type="MeshInstance3D" parent="Vortex3D"]
 layers = 2
@@ -190,9 +190,11 @@ water = NodePath("../../WaterPlane")
 [node name="Node3D2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.15837, 1.45815, 15.1394)
 
-[node name="Modifiers" parent="Node3D2" node_paths=PackedStringArray("water") instance=ExtResource("9_e5cou")]
+[node name="Modifiers" parent="Node3D2" node_paths=PackedStringArray("boat", "water") instance=ExtResource("9_e5cou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.47836, 0, -8.56288)
 mass = 2.0
 gravity_scale = 0.3
+boat = NodePath("../../Boat")
 floatForce = 0.6
 water = NodePath("../../WaterPlane")
 

@@ -4,7 +4,8 @@ using System;
 
 public partial class Modifiers : RigidBody3D
 {
-	
+	[Export]
+	public Boat boat;
 	[Export] private float floatForce = 0.7f;
 	[Export] private float waterDrag = 0.05f;
 	[Export] private float WaterAngularDrag = 0.5f;
@@ -14,8 +15,6 @@ public partial class Modifiers : RigidBody3D
 	private float initialY;
 	private double elapsedTime = 0;
 	[Export] public WaterPlane water;
-	[Export] public Area3D boatCollider;
-	[Export] public Area3D modifiersCollider;
 	public double time = 0;
 	
 	public Godot.Collections.Array<Node> probeContainer;
@@ -23,7 +22,6 @@ public partial class Modifiers : RigidBody3D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		var parent = GetParent();
 		gravity = (float)ProjectSettings.GetSetting("physics/3d/default_gravity");
 		probeContainer = GetNode<Node3D>("ProbeContainer").GetChildren();
 		initialY = GlobalPosition.Y;
@@ -40,7 +38,7 @@ public partial class Modifiers : RigidBody3D
 			 if(depth > 0)
 			 {
 				isSubmerged = true;
-				ApplyForce(Godot.Vector3.Up * floatForce * gravity * depth, p.GlobalPosition - GlobalPosition);
+				ApplyForce(Vector3.Up * floatForce * gravity * depth, p.GlobalPosition - GlobalPosition);
 			 }	
 		}
 	}
@@ -63,30 +61,30 @@ public partial class Modifiers : RigidBody3D
 			
 			NumberGenerator generator = new NumberGenerator();
 			int randomNumber = generator.GenerateNumber();
-			if (randomNumber == 1)
-			{
-				//Add extra time
-				GD.Print("Extra time added");
-			}
-			if (randomNumber == 2)
-			{
-				GameCamera.ActivateDrunkenCaptain();
-				GameCamera.swayAmount += 3;
-				GD.Print("Rum found");
-			}
+			// if (randomNumber == 1)
+			// {
+			// 	//Add extra time
+			// 	GD.Print("Extra time added");
+			// }
+			// if (randomNumber == 2)
+			// {
+			// 	GameCamera.ActivateDrunkenCaptain();
+			// 	GameCamera.swayAmount += 3;
+			// 	GD.Print("Rum found");
+			// }
 			if (randomNumber == 3)
 			{
-				Boat.ActivateRepairKit();
+				boat.ActivateRepairKit();
 				GD.Print("Repair kit found, press A to repair boat");
 			}
 			if (randomNumber == 4)
 			{
-				Boat.ActivateControlInversion();
-				GD.Print("'Controll Inversion' mode on");
+				boat.ActivateControlInversion();
+				GD.Print("'Control Inversion' mode on");
 			}
 			if (randomNumber == 5)
 			{
-				Boat.ActivateSpeedBoost();
+				boat.ActivateSpeedBoost();
 				GD.Print("Speed Boost found, press A to use it and get a speed boost straight a head");
 			}
 		}
@@ -106,6 +104,7 @@ public class NumberGenerator
 	public int GenerateNumber()
 	{
 		// Generate a random number between 1 and 5 (inclusive)
-		return random.Next(1, 6);
+		return 5;
+		//return random.Next(3, 6);
 	}
 }

@@ -36,7 +36,7 @@ public partial class Boat : RigidBody3D
 	private float initialY;
 	private double elapsedTime = 0;
 	
-	public bool SpeedBoost = true;
+	public bool SpeedBoost = false;
 	public bool ControlInversion = false;
 	public bool RepairKit = false;
 	
@@ -192,7 +192,7 @@ public partial class Boat : RigidBody3D
 			if (SpeedBoost)
 			{
 				ApplySpeedBoost(7000, 2);
-				SpeedBoost = true;
+				SpeedBoost = false;
 			}
 			if (RepairKit)
 			{

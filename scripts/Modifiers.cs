@@ -21,7 +21,13 @@ public partial class Modifiers : RigidBody3D
 	public Godot.Collections.Array<Node> probeContainer;
 	
 	private Boat boatInstance;
+	private GameCamera cameraInstance;
 
+	public void SetCameraInstance(GameCamera camera)
+	{
+		cameraInstance = camera;
+	}
+	
 	public void SetBoatInstance(Boat boat)
 	{
 		boatInstance = boat;
@@ -77,8 +83,9 @@ public partial class Modifiers : RigidBody3D
 			}
 			if (randomNumber == 2)
 			{
-				//Drunken capten, swinging camera
-				GD.Print("Rom found, 'Drunken Captain' mode on");
+				cameraInstance.DrunkenCaptain = true;
+				cameraInstance.swayAmount += 3;
+				GD.Print("Rom found");
 			}
 			if (randomNumber == 3)
 			{

@@ -13,33 +13,27 @@ friction = 0.0
 size = Vector3(1.5, 0.6, 2.3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r0jpl"]
-size = Vector3(2, 2, 3)
+size = Vector3(1.74646, 1, 3.0321)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bo0p4"]
 size = Vector3(2, 2, 3)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_r0jpl"]
-size = Vector3(1.74646, 1, 3.0321)
-
 [node name="Boat" type="RigidBody3D" node_paths=PackedStringArray("paddles")]
-collision_mask = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_mask = 3
 mass = 2.0
 physics_material_override = SubResource("PhysicsMaterial_7j168")
 freeze_mode = 1
 script = ExtResource("1_tk55w")
 paddles = [NodePath("LeftPaddlePivot"), NodePath("RightPaddlePivot")]
-floatForce = 2.0
-waterDrag = 0.02
-maxDistance = 10.0
-baseForceMagnitude = 500.0
-rotationalForceMagnitude = 1.0
-rotationalVelocity = 35.0
 sideways_force_ratio = 0.4
 forward_force_ratio = 40.0
 floatForce = 1.5
 waterDrag = 0.02
 WaterAngularDrag = 0.03
+baseForceMagnitude = 500.0
+rotationalForceMagnitude = 1.0
+rotationalVelocity = 35.0
 
 [node name="LeftPaddlePivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0.75, 0)
@@ -103,9 +97,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.661134, -0.439855, -0.81219
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0178721, 0.327538, 0.247244)
 shape = SubResource("BoxShape3D_r0jpl")
 
-[connection signal="area_exited" from="Area3DTriggerBoat" to="." method="OnBoatArea3dBodyExited"]
-shape = SubResource("BoxShape3D_r0jpl")
-
 [node name="HealthComponent" parent="." instance=ExtResource("5_oltkq")]
 
 [node name="CollisionTrigger" type="Area3D" parent="."]
@@ -114,5 +105,6 @@ shape = SubResource("BoxShape3D_r0jpl")
 shape = SubResource("BoxShape3D_bo0p4")
 
 [connection signal="area_entered" from="Area3DTriggerBoat" to="." method="OnArea3dTriggerBoatAreaEntered"]
+[connection signal="area_exited" from="Area3DTriggerBoat" to="." method="OnBoatArea3dBodyExited"]
 [connection signal="body_entered" from="Area3DTriggerBoat" to="." method="OnBodyEntered"]
 [connection signal="NoHealth" from="HealthComponent" to="." method="OnHealthComponentNoHealthEvent"]

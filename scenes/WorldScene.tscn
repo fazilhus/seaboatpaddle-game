@@ -144,10 +144,12 @@ water = NodePath("../../WaterPlane")
 [node name="Node3D2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.15837, 1.45815, 15.1394)
 
-[node name="Modifiers" parent="Node3D2" node_paths=PackedStringArray("water") instance=ExtResource("9_e5cou")]
+[node name="Modifiers" parent="Node3D2" node_paths=PackedStringArray("water", "boatCollider") instance=ExtResource("9_e5cou")]
+transform = Transform3D(0.983559, 0, 0.180588, 0.0326213, 0.983549, -0.177669, -0.177617, 0.180639, 0.967379, 3.88858, 1.10274, 12.5771)
+water = NodePath("../../WaterPlane")
+boatCollider = NodePath("../../Boat/Area3DTriggerBoat")
 mass = 2.0
 gravity_scale = 0.3
 floatForce = 0.6
-water = NodePath("../../WaterPlane")
 
 [connection signal="NoBoatHealth" from="Boat" to="." method="OnNoBoatHealth"]

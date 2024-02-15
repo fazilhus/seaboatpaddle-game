@@ -19,14 +19,14 @@ size = Vector3(0.498596, 0.499573, 0.499893)
 script = ExtResource("1_lggjo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.213459, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.213459, 0)
 mesh = ExtResource("1_unltm")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_n0r7w")
 surface_material_override/1 = SubResource("StandardMaterial3D_e8ek2")
 
 [node name="modifiersCollider" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.213459, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.213459, 0)
 shape = SubResource("ConvexPolygonShape3D_ds3dc")
 
 [node name="ProbeContainer" type="Node3D" parent="."]
@@ -47,7 +47,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.248418, 0, 0.248419)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.213459, 0)
 
 [node name="TriggerCollider" type="CollisionShape3D" parent="Area3DTrigger"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000152588, 0.250214, 0.000495911)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.000152588, 0.501467, 0.000495911)
 shape = SubResource("BoxShape3D_obyrg")
 
 [connection signal="area_entered" from="Area3DTrigger" to="." method="OnArea3dTriggerAreaEntered"]

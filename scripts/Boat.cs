@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 
 enum PaddleSide {
@@ -44,6 +45,21 @@ public partial class Boat : RigidBody3D
 	public Godot.Collections.Array<Node> probeContainer;
 	
 	[Export] Survivors survivors;
+	[Export] private bool isVortexCollided;
+    [Export] private float maxDistance = 20.0f; // Example maximum distance from the center
+
+	 // Define the vortex center
+    private Vector3 vortexCenter = new Vector3(10, 5, 0); // Example vortex center position
+
+    // Define the base force magnitude
+    [Export]
+	public float baseForceMagnitude = 100.0f; // Example base force magnitude
+	[Export]
+	public float rotationalForceMagnitude = 10.0f;
+	[Export]
+	public float rotationalVelocity = 5;
+
+	private float strengthFactor; 
 
 	public override void _Ready()
 	{
@@ -64,8 +80,7 @@ public partial class Boat : RigidBody3D
 			_paddles_rotation_old.Add(Vector3.Zero);
 		}
 	}
-
-	public override void _PhysicsProcess(double delta)
+    public override void _PhysicsProcess(double delta)
 	{
 		Vector3 forward = Basis.Z;
 		foreach (var it in paddles.Select((paddle, i) => new {Paddle = paddle, Index = i})) {
@@ -96,12 +111,53 @@ public partial class Boat : RigidBody3D
 
 			if(depth > 0)
 			{
-			isSubmerged = true;
-			ApplyForce(Vector3.Up * floatForce * gravity * depth, p.GlobalPosition - GlobalPosition);
+				isSubmerged = true;
+
+				if(isVortexCollided)
+				{
+					// Calculate the position of the boat relative to the center of the whirlpool
+					//DebugDraw3D.DrawSphere(vortexCenter, 1, Colors.Green);
+					Vector3 relativePosition = -Position + vortexCenter;
+					relativePosition.Y = 0;
+
+					// Calculate the distance from the boat to the center of the whirlpool
+					float distanceToCenter = relativePosition.Length();
+
+					// Define the base force toward the center of the whirlpool
+					Vector3 baseForce = relativePosition.Normalized() * baseForceMagnitude;
+
+					// Adjust the force based on the distance from the center
+					float strengthFactor = (maxDistance - distanceToCenter) / maxDistance;
+					//DebugDraw2D.SetText("StrengthFactor", strengthFactor);
+					//GD.Print("StrengthFactor", strengthFactor);
+					Vector3 whirlpoolForce = baseForce * strengthFactor;
+
+					// Apply the whirlpool force to the boat
+					//DebugDraw3D.DrawLine(Position, Position + relativePosition, Colors.Red);
+					ApplyCentralForce(whirlpoolForce * (float)delta);
+
+					// Calculate the rotational force to simulate rotation around the whirlpool
+					Vector3 tangentialVelocity = relativePosition.Rotated(Vector3.Left, Mathf.DegToRad(-90)) * rotationalForceMagnitude * (float)delta;
+					//Vector3 tangentialVelocity = AngularVelocity.Cross(relativePosition.Normalized());
+					//Vector3 rotationalForce = relativePosition.Normalized().Cross(tangentialVelocity) * rotationalForceMagnitude * (float)delta;
+
+					// Apply the rotational force to the boat
+					//ApplyCentralForce(tangentialVelocity * (float)delta);
+					var v = Vector3.Down.Cross(-relativePosition) * rotationalVelocity * (float)delta;
+					
+					//GD.Print(v);
+					//DebugDraw3D.DrawLine(Position, Position + v, Colors.Yellow);
+					ApplyCentralForce(v);
+					//DebugDraw3D.DrawLine(Position, Position + tangentialVelocity.Normalized(), Colors.Green);
+					ApplyTorque(tangentialVelocity);
+					depth += -2.5f * strengthFactor;
+					//GD.Print("depth: ",depth);
+					//GD.Print("strengthF: ",strengthFactor);
+				} 
+				ApplyForce(Vector3.Up * floatForce * gravity * depth, p.GlobalPosition - GlobalPosition);
 			}
+			
 		}
-
-
 		
 	}
 	public override void _IntegrateForces(PhysicsDirectBodyState3D state) // changing the simulation state of the object
@@ -139,10 +195,28 @@ public partial class Boat : RigidBody3D
 	}
 	public void OnArea3dTriggerBoatAreaEntered(Area3D area)
 	{
+		float VelocityX = LinearVelocity.X;
+		float VelocityZ = LinearVelocity.Z;
+		
 		if(area.IsInGroup("Survivors"))
 		{
 			  GD.Print("boat is colliding with survivors!");
 		}
-	  
+
+		if(area.IsInGroup("Vortex"))
+		{
+			isVortexCollided = true;
+			vortexCenter = area.GlobalPosition;
+			GD.Print("Collided with vortex!", area.GlobalPosition);
+		
+		}
 	}
+	public void OnBoatArea3dBodyExited(Area3D area)
+	{
+		if(area.IsInGroup("Vortex"))
+		{
+			isVortexCollided = false;
+		}
+	}
+
 }

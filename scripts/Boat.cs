@@ -35,24 +35,7 @@ public partial class Boat : RigidBody3D
 
 	private float initialY;
 	private double elapsedTime = 0;
-
-
-	public static bool ControlInversion { get; private set; } = false;
-	public static bool RepairKit { get; private set; } = false;
-	public static bool SpeedBoost { get; private set; } = false;
-
-	public static void ActivateControlInversion()
-	{
-		ControlInversion = true;
-	}
-	public static void ActivateRepairKit()
-	{
-		RepairKit = true;
-	}
-	public static void ActivateSpeedBoost()
-	{
-		SpeedBoost = true;
-	}
+	
 	
 	//[Export]
 	//private float bobbingFactor = 0.1f;
@@ -146,7 +129,7 @@ public partial class Boat : RigidBody3D
             
             Vector3 input = GetPlayerInput(it.Index);
             //Vector3 input = _player_inputs[it.Index];
-            if (ControlInversion) {
+			if (ControlInversion) {
 				input.Z *= -1;
 			}
 
@@ -163,7 +146,7 @@ public partial class Boat : RigidBody3D
 
             if (SpeedBoost) {
                 ApplyCentralForce(1000 * forward * (float)delta);
-            }
+			}
 		}              
 		
 		// checking marker3d in the probe container for simulating the water physics
@@ -226,23 +209,6 @@ public partial class Boat : RigidBody3D
 		
 	}
 	
-	public override void _UnhandledInput(InputEvent @event)
-	{
-		if(@event.IsActionPressed("ui_accept"))
-		{
-			if (SpeedBoost)
-			{
-				ApplySpeedBoost(7000, 2);
-				SpeedBoost = false;
-			}
-			if (RepairKit)
-			{
-				RepairBoat(5);
-				RepairKit = false;
-			}
-		}
-	}
-	
 	public override void _IntegrateForces(PhysicsDirectBodyState3D state) // changing the simulation state of the object
 	{
 		if(isSubmerged)
@@ -270,25 +236,12 @@ public partial class Boat : RigidBody3D
         if (area.IsInGroup("VortexDamage")) {
             GetNode<Timer>("VortexDamageTimer").Stop();
         }
-		{
-			  GD.Print("boat is colliding with modifiers!");
-		}
 	}
 
     private Vector3 GetPlayerInput(int device_id) {
         Vector3 input = Vector3.Zero;
-        switch (device_id) {
-            case 0: {
-                input.Z = Input.GetAxis("right_p1", "left_p1");
-                input.X = -Input.GetAxis("backward_p1", "forward_p1");
-                break;
-            }
-            case 1: {
-                input.Z = Input.GetAxis("right_p2", "left_p2");
-                input.X = -Input.GetAxis("backward_p2", "forward_p2");
-                break;
-            }
-        }
+		input.Z = Input.GetJoyAxis(device_id, JoyAxis.LeftX);
+		input.X = -Input.GetJoyAxis(device_id, JoyAxis.LeftY);
         return input;
     }
     public void OnArea3dTriggerBoatAreaEntered(Area3D area)
@@ -303,7 +256,9 @@ public partial class Boat : RigidBody3D
             healthComp.SubtractHealth(100);
         }
 
-        if(area.IsInGroup("Modifiers"))
+        if(area.IsInGroup("Modifiers")) {
+			GD.Print("boat is colliding with modifiers!");
+		}
 
 		if (area.IsInGroup("Vortex"))
 		{
@@ -345,7 +300,7 @@ public partial class Boat : RigidBody3D
         GD.Print("'Speed Boost' modifier has ended");
         SpeedBoost = false;
     }
-    
+
     public void OnVortexDamageTimerTimeout() {
         healthComp.SubtractHealth(10);
     }

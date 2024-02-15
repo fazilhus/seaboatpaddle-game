@@ -4,7 +4,6 @@
 [ext_resource type="ArrayMesh" uid="uid://1die41imyn83" path="res://art/formation_rock.obj" id="2_ulpyk"]
 [ext_resource type="ArrayMesh" uid="uid://d2mywo6xom1p0" path="res://art/palm_detailed_short.obj" id="3_6jyh4"]
 [ext_resource type="ArrayMesh" uid="uid://b0h7flq7emf5q" path="res://art/formationLarge_rock.obj" id="3_gj7vg"]
-[ext_resource type="ArrayMesh" uid="uid://dqofb48fch41k" path="res://art/rockFlat.obj" id="4_xpl0j"]
 [ext_resource type="ArrayMesh" uid="uid://bio6g1t46vk1f" path="res://art/ship_light.obj" id="5_fmdl5"]
 [ext_resource type="ArrayMesh" uid="uid://biablvscbuss5" path="res://art/formationLarge_stone.obj" id="6_83t24"]
 

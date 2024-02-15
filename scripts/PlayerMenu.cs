@@ -8,8 +8,8 @@ public partial class PlayerMenu : MarginContainer
    
 	// Called when the node enters the scene tree for the first time.
 
-	public int playerAmount=0;
-	public int[] playerIds=new int[4];
+	public static int playerAmount=0;
+	public static int[] playerIds=new int[4];
 	public override void _Ready()
 	{
 	}
@@ -69,21 +69,21 @@ public partial class PlayerMenu : MarginContainer
 			Addplayer(playerId);
 			
 
-        }
-        if (@event.IsActionPressed("ui_cancel"))
-        {
-            GetParent<LevelManager>().loadMainMenu();
-        }
-        if(@event.IsActionPressed("ui_continue")) //Need to add this to inputmap if not there already
-        {
-            if (playerAmount == 2) {
-                GetParent<LevelManager>().loadLevelSelector();
-            }
-            
-        }
-       if(Input.IsKeyPressed(Key.F1)) 
-        {
-                GetParent<LevelManager>().loadLevelSelector();
-        } 
-    }
+		}
+		if (@event.IsActionPressed("ui_cancel"))
+		{
+			GetParent<LevelManager>().loadMainMenu();
+		}
+		if(@event.IsActionPressed("ui_continue")) //Need to add this to inputmap if not there already
+		{
+			if (playerAmount == 2) {
+				GetParent<LevelManager>().loadLevelSelector();
+			}
+			
+		}
+	   if(Input.IsKeyPressed(Key.F1)) 
+		{
+				GetParent<LevelManager>().loadLevelSelector();
+		} 
+	}
 }

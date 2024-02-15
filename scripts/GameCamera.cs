@@ -16,15 +16,33 @@ public partial class GameCamera : Node3D
 	private float swayTimer = 0f;
 	public static bool DrunkenCaptain { get; private set; } = false;
 	
+	public static Label LabelPlayers;
+	public static Label LabelTime;
+	public static Label LabelModifiers;
+	
 	public static void ActivateDrunkenCaptain()
 	{
 		DrunkenCaptain = true;
+	}
+	
+	public override void _Ready()
+	{
+		LabelPlayers = GetNodeOrNull<Label>("CanvasLayer/LabelPlayers");
+		LabelTime = GetNodeOrNull<Label>("CanvasLayer/LabelTime");
+		LabelModifiers = GetNodeOrNull<Label>("CanvasLayer/LabelModifiers");
+		
+		//for(int i = 0; i < PlayerMenu.playerAmount; i++){
+		//	LabelPlayers.Text += "\nPlayer " + PlayerMenu.playerIds[i];
+		//}
+				
 	}
 	
 	public override void _Process(double delta)
 	{
 		Position = Boat.Position + position_offset;
 		RotationDegrees = new Vector3(0, Boat.Rotation.Y, 0) + rotation_offset;
+		
+		LabelTime.Text = "Time";
 		
 		if(DrunkenCaptain)
 		{

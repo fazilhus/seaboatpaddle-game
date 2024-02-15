@@ -115,7 +115,7 @@ public partial class Boat : RigidBody3D
 			Vector3 force = new Vector3(angular_velocity.Z, 0, -angular_velocity.X);
 
 			Node3D force_point = it.Paddle.GetNode<Node3D>("ForcePoint");
-			if (force_point.GlobalPosition.Y < GlobalPosition.Y) {
+			if (isSubmerged && force_point.GlobalPosition.Y < GlobalPosition.Y) {
 				ApplyForce(-sideways_force_ratio * force, it.Paddle.Position);
 				ApplyCentralForce(-forward_force_ratio * Curve(force) * force.Sign().Z * forward);
 			}
@@ -174,7 +174,9 @@ public partial class Boat : RigidBody3D
 				} 
 				ApplyForce(Vector3.Up * floatForce * gravity * depth, p.GlobalPosition - GlobalPosition);
 			}
-			
+			else {
+                isSubmerged = false;
+            }
 		}
 		
 	}

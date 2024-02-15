@@ -45,8 +45,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 transparency = 0.4
 skeleton = NodePath("")
 
-[node name="Vortex" parent="." instance=ExtResource("4_5wau7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 22.863)
+[node name="Vortex3D" parent="." instance=ExtResource("4_5wau7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.6243)
 
 [node name="Boat" parent="." node_paths=PackedStringArray("water") instance=ExtResource("2_w1wc2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40901, 1.9361)
@@ -141,12 +141,29 @@ water = NodePath("../../WaterPlane")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.1032, 0, -45.9646)
 water = NodePath("../../WaterPlane")
 
-[node name="Node3D2" type="Node3D" parent="."]
+[node name="Modifiers" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.15837, 1.45815, 15.1394)
 
-[node name="Modifiers" parent="Node3D2" node_paths=PackedStringArray("water") instance=ExtResource("9_e5cou")]
+[node name="Modifier" parent="Modifiers" node_paths=PackedStringArray("boat", "water") instance=ExtResource("9_e5cou")]
 mass = 2.0
 gravity_scale = 0.3
+boat = NodePath("../../Boat")
+floatForce = 0.6
+water = NodePath("../../WaterPlane")
+
+[node name="Modifier2" parent="Modifiers" node_paths=PackedStringArray("boat", "water") instance=ExtResource("9_e5cou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.5153, -0.301123, -35.2909)
+mass = 2.0
+gravity_scale = 0.3
+boat = NodePath("../../Boat")
+floatForce = 0.6
+water = NodePath("../../WaterPlane")
+
+[node name="Modifier3" parent="Modifiers" node_paths=PackedStringArray("boat", "water") instance=ExtResource("9_e5cou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.6313, -0.301123, -57.4251)
+mass = 2.0
+gravity_scale = 0.3
+boat = NodePath("../../Boat")
 floatForce = 0.6
 water = NodePath("../../WaterPlane")
 

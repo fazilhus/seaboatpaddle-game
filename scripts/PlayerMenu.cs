@@ -6,68 +6,68 @@ public partial class PlayerMenu : MarginContainer
 {
 
    
-    // Called when the node enters the scene tree for the first time.
+	// Called when the node enters the scene tree for the first time.
 
-    public int playerAmount=0;
-    public int[] playerIds=new int[4];
+	public int playerAmount=0;
+	public int[] playerIds=new int[4];
 	public override void _Ready()
 	{
 	}
    
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(double delta)
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
 	{
 		
-       
-    }
-    public void Addplayer(int playerId)
-    {
-        bool playerAlreadyIn = false;
-        GD.Print(playerIds.Length);
-       
-        for(int i = 0; i < playerAmount; i++) 
-        {
-            if (playerIds[i] == playerId)
-            {
-                playerAlreadyIn = true;
-            }
-            if(playerAmount==0)
-            {
-                playerAlreadyIn = false;
-            }
-        }
-        if (!playerAlreadyIn)
-        {
+	   
+	}
+	public void Addplayer(int playerId)
+	{
+		bool playerAlreadyIn = false;
+		GD.Print(playerIds.Length);
+	   
+		for(int i = 0; i < playerAmount; i++) 
+		{
+			if (playerIds[i] == playerId)
+			{
+				playerAlreadyIn = true;
+			}
+			if(playerAmount==0)
+			{
+				playerAlreadyIn = false;
+			}
+		}
+		if (!playerAlreadyIn)
+		{
 
-            playerIds[playerAmount] = playerId;
-            //GD.Print(playerIds[playerAmount]);
-            GetNode("VerticalContainer/HorizontalContainer").GetChild(playerAmount).Set("visible", true);
-            playerAmount++;
-            
+			playerIds[playerAmount] = playerId;
+			//GD.Print(playerIds[playerAmount]);
+			GetNode("VerticalContainer/HorizontalContainer").GetChild(playerAmount).Set("visible", true);
+			playerAmount++;
+			
 
-            //GD.Print(playerId);
-            //GD.Print(playerAmount);
+			//GD.Print(playerId);
+			//GD.Print(playerAmount);
 
-            string playerAmountLabel = "";
-            if (playerAmount != 2) {
-                playerAmountLabel = playerAmount + " / 2 players";
-            }
-            else {
-                playerAmountLabel = "Press 'Start' to play";
-            }
-            GetNode<Label>("VerticalContainer/ContinueNotice").Text = playerAmountLabel;
-           
-        }
-        
-    }
-    public override void _UnhandledInput(InputEvent @event)
-    {
-       
-        if(@event.IsActionPressed("ui_accept"))
-        {
-            int playerId = @event.Device;
-            Addplayer(playerId);
-            
+			string playerAmountLabel = "";
+			if (playerAmount != 2) {
+				playerAmountLabel = playerAmount + " / 2 players";
+			}
+			else {
+				playerAmountLabel = "Press 'Start' to play";
+			}
+			GetNode<Label>("VerticalContainer/ContinueNotice").Text = playerAmountLabel;
+		   
+		}
+		
+	}
+	public override void _UnhandledInput(InputEvent @event)
+	{
+	   
+		if(@event.IsActionPressed("ui_accept"))
+		{
+			int playerId = @event.Device;
+			Addplayer(playerId);
+			
 
         }
         if (@event.IsActionPressed("ui_cancel"))

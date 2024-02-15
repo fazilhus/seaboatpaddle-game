@@ -25,8 +25,11 @@ physics_material_override = SubResource("PhysicsMaterial_7j168")
 freeze_mode = 1
 script = ExtResource("1_tk55w")
 paddles = [NodePath("LeftPaddlePivot"), NodePath("RightPaddlePivot")]
+sideways_force_ratio = 0.4
+forward_force_ratio = 40.0
 floatForce = 1.5
 waterDrag = 0.02
+WaterAngularDrag = 0.03
 
 [node name="LeftPaddlePivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0.75, 0)

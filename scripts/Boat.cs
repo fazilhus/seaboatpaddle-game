@@ -269,6 +269,6 @@ public partial class Boat : RigidBody3D
     }
 
     public void OnVortexDamageTimerTimeout() {
-        healthComp.SubtractHealth(25);
+        healthComp.SubtractHealth(10);
     }
 }

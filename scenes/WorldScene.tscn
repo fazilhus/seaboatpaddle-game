@@ -210,7 +210,9 @@ shape = SubResource("BoxShape3D_m45on")
 
 [node name="Node3D2" type="Node3D" parent="."]
 
-[node name="Modifiers" parent="Node3D2" instance=ExtResource("9_e5cou")]
-transform = Transform3D(0.983559, 0, 0.180588, 0.0326213, 0.983549, -0.177669, -0.177617, 0.180639, 0.967379, 3.88858, 0.872488, 12.5771)
+[node name="Modifiers" parent="Node3D2" node_paths=PackedStringArray("water", "boatCollider") instance=ExtResource("9_e5cou")]
+transform = Transform3D(0.983559, 0, 0.180588, 0.0326213, 0.983549, -0.177669, -0.177617, 0.180639, 0.967379, 3.88858, 1.10274, 12.5771)
+water = NodePath("../../WaterPlane")
+boatCollider = NodePath("../../Boat/Area3DTriggerBoat")
 
 [connection signal="area_entered" from="Boat/Area3DTriggerBoat" to="Boat" method="OnArea3dTriggerBoatAreaEntered"]

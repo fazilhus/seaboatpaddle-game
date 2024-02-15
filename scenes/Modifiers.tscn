@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://jht7pcjo6kqe"]
+[gd_scene load_steps=7 format=3 uid="uid://lob7cqfrmku8"]
 
 [ext_resource type="Script" path="res://scripts/Modifiers.cs" id="1_lggjo"]
 [ext_resource type="ArrayMesh" uid="uid://bt1oih2p8rafe" path="res://art/crate.obj" id="1_unltm"]
@@ -12,43 +12,42 @@ albedo_color = Color(0.635294, 0.435294, 0.278431, 1)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ds3dc"]
 points = PackedVector3Array(-0.25, 9.79448e-05, -0.25, 0.249994, 0.499902, 0.25, -0.25, 0.499902, 0.25, 0.249994, 0.499902, -0.25, 0.249994, 9.78964e-05, 0.25, 0.249994, 9.78964e-05, -0.25, -0.25, 9.79448e-05, 0.25, -0.25, 0.499902, -0.25)
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_77mby"]
-height = 0.503506
-radius = 0.364843
+[sub_resource type="BoxShape3D" id="BoxShape3D_obyrg"]
+size = Vector3(0.498596, 0.499573, 0.499893)
 
 [node name="Modifiers" type="RigidBody3D"]
 script = ExtResource("1_lggjo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.213459, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.213459, 0)
 mesh = ExtResource("1_unltm")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_n0r7w")
 surface_material_override/1 = SubResource("StandardMaterial3D_e8ek2")
 
 [node name="modifiersCollider" type="CollisionShape3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.213459, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.213459, 0)
 shape = SubResource("ConvexPolygonShape3D_ds3dc")
 
 [node name="ProbeContainer" type="Node3D" parent="."]
 
 [node name="Probe1" type="Marker3D" parent="ProbeContainer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.337, 0.5, -0.346)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.251326, 0.118866, -0.251326)
 
 [node name="Probe2" type="Marker3D" parent="ProbeContainer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.341, 0.5, -0.346)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24722, 0.118866, -0.248418)
 
 [node name="Probe3" type="Marker3D" parent="ProbeContainer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.341911, 0, 0.345576)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.250472, 0, 0.248419)
 
 [node name="Probe4" type="Marker3D" parent="ProbeContainer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.344752, 0, 0.340264)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.248418, 0, 0.248419)
 
 [node name="Area3DTrigger" type="Area3D" parent="." groups=["Modifiers"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.213459, 0)
 
 [node name="TriggerCollider" type="CollisionShape3D" parent="Area3DTrigger"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8.16584e-06, 0.501467, 0.00962448)
-shape = SubResource("CylinderShape3D_77mby")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000152588, 0.250214, 0.000495911)
+shape = SubResource("BoxShape3D_obyrg")
 
 [connection signal="area_entered" from="Area3DTrigger" to="." method="OnArea3dTriggerAreaEntered"]

@@ -50,7 +50,7 @@ public partial class Survivors : RigidBody3D
 			state.LinearVelocity *= 1 - waterDrag;
 			state.AngularVelocity *= 1 - WaterAngularDrag;
 		}
-    }
+	}
 	public void OnArea3DTriggerAreaEntered(Area3D area)
 	{
 		if (area.IsInGroup("ThePlayers"))

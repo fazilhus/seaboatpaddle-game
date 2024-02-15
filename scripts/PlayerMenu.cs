@@ -69,21 +69,21 @@ public partial class PlayerMenu : MarginContainer
 			Addplayer(playerId);
 			
 
-        }
-        if (@event.IsActionPressed("ui_cancel"))
-        {
-            GetParent<LevelManager>().loadMainMenu();
-        }
-        if(@event.IsActionPressed("ui_continue")) //Need to add this to inputmap if not there already
-        {
-            if (playerAmount == 2) {
-                GetParent<LevelManager>().loadLevelSelector();
-            }
-            
-        }
-       if(Input.IsKeyPressed(Key.F1)) 
-        {
-                GetParent<LevelManager>().loadLevelSelector();
-        } 
-    }
+		}
+		if (@event.IsActionPressed("ui_cancel"))
+		{
+			GetParent<LevelManager>().loadMainMenu();
+		}
+		if(@event.IsActionPressed("ui_continue")) //Need to add this to inputmap if not there already
+		{
+			if (playerAmount == 2) {
+				GetParent<LevelManager>().loadLevelSelector();
+			}
+			
+		}
+	   if(Input.IsKeyPressed(Key.F1)) 
+		{
+				GetParent<LevelManager>().loadLevelSelector();
+		} 
+	}
 }

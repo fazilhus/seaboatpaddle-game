@@ -45,8 +45,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 transparency = 0.4
 skeleton = NodePath("")
 
-[node name="Vortex" parent="." instance=ExtResource("4_5wau7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 22.863)
+[node name="Vortex3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.56193, 1.10184, 37.373)
+
+[node name="vortex" type="MeshInstance3D" parent="Vortex3D"]
+layers = 2
+cast_shadow = 0
+lod_bias = 0.001
+mesh = SubResource("CylinderMesh_vqckp")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_utxoh")
+script = SubResource("CSharpScript_kue1t")
+
+[node name="VortexArea3D" type="Area3D" parent="Vortex3D" groups=["Vortex"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Vortex3D/VortexArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.371864, 0)
+shape = SubResource("CylinderShape3D_w5l80")
 
 [node name="Boat" parent="." node_paths=PackedStringArray("water") instance=ExtResource("2_w1wc2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40901, 1.9361)
@@ -195,6 +210,7 @@ water = NodePath("../../WaterPlane")
 boatCollider = NodePath("../../Boat/Area3DTriggerBoat")
 mass = 2.0
 gravity_scale = 0.3
+boat = NodePath("../../Boat")
 floatForce = 0.6
 
 [connection signal="NoBoatHealth" from="Boat" to="." method="OnNoBoatHealth"]

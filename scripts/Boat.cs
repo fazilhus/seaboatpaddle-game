@@ -80,6 +80,26 @@ public partial class Boat : RigidBody3D
 	[Export]
 	public float rotationalVelocity = 5;
 
+    public bool ControlInversion { get; private set; } = false;
+	public bool RepairKit { get; private set; } = false;
+	public bool SpeedBoost { get; private set; } = false;
+
+	public void ActivateControlInversion()
+	{
+        GetNode<Timer>("ControlInversionTimer").Start();
+		ControlInversion = true;
+	}
+	public void ActivateRepairKit()
+	{
+		//RepairKit = true;
+        healthComp.AddHealth(25);
+	}
+	public void ActivateSpeedBoost()
+	{
+        GetNode<Timer>("SpeedBoostTimer").Start();
+		SpeedBoost = true;
+	}
+
 	private float strengthFactor; 
     private HealthComponent healthComp;
     
@@ -126,6 +146,9 @@ public partial class Boat : RigidBody3D
             
             Vector3 input = GetPlayerInput(it.Index);
             //Vector3 input = _player_inputs[it.Index];
+            if (ControlInversion) {
+				input.Z *= -1;
+			}
 
 			_paddles_rotation_old[it.Index] = it.Paddle.Rotation;
 			it.Paddle.Rotation = new Vector3(input.X * 0.8f, 0, input.Z * 0.5f);
@@ -137,6 +160,10 @@ public partial class Boat : RigidBody3D
 				ApplyForce(-sideways_force_ratio * force, it.Paddle.Position);
 				ApplyCentralForce(-forward_force_ratio * Curve(force) * force.Sign().Z * forward);
 			}
+
+            if (SpeedBoost) {
+                ApplyCentralForce(1000 * forward * (float)delta);
+            }
 		}              
 		
 		// checking marker3d in the probe container for simulating the water physics
@@ -309,6 +336,16 @@ public partial class Boat : RigidBody3D
         }
     }
 
+    public void OnControlInversionTimerTimeout() {
+        GD.Print("'Control Inversion' modifier has ended");
+        ControlInversion = false;
+    }
+
+    public void OnSpeedBoostTimerTimeout() {
+        GD.Print("'Speed Boost' modifier has ended");
+        SpeedBoost = false;
+    }
+    
     public void OnVortexDamageTimerTimeout() {
         healthComp.SubtractHealth(10);
     }

@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6qklle5ve34l"]
+[gd_scene load_steps=4 format=3 uid="uid://b2aah0ssoc08h"]
 
-[ext_resource type="Material" uid="uid://cw64j22d2031w" path="res://Shades/Vortex.tres" id="2_vjeqg"]
+[ext_resource type="Material" uid="uid://dfbmcou71tal5" path="res://Shades/Vortex.tres" id="2_vjeqg"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_vqckp"]
 lightmap_size_hint = Vector2i(316, 104)
@@ -19,13 +19,14 @@ radius = 8.9806
 
 [node name="vortex" type="MeshInstance3D" parent="."]
 layers = 2
+material_override = ExtResource("2_vjeqg")
 cast_shadow = 0
 lod_bias = 0.001
 mesh = SubResource("CylinderMesh_vqckp")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("2_vjeqg")
 
-[node name="VortexArea3D" type="Area3D" parent="."]
+[node name="VortexArea3D" type="Area3D" parent="." groups=["Vortex"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="VortexArea3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.371864, 0)

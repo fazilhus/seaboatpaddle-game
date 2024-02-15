@@ -79,9 +79,11 @@ public partial class PlayerMenu : MarginContainer
             if (playerAmount == 2) {
                 GetParent<LevelManager>().loadLevelSelector();
             }
+            
         }
-        if (Input.IsKeyPressed(Key.F1)) {
-            GetParent<LevelManager>().loadLevelSelector();
-        }
+       if(Input.IsKeyPressed(Key.F1)) 
+        {
+                GetParent<LevelManager>().loadLevelSelector();
+        } 
     }
 }

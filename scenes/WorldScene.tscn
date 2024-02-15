@@ -1,13 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://42il0yi2fel2"]
+[gd_scene load_steps=17 format=3 uid="uid://bqgpgxpoqkw6w"]
 
-[ext_resource type="PackedScene" uid="uid://d3ycrupshfcm" path="res://scenes/survivors.tscn" id="1_pprra"]
+[ext_resource type="PackedScene" uid="uid://donyuxtadnlyj" path="res://scenes/survivors.tscn" id="1_pprra"]
 [ext_resource type="Script" path="res://scripts/WorldScene.cs" id="1_qx545"]
+[ext_resource type="Material" uid="uid://dfbmcou71tal5" path="res://Shades/Vortex.tres" id="1_utxoh"]
 [ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
-[ext_resource type="PackedScene" path="res://scenes/game_camera.tscn" id="2_p7u7y"]
 [ext_resource type="PackedScene" uid="uid://bro3rrf66ro1h" path="res://scenes/boat.tscn" id="2_w1wc2"]
+[ext_resource type="PackedScene" path="res://scenes/game_camera.tscn" id="5_rlqlm"]
 [ext_resource type="PackedScene" uid="uid://beoci1a615ffi" path="res://scenes/sea_mine.tscn" id="7_sombh"]
 [ext_resource type="PackedScene" uid="uid://bdohepiggfmms" path="res://scenes/map.tscn" id="8_lgk5l"]
-[ext_resource type="PackedScene" uid="uid://jht7pcjo6kqe" path="res://scenes/Modifiers.tscn" id="9_e5cou"]
+[ext_resource type="PackedScene" uid="uid://lob7cqfrmku8" path="res://scenes/Modifiers.tscn" id="9_e5cou"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ik3mg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -22,13 +23,44 @@ sky = SubResource("Sky_8v34c")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_vqckp"]
+lightmap_size_hint = Vector2i(316, 104)
+top_radius = 0.0
+bottom_radius = 10.0
+height = 0.001
+rings = 10
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="CSharpScript" id="CSharpScript_kue1t"]
+script/source = "using Godot;
+using System;
+
+public partial class vortex : MeshInstance3D
+{
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
+	{
+	}
+
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
+	{
+	}
+}
+"
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_w5l80"]
+height = 3.87925
+radius = 8.9806
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_m45on"]
 size = Vector3(100, 10, 1)
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_qx545")
 
-[node name="GameCamera" parent="." node_paths=PackedStringArray("Boat") instance=ExtResource("2_p7u7y")]
+[node name="GameCamera" parent="." node_paths=PackedStringArray("Boat") instance=ExtResource("5_rlqlm")]
 Boat = NodePath("../Boat")
 position_offset = Vector3(0, 15, -10)
 
@@ -44,7 +76,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 transparency = 0.4
 skeleton = NodePath("")
 
+[node name="Vortex3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.56193, 1.10184, 15.9299)
+
+[node name="vortex" type="MeshInstance3D" parent="Vortex3D"]
+layers = 2
+cast_shadow = 0
+lod_bias = 0.001
+mesh = SubResource("CylinderMesh_vqckp")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_utxoh")
+script = SubResource("CSharpScript_kue1t")
+
+[node name="VortexArea3D" type="Area3D" parent="Vortex3D" groups=["Vortex"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Vortex3D/VortexArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.371864, 0)
+shape = SubResource("CylinderShape3D_w5l80")
+
 [node name="Boat" parent="." node_paths=PackedStringArray("water") instance=ExtResource("2_w1wc2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40901, 1.9361)
 water = NodePath("../WaterPlane")
 
 [node name="Map" parent="." instance=ExtResource("8_lgk5l")]
@@ -136,10 +187,13 @@ water = NodePath("../../WaterPlane")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.1032, 0, -45.9646)
 water = NodePath("../../WaterPlane")
 
-[connection signal="NoBoatHealth" from="Boat" to="." method="OnNoBoatHealth"]
 [node name="Node3D2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.15837, 1.45815, 15.1394)
 
-[node name="Modifiers" parent="Node3D2" instance=ExtResource("9_e5cou")]
-transform = Transform3D(0.983559, 0, 0.180588, 0.0326213, 0.983549, -0.177669, -0.177617, 0.180639, 0.967379, 3.88858, 0.795655, 12.5771)
+[node name="Modifiers" parent="Node3D2" node_paths=PackedStringArray("water") instance=ExtResource("9_e5cou")]
+mass = 2.0
+gravity_scale = 0.3
+floatForce = 0.6
+water = NodePath("../../WaterPlane")
 
-[connection signal="area_entered" from="Boat/Area3DTriggerBoat" to="Boat" method="OnArea3dTriggerBoatAreaEntered"]
+[connection signal="NoBoatHealth" from="Boat" to="." method="OnNoBoatHealth"]

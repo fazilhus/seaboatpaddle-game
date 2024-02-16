@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://hl4r2ylauhog"]
 
 [ext_resource type="Script" path="res://scripts/Modifiers.cs" id="1_lggjo"]
-[ext_resource type="ArrayMesh" path="res://art/crate.obj" id="1_unltm"]
+[ext_resource type="ArrayMesh" uid="uid://bt1oih2p8rafe" path="res://art/crate.obj" id="1_unltm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n0r7w"]
 albedo_color = Color(0.470588, 0.309804, 0.239216, 1)

@@ -4,11 +4,11 @@
 [ext_resource type="Script" path="res://scripts/WorldScene.cs" id="1_qx545"]
 [ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
 [ext_resource type="PackedScene" uid="uid://bro3rrf66ro1h" path="res://scenes/boat.tscn" id="2_w1wc2"]
-[ext_resource type="PackedScene" uid="uid://b2aah0ssoc08h" path="res://scenes/vortex_3d.tscn" id="4_5wau7"]
-[ext_resource type="PackedScene" path="res://scenes/game_camera.tscn" id="5_rlqlm"]
+[ext_resource type="PackedScene" uid="uid://c0hlnfvbhxilp" path="res://scenes/vortex_3d.tscn" id="4_5wau7"]
+[ext_resource type="PackedScene" uid="uid://y7tqwoj3tmif" path="res://scenes/game_camera.tscn" id="5_rlqlm"]
 [ext_resource type="PackedScene" uid="uid://beoci1a615ffi" path="res://scenes/sea_mine.tscn" id="7_sombh"]
 [ext_resource type="PackedScene" uid="uid://bdohepiggfmms" path="res://scenes/map.tscn" id="8_lgk5l"]
-[ext_resource type="PackedScene" uid="uid://lob7cqfrmku8" path="res://scenes/Modifiers.tscn" id="9_e5cou"]
+[ext_resource type="PackedScene" uid="uid://hl4r2ylauhog" path="res://scenes/Modifiers.tscn" id="9_e5cou"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kspm4"]
 outline_color = Color(0, 0, 0, 1)
@@ -68,35 +68,10 @@ offset_right = 43.0
 offset_bottom = 644.0
 
 [node name="countdownTimer" type="Timer" parent="GameCamera"]
-wait_time = 5.0
+wait_time = 600.0
 
-[node name="Survivors" parent="." node_paths=PackedStringArray("water", "boatCollider") instance=ExtResource("1_pprra")]
+[node name="Survivors" parent="." node_paths=PackedStringArray("water") instance=ExtResource("1_pprra")]
 water = NodePath("../WaterPlane")
-boatCollider = NodePath("../Boat/Area3DTriggerBoat")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_f08u5")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.492404, 0.0868241, 0, 0.173648, 0.984808, -0.5, 0.852868, -0.150384, 0, 10, 0)
-shadow_enabled = true
-
-[node name="WaterPlane" parent="." instance=ExtResource("1_v56uw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-transparency = 0.4
-skeleton = NodePath("")
-
-[node name="Vortex3D" parent="." instance=ExtResource("4_5wau7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40.8658)
-
-[node name="Boat" parent="." node_paths=PackedStringArray("water") instance=ExtResource("2_w1wc2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40901, 1.9361)
-water = NodePath("../WaterPlane")
-
-[node name="Map" parent="." instance=ExtResource("8_lgk5l")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-
-[node name="Survivors" type="Node3D" parent="."]
 
 [node name="Survivor" parent="Survivors" node_paths=PackedStringArray("water") instance=ExtResource("1_pprra")]
 transform = Transform3D(-0.994794, 0, 0.101907, 0, 1, 0, -0.101907, 0, -0.994794, -10.4886, 1.41551, 39.0129)
@@ -137,6 +112,30 @@ water = NodePath("../../WaterPlane")
 [node name="Survivor10" parent="Survivors" node_paths=PackedStringArray("water") instance=ExtResource("1_pprra")]
 transform = Transform3D(-0.994794, 0, 0.101907, 0, 1, 0, -0.101907, 0, -0.994794, 37.4021, 1.41551, -42.6154)
 water = NodePath("../../WaterPlane")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_f08u5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.492404, 0.0868241, 0, 0.173648, 0.984808, -0.5, 0.852868, -0.150384, 0, 10, 0)
+shadow_enabled = true
+
+[node name="WaterPlane" parent="." instance=ExtResource("1_v56uw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+transparency = 0.4
+skeleton = NodePath("")
+
+[node name="Vortex3D" parent="." instance=ExtResource("4_5wau7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40.8658)
+
+[node name="Boat" parent="." node_paths=PackedStringArray("water") instance=ExtResource("2_w1wc2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40901, 1.9361)
+water = NodePath("../WaterPlane")
+
+[node name="Map" parent="." instance=ExtResource("8_lgk5l")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Survivors2" type="Node3D" parent="."]
 
 [node name="Borders" type="Node3D" parent="."]
 

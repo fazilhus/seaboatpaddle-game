@@ -3789,12 +3789,12 @@ mesh = ExtResource("15_gw8ad")
 surface_material_override/0 = SubResource("StandardMaterial3D_o3u6q")
 
 [node name="Land8" type="MeshInstance3D" parent="Land"]
-transform = Transform3D(-39.983, 0, -1.16641, 0, 40, 0, 1.16641, 0, -39.983, -52.7229, -7.25431, 194.262)
+transform = Transform3D(-59.9745, 0, -1.74962, 0, 40, 0, 1.74962, 0, -59.9745, -51.7952, -2.1543, 194.262)
 mesh = ExtResource("15_gw8ad")
 surface_material_override/0 = SubResource("StandardMaterial3D_o3u6q")
 
 [node name="LandBottom8" type="MeshInstance3D" parent="Land"]
-transform = Transform3D(-39.983, 0, -1.16641, 0, -300, 0, 1.16641, 0, -39.983, -52.7229, -7.25431, 194.262)
+transform = Transform3D(-59.9745, 0, -1.74961, 0, -300, 0, 1.74961, 0, -59.9745, -51.7952, -2.1543, 194.262)
 mesh = ExtResource("15_gw8ad")
 surface_material_override/0 = SubResource("StandardMaterial3D_o3u6q")
 

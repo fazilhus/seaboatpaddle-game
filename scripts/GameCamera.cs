@@ -19,6 +19,7 @@ public partial class GameCamera : Node3D
 	public float swaySpeed = 2f;
 	private float swayTimer = 0f;
 	public static bool DrunkenCaptain { get; private set; } = false;
+	public static bool ExtraTime { get; private set; } = true;
 	
 	public static Label LabelPlayers;
 	public static Label LabelTime;
@@ -27,6 +28,11 @@ public partial class GameCamera : Node3D
 	public static void ActivateDrunkenCaptain()
 	{
 		DrunkenCaptain = true;
+	}
+	
+	public static void ActivateExtraTime()
+	{
+		ExtraTime = true;
 	}
 	
 	public override void _Ready()
@@ -55,6 +61,11 @@ public partial class GameCamera : Node3D
 
 			// Update the timer for the next frame
 			swayTimer += (float)delta * swaySpeed;
+		}
+		if(ExtraTime)
+		{
+			remainingTime += 60;
+			ExtraTime = false;
 		}
 	}
 	

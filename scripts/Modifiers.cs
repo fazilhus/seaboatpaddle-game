@@ -62,7 +62,7 @@ public partial class Modifiers : RigidBody3D
 			int randomNumber = generator.GenerateNumber();
 			if (randomNumber == 1)
 			{
-				//Add extra time
+				GameCamera.ActivateExtraTime();
 				GameCamera.LabelModifiers.Text ="Extra time added";
 			}
 			if (randomNumber == 2)

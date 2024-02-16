@@ -298,7 +298,7 @@ public partial class Boat : RigidBody3D
 
 	public void OnSpeedBoostTimerTimeout() {
 		GD.Print("'Speed Boost' modifier has ended");
-		SpeedBoost = false;
+		UsingSpeedBoost = false;
 	}
 
 	public void OnVortexDamageTimerTimeout() {

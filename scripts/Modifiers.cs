@@ -103,6 +103,6 @@ public class NumberGenerator
 	public int GenerateNumber()
 	{
 		// Generate a random number between 1 and 5 (inclusive)
-		return random.Next(3, 6);
+		return random.Next(2, 6);
 	}
 }

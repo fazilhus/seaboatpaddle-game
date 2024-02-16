@@ -3,9 +3,12 @@ using System;
 
 public partial class GameCamera : Node3D
 {
+	[Signal]
+	public delegate void CountdownTimerTimeoutEventHandler();
 	
-	private Timer countdownTimer;
-	private int remainingTime = 800;
+	[Export]
+	public Timer countdownTimer;
+	private int remainingTime = 600;
 	
 	[Export]
 	public Node3D Boat;
@@ -37,7 +40,7 @@ public partial class GameCamera : Node3D
 	
 	public override void _Ready()
 	{
-		GetNode<Timer>("countdownTimer").Start();
+		countdownTimer.Start();
 		
 		LabelPlayers = GetNodeOrNull<Label>("CanvasLayer/LabelPlayers");
 		LabelTime = GetNodeOrNull<Label>("CanvasLayer/LabelTime");
@@ -64,26 +67,28 @@ public partial class GameCamera : Node3D
 		}
 		if(ExtraTime)
 		{
-			remainingTime += 60;
+			countdownTimer.WaitTime += 60;
 			ExtraTime = false;
 		}
+		LabelTime.Text = "Time Left: " + (int)countdownTimer.TimeLeft;
 	}
 	
 	private void OnCountdownTimerTimeout()
 	{
 		// Decrement remaining time
-		if (remainingTime > 0)
-		{
-			remainingTime--;
-		}
+		// if (remainingTime > 0)
+		// {
+		// 	remainingTime--;
+		// }
 		
-		LabelTime.Text = "Time Left: " + remainingTime.ToString();
+		// LabelTime.Text = "Time Left: " + remainingTime.ToString();
 
-		if (remainingTime <= 0)
-		{
-			GD.Print("Time's up!");
-			countdownTimer.Stop(); // Stop the timer if needed
-		}
+		// if (remainingTime <= 0)
+		// {
+		// 	GD.Print("Time's up!");
+		// 	countdownTimer.Stop(); // Stop the timer if needed
+		// }
+		EmitSignal(SignalName.CountdownTimerTimeout);
 	}
 }
 

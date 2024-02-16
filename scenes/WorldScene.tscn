@@ -4,11 +4,11 @@
 [ext_resource type="Script" path="res://scripts/WorldScene.cs" id="1_qx545"]
 [ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
 [ext_resource type="PackedScene" uid="uid://bro3rrf66ro1h" path="res://scenes/boat.tscn" id="2_w1wc2"]
-[ext_resource type="PackedScene" uid="uid://c0hlnfvbhxilp" path="res://scenes/vortex_3d.tscn" id="4_5wau7"]
-[ext_resource type="PackedScene" uid="uid://y7tqwoj3tmif" path="res://scenes/game_camera.tscn" id="5_rlqlm"]
-[ext_resource type="PackedScene" path="res://scenes/sea_mine.tscn" id="7_sombh"]
+[ext_resource type="PackedScene" uid="uid://b2aah0ssoc08h" path="res://scenes/vortex_3d.tscn" id="4_5wau7"]
+[ext_resource type="PackedScene" path="res://scenes/game_camera.tscn" id="5_rlqlm"]
+[ext_resource type="PackedScene" uid="uid://beoci1a615ffi" path="res://scenes/sea_mine.tscn" id="7_sombh"]
 [ext_resource type="PackedScene" uid="uid://bdohepiggfmms" path="res://scenes/map.tscn" id="8_lgk5l"]
-[ext_resource type="PackedScene" uid="uid://hl4r2ylauhog" path="res://scenes/Modifiers.tscn" id="9_e5cou"]
+[ext_resource type="PackedScene" uid="uid://lob7cqfrmku8" path="res://scenes/Modifiers.tscn" id="9_e5cou"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kspm4"]
 outline_color = Color(0, 0, 0, 1)
@@ -33,8 +33,10 @@ size = Vector3(100, 10, 1)
 [node name="Level" type="Node3D"]
 script = ExtResource("1_qx545")
 
-[node name="GameCamera" parent="." node_paths=PackedStringArray("Boat") instance=ExtResource("5_rlqlm")]
+[node name="GameCamera" parent="." node_paths=PackedStringArray("countdownTimer", "Boat") instance=ExtResource("5_rlqlm")]
+countdownTimer = NodePath("countdownTimer")
 Boat = NodePath("../Boat")
+position_offset = Vector3(0, 15, -10)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="GameCamera"]
 
@@ -45,9 +47,9 @@ offset_right = 54.0
 offset_bottom = 25.0
 
 [node name="LabelHealth" type="Label" parent="GameCamera/CanvasLayer"]
-offset_right = 157.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 50
+offset_right = 180.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 24
 text = "	"
 
 [node name="LabelTime" type="Label" parent="GameCamera/CanvasLayer"]
@@ -66,7 +68,7 @@ offset_right = 43.0
 offset_bottom = 644.0
 
 [node name="countdownTimer" type="Timer" parent="GameCamera"]
-wait_time = 600.0
+wait_time = 5.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_f08u5")
@@ -81,7 +83,7 @@ transparency = 0.4
 skeleton = NodePath("")
 
 [node name="Vortex3D" parent="." instance=ExtResource("4_5wau7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.6243)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40.8658)
 
 [node name="Boat" parent="." node_paths=PackedStringArray("water") instance=ExtResource("2_w1wc2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40901, 1.9361)
@@ -180,7 +182,7 @@ water = NodePath("../../WaterPlane")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.15837, 1.45815, 15.1394)
 
 [node name="Modifier" parent="Modifiers" node_paths=PackedStringArray("boat", "water") instance=ExtResource("9_e5cou")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18195, 0, -4.25502)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.81798, 0, -8.83664)
 mass = 2.0
 gravity_scale = 0.3
 boat = NodePath("../../Boat")
@@ -227,4 +229,6 @@ boat = NodePath("../../Boat")
 floatForce = 0.6
 water = NodePath("../../WaterPlane")
 
+[connection signal="CountdownTimerTimeout" from="GameCamera" to="." method="OnCountdownTimerTimeout"]
 [connection signal="timeout" from="GameCamera/countdownTimer" to="GameCamera" method="OnCountdownTimerTimeout"]
+[connection signal="NoBoatHealth" from="Boat" to="." method="OnNoBoatHealth"]

@@ -250,8 +250,8 @@ public partial class Boat : RigidBody3D
 	private Vector3 GetPlayerInput(int device_id) 
 	{
 		Vector3 input = Vector3.Zero;
-		input.Z = Input.GetJoyAxis(device_id, JoyAxis.LeftX);
-		input.X = -Input.GetJoyAxis(device_id, JoyAxis.LeftY);
+		input.Z = -Input.GetJoyAxis(device_id, JoyAxis.LeftX);
+		input.X = Input.GetJoyAxis(device_id, JoyAxis.LeftY);
 		return input;
 	}
 	public void OnArea3dTriggerBoatAreaEntered(Area3D area)

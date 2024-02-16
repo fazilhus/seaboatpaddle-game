@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://rixh0m5oekos"]
+[gd_scene load_steps=6 format=3 uid="uid://bo8v2krpj8un5"]
 
 [ext_resource type="Script" path="res://scripts/LevelManager.cs" id="1_vfio7"]
 [ext_resource type="PackedScene" uid="uid://dkkboa0pmk8f1" path="res://scenes/mainmenu.tscn" id="2_6i36b"]
-[ext_resource type="PackedScene" path="res://scenes/playerMenu.tscn" id="3_46qyl"]
-[ext_resource type="PackedScene" path="res://scenes/LevelSelectorMenu.tscn" id="4_gcbph"]
-[ext_resource type="PackedScene" uid="uid://42il0yi2fel2" path="res://scenes/WorldScene.tscn" id="5_15ar2"]
+[ext_resource type="PackedScene" uid="uid://derkxbhef341u" path="res://scenes/playerMenu.tscn" id="3_46qyl"]
+[ext_resource type="PackedScene" uid="uid://c678fjuhox1q2" path="res://scenes/LevelSelectorMenu.tscn" id="4_gcbph"]
+[ext_resource type="PackedScene" uid="uid://bqgpgxpoqkw6w" path="res://scenes/WorldScene.tscn" id="5_15ar2"]
 
 [node name="Main" type="Node3D"]
 

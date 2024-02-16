@@ -115,8 +115,8 @@ public partial class Boat : RigidBody3D
 		if (Input.IsKeyPressed(Key.F2)) {
 			GetNode<HealthComponent>("HealthComponent").SubtractHealth(100);
 		}
-		
-		DebugDraw2D.SetText("Health: ", GetNode<HealthComponent>("HealthComponent").health);
+		GetParent<Node3D>().GetNode<Label>("GameCamera/CanvasLayer/LabelHealth").Text = "Health: "+ GetNode<HealthComponent>("HealthComponent").health;
+		//DebugDraw2D.SetText("Health: ", GetNode<HealthComponent>("HealthComponent").health);
 	}
 
 	public override void _PhysicsProcess(double delta)

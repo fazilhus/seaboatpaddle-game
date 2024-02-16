@@ -41,6 +41,12 @@ offset_top = 2.0
 offset_right = 54.0
 offset_bottom = 25.0
 
+[node name="LabelHealth" type="Label" parent="GameCamera/CanvasLayer"]
+offset_right = 157.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 50
+text = "	"
+
 [node name="LabelTime" type="Label" parent="GameCamera/CanvasLayer"]
 offset_left = 1077.0
 offset_top = 3.0

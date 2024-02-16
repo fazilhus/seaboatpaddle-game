@@ -68,7 +68,7 @@ offset_right = 43.0
 offset_bottom = 644.0
 
 [node name="countdownTimer" type="Timer" parent="GameCamera"]
-wait_time = 5.0
+wait_time = 600.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_f08u5")

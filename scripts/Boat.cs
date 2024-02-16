@@ -66,6 +66,7 @@ public partial class Boat : RigidBody3D
 	public bool ControlInversion { get; private set; } = false;
 	public bool RepairKit { get; private set; } = false;
 	public bool SpeedBoost { get; private set; } = false;
+	public bool UsingSpeedBoost = false;
 
 	public void ActivateControlInversion()
 	{
@@ -74,12 +75,10 @@ public partial class Boat : RigidBody3D
 	}
 	public void ActivateRepairKit()
 	{
-		//RepairKit = true;
-		healthComp.AddHealth(25);
+		RepairKit = true;
 	}
 	public void ActivateSpeedBoost()
 	{
-		GetNode<Timer>("SpeedBoostTimer").Start();
 		SpeedBoost = true;
 	}
 
@@ -144,7 +143,7 @@ public partial class Boat : RigidBody3D
 				ApplyCentralForce(-forward_force_ratio * Curve(force) * force.Sign().Z * forward);
 			}
 
-			if (SpeedBoost) {
+			if (UsingSpeedBoost) {
 				ApplyCentralForce(1000 * forward * (float)delta);
 			}
 		}              
@@ -293,6 +292,7 @@ public partial class Boat : RigidBody3D
 
 	public void OnControlInversionTimerTimeout() {
 		GD.Print("'Control Inversion' modifier has ended");
+		GameCamera.LabelModifiers.Text ="'Control Inversion' mode off";
 		ControlInversion = false;
 	}
 
@@ -303,5 +303,27 @@ public partial class Boat : RigidBody3D
 
 	public void OnVortexDamageTimerTimeout() {
 		healthComp.SubtractHealth(10);
+	}
+	
+	public override void _UnhandledInput(InputEvent @event)
+	{
+	   
+		if(@event.IsActionPressed("ui_cancel")) //Press B
+		{
+			if(RepairKit)
+			{
+				healthComp.AddHealth(25);
+				RepairKit = false;
+			}
+		}
+		if(@event.IsActionPressed("ui_accept")) //Press A
+		{
+			if(SpeedBoost)
+			{
+				GetNode<Timer>("SpeedBoostTimer").Start();
+				UsingSpeedBoost = true;
+				SpeedBoost = false;
+			}
+		}
 	}
 }

@@ -3,6 +3,10 @@ using System;
 
 public partial class GameCamera : Node3D
 {
+	
+	private Timer countdownTimer;
+	private int remainingTime = 800;
+	
 	[Export]
 	public Node3D Boat;
 	[Export]
@@ -15,10 +19,34 @@ public partial class GameCamera : Node3D
 	public float swaySpeed = 2f;
 	private float swayTimer = 0f;
 	public static bool DrunkenCaptain { get; private set; } = false;
+	public static bool ExtraTime { get; private set; } = true;
+	
+	public static Label LabelPlayers;
+	public static Label LabelTime;
+	public static Label LabelModifiers;
 	
 	public static void ActivateDrunkenCaptain()
 	{
 		DrunkenCaptain = true;
+	}
+	
+	public static void ActivateExtraTime()
+	{
+		ExtraTime = true;
+	}
+	
+	public override void _Ready()
+	{
+		GetNode<Timer>("countdownTimer").Start();
+		
+		LabelPlayers = GetNodeOrNull<Label>("CanvasLayer/LabelPlayers");
+		LabelTime = GetNodeOrNull<Label>("CanvasLayer/LabelTime");
+		LabelModifiers = GetNodeOrNull<Label>("CanvasLayer/LabelModifiers");
+		
+		//for(int i = 0; i < PlayerMenu.playerAmount; i++){
+		//	LabelPlayers.Text += "\nPlayer " + PlayerMenu.playerIds[i];
+		//}
+				
 	}
 	
 	public override void _Process(double delta)
@@ -34,5 +62,30 @@ public partial class GameCamera : Node3D
 			// Update the timer for the next frame
 			swayTimer += (float)delta * swaySpeed;
 		}
+		if(ExtraTime)
+		{
+			remainingTime += 60;
+			ExtraTime = false;
+		}
+	}
+	
+	private void OnCountdownTimerTimeout()
+	{
+		// Decrement remaining time
+		if (remainingTime > 0)
+		{
+			remainingTime--;
+		}
+		
+		LabelTime.Text = "Time Left: " + remainingTime.ToString();
+
+		if (remainingTime <= 0)
+		{
+			GD.Print("Time's up!");
+			countdownTimer.Stop(); // Stop the timer if needed
+		}
 	}
 }
+
+
+

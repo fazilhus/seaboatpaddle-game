@@ -8,8 +8,8 @@ public partial class PlayerMenu : MarginContainer
    
 	// Called when the node enters the scene tree for the first time.
 
-	public int playerAmount=0;
-	public int[] playerIds=new int[4];
+	public static int playerAmount=0;
+	public static int[] playerIds=new int[4];
 	public override void _Ready()
 	{
 	}

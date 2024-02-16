@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://ca6rhidd8uwdj"]
+[gd_scene load_steps=2 format=3 uid="uid://bn537q56iaox8"]
 
 [ext_resource type="Script" path="res://scripts/GameCamera.cs" id="1_jtgdd"]
 

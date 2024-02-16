@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b7yi4fihr6gje"
+path="res://.godot/imported/rockFlatGrass.obj-ccaadf9c6da80fd61cfd58217be3b18b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/rockFlatGrass.obj-ccaadf9c6da80fd61cfd58217be3b18b.mesh"]
+
+source_file="res://art/rockFlatGrass.obj"
+dest_files=["res://.godot/imported/rockFlatGrass.obj-ccaadf9c6da80fd61cfd58217be3b18b.mesh", "res://.godot/imported/rockFlatGrass.obj-ccaadf9c6da80fd61cfd58217be3b18b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

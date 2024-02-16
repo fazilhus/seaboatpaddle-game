@@ -83,10 +83,10 @@ transparency = 0.4
 skeleton = NodePath("")
 
 [node name="Vortex3D" parent="." instance=ExtResource("4_5wau7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40.8658)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.9896, 0, -1.29973)
 
 [node name="Boat" parent="." node_paths=PackedStringArray("water") instance=ExtResource("2_w1wc2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40901, 1.9361)
+transform = Transform3D(0.422682, 0, -0.906278, 0, 1, 0, 0.906278, 0, 0.422682, -4.37886, 1.40901, -1.34093)
 water = NodePath("../WaterPlane")
 
 [node name="Map" parent="." instance=ExtResource("8_lgk5l")]
@@ -135,6 +135,7 @@ transform = Transform3D(-0.994794, 0, 0.101907, 0, 1, 0, -0.101907, 0, -0.994794
 water = NodePath("../../WaterPlane")
 
 [node name="Borders" type="Node3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Borders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50)
@@ -171,11 +172,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.3914, 0, 15.6079)
 water = NodePath("../../WaterPlane")
 
 [node name="SeaMine3" parent="Mines" node_paths=PackedStringArray("water") instance=ExtResource("7_sombh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.1032, 0, -45.9646)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.7218, 0, -87.1115)
 water = NodePath("../../WaterPlane")
 
 [node name="SeaMine4" parent="Mines" node_paths=PackedStringArray("water") instance=ExtResource("7_sombh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.1032, 0, -45.9646)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.568, 0, -71.8021)
 water = NodePath("../../WaterPlane")
 
 [node name="Modifiers" type="Node3D" parent="."]

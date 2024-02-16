@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5ntckqpigwmi"]
+[gd_scene load_steps=2 format=3 uid="uid://bfcmmp24hd7u5"]
 
 [ext_resource type="Script" path="res://scripts/HealthComponent.cs" id="1_phbtu"]
 

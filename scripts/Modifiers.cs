@@ -56,36 +56,35 @@ public partial class Modifiers : RigidBody3D
 	{
 		if (area.IsInGroup("ThePlayers"))
 		{
-			GD.Print("ThePlayers collided with modifiers");
 			QueueFree();
 			
 			NumberGenerator generator = new NumberGenerator();
 			int randomNumber = generator.GenerateNumber();
-			// if (randomNumber == 1)
-			// {
-			// 	//Add extra time
-			// 	GD.Print("Extra time added");
-			// }
-			// if (randomNumber == 2)
-			// {
-			// 	GameCamera.ActivateDrunkenCaptain();
-			// 	GameCamera.swayAmount += 3;
-			// 	GD.Print("Rum found");
-			// }
+			if (randomNumber == 1)
+			{
+				GameCamera.ActivateExtraTime();
+				GameCamera.LabelModifiers.Text ="Extra time added";
+			}
+			if (randomNumber == 2)
+			{
+				GameCamera.ActivateDrunkenCaptain();
+				GameCamera.swayAmount += 3;
+				GameCamera.LabelModifiers.Text ="Rum found";
+			}
 			if (randomNumber == 3)
 			{
 				boat.ActivateRepairKit();
-				GD.Print("Repair kit found, press A to repair boat");
+				GameCamera.LabelModifiers.Text ="Repair kit found, press B to use";
 			}
 			if (randomNumber == 4)
 			{
 				boat.ActivateControlInversion();
-				GD.Print("'Control Inversion' mode on");
+				GameCamera.LabelModifiers.Text ="'Control Inversion' mode on";
 			}
 			if (randomNumber == 5)
 			{
 				boat.ActivateSpeedBoost();
-				GD.Print("Speed Boost found, press A to use it and get a speed boost straight a head");
+				GameCamera.LabelModifiers.Text ="Speed Boost found, press A to use";
 			}
 		}
 	}

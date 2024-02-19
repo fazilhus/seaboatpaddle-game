@@ -101,7 +101,8 @@ public partial class Boat : RigidBody3D
 
 		_player_inputs = new List<Vector3>();
 		_paddles_rotation_old = new List<Vector3>();
-		foreach (int device_id in Input.GetConnectedJoypads()) {
+		foreach (int device_id in Input.GetConnectedJoypads()) 
+		{
 			_player_inputs.Add(Vector3.Zero);
 			_paddles_rotation_old.Add(Vector3.Zero);
 		}
@@ -111,7 +112,8 @@ public partial class Boat : RigidBody3D
 
 	public override void _Process(double delta)
 	{
-		if (Input.IsKeyPressed(Key.F2)) {
+		if (Input.IsKeyPressed(Key.F2)) 
+		{
 			GetNode<HealthComponent>("HealthComponent").SubtractHealth(100);
 		}
 		GetParent<Node3D>().GetNode<Label>("GameCamera/CanvasLayer/LabelHealth").Text = "Health: "+ GetNode<HealthComponent>("HealthComponent").health;
@@ -122,13 +124,15 @@ public partial class Boat : RigidBody3D
 	{
 		Vector3 forward = Basis.Z;
 		foreach (var it in paddles.Select((paddle, i) => new {Paddle = paddle, Index = i})) {
-			if (it.Index >= _player_inputs.Count) {
+			if (it.Index >= _player_inputs.Count) 
+			{
 				continue;
 			}
 			
 			Vector3 input = GetPlayerInput(it.Index);
 			//Vector3 input = _player_inputs[it.Index];
-			if (ControlInversion) {
+			if (ControlInversion) 
+			{
 				input.Z *= -1;
 			}
 
@@ -138,12 +142,14 @@ public partial class Boat : RigidBody3D
 			Vector3 force = new Vector3(angular_velocity.Z, 0, -angular_velocity.X);
 
 			Node3D force_point = it.Paddle.GetNode<Node3D>("ForcePoint");
-			if (isSubmerged && force_point.GlobalPosition.Y < GlobalPosition.Y) {
+			if (isSubmerged && force_point.GlobalPosition.Y < GlobalPosition.Y) 
+			{
 				ApplyForce(-sideways_force_ratio * force, it.Paddle.Position);
 				ApplyCentralForce(-forward_force_ratio * Curve(force) * force.Sign().Z * forward);
 			}
 
-			if (UsingSpeedBoost) {
+			if (UsingSpeedBoost) 
+			{
 				ApplyCentralForce(1000 * forward * (float)delta);
 			}
 		}              
@@ -201,7 +207,8 @@ public partial class Boat : RigidBody3D
 				} 
 				ApplyForce(Vector3.Up * floatForce * gravity * depth, p.GlobalPosition - GlobalPosition);
 			}
-			else {
+			else 
+			{
 				isSubmerged = false;
 			}
 		}
@@ -216,12 +223,14 @@ public partial class Boat : RigidBody3D
 			state.AngularVelocity *= 1 - WaterAngularDrag;
 		}
 
-		if (state.LinearVelocity.Length() >= 8) {
+		if (state.LinearVelocity.Length() >= 8) 
+		{
 			state.LinearVelocity = 8 * state.LinearVelocity.Normalized();
 		}
 	}
 
-	private float Curve(Vector3 v) {
+	private float Curve(Vector3 v) 
+	{
 		return Mathf.Pow(v.Length() / 10, 2);
 	}
 
@@ -232,12 +241,14 @@ public partial class Boat : RigidBody3D
 			isVortexCollided = false;
 		}
 
-		if (area.IsInGroup("VortexDamage")) {
+		if (area.IsInGroup("VortexDamage")) 
+		{
 			GetNode<Timer>("VortexDamageTimer").Stop();
 		}
 	}
 
-	private Vector3 GetPlayerInput(int device_id) {
+	private Vector3 GetPlayerInput(int device_id) 
+	{
 		Vector3 input = Vector3.Zero;
 		input.Z = Input.GetJoyAxis(device_id, JoyAxis.LeftX);
 		input.X = -Input.GetJoyAxis(device_id, JoyAxis.LeftY);
@@ -245,17 +256,24 @@ public partial class Boat : RigidBody3D
 	}
 	public void OnArea3dTriggerBoatAreaEntered(Area3D area)
 	{
+		if (area.IsInGroup("Goods"))
+		{
+			  GD.Print("boat is colliding with survivors!");
+		}
+		
 		if (area.IsInGroup("Survivors"))
 		{
 			  GD.Print("boat is colliding with survivors!");
 		}
 		
-		if (area.IsInGroup("SeaMine")) {
+		if (area.IsInGroup("SeaMine")) 
+		{
 			GD.Print("Boom!!!");
 			healthComp.SubtractHealth(100);
 		}
 
-		if(area.IsInGroup("Modifiers")) {
+		if(area.IsInGroup("Modifiers")) 
+		{
 			GD.Print("boat is colliding with modifiers!");
 		}
 
@@ -267,22 +285,27 @@ public partial class Boat : RigidBody3D
 		
 		}
 
-		if (area.IsInGroup("VortexDamage")) {
+		if (area.IsInGroup("VortexDamage")) 
+		{
 			GetNode<Timer>("VortexDamageTimer").Start();
 		}
 	}
 
-	public void OnHealthComponentNoHealthEvent() {
+	public void OnHealthComponentNoHealthEvent() 
+	{
 		GD.Print("Boat lost all durability: You Lose");
 		EmitSignal(SignalName.NoBoatHealth);
 	}
 
-	public void OnBodyEntered(Node node) {
+	public void OnBodyEntered(Node node) 
+	{
 		GD.Print(node.Name);
-		if (node.IsInGroup("Rock")) {
+		if (node.IsInGroup("Rock")) 
+		{
 			GD.Print("Crashed a rock!!!");
 			var speed = LinearVelocity.Length();
-			if (speed < 5) {
+			if (speed < 5) 
+			{
 				return;
 			}
 			GD.Print("Lost ", 3 * (int)speed, " health");
@@ -290,18 +313,21 @@ public partial class Boat : RigidBody3D
 		}
 	}
 
-	public void OnControlInversionTimerTimeout() {
+	public void OnControlInversionTimerTimeout() 
+	{
 		GD.Print("'Control Inversion' modifier has ended");
 		GameCamera.LabelModifiers.Text ="'Control Inversion' mode off";
 		ControlInversion = false;
 	}
 
-	public void OnSpeedBoostTimerTimeout() {
+	public void OnSpeedBoostTimerTimeout() 
+	{
 		GD.Print("'Speed Boost' modifier has ended");
 		UsingSpeedBoost = false;
 	}
 
-	public void OnVortexDamageTimerTimeout() {
+	public void OnVortexDamageTimerTimeout() 
+	{
 		healthComp.SubtractHealth(10);
 	}
 	

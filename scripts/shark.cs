@@ -106,6 +106,7 @@ public partial class shark : CharacterBody3D
 	}
 
 	private void _ChaseMovement(float delta) {
+		(_next_path_node_idx, _next_path_node) = (-1, null);
 		var rot = Rotation;
 		var target_dir = (boat.GlobalPosition - GlobalPosition).Normalized();
 		DebugDraw3D.DrawLine(Position, Position + 3 * target_dir, Colors.Yellow);

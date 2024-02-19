@@ -352,4 +352,9 @@ public partial class Boat : RigidBody3D
 			}
 		}
 	}
+
+	public void AttackedByShark(Vector3 attack_dir) {
+		healthComp.SubtractHealth(35);
+		ApplyCentralImpulse(50 * attack_dir);
+	}
 }

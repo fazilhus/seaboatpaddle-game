@@ -630,7 +630,7 @@ data = PackedVector3Array(10.7291, 3.2034, -5.8881, 9.6542, 0, -6.7756, 11.2715,
 [sub_resource type="PlaneMesh" id="PlaneMesh_p5u80"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dxr1s"]
-albedo_color = Color(0.356863, 0.301961, 0.141176, 1)
+albedo_color = Color(0, 0.0901961, 0.2, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3exl"]
 albedo_color = Color(0.784314, 0.662745, 0.431373, 1)

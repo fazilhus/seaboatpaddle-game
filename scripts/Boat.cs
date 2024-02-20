@@ -104,7 +104,7 @@ public partial class Boat : RigidBody3D
 		_player_inputs = new List<Vector3>();
 		_paddles_rotation_old = new List<Vector3>();
 		_is_paddle_moving = new List<bool>();
-		foreach (int device_id in Input.GetConnectedJoypads()) {
+		foreach (var _ in paddles) {
 			_player_inputs.Add(Vector3.Zero);
 			_paddles_rotation_old.Add(Vector3.Zero);
 			_is_paddle_moving.Add(false);

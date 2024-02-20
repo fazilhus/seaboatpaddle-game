@@ -91,7 +91,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.9896, 0, -1.29973)
 
 [node name="Boat" parent="." node_paths=PackedStringArray("water") instance=ExtResource("2_w1wc2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6119, 1.40901, 59.4802)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.885, 0.5, 40.808)
 water = NodePath("../WaterPlane")
 
 [node name="Map" parent="." instance=ExtResource("8_lgk5l")]
@@ -259,9 +259,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, -8)
 [node name="Marker3D4" type="Marker3D" parent="Sharks/Path1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, -8)
 
-[node name="Area3D" type="Area3D" parent="Sharks/Path1"]
+[node name="TriggerArea" type="Area3D" parent="Sharks/Path1"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Sharks/Path1/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sharks/Path1/TriggerArea"]
 shape = SubResource("BoxShape3D_2kob6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, -12)
 [node name="Goods" type="Node3D" parent="."]

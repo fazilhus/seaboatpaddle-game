@@ -19,6 +19,7 @@ public partial class Boat : RigidBody3D
 
 	private List<Vector3> _player_inputs;
 	private List<Vector3> _paddles_rotation_old;
+	private List<bool> _is_paddle_moving;
 
 	[Export]
 	public float sideways_force_ratio = 0.5f;
@@ -101,10 +102,11 @@ public partial class Boat : RigidBody3D
 
 		_player_inputs = new List<Vector3>();
 		_paddles_rotation_old = new List<Vector3>();
-		foreach (int device_id in Input.GetConnectedJoypads()) 
-		{
+		_is_paddle_moving = new List<bool>();
+		foreach (int device_id in Input.GetConnectedJoypads()) {
 			_player_inputs.Add(Vector3.Zero);
 			_paddles_rotation_old.Add(Vector3.Zero);
+			_is_paddle_moving.Add(false);
 		}
 
 		healthComp = GetNode<HealthComponent>("HealthComponent");
@@ -123,6 +125,10 @@ public partial class Boat : RigidBody3D
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector3 forward = Basis.Z;
+		DebugDraw3D.DrawLine(Position, Position + 3 * Basis.X, Colors.Red);
+		DebugDraw3D.DrawLine(Position, Position + 3 * Basis.Y, Colors.Green);
+		DebugDraw3D.DrawLine(Position, Position + 3 * Basis.Z, Colors.Blue);
+		DebugDraw3D.DrawLine(Position, Position + LinearVelocity.Project(Basis.Z), Colors.Yellow);
 		foreach (var it in paddles.Select((paddle, i) => new {Paddle = paddle, Index = i})) {
 			if (it.Index >= _player_inputs.Count) 
 			{
@@ -141,11 +147,18 @@ public partial class Boat : RigidBody3D
 			Vector3 angular_velocity = (it.Paddle.Rotation - _paddles_rotation_old[it.Index]) / (float)delta;
 			Vector3 force = new Vector3(angular_velocity.Z, 0, -angular_velocity.X);
 
+			_is_paddle_moving[it.Index] = force.Length() > 0.01f;
+
 			Node3D force_point = it.Paddle.GetNode<Node3D>("ForcePoint");
-			if (isSubmerged && force_point.GlobalPosition.Y < GlobalPosition.Y) 
-			{
-				ApplyForce(-sideways_force_ratio * force, it.Paddle.Position);
-				ApplyCentralForce(-forward_force_ratio * Curve(force) * force.Sign().Z * forward);
+			if (isSubmerged && force_point.GlobalPosition.Y < GlobalPosition.Y) {
+				if (!_is_paddle_moving[(it.Index + 1) % 2]) {
+					ApplyForce(-sideways_force_ratio * 1.25f * force, it.Paddle.Position);
+					ApplyCentralForce(0.25f * -forward_force_ratio * Curve(force) * force.Sign().Z * forward);
+				}
+				else {
+					ApplyForce(-sideways_force_ratio * force, it.Paddle.Position);
+					ApplyCentralForce(-forward_force_ratio * Curve(force) * force.Sign().Z * forward);
+				}
 			}
 
 			if (UsingSpeedBoost) 
@@ -167,7 +180,6 @@ public partial class Boat : RigidBody3D
 				if(isVortexCollided)
 				{
 					// Calculate the position of the boat relative to the center of the whirlpool
-					//DebugDraw3D.DrawSphere(vortexCenter, 1, Colors.Green);
 					Vector3 relativePosition = -Position + vortexCenter;
 					relativePosition.Y = 0;
 
@@ -179,31 +191,20 @@ public partial class Boat : RigidBody3D
 
 					// Adjust the force based on the distance from the center
 					float strengthFactor = (maxDistance - distanceToCenter) / maxDistance;
-					//DebugDraw2D.SetText("StrengthFactor", strengthFactor);
-					//GD.Print("StrengthFactor", strengthFactor);
 					Vector3 whirlpoolForce = baseForce * strengthFactor;
 
 					// Apply the whirlpool force to the boat
-					//DebugDraw3D.DrawLine(Position, Position + relativePosition, Colors.Red);
 					ApplyCentralForce(whirlpoolForce * (float)delta);
 
 					// Calculate the rotational force to simulate rotation around the whirlpool
 					Vector3 tangentialVelocity = relativePosition.Rotated(Vector3.Left, Mathf.DegToRad(-90)) * rotationalForceMagnitude * (float)delta;
-					//Vector3 tangentialVelocity = AngularVelocity.Cross(relativePosition.Normalized());
-					//Vector3 rotationalForce = relativePosition.Normalized().Cross(tangentialVelocity) * rotationalForceMagnitude * (float)delta;
 
 					// Apply the rotational force to the boat
-					//ApplyCentralForce(tangentialVelocity * (float)delta);
 					var v = Vector3.Down.Cross(-relativePosition) * rotationalVelocity * (float)delta;
 					
-					//GD.Print(v);
-					//DebugDraw3D.DrawLine(Position, Position + v, Colors.Yellow);
 					ApplyCentralForce(v);
-					//DebugDraw3D.DrawLine(Position, Position + tangentialVelocity.Normalized(), Colors.Green);
 					ApplyTorque(tangentialVelocity);
 					depth += -2.5f * strengthFactor;
-					//GD.Print("depth: ",depth);
-					//GD.Print("strengthF: ",strengthFactor);
 				} 
 				ApplyForce(Vector3.Up * floatForce * gravity * depth, p.GlobalPosition - GlobalPosition);
 			}

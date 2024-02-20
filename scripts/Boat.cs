@@ -11,7 +11,7 @@ enum PaddleSide {
 }
 
 public partial class Boat : RigidBody3D
-{
+{	
 	[Signal]
 	public delegate void NoBoatHealthEventHandler();
 
@@ -20,6 +20,7 @@ public partial class Boat : RigidBody3D
 
 	private List<Vector3> _player_inputs;
 	private List<Vector3> _paddles_rotation_old;
+	private List<bool> _is_paddle_moving;
 
 	[Export]
 	public float sideways_force_ratio = 0.5f;
@@ -37,11 +38,6 @@ public partial class Boat : RigidBody3D
 	private float initialY;
 	private double elapsedTime = 0;
 	
-	
-	//[Export]
-	//private float bobbingFactor = 0.1f;
-	//[Export]
-	//private float bobbingSpeed = 2.0f;
 
 	[Export] public WaterPlane water;
 	
@@ -97,7 +93,6 @@ public partial class Boat : RigidBody3D
 		//instantiate variables for boat physics
 		var parent = GetParent();
 		gravity = (float)ProjectSettings.GetSetting("physics/3d/default_gravity");
-		//water = parent.GetNode<WaterPlane>("WaterPlane");
 		probeContainer = GetNode<Node3D>("ProbeContainer").GetChildren();
 		//survivors = parent.GetNode<Survivors>("Survivors");
 		WaterSplashRatio = GetNode<GpuParticles3D>("GPUParticles3D");
@@ -108,10 +103,11 @@ public partial class Boat : RigidBody3D
 
 		_player_inputs = new List<Vector3>();
 		_paddles_rotation_old = new List<Vector3>();
-		foreach (int device_id in Input.GetConnectedJoypads()) 
-		{
+		_is_paddle_moving = new List<bool>();
+		foreach (int device_id in Input.GetConnectedJoypads()) {
 			_player_inputs.Add(Vector3.Zero);
 			_paddles_rotation_old.Add(Vector3.Zero);
+			_is_paddle_moving.Add(false);
 		}
 
 		healthComp = GetNode<HealthComponent>("HealthComponent");
@@ -124,7 +120,6 @@ public partial class Boat : RigidBody3D
 			GetNode<HealthComponent>("HealthComponent").SubtractHealth(100);
 		}
 		GetParent<Node3D>().GetNode<Label>("GameCamera/CanvasLayer/LabelHealth").Text = "Health: "+ GetNode<HealthComponent>("HealthComponent").health;
-		//DebugDraw2D.SetText("Health: ", GetNode<HealthComponent>("HealthComponent").health);
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -137,7 +132,6 @@ public partial class Boat : RigidBody3D
 			}
 			
 			Vector3 input = GetPlayerInput(it.Index);
-			//Vector3 input = _player_inputs[it.Index];
 			if (ControlInversion) 
 			{
 				input.Z *= -1;
@@ -148,11 +142,18 @@ public partial class Boat : RigidBody3D
 			Vector3 angular_velocity = (it.Paddle.Rotation - _paddles_rotation_old[it.Index]) / (float)delta;
 			Vector3 force = new Vector3(angular_velocity.Z, 0, -angular_velocity.X);
 
+			_is_paddle_moving[it.Index] = force.Length() > 0.01f;
+
 			Node3D force_point = it.Paddle.GetNode<Node3D>("ForcePoint");
-			if (isSubmerged && force_point.GlobalPosition.Y < GlobalPosition.Y) 
-			{
-				ApplyForce(-sideways_force_ratio * force, it.Paddle.Position);
-				ApplyCentralForce(-forward_force_ratio * Curve(force) * force.Sign().Z * forward);
+			if (isSubmerged && force_point.GlobalPosition.Y < GlobalPosition.Y) {
+				if (!_is_paddle_moving[(it.Index + 1) % 2]) {
+					ApplyForce(-sideways_force_ratio * 1.25f * force, it.Paddle.Position);
+					ApplyCentralForce(0.25f * -forward_force_ratio * Curve(force) * force.Sign().Z * forward);
+				}
+				else {
+					ApplyForce(-sideways_force_ratio * force, it.Paddle.Position);
+					ApplyCentralForce(-forward_force_ratio * Curve(force) * force.Sign().Z * forward);
+				}
 
 				float speedRotation = angular_velocity.Length();
 				GD.Print(speedRotation);
@@ -170,9 +171,6 @@ public partial class Boat : RigidBody3D
 					watersplashRight.Rotate(Vector3.Up, Mathf.Pi * angular_velocity.Sign().Z);
 					GD.Print(speedRotation, "RotationalVelcR");
 				}
-				
-				
-
 			}
 			else {
 				watersplashLeft.AmountRatio = 0;
@@ -209,7 +207,6 @@ public partial class Boat : RigidBody3D
 				if(isVortexCollided)
 				{
 					// Calculate the position of the boat relative to the center of the whirlpool
-					//DebugDraw3D.DrawSphere(vortexCenter, 1, Colors.Green);
 					Vector3 relativePosition = -Position + vortexCenter;
 					relativePosition.Y = 0;
 
@@ -221,31 +218,20 @@ public partial class Boat : RigidBody3D
 
 					// Adjust the force based on the distance from the center
 					float strengthFactor = (maxDistance - distanceToCenter) / maxDistance;
-					//DebugDraw2D.SetText("StrengthFactor", strengthFactor);
-					//GD.Print("StrengthFactor", strengthFactor);
 					Vector3 whirlpoolForce = baseForce * strengthFactor;
 
 					// Apply the whirlpool force to the boat
-					//DebugDraw3D.DrawLine(Position, Position + relativePosition, Colors.Red);
 					ApplyCentralForce(whirlpoolForce * (float)delta);
 
 					// Calculate the rotational force to simulate rotation around the whirlpool
 					Vector3 tangentialVelocity = relativePosition.Rotated(Vector3.Left, Mathf.DegToRad(-90)) * rotationalForceMagnitude * (float)delta;
-					//Vector3 tangentialVelocity = AngularVelocity.Cross(relativePosition.Normalized());
-					//Vector3 rotationalForce = relativePosition.Normalized().Cross(tangentialVelocity) * rotationalForceMagnitude * (float)delta;
 
 					// Apply the rotational force to the boat
-					//ApplyCentralForce(tangentialVelocity * (float)delta);
 					var v = Vector3.Down.Cross(-relativePosition) * rotationalVelocity * (float)delta;
 					
-					//GD.Print(v);
-					//DebugDraw3D.DrawLine(Position, Position + v, Colors.Yellow);
 					ApplyCentralForce(v);
-					//DebugDraw3D.DrawLine(Position, Position + tangentialVelocity.Normalized(), Colors.Green);
 					ApplyTorque(tangentialVelocity);
 					depth += -2.5f * strengthFactor;
-					//GD.Print("depth: ",depth);
-					//GD.Print("strengthF: ",strengthFactor);
 				} 
 				ApplyForce(Vector3.Up * floatForce * gravity * depth, p.GlobalPosition - GlobalPosition);
 			}
@@ -292,20 +278,20 @@ public partial class Boat : RigidBody3D
 	private Vector3 GetPlayerInput(int device_id) 
 	{
 		Vector3 input = Vector3.Zero;
-		input.Z = Input.GetJoyAxis(device_id, JoyAxis.LeftX);
-		input.X = -Input.GetJoyAxis(device_id, JoyAxis.LeftY);
+		input.Z = -Input.GetJoyAxis(device_id, JoyAxis.LeftX);
+		input.X = Input.GetJoyAxis(device_id, JoyAxis.LeftY);
 		return input;
 	}
 	public void OnArea3dTriggerBoatAreaEntered(Area3D area)
 	{
 		if (area.IsInGroup("Goods"))
 		{
-			  GD.Print("boat is colliding with survivors!");
+			GD.Print("boat is colliding with goods!");
 		}
 		
 		if (area.IsInGroup("Survivors"))
 		{
-			  GD.Print("boat is colliding with survivors!");
+			GD.Print("boat is colliding with survivors!");
 		}
 		
 		if (area.IsInGroup("SeaMine")) 
@@ -393,5 +379,10 @@ public partial class Boat : RigidBody3D
 				SpeedBoost = false;
 			}
 		}
+	}
+
+	public void AttackedByShark(Vector3 attack_dir) {
+		healthComp.SubtractHealth(35);
+		ApplyCentralImpulse(50 * attack_dir);
 	}
 }

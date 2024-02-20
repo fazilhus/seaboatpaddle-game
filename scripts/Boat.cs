@@ -11,6 +11,8 @@ enum PaddleSide {
 
 public partial class Boat : RigidBody3D
 {	
+	private List<Goods> pickedUpGoods = new List<Goods>();
+	
 	[Signal]
 	public delegate void NoBoatHealthEventHandler();
 
@@ -63,16 +65,10 @@ public partial class Boat : RigidBody3D
 	[Export]
 	public float rotationalVelocity = 5;
 
-	public bool ControlInversion { get; private set; } = false;
 	public bool RepairKit { get; private set; } = false;
 	public bool SpeedBoost { get; private set; } = false;
 	public bool UsingSpeedBoost = false;
 
-	public void ActivateControlInversion()
-	{
-		GetNode<Timer>("ControlInversionTimer").Start();
-		ControlInversion = true;
-	}
 	public void ActivateRepairKit()
 	{
 		RepairKit = true;
@@ -131,10 +127,6 @@ public partial class Boat : RigidBody3D
 			
 			Vector3 input = GetPlayerInput(it.Index);
 			//Vector3 input = _player_inputs[it.Index];
-			if (ControlInversion) 
-			{
-				input.Z *= -1;
-			}
 
 			_paddles_rotation_old[it.Index] = it.Paddle.Rotation;
 			it.Paddle.Rotation = new Vector3(input.X * 0.8f, 0, input.Z * 0.5f);
@@ -311,19 +303,32 @@ public partial class Boat : RigidBody3D
 			GD.Print("Lost ", 3 * (int)speed, " health");
 			healthComp.SubtractHealth(3 * (int)speed);
 		}
+		if (node.IsInGroup("Goods"))
+		{
+			GD.Print("Goods found!");
+			Goods goods = node as Goods;
+			if (goods != null)
+			{
+				GD.Print("Goods picked up by the boat!");
+				HandleGoodsPickedUp(goods);
+			}
+		}
 	}
-
-	public void OnControlInversionTimerTimeout() 
+	private void HandleGoodsPickedUp(Goods goods)
 	{
-		GD.Print("'Control Inversion' modifier has ended");
-		GameCamera.LabelModifiers.Text ="'Control Inversion' mode off";
-		ControlInversion = false;
+		GD.Print("Goods picked up by the boat!");
+
+		// Add the goods to the boat's list of picked up goods
+		pickedUpGoods.Add(goods);
+		float crateHeight = 2.0f;
+		goods.GlobalTransform = GlobalTransform.Translated(new Vector3(0, pickedUpGoods.Count * crateHeight, 0));
 	}
 
 	public void OnSpeedBoostTimerTimeout() 
 	{
 		GD.Print("'Speed Boost' modifier has ended");
 		UsingSpeedBoost = false;
+		GameCamera.LabelModifiers.Text ="'Speed Boost' off";
 	}
 
 	public void OnVortexDamageTimerTimeout() 
@@ -347,9 +352,11 @@ public partial class Boat : RigidBody3D
 			if(SpeedBoost)
 			{
 				GetNode<Timer>("SpeedBoostTimer").Start();
+				GameCamera.LabelModifiers.Text ="'Speed Boost' on";
 				UsingSpeedBoost = true;
 				SpeedBoost = false;
 			}
 		}
 	}
 }
+

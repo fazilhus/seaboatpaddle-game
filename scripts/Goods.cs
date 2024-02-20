@@ -60,5 +60,3 @@ public partial class Goods : RigidBody3D
 		}
 	}
 }
-
-

@@ -78,11 +78,6 @@ public partial class Modifiers : RigidBody3D
 			}
 			if (randomNumber == 4)
 			{
-				boat.ActivateControlInversion();
-				GameCamera.LabelModifiers.Text ="'Control Inversion' mode on";
-			}
-			if (randomNumber == 5)
-			{
 				boat.ActivateSpeedBoost();
 				GameCamera.LabelModifiers.Text ="Speed Boost found, press A to use";
 			}
@@ -103,6 +98,6 @@ public class NumberGenerator
 	public int GenerateNumber()
 	{
 		// Generate a random number between 1 and 5 (inclusive)
-		return random.Next(2, 6);
+		return random.Next(2, 5);
 	}
 }

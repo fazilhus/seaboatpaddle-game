@@ -52,13 +52,6 @@ public partial class shark : CharacterBody3D
 
     public override void _Process(double delta)
     {
-		DebugDraw3D.DrawLine(Position, Position + 3 * Basis.X, Colors.Red);
-		DebugDraw3D.DrawLine(Position, Position + 3 * Basis.Y, Colors.Green);
-		DebugDraw3D.DrawLine(Position, Position + 3 * Basis.Z, Colors.Blue);
-		foreach (var path_node in _path_nodes) {
-			DebugDraw3D.DrawSphere(path_node.GlobalPosition, 0.5f, Colors.Green);
-		}
-
 		// Movement along the path
 		if (_trigger_area.OverlapsBody(boat)) {
 			_behavior = Behavior.Chase;
@@ -88,7 +81,6 @@ public partial class shark : CharacterBody3D
 
 		var rot = Rotation;
 		var target_dir = (_next_path_node.GlobalPosition - GlobalPosition).Normalized();
-		DebugDraw3D.DrawLine(Position, Position + 3 * target_dir, Colors.Yellow);
 		var target_angle = Basis.Z.SignedAngleTo(target_dir, Vector3.Up);
 		var angle_diff = Mathf.Sign(target_angle);
 				
@@ -101,7 +93,6 @@ public partial class shark : CharacterBody3D
 		var dist = _next_path_node.GlobalPosition.DistanceTo(GlobalPosition);
 		if (dist < 2) {
 			(_next_path_node_idx, _next_path_node) = _GetNextPathNode(_next_path_node_idx);
-			GD.Print(_next_path_node.Name);
 		}
 	}
 
@@ -109,7 +100,6 @@ public partial class shark : CharacterBody3D
 		(_next_path_node_idx, _next_path_node) = (-1, null);
 		var rot = Rotation;
 		var target_dir = (boat.GlobalPosition - GlobalPosition).Normalized();
-		DebugDraw3D.DrawLine(Position, Position + 3 * target_dir, Colors.Yellow);
 		var target_angle = Basis.Z.SignedAngleTo(target_dir, Vector3.Up);
 		var angle_diff = Mathf.Sign(target_angle);
 				

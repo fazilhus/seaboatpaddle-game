@@ -37,11 +37,6 @@ public partial class Boat : RigidBody3D
 	private float initialY;
 	private double elapsedTime = 0;
 	
-	
-	//[Export]
-	//private float bobbingFactor = 0.1f;
-	//[Export]
-	//private float bobbingSpeed = 2.0f;
 
 	[Export] public WaterPlane water;
 	
@@ -85,17 +80,13 @@ public partial class Boat : RigidBody3D
 
 	private float strengthFactor; 
 	private HealthComponent healthComp;
-	
-	//[Export] Survivors survivors;
 
 	public override void _Ready()
 	{
 		//instantiate variables for boat physics
 		var parent = GetParent();
 		gravity = (float)ProjectSettings.GetSetting("physics/3d/default_gravity");
-		//water = parent.GetNode<WaterPlane>("WaterPlane");
 		probeContainer = GetNode<Node3D>("ProbeContainer").GetChildren();
-		//survivors = parent.GetNode<Survivors>("Survivors");
 		
 	
 		initialY = GlobalPosition.Y;
@@ -119,16 +110,11 @@ public partial class Boat : RigidBody3D
 			GetNode<HealthComponent>("HealthComponent").SubtractHealth(100);
 		}
 		GetParent<Node3D>().GetNode<Label>("GameCamera/CanvasLayer/LabelHealth").Text = "Health: "+ GetNode<HealthComponent>("HealthComponent").health;
-		//DebugDraw2D.SetText("Health: ", GetNode<HealthComponent>("HealthComponent").health);
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector3 forward = Basis.Z;
-		DebugDraw3D.DrawLine(Position, Position + 3 * Basis.X, Colors.Red);
-		DebugDraw3D.DrawLine(Position, Position + 3 * Basis.Y, Colors.Green);
-		DebugDraw3D.DrawLine(Position, Position + 3 * Basis.Z, Colors.Blue);
-		DebugDraw3D.DrawLine(Position, Position + LinearVelocity.Project(Basis.Z), Colors.Yellow);
 		foreach (var it in paddles.Select((paddle, i) => new {Paddle = paddle, Index = i})) {
 			if (it.Index >= _player_inputs.Count) 
 			{
@@ -136,7 +122,6 @@ public partial class Boat : RigidBody3D
 			}
 			
 			Vector3 input = GetPlayerInput(it.Index);
-			//Vector3 input = _player_inputs[it.Index];
 			if (ControlInversion) 
 			{
 				input.Z *= -1;

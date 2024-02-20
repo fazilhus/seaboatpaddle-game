@@ -1,4 +1,5 @@
 using Godot;
+using Microsoft.VisualBasic.FileIO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -86,6 +87,10 @@ public partial class Boat : RigidBody3D
 	private HealthComponent healthComp;
 	
 	//[Export] Survivors survivors;
+	public GpuParticles3D WaterSplashRatio;
+	public GpuParticles3D watersplashLeft;
+	public GpuParticles3D watersplashRight;
+
 
 	public override void _Ready()
 	{
@@ -95,7 +100,9 @@ public partial class Boat : RigidBody3D
 		//water = parent.GetNode<WaterPlane>("WaterPlane");
 		probeContainer = GetNode<Node3D>("ProbeContainer").GetChildren();
 		//survivors = parent.GetNode<Survivors>("Survivors");
-		
+		WaterSplashRatio = GetNode<GpuParticles3D>("GPUParticles3D");
+		watersplashLeft = GetNode<Node3D>("LeftPaddlePivot").GetNode<GpuParticles3D>("GPUsplashEffect");
+		watersplashRight = GetNode<Node3D>("RightPaddlePivot").GetNode<GpuParticles3D>("GPUsplashEffect2");
 	
 		initialY = GlobalPosition.Y;
 
@@ -146,12 +153,47 @@ public partial class Boat : RigidBody3D
 			{
 				ApplyForce(-sideways_force_ratio * force, it.Paddle.Position);
 				ApplyCentralForce(-forward_force_ratio * Curve(force) * force.Sign().Z * forward);
+
+				float speedRotation = angular_velocity.Length();
+				GD.Print(speedRotation);
+				if (speedRotation <= 30.0f && _paddles_rotation_old[it.Index] == _paddles_rotation_old[0])
+				{
+					watersplashLeft.Emitting = true;
+					watersplashLeft.AmountRatio = speedRotation;
+					watersplashLeft.Rotate(Vector3.Up, Mathf.Pi * angular_velocity.Sign().Z);
+					GD.Print(speedRotation, "RotationalVelcL");
+				}
+				else if (speedRotation <= 30.0f && _paddles_rotation_old[it.Index] == _paddles_rotation_old[1])
+				{
+					
+					watersplashRight.AmountRatio = speedRotation;
+					watersplashRight.Rotate(Vector3.Up, Mathf.Pi * angular_velocity.Sign().Z);
+					GD.Print(speedRotation, "RotationalVelcR");
+				}
+				
+				
+
+			}
+			else {
+				watersplashLeft.AmountRatio = 0;
+				watersplashRight.AmountRatio = 0;
 			}
 
 			if (UsingSpeedBoost) 
 			{
 				ApplyCentralForce(1000 * forward * (float)delta);
 			}
+			/*if(WaterSplashRatio.AmountRatio <= 10.0f && isSubmerged && LinearVelocity.Length() > 0.4f)
+			{
+				var speed = LinearVelocity.Length();
+				WaterSplashRatio.AmountRatio = speed/10;
+				//GD.Print(speed, "speedUp");
+				
+			}
+			else
+			{
+				WaterSplashRatio.AmountRatio = 0.0f;
+			}*/
 		}              
 		
 		// checking marker3d in the probe container for simulating the water physics

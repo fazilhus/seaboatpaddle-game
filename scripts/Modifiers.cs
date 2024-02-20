@@ -76,6 +76,11 @@ public partial class Modifiers : RigidBody3D
 				boat.ActivateRepairKit();
 				GameCamera.LabelModifiers.Text ="Repair kit found, press B to use";
 			}
+			// if (randomNumber == 4)
+			// {
+			// 	boat.ActivateControlInversion();
+			// 	GameCamera.LabelModifiers.Text ="'Control Inversion' mode on";
+			// }
 			if (randomNumber == 4)
 			{
 				boat.ActivateSpeedBoost();
@@ -98,6 +103,6 @@ public class NumberGenerator
 	public int GenerateNumber()
 	{
 		// Generate a random number between 1 and 5 (inclusive)
-		return random.Next(2, 5);
+		return random.Next(1, 4);
 	}
 }

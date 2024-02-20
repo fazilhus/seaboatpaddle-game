@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 public partial class Goods : RigidBody3D
-{
+{	
 	[Export] private float floatForce = 1.0f;
 	[Export] private float waterDrag = 0.005f;
 	[Export] private float WaterAngularDrag = 0.01f;

@@ -10,7 +10,7 @@ enum PaddleSide {
 }
 
 public partial class Boat : RigidBody3D
-{
+{	
 	[Signal]
 	public delegate void NoBoatHealthEventHandler();
 
@@ -258,12 +258,12 @@ public partial class Boat : RigidBody3D
 	{
 		if (area.IsInGroup("Goods"))
 		{
-			  GD.Print("boat is colliding with survivors!");
+			GD.Print("boat is colliding with goods!");
 		}
 		
 		if (area.IsInGroup("Survivors"))
 		{
-			  GD.Print("boat is colliding with survivors!");
+			GD.Print("boat is colliding with survivors!");
 		}
 		
 		if (area.IsInGroup("SeaMine")) 

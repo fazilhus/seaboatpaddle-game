@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
 [ext_resource type="PackedScene" uid="uid://bro3rrf66ro1h" path="res://scenes/boat.tscn" id="2_w1wc2"]
 [ext_resource type="PackedScene" uid="uid://c0hlnfvbhxilp" path="res://scenes/vortex_3d.tscn" id="4_5wau7"]
-[ext_resource type="PackedScene" path="res://scenes/game_camera.tscn" id="5_rlqlm"]
+[ext_resource type="PackedScene" uid="uid://y7tqwoj3tmif" path="res://scenes/game_camera.tscn" id="5_rlqlm"]
 [ext_resource type="PackedScene" uid="uid://beoci1a615ffi" path="res://scenes/sea_mine.tscn" id="7_sombh"]
 [ext_resource type="PackedScene" uid="uid://bdohepiggfmms" path="res://scenes/map.tscn" id="8_lgk5l"]
 [ext_resource type="PackedScene" uid="uid://hl4r2ylauhog" path="res://scenes/Modifiers.tscn" id="9_e5cou"]
@@ -239,10 +239,8 @@ water = NodePath("../../WaterPlane")
 
 [node name="Shark1" parent="Sharks" node_paths=PackedStringArray("boat", "path") instance=ExtResource("10_d5ipu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.967, -0.2, 77.567)
-velocity = 200.0
 boat = NodePath("../../Boat")
 path = NodePath("../Path1")
-velocity = 200.0
 
 [node name="Path1" type="Node3D" parent="Sharks"]
 transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 23.3704, -0.0663795, 75.0165)

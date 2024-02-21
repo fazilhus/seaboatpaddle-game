@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://5scllsnkmpth"]
+
+[ext_resource type="Material" uid="uid://dwnbo2v1llsuq" path="res://Shades/Stream.tres" id="1_ocwdw"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_slx6x"]
+size = Vector2(40, 80)
+subdivide_width = 100
+subdivide_depth = 100
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gxtqq"]
+size = Vector3(40, 20, 80)
+
+[node name="Streams" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.335896, 0, -2.85682)
+material_override = ExtResource("1_ocwdw")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_slx6x")
+
+[node name="Area3D" type="Area3D" parent="." groups=["Streams"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.335896, 0, -2.85682)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_gxtqq")

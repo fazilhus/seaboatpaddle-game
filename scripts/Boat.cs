@@ -46,6 +46,7 @@ public partial class Boat : RigidBody3D
 	
 	[Export] Survivors survivors;
 	[Export] private bool isVortexCollided;
+	[Export] private bool isStreamCollided;
 	[Export] private float maxDistance = 20.0f; // Example maximum distance from the center
 
 	 // Define the vortex center
@@ -191,6 +192,14 @@ public partial class Boat : RigidBody3D
 					ApplyTorque(tangentialVelocity);
 					depth += -2.5f * strengthFactor;
 				} 
+
+				if(isStreamCollided)
+				{
+					Vector3 relativePosition = Position;
+					var velocityApply = Vector3.Right * 10.0f;
+					ApplyCentralForce(velocityApply);
+
+				}
 				ApplyForce(Vector3.Up * floatForce * gravity * depth, p.GlobalPosition - GlobalPosition);
 			}
 			else 
@@ -230,6 +239,11 @@ public partial class Boat : RigidBody3D
 		if (area.IsInGroup("VortexDamage")) 
 		{
 			GetNode<Timer>("VortexDamageTimer").Stop();
+		}
+		
+		if(area.IsInGroup("Streams"))
+		{
+			isStreamCollided = false;
 		}
 	}
 
@@ -274,6 +288,12 @@ public partial class Boat : RigidBody3D
 		if (area.IsInGroup("VortexDamage")) 
 		{
 			GetNode<Timer>("VortexDamageTimer").Start();
+		}
+
+		if(area.IsInGroup("Streams"))
+		{
+			isStreamCollided = true;
+			GD.Print("you are streaming!");
 		}
 	}
 

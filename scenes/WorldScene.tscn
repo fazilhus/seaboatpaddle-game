@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bqgpgxpoqkw6w"]
+[gd_scene load_steps=19 format=3 uid="uid://bqgpgxpoqkw6w"]
 
 [ext_resource type="PackedScene" uid="uid://donyuxtadnlyj" path="res://scenes/survivors.tscn" id="1_pprra"]
 [ext_resource type="Script" path="res://scripts/WorldScene.cs" id="1_qx545"]
@@ -9,8 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://beoci1a615ffi" path="res://scenes/sea_mine.tscn" id="7_sombh"]
 [ext_resource type="PackedScene" uid="uid://bdohepiggfmms" path="res://scenes/map.tscn" id="8_lgk5l"]
 [ext_resource type="PackedScene" uid="uid://hl4r2ylauhog" path="res://scenes/Modifiers.tscn" id="9_e5cou"]
-[ext_resource type="PackedScene" uid="uid://b55sx0mje1j5w" path="res://scenes/shark.tscn" id="10_d5ipu"]
+[ext_resource type="PackedScene" path="res://scenes/shark.tscn" id="10_d5ipu"]
 [ext_resource type="PackedScene" uid="uid://ducw5sm3i87kh" path="res://scenes/Goods.tscn" id="10_wmy0u"]
+[ext_resource type="PackedScene" uid="uid://5scllsnkmpth" path="res://scenes/streams.tscn" id="12_8n6ch"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kspm4"]
 outline_color = Color(0, 0, 0, 1)
@@ -91,7 +92,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.9896, 0, -1.29973)
 
 [node name="Boat" parent="." node_paths=PackedStringArray("water") instance=ExtResource("2_w1wc2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.9115, 0.5, 71.0705)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1455, 0.5, -68.5243)
 water = NodePath("../WaterPlane")
 
 [node name="Map" parent="." instance=ExtResource("8_lgk5l")]
@@ -269,6 +270,12 @@ shape = SubResource("BoxShape3D_2kob6")
 [node name="Goods" parent="Goods" node_paths=PackedStringArray("water") instance=ExtResource("10_wmy0u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.14824, 0, 0.91465)
 water = NodePath("../../WaterPlane")
+
+[node name="Streams" parent="." instance=ExtResource("12_8n6ch")]
+transform = Transform3D(0.0462871, 0, 0.998928, 0, 1, 0, -0.998928, 0, 0.0462871, -100.26, -0.218028, -60.5863)
+
+[node name="Streams2" parent="." instance=ExtResource("12_8n6ch")]
+transform = Transform3D(0.0462871, 0, 0.998928, 0, 1, 0, -0.998928, 0, 0.0462871, -6.92721, -0.218028, -67.9099)
 
 [connection signal="timeout" from="GameCamera/countdownTimer" to="GameCamera" method="OnCountdownTimerTimeout"]
 [connection signal="NoBoatHealth" from="Boat" to="." method="OnNoBoatHealth"]

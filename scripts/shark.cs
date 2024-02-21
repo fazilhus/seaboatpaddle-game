@@ -62,10 +62,12 @@ public partial class shark : CharacterBody3D
 
 		switch (_behavior) {
 			case Behavior.Patrol: {
+				GetNode<AnimationPlayer>("Body/sharkswim/AnimationPlayer").SpeedScale = 1;
 				_PatrolMovement((float)delta);
 				break;
 			}
 			case Behavior.Chase: {
+				GetNode<AnimationPlayer>("Body/sharkswim/AnimationPlayer").SpeedScale = 1.5f;
 				_ChaseMovement((float)delta);
 				break;
 			}

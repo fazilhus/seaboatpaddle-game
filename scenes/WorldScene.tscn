@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
 [ext_resource type="PackedScene" uid="uid://bro3rrf66ro1h" path="res://scenes/boat.tscn" id="2_w1wc2"]
 [ext_resource type="PackedScene" uid="uid://c0hlnfvbhxilp" path="res://scenes/vortex_3d.tscn" id="4_5wau7"]
-[ext_resource type="PackedScene" path="res://scenes/game_camera.tscn" id="5_rlqlm"]
+[ext_resource type="PackedScene" uid="uid://y7tqwoj3tmif" path="res://scenes/game_camera.tscn" id="5_rlqlm"]
 [ext_resource type="PackedScene" uid="uid://beoci1a615ffi" path="res://scenes/sea_mine.tscn" id="7_sombh"]
 [ext_resource type="PackedScene" uid="uid://bdohepiggfmms" path="res://scenes/map.tscn" id="8_lgk5l"]
 [ext_resource type="PackedScene" uid="uid://hl4r2ylauhog" path="res://scenes/Modifiers.tscn" id="9_e5cou"]
@@ -91,7 +91,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.9896, 0, -1.29973)
 
 [node name="Boat" parent="." node_paths=PackedStringArray("water") instance=ExtResource("2_w1wc2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.885, 0.5, 40.808)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.9115, 0.5, 71.0705)
 water = NodePath("../WaterPlane")
 
 [node name="Map" parent="." instance=ExtResource("8_lgk5l")]

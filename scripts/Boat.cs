@@ -59,16 +59,10 @@ public partial class Boat : RigidBody3D
 	[Export]
 	public float rotationalVelocity = 5;
 
-	public bool ControlInversion { get; private set; } = false;
 	public bool RepairKit { get; private set; } = false;
 	public bool SpeedBoost { get; private set; } = false;
 	public bool UsingSpeedBoost = false;
 
-	public void ActivateControlInversion()
-	{
-		GetNode<Timer>("ControlInversionTimer").Start();
-		ControlInversion = true;
-	}
 	public void ActivateRepairKit()
 	{
 		RepairKit = true;
@@ -122,10 +116,6 @@ public partial class Boat : RigidBody3D
 			}
 			
 			Vector3 input = GetPlayerInput(it.Index);
-			if (ControlInversion) 
-			{
-				input.Z *= -1;
-			}
 
 			_paddles_rotation_old[it.Index] = it.Paddle.Rotation;
 			it.Paddle.Rotation = new Vector3(input.X * 0.8f, 0, input.Z * 0.5f);
@@ -297,13 +287,6 @@ public partial class Boat : RigidBody3D
 			GD.Print("Lost ", 3 * (int)speed, " health");
 			healthComp.SubtractHealth(3 * (int)speed);
 		}
-	}
-
-	public void OnControlInversionTimerTimeout() 
-	{
-		GD.Print("'Control Inversion' modifier has ended");
-		GameCamera.LabelModifiers.Text ="'Control Inversion' mode off";
-		ControlInversion = false;
 	}
 
 	public void OnSpeedBoostTimerTimeout() 

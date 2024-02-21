@@ -76,11 +76,7 @@ public partial class Modifiers : RigidBody3D
 				boat.ActivateRepairKit();
 				GameCamera.LabelModifiers.Text ="Repair kit found, press B to use";
 			}
-			// if (randomNumber == 4)
-			// {
-			// 	boat.ActivateControlInversion();
-			// 	GameCamera.LabelModifiers.Text ="'Control Inversion' mode on";
-			// }
+
 			if (randomNumber == 4)
 			{
 				boat.ActivateSpeedBoost();

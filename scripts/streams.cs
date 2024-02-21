@@ -5,6 +5,7 @@ public partial class streams : Node3D
 {
 	[Export] public Boat boat;
 	private bool isStreamCollided;
+	[Export] public int streamSpeed = 7;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -17,7 +18,7 @@ public partial class streams : Node3D
 		if(isStreamCollided && boat.isSubmerged)
 		{
 			Vector3 ForceVector = Transform.Basis.Z;
-			boat.ApplyCentralForce(ForceVector * 5);
+			boat.ApplyCentralForce(ForceVector * streamSpeed);
 			GD.Print(ForceVector);
 		}
 

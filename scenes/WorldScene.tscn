@@ -198,6 +198,7 @@ transparency = 0.4
 skeleton = NodePath("")
 
 [node name="Vortex3D" parent="." instance=ExtResource("4_5wau7")]
+process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40.8658)
 
 [node name="Boat" parent="." node_paths=PackedStringArray("water") instance=ExtResource("2_w1wc2")]

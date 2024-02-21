@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bro3rrf66ro1h"]
+[gd_scene load_steps=12 format=3 uid="uid://bro3rrf66ro1h"]
 
 [ext_resource type="Script" path="res://scripts/Boat.cs" id="1_tk55w"]
 [ext_resource type="PackedScene" uid="uid://catt7cfnf4pd1" path="res://CustonAssets/paddle.glb" id="2_32au7"]
+[ext_resource type="Material" uid="uid://86e052fpxy4m" path="res://paddle1.tres" id="2_qg35q"]
 [ext_resource type="ArrayMesh" uid="uid://b7odym8k47kgf" path="res://KennyWaterCraft/Models/watercraftPack_029.obj" id="3_6y5mw"]
+[ext_resource type="Material" uid="uid://dwl8fs46koq6p" path="res://paddle2.tres" id="3_r7c73"]
 [ext_resource type="Material" uid="uid://dm8p44anq2ejj" path="res://Shades/AntiWaterMask.tres" id="4_2xej0"]
 [ext_resource type="PackedScene" uid="uid://bfcmmp24hd7u5" path="res://scenes/HealthComponent.tscn" id="5_oltkq"]
 
@@ -27,6 +29,7 @@ physics_material_override = SubResource("PhysicsMaterial_7j168")
 freeze_mode = 1
 script = ExtResource("1_tk55w")
 paddles = [NodePath("LeftPaddlePivot"), NodePath("RightPaddlePivot")]
+paddleMaterial = Array[Material]([ExtResource("2_qg35q"), ExtResource("3_r7c73")])
 sideways_force_ratio = 0.4
 forward_force_ratio = 40.0
 floatForce = 1.5

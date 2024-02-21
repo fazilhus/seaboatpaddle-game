@@ -3780,6 +3780,7 @@ skeleton = NodePath("")
 [node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock34" groups=["Rock"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock34/StaticBody3D"]
+transform = Transform3D(1, -6.93889e-18, -2.98023e-08, -5.55112e-17, 1, 0, -5.96046e-08, 0, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_suia1")
 
 [node name="Rock34Bottom" type="MeshInstance3D" parent="Rocks"]
@@ -4761,3 +4762,773 @@ surface_material_override/1 = SubResource("StandardMaterial3D_jsyqa")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Land/LandBottom38/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_sdwbm")
+
+[node name="PalmTreesOnLand" type="Node3D" parent="Land"]
+
+[node name="Palm1" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -166.818, 4.98412, 154.094)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="Palm2" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.33, 0, -2.98023e-08, 0, 0.33, 0, 2.98023e-08, 0, 0.33, -174.178, 3.27655, 161.952)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="Palm3" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, -171.044, 4.4472, 161.06)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="Palm4" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, -167.417, 5.43598, 145.912)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="Palm5" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, -154.4, 1.92491, 160.233)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="Palm6" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, -158.346, 5.31158, 187.604)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="Palm7" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, -171.042, 5.03585, 186.929)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="Palm8" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.27, 0, 0, 0, 0.27, 0, 0, 0, 0.27, -167.261, 5.51111, 166.394)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="Palm9" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, -172.786, 5.49131, 171.207)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="Palm10" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, -168.336, 5.34578, 180.188)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="Palm11" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, -163.068, 5.40776, 186.087)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="Palm12" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.27, 0, 0, 0, 0.27, 0, 0, 0, 0.27, -162.495, 1.99976, 148.473)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="Palm13" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -168.409, 5.2059, 171.153)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="Palm14" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, -160.719, 5.39861, 179.324)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="Palm15" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, -135.683, 2.45738, 173.243)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="Palm16" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, -172.968, 5.29884, 179.651)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="Palm17" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -142.797, 5.69092, 179.686)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="Palm18" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.33, 0, -2.98023e-08, 0, 0.33, 0, 2.98023e-08, 0, 0.33, -134.299, 4.45357, 180.479)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="Palm19" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, -136.032, 6.0629, 188.378)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="Palm20" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, -135.546, 6.51275, 189.244)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="Palm21" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, -131.792, 6.63412, 194.459)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="Palm22" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, -123.806, 2.94043, 189.017)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="Palm23" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, -116.091, 2.01823, 176.096)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="Palm24" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.27, 0, 0, 0, 0.27, 0, 0, 0, 0.27, -122.044, 5.51111, 193.398)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="Palm25" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, -114.381, 5.45507, 186.75)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="Palm26" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, -112.914, 4.9003, 187.724)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="Palm27" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, -103.878, 5.40776, 192.367)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="Palm28" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.27, 0, 0, 0, 0.27, 0, 0, 0, 0.27, -114.139, 8.49642, 196.045)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="Palm29" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -108.591, 6.85436, 198.471)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="Palm30" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, -114.874, 12.7774, 201.148)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="Palm31" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, -36.457, 3.16922, 196.637)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="Palm32" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, -35.1199, 8.23584, 193.781)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="Palm33" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -25.8302, 8.27882, 191.932)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="Palm34" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.33, 0, -2.98023e-08, 0, 0.33, 0, 2.98023e-08, 0, 0.33, -16.2336, 0.820942, 184.875)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="Palm35" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, -10.5871, 0.819874, 192.774)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="Palm36" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, -31.6832, 17.69, 200.674)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="Palm37" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, -20.8292, 11.949, 198.514)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="Palm38" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, -15.3529, 5.41781, 203.675)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="Palm39" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, -7.58863, 5.46015, 201.923)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="Palm40" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.27, 0, 0, 0, 0.27, 0, 0, 0, 0.27, 0.230263, 5.31189, 198.348)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="Palm41" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, -11.8901, 14.3698, 204.911)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="Palm42" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, 7.7697, 15.8096, 213.354)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="Palm43" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, 13.0377, 15.1815, 214.003)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="Palm44" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.27, 0, 0, 0, 0.27, 0, 0, 0, 0.27, 15.6519, 16.5194, 204.525)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="Palm45" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 14.185, 7.05458, 192.976)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="Palm46" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, 25.6428, 7.46861, 199.264)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="Palm47" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, 26.501, 6.23771, 196.009)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="Palm48" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, 27.0531, 6.93358, 204.614)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="Palm49" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 37.1105, 5.61826, 215.413)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="Palm50" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.33, 0, -2.98023e-08, 0, 0.33, 0, 2.98023e-08, 0, 0.33, 36.818, 6.41956, 200.64)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="Palm51" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, 45.7068, 15.6547, 208.54)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="Palm52" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, 42.897, 15.7969, 198.236)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="Palm53" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, 59.1033, 14.9023, 195.942)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="Palm54" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, 68.1883, 11.0949, 209.729)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="Palm55" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, 62.5347, 11.2915, 214.204)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="Palm56" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.27, 0, 0, 0, 0.27, 0, 0, 0, 0.27, 54.2006, 22.0781, 203.488)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="Palm57" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, 55.0885, 21.8277, 206.912)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="Palm58" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, 65.9076, 14.276, 202.24)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="Palm59" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, 88.0432, 3.47729, 198.056)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="Palm60" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.27, 0, 0, 0, 0.27, 0, 0, 0, 0.27, 82.8846, 3.72289, 200.634)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="Palm61" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -5.79874, 5.09065, 195.158)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="Palm62" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, -75.7717, 6.02069, 184.909)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="Palm63" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, -37.8416, 1.60912, 187.398)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="Palm64" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, -45.7222, 1.40845, 181.392)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="Palm65" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0787477, 0, -0.28948, 0, 0.3, 0, 0.28948, 0, 0.0787477, -195.746, 6.61465, -64.5637)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="Palm66" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0866224, 0, -0.318428, 0, 0.33, 0, 0.318428, 0, 0.0866224, -185.118, 6.1897, -62.9339)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="Palm67" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.16985, 0, -0.209883, 0, 0.27, 0, 0.209883, 0, -0.16985, -184.931, 7.09313, -54.6999)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="Palm68" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.249017, 0, -0.0221454, 0, 0.25, 0, 0.0221454, 0, 0.249017, -187.327, 2.78927, -79.1292)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="Palm69" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0866224, 0, -0.318428, 0, 0.33, 0, 0.318428, 0, 0.0866224, -189.291, 15.5277, -47.2951)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="Palm70" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.265145, 0, 0.050973, 0, 0.27, 0, -0.050973, 0, -0.265145, -198.91, 16.8104, -53.5805)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="Palm71" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.119539, 0, -0.275156, 0, 0.3, 0, 0.275156, 0, -0.119539, -195.194, 15.2612, -34.7067)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="Palm72" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0708729, 0, -0.260532, 0, 0.27, 0, 0.260532, 0, 0.0708729, -198.203, 23.37, -44.07)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="Palm73" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0866224, 0, -0.318428, 0, 0.33, 0, 0.318428, 0, 0.0866224, -199.807, 10.6823, -29.6289)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="Palm74" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.265145, 0, 0.050973, 0, 0.27, 0, -0.050973, 0, -0.265145, -189.341, 7.84476, -33.1849)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="Palm75" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.119539, 0, -0.275156, 0, 0.3, 0, 0.275156, 0, -0.119539, -188.614, 7.85507, -27.0977)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="Palm76" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0708729, 0, -0.260532, 0, 0.27, 0, 0.260532, 0, 0.0708729, -194.358, 7.89785, -24.578)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="Palm77" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0787477, 0, -0.28948, 0, 0.3, 0, 0.28948, 0, 0.0787477, -176.967, 6.7213, -22.1534)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="Palm78" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0866224, 0, -0.318428, 0, 0.33, 0, 0.318428, 0, 0.0866224, -186.644, 14.8238, -14.9019)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="Palm79" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.16985, 0, -0.209883, 0, 0.27, 0, 0.209883, 0, -0.16985, -181.554, 15.7786, -7.03757)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="Palm80" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.249017, 0, -0.0221454, 0, 0.25, 0, 0.0221454, 0, 0.249017, -189.358, 16.1132, -3.77187)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="Palm81" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0787477, 0, -0.28948, 0, 0.3, 0, 0.28948, 0, 0.0787477, -186.099, 14.4266, 6.70547)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="Palm82" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0866224, 0, -0.318428, 0, 0.33, 0, 0.318428, 0, 0.0866224, -181.639, 6.88967, 17.2907)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="Palm83" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.16985, 0, -0.209883, 0, 0.27, 0, 0.209883, 0, -0.16985, -188.492, 6.0629, 24.225)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="Palm84" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.249017, 0, -0.0221454, 0, 0.25, 0, 0.0221454, 0, 0.249017, -191.786, 6.51275, 16.8923)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="Palm85" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0866224, 0, -0.318428, 0, 0.33, 0, 0.318428, 0, 0.0866224, -190.933, 7.99232, 28.824)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="Palm86" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.265145, 0, 0.050973, 0, 0.27, 0, -0.050973, 0, -0.265145, -190.799, 9.20188, 37.5513)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="Palm87" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.119539, 0, -0.275156, 0, 0.3, 0, 0.275156, 0, -0.119539, -190.459, 7.39218, 46.6392)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="Palm88" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0708729, 0, -0.260532, 0, 0.27, 0, 0.260532, 0, 0.0708729, -185.309, 7.87836, 51.5605)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="Palm89" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0866224, 0, -0.318428, 0, 0.33, 0, 0.318428, 0, 0.0866224, -191.989, 21.5556, 58.2989)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="Palm90" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.265145, 0, 0.050973, 0, 0.27, 0, -0.050973, 0, -0.265145, -200.166, 17.7501, 62.6916)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="Palm91" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.119539, 0, -0.275156, 0, 0.3, 0, 0.275156, 0, -0.119539, -197.238, -0.0378189, 74.3986)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="Palm92" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0708729, 0, -0.260532, 0, 0.27, 0, 0.260532, 0, 0.0708729, -191.368, 0.768266, 76.215)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="Palm93" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0787477, 0, -0.28948, 0, 0.3, 0, 0.28948, 0, 0.0787477, -196.744, 0.740988, 78.6666)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="Palm94" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0866224, 0, -0.318428, 0, 0.33, 0, 0.318428, 0, 0.0866224, -201.656, 8.44262, 82.016)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="Palm95" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.16985, 0, -0.209883, 0, 0.27, 0, 0.209883, 0, -0.16985, -207.477, 7.10078, 79.4706)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="Palm96" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.249017, 0, -0.0221454, 0, 0.25, 0, 0.0221454, 0, 0.249017, -192.611, 5.47463, 86.8928)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="Palm97" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0787477, 0, -0.28948, 0, 0.3, 0, 0.28948, 0, 0.0787477, -189.989, 4.79381, 94.8712)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="Palm98" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0866224, 0, -0.318428, 0, 0.33, 0, 0.318428, 0, 0.0866224, -190.964, 10.1802, 100.678)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="Palm99" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.16985, 0, -0.209883, 0, 0.27, 0, 0.209883, 0, -0.16985, -191.702, 18.2501, 107.5)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="Palm100" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.249017, 0, -0.0221454, 0, 0.25, 0, 0.0221454, 0, 0.249017, -188.257, 14.0134, 109.124)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="Palm101" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0866224, 0, -0.318428, 0, 0.33, 0, 0.318428, 0, 0.0866224, -185.224, 10.3297, 119.631)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="Palm102" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.265145, 0, 0.050973, 0, 0.27, 0, -0.050973, 0, -0.265145, -180.665, 3.43123, 113.265)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="Palm103" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.119539, 0, -0.275156, 0, 0.3, 0, 0.275156, 0, -0.119539, -183.367, 5.46015, 132.784)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="Palm104" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0708729, 0, -0.260532, 0, 0.27, 0, 0.260532, 0, 0.0708729, -180.316, 3.61359, 138.574)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="Palm105" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0866224, 0, -0.318428, 0, 0.33, 0, 0.318428, 0, 0.0866224, -178.629, 10.0479, 145.403)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="Palm106" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.265145, 0, 0.050973, 0, 0.27, 0, -0.050973, 0, -0.265145, -193.4, 12.5749, 141.037)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="Palm107" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.119539, 0, -0.275156, 0, 0.3, 0, 0.275156, 0, -0.119539, -189.143, 12.3607, 147.574)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="Palm108" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0708729, 0, -0.260532, 0, 0.27, 0, 0.260532, 0, 0.0708729, -183.628, 12.4937, 147.958)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="Palm109" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0787477, 0, -0.28948, 0, 0.3, 0, 0.28948, 0, 0.0787477, -182.554, 9.86094, 165.331)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="Palm110" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0866224, 0, -0.318428, 0, 0.33, 0, 0.318428, 0, 0.0866224, -183.163, 9.67577, 161.235)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="Palm111" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.16985, 0, -0.209883, 0, 0.27, 0, 0.209883, 0, -0.16985, -197.065, 15.1774, 143.824)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="Palm112" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.249017, 0, -0.0221454, 0, 0.25, 0, 0.0221454, 0, 0.249017, -196.24, 14.9285, 144.049)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="Palm113" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0787477, 0, -0.28948, 0, 0.3, 0, 0.28948, 0, 0.0787477, -191.586, 13.6587, 156.884)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="Palm114" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0866224, 0, -0.318428, 0, 0.33, 0, 0.318428, 0, 0.0866224, -186.662, 14.2927, 176.677)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="Palm115" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.16985, 0, -0.209883, 0, 0.27, 0, 0.209883, 0, -0.16985, -191.271, 15.6547, 183.108)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="Palm116" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.249017, 0, -0.0221454, 0, 0.25, 0, 0.0221454, 0, 0.249017, -186.421, 15.7969, 185.586)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="Palm117" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0866224, 0, -0.318428, 0, 0.33, 0, 0.318428, 0, 0.0866224, -178.865, 12.1344, 193.681)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="Palm118" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.265145, 0, 0.050973, 0, 0.27, 0, -0.050973, 0, -0.265145, -185.438, 12.4108, 188.06)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="Palm119" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.119539, 0, -0.275156, 0, 0.3, 0, 0.275156, 0, -0.119539, -182.762, 11.2915, 183.137)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="Palm120" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0708729, 0, -0.260532, 0, 0.27, 0, 0.260532, 0, 0.0708729, -176.826, 12.5311, 189.667)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="Palm121" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0866224, 0, -0.318428, 0, 0.33, 0, 0.318428, 0, 0.0866224, -143.143, 7.44806, 192.706)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="Palm122" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.265145, 0, 0.050973, 0, 0.27, 0, -0.050973, 0, -0.265145, -96.591, 3.7628, 195.152)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="Palm123" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.119539, 0, -0.275156, 0, 0.3, 0, 0.275156, 0, -0.119539, -65.6244, 13.7416, 185.66)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="Palm124" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0708729, 0, -0.260532, 0, 0.27, 0, 0.260532, 0, 0.0708729, -194.184, 13.7862, -72.1339)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="Palm125" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0787477, 0, -0.28948, 0, 0.3, 0, 0.28948, 0, 0.0787477, -182.476, 16.933, -2.84166)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="Palm126" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.0866224, 0, -0.318428, 0, 0.33, 0, 0.318428, 0, 0.0866224, -193.326, 21.4847, -41.1893)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="Palm127" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(-0.16985, 0, -0.209883, 0, 0.27, 0, 0.209883, 0, -0.16985, -185.095, 16.458, 1.14867)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="Palm128" type="MeshInstance3D" parent="Land/PalmTreesOnLand"]
+transform = Transform3D(0.249017, 0, -0.0221454, 0, 0.25, 0, 0.0221454, 0, 0.249017, -190.181, 0.751315, 80.4358)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")

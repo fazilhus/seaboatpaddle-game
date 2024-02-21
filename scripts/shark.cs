@@ -28,8 +28,8 @@ public partial class shark : CharacterBody3D
 	public float rotation_follow_speed = Mathf.Tau / 6;
 
 
-    public override void _Ready()
-    {
+	public override void _Ready()
+	{
 		_path_nodes = new List<Marker3D>(); // Create an empty list to hold Marker3D nodes
 		var children = path.GetChildren();
 
@@ -48,10 +48,10 @@ public partial class shark : CharacterBody3D
 		
 		(_next_path_node_idx, _next_path_node) = (-1, null);
 		_behavior = Behavior.Patrol;
-    }
+	}
 
-    public override void _Process(double delta)
-    {
+	public override void _Process(double delta)
+	{
 		// Movement along the path
 		if (_trigger_area.OverlapsBody(boat)) {
 			_behavior = Behavior.Chase;
@@ -74,7 +74,7 @@ public partial class shark : CharacterBody3D
 		}
 
 		MoveAndSlide();
-    }
+	}
 
 	private void _PatrolMovement(float delta) {
 		if (_next_path_node == null) {

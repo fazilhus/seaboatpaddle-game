@@ -105,9 +105,6 @@ shape = SubResource("BoxShape3D_bo0p4")
 
 [node name="VortexDamageTimer" type="Timer" parent="."]
 
-[node name="ControlInversionTimer" type="Timer" parent="."]
-wait_time = 15.0
-
 [node name="SpeedBoostTimer" type="Timer" parent="."]
 wait_time = 10.0
 
@@ -116,5 +113,4 @@ wait_time = 10.0
 [connection signal="body_entered" from="Area3DTriggerBoat" to="." method="OnBodyEntered"]
 [connection signal="NoHealth" from="HealthComponent" to="." method="OnHealthComponentNoHealthEvent"]
 [connection signal="timeout" from="VortexDamageTimer" to="." method="OnVortexDamageTimerTimeout"]
-[connection signal="timeout" from="ControlInversionTimer" to="." method="OnControlInversionTimerTimeout"]
 [connection signal="timeout" from="SpeedBoostTimer" to="." method="OnSpeedBoostTimerTimeout"]

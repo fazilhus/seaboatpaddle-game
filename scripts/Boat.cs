@@ -31,7 +31,7 @@ public partial class Boat : RigidBody3D
 	[Export] private float floatForce = 1.0f;
 	[Export] private float waterDrag = 0.005f;
 	[Export] private float WaterAngularDrag = 0.01f;
-	[Export] private bool isSubmerged = false;
+	[Export] public bool isSubmerged = false;
 	private float gravity;
 
 	private float initialY;
@@ -46,10 +46,12 @@ public partial class Boat : RigidBody3D
 	
 	[Export] Survivors survivors;
 	[Export] private bool isVortexCollided;
+	[Export] private bool isStreamCollided;
 	[Export] private float maxDistance = 20.0f; // Example maximum distance from the center
 
 	 // Define the vortex center
 	private Vector3 vortexCenter = new Vector3(10, 5, 0); // Example vortex center position
+	private Vector3 streamGlobalPosition;
 
 	// Define the base force magnitude
 	[Export]
@@ -181,6 +183,13 @@ public partial class Boat : RigidBody3D
 					ApplyTorque(tangentialVelocity);
 					depth += -2.5f * strengthFactor;
 				} 
+
+				/*if(isStreamCollided)
+				{			
+					var velocityApply = Transform.* relativePosition * 10.0f;
+					ApplyCentralForce(velocityApply);
+
+				}*/
 				ApplyForce(Vector3.Up * floatForce * gravity * depth, p.GlobalPosition - GlobalPosition);
 			}
 			else 
@@ -221,6 +230,11 @@ public partial class Boat : RigidBody3D
 		{
 			GetNode<Timer>("VortexDamageTimer").Stop();
 		}
+		
+		/*if(area.IsInGroup("Streams"))
+		{
+			isStreamCollided = false;
+		}*/
 	}
 
 	private Vector3 GetPlayerInput(int device_id) 
@@ -265,6 +279,13 @@ public partial class Boat : RigidBody3D
 		{
 			GetNode<Timer>("VortexDamageTimer").Start();
 		}
+
+		/*if(area.IsInGroup("Streams"))
+		{
+			 streamGlobalPosition = area.GlobalPosition;
+			isStreamCollided = true;
+			GD.Print("you are streaming!");
+		}*/
 	}
 
 	public void OnHealthComponentNoHealthEvent() 

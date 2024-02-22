@@ -283,7 +283,9 @@ _data = {
 radius = 0.75
 
 [node name="Shark" type="CharacterBody3D"]
+velocity = 200.0
 script = ExtResource("1_8bk82")
+velocity = 200.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-1.23002e-14, 4.37114e-08, 0.999999, 1, -4.37114e-08, 1.42109e-14, 4.37114e-08, 0.999999, -4.37114e-08, 0, 0, 0)

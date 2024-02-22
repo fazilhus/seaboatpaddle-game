@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlb4avec74ix7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7lt4s"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+metallic = 1.0
+metallic_specular = 1.0
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_hvm7e"]
+
+[sub_resource type="Curve" id="Curve_1bhwx"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_b32s6"]
+curve = SubResource("Curve_1bhwx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jafbf"]
+particle_flag_align_y = true
+emission_shape_scale = Vector3(3, 3, 3)
+direction = Vector3(0, 0, 1)
+spread = 40.0
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+directional_velocity_min = 0.0
+directional_velocity_max = 0.0
+directional_velocity_curve = SubResource("CurveXYZTexture_hvm7e")
+orbit_velocity_max = 2.0
+gravity = Vector3(0, -9.82, 0)
+linear_accel_min = 1.0
+linear_accel_max = 2.0
+scale_curve = SubResource("CurveTexture_b32s6")
+collision_mode = 2
+collision_use_scale = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_kcfly"]
+radius = 0.05
+height = 0.2
+
+[node name="GPUParticles3D" type="GPUParticles3D"]
+material_override = SubResource("StandardMaterial3D_7lt4s")
+emitting = false
+amount = 100
+lifetime = 0.5
+one_shot = true
+preprocess = 1.0
+explosiveness = 0.1
+collision_base_size = 0.0
+trail_lifetime = 1.0
+process_material = SubResource("ParticleProcessMaterial_jafbf")
+draw_pass_1 = SubResource("SphereMesh_kcfly")

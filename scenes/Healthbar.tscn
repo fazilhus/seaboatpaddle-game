@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj04hg12s37mt"]
+
+[ext_resource type="Script" path="res://scenes/Healthbar.cs" id="1_3ajr5"]
+[ext_resource type="Theme" uid="uid://rwpuawd8mysy" path="res://Themes/HealthBarTheme.tres" id="1_my4rk"]
+
+[node name="HealthBarControl" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_3ajr5")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 337.0
+offset_top = 218.0
+offset_right = 550.0
+offset_bottom = 245.0
+theme = ExtResource("1_my4rk")
+step = 1.0
+value = 70.0
+show_percentage = false

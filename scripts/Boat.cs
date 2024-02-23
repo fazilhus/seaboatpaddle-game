@@ -150,14 +150,14 @@ public partial class Boat : RigidBody3D
 
 			Node3D force_point = it.Paddle.GetNode<Node3D>("ForcePoint");
 			if (isSubmerged && force_point.GlobalPosition.Y < GlobalPosition.Y) {
-				if (!_is_paddle_moving[(it.Index + 1) % 2]) {
-					ApplyForce(-sideways_force_ratio * 1.25f * force, it.Paddle.Position);
-					ApplyCentralForce(0.25f * -forward_force_ratio * Curve(force) * force.Sign().Z * forward);
-				}
-				else {
+				//if (!_is_paddle_moving[(it.Index + 1) % 2]) {
+				//	ApplyForce(-sideways_force_ratio * 1.25f * force, it.Paddle.Position);
+				//	ApplyCentralForce(0.25f * -forward_force_ratio * Curve(force) * force.Sign().Z * forward);
+				//}
+				//else {
 					ApplyForce(-sideways_force_ratio * force, it.Paddle.Position);
 					ApplyCentralForce(-forward_force_ratio * Curve(force) * force.Sign().Z * forward);
-				}
+				//}
 
 				float speedRotation = angular_velocity.Length();
 				GD.Print(speedRotation);

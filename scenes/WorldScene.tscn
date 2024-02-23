@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bqgpgxpoqkw6w"]
+[gd_scene load_steps=19 format=3 uid="uid://bqgpgxpoqkw6w"]
 
 [ext_resource type="PackedScene" uid="uid://donyuxtadnlyj" path="res://scenes/survivors.tscn" id="1_pprra"]
 [ext_resource type="Script" path="res://scripts/WorldScene.cs" id="1_qx545"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://beoci1a615ffi" path="res://scenes/sea_mine.tscn" id="7_sombh"]
 [ext_resource type="PackedScene" uid="uid://bdohepiggfmms" path="res://scenes/map.tscn" id="8_lgk5l"]
 [ext_resource type="PackedScene" uid="uid://hl4r2ylauhog" path="res://scenes/Modifiers.tscn" id="9_e5cou"]
+[ext_resource type="PackedScene" uid="uid://5scllsnkmpth" path="res://scenes/streams.tscn" id="11_8xjfh"]
+[ext_resource type="PackedScene" path="res://scenes/shark.tscn" id="12_2bx8v"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kspm4"]
 outline_color = Color(0, 0, 0, 1)
@@ -30,6 +32,9 @@ glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m45on"]
 size = Vector3(100, 10, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r8rc0"]
+size = Vector3(1, 20, 20)
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_qx545")
@@ -237,6 +242,38 @@ gravity_scale = 0.3
 boat = NodePath("../../Boat")
 floatForce = 0.6
 water = NodePath("../../WaterPlane")
+
+[node name="Streams" parent="." instance=ExtResource("11_8xjfh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.1356, 51.0116)
+
+[node name="Streams2" parent="." instance=ExtResource("11_8xjfh")]
+transform = Transform3D(0.0637311, 0, -0.997967, 0, 1, 0, 0.997967, 0, 0.0637311, 5.5085, 0, -74.1501)
+
+[node name="Shark1" parent="." node_paths=PackedStringArray("boat", "path") instance=ExtResource("12_2bx8v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.353, 0, -21.1917)
+boat = NodePath("../Boat")
+path = NodePath("../Path1")
+
+[node name="Path1" type="Node3D" parent="."]
+transform = Transform3D(0.422682, 0, -0.906278, 0, 1, 0, 0.906278, 0, 0.422682, -4.37886, 1.40901, -1.34093)
+
+[node name="Marker3D" type="Marker3D" parent="Path1"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -44.0723, 0, 30.784)
+
+[node name="Marker3D2" type="Marker3D" parent="Path1"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -30.8132, 0, 36.6496)
+
+[node name="Marker3D3" type="Marker3D" parent="Path1"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -24.4144, 0.404377, 22.609)
+
+[node name="Marker3D4" type="Marker3D" parent="Path1"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -38.3326, 0, 17.1713)
+
+[node name="Area3D" type="Area3D" parent="Path1"]
+transform = Transform3D(-1.92981e-08, -0.44149, 0.897266, 1, -4.37114e-08, 0, 3.92207e-08, 0.897266, 0.44149, -34.4214, 0, 27.6429)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path1/Area3D"]
+shape = SubResource("BoxShape3D_r8rc0")
 
 [connection signal="timeout" from="GameCamera/countdownTimer" to="GameCamera" method="OnCountdownTimerTimeout"]
 [connection signal="NoBoatHealth" from="Boat" to="." method="OnNoBoatHealth"]

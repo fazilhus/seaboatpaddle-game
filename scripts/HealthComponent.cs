@@ -14,7 +14,7 @@ public partial class HealthComponent : Node3D
 	public override void _Ready()
 	{
 		health = max_health;
-		healthBar = GetTree().Root.GetNode<Healthbar>("Level/GameCamera/CanvasLayer/HealthBarControl");
+		healthBar = GetTree().Root.GetNode<Healthbar>("Main/LevelController/Level/GameCamera/CanvasLayer/HealthBarControl");
         healthBar.Sethealth(health);
     }
 

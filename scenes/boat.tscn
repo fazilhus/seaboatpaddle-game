@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://scripts/Boat.cs" id="1_tk55w"]
 [ext_resource type="PackedScene" uid="uid://catt7cfnf4pd1" path="res://CustonAssets/paddle.glb" id="2_32au7"]
 [ext_resource type="ArrayMesh" uid="uid://b7odym8k47kgf" path="res://KennyWaterCraft/Models/watercraftPack_029.obj" id="3_6y5mw"]
+[ext_resource type="PackedScene" uid="uid://dlb4avec74ix7" path="res://scenes/WaterParticles.tscn" id="3_ivx5w"]
 [ext_resource type="Material" uid="uid://dm8p44anq2ejj" path="res://Shades/AntiWaterMask.tres" id="4_2xej0"]
 [ext_resource type="PackedScene" uid="uid://bfcmmp24hd7u5" path="res://scenes/HealthComponent.tscn" id="5_oltkq"]
-[ext_resource type="PackedScene" uid="uid://dlb4avec74ix7" path="res://scenes/WaterParticles.tscn" id="6_omv08"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7j168"]
 friction = 0.0
@@ -27,10 +27,11 @@ physics_material_override = SubResource("PhysicsMaterial_7j168")
 freeze_mode = 1
 script = ExtResource("1_tk55w")
 paddles = [NodePath("LeftPaddlePivot"), NodePath("RightPaddlePivot")]
-forward_force_ratio = 45.0
+sideways_force_ratio = 0.4
+forward_force_ratio = 40.0
 floatForce = 1.5
-waterDrag = 0.015
-WaterAngularDrag = 0.035
+waterDrag = 0.02
+WaterAngularDrag = 0.03
 baseForceMagnitude = 350.0
 rotationalForceMagnitude = 1.0
 rotationalVelocity = 35.0
@@ -44,9 +45,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, -1, 0)
 [node name="paddle" parent="LeftPaddlePivot" instance=ExtResource("2_32au7")]
 transform = Transform3D(0.306418, -0.257115, 0, 0.257115, 0.306418, 0, 0, 0, 0.4, 0.55, -0.5, 0)
 
-[node name="GPUsplashEffect" parent="LeftPaddlePivot" instance=ExtResource("6_omv08")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.947992, -1.067, 0.0502849)
-amount_ratio = 0.0
+[node name="GPUsplashEffect" parent="LeftPaddlePivot" instance=ExtResource("3_ivx5w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.800827, -0.792338, 0)
 
 [node name="RightPaddlePivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0.75, 0)
@@ -57,9 +57,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, -1, 0)
 [node name="paddle" parent="RightPaddlePivot" instance=ExtResource("2_32au7")]
 transform = Transform3D(0.306418, 0.257115, 0, -0.257115, 0.306418, 0, 0, 0, 0.4, -0.55, -0.5, 0)
 
-[node name="GPUsplashEffect2" parent="RightPaddlePivot" instance=ExtResource("6_omv08")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04336, -1.067, 0.0502849)
-amount_ratio = 0.0
+[node name="GPUsplashEffect2" parent="RightPaddlePivot" instance=ExtResource("3_ivx5w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.872556, -0.977843, 0)
 
 [node name="Pivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.724065, 0.396974)
@@ -114,16 +113,19 @@ shape = SubResource("BoxShape3D_bo0p4")
 
 [node name="VortexDamageTimer" type="Timer" parent="."]
 
+[node name="ControlInversionTimer" type="Timer" parent="."]
+wait_time = 15.0
+
 [node name="SpeedBoostTimer" type="Timer" parent="."]
 wait_time = 10.0
 
-[node name="GPUParticles3D" parent="." instance=ExtResource("6_omv08")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.316996, 0.0502849)
-amount_ratio = 0.0
+[node name="GPUParticles3D" parent="." instance=ExtResource("3_ivx5w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.74944)
 
 [connection signal="area_entered" from="Area3DTriggerBoat" to="." method="OnArea3dTriggerBoatAreaEntered"]
 [connection signal="area_exited" from="Area3DTriggerBoat" to="." method="OnBoatArea3dBodyExited"]
 [connection signal="body_entered" from="Area3DTriggerBoat" to="." method="OnBodyEntered"]
 [connection signal="NoHealth" from="HealthComponent" to="." method="OnHealthComponentNoHealthEvent"]
 [connection signal="timeout" from="VortexDamageTimer" to="." method="OnVortexDamageTimerTimeout"]
+[connection signal="timeout" from="ControlInversionTimer" to="." method="OnControlInversionTimerTimeout"]
 [connection signal="timeout" from="SpeedBoostTimer" to="." method="OnSpeedBoostTimerTimeout"]

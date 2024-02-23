@@ -158,8 +158,8 @@ public partial class Boat : RigidBody3D
 				}
 				else if (speedRotation <= 30.0f && _paddles_rotation_old[it.Index] == _paddles_rotation_old[1])
 				{
-					
-					watersplashRight.AmountRatio = speedRotation;
+                    watersplashRight.Emitting = true;
+                    watersplashRight.AmountRatio = speedRotation;
 					watersplashRight.Rotate(Vector3.Up, Mathf.Pi * angular_velocity.Sign().Z);
 					GD.Print(speedRotation, "RotationalVelcR");
 				}

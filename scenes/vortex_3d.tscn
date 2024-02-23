@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c0hlnfvbhxilp"]
 
-[ext_resource type="Material" path="res://Shades/Vortex.tres" id="2_vjeqg"]
+[ext_resource type="Material" uid="uid://dfbmcou71tal5" path="res://Shades/Vortex.tres" id="2_vjeqg"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_vqckp"]
 lightmap_size_hint = Vector2i(316, 104)

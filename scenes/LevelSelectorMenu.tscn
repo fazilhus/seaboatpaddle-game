@@ -8,6 +8,8 @@ bg_color = Color(0.0823529, 0.686275, 0.678431, 1)
 [node name="LevelSelectorMenu" type="MarginContainer"]
 offset_right = 1152.0
 offset_bottom = 653.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20

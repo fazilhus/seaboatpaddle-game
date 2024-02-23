@@ -1,4 +1,5 @@
 shader_type spatial;
+render_mode unshaded;
 
 uniform vec3 albedo : source_color;
 uniform vec3 albedo2 : source_color;
@@ -28,6 +29,19 @@ uniform float edgeScale = 0.1;
 uniform float near = 1.0;
 uniform float far = 100.0;
 uniform vec3 edgeColor : source_color;
+
+uniform sampler2D noise_texture;
+uniform sampler2D displ_tex;
+uniform vec4 top_light_color : source_color;
+uniform vec4 top_dark_color : source_color;
+uniform vec4 bot_light_color : source_color;
+uniform vec4 bot_dark_color : source_color;
+uniform float displ_amount = 0.02;
+uniform float bottom_foam_threshold = 0.48;
+uniform float speed = 0.02;
+
+
+
 
 //varying variables are used to pass data between vertex shader and the fragment shader.
 varying float height;
@@ -60,10 +74,10 @@ void fragment() //Special function, fragment shader is called for every pixel(fr
 	
 	// depth variables and calculations
 	float depthTexture = texture(DEPTH_TEXTURE, SCREEN_UV).r * 2.0 -1.0;
-	float depth = PROJECTION_MATRIX[3][2] / (depthTexture + PROJECTION_MATRIX[3][2]);
+	float depth = PROJECTION_MATRIX[3][2] / (depthTexture + PROJECTION_MATRIX[2][2]);
 	float depthBlend = exp((depth+VERTEX.z + depthOffset) * -beersLaw);
 	float depthBlendPower = clamp(pow(depthBlend, 2.5), 0.0, 1.0);
-	vec3 ScreenColor = textureLod(SCREEN_TEXTURE, SCREEN_UV, depthBlendPower * 1.0).rgb;
+	vec3 ScreenColor = textureLod(SCREEN_TEXTURE, SCREEN_UV, depthBlendPower * 2.5).rgb;
 	vec3 depthColor = mix(ColorShallow.rgb, colorDeep.rgb, depthBlendPower);
 	vec3 color = mix(ScreenColor * depthColor, depthColor * 0.25, depthBlendPower * 0.5);
 	//Time Calculations for wave (normal map) movements
@@ -76,7 +90,30 @@ void fragment() //Special function, fragment shader is called for every pixel(fr
 	vec3 surfaceColor = mix(albedo, albedo2, fresnel); // interpolate albedo values by frensel
 	vec3 depthColorAdj = mix(edgeColor, color, step(edgeScale, Zdif));
 	
-	ALBEDO = clamp(surfaceColor + depthColorAdj, vec3(0.), vec3(1.0));
+	// Calculate the distance from the center of the plane
+    float distanceToCenter = length(UV - 0.5);
+
+    // Define the edge width where fading starts and ends
+    float edgeWidth = 0.60; // Adjust as needed
+
+    // Calculate the fading factor based on the distance to the center
+    float fadeFactor = smoothstep(0.0, edgeWidth, distanceToCenter);
+
+    // Blend the alpha component based on the fade factor
+    float alpha = 1.0 - fadeFactor; // Invert fadeFactor to make the edges more transparent
+
+    // Modify the final alpha component of the surface color
+	
+	vec2 displ =texture(displ_tex, UV - TIME /8.0).rg;
+	displ = ((displ * 2.0) - 1.0) * displ_amount;
+	float noise = texture(noise_texture, vec2(UV.x, UV.y / 3.0 - TIME * speed) + displ).r;	
+	noise = floor(noise*4.0) /4.0;
+	vec4 color2 = mix(mix(top_dark_color, bot_dark_color, UV.y), mix(top_light_color, bot_light_color, UV.y), noise);
+	
+	
+	
+	ALBEDO = clamp(surfaceColor + depthColorAdj, vec3(0.), vec3(1.0)) * color2.g +  textureLod(SCREEN_TEXTURE, SCREEN_UV, 0.01).rgb;
+	ALPHA *= alpha;
 	METALLIC = metallic;
 	ROUGHNESS = roughness;
 	NORMAL_MAP = normalBlend;

@@ -20,6 +20,8 @@ public partial class Boat : RigidBody3D
 
 	private List<Vector3> _player_inputs;
 	private List<Vector3> _paddles_rotation_old;
+	[Export]
+	Material[] paddleMaterial;
 	private List<bool> _is_paddle_moving;
 
 	[Export]
@@ -96,7 +98,7 @@ public partial class Boat : RigidBody3D
 		watersplashRight = GetNode<Node3D>("RightPaddlePivot").GetNode<GpuParticles3D>("GPUsplashEffect2");
 	
 		initialY = GlobalPosition.Y;
-
+		
 		_player_inputs = new List<Vector3>();
 		_paddles_rotation_old = new List<Vector3>();
 		_is_paddle_moving = new List<bool>();
@@ -107,9 +109,19 @@ public partial class Boat : RigidBody3D
 		}
 
 		healthComp = GetNode<HealthComponent>("HealthComponent");
-	}
 
-	public override void _Process(double delta)
+        MeshInstance3D paddle1 = paddles[0].GetChild(1).GetChild<MeshInstance3D>(0); //Supposed to access the mesh inside each individual paddle
+        MeshInstance3D paddle2 = paddles[1].GetChild(1).GetChild<MeshInstance3D>(0);
+        paddle1.SetSurfaceOverrideMaterial(0, paddleMaterial[0]);
+		paddle2.SetSurfaceOverrideMaterial(0, paddleMaterial[1]);
+		paddle1.GetSurfaceOverrideMaterial(0).Set("albedo_color", PlayerManager.instance.playerColors[0]);
+		paddle2.GetSurfaceOverrideMaterial(0).Set("albedo_color", PlayerManager.instance.playerColors[1]);
+	
+
+
+    }
+ 
+    public override void _Process(double delta)
 	{
 		if (Input.IsKeyPressed(Key.F2)) 
 		{

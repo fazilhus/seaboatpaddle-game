@@ -6,3 +6,4 @@
 script = ExtResource("1_g8g5g")
 
 [node name="Camera3D" type="Camera3D" parent="."]
+process_mode = 1

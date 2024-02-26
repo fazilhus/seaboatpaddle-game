@@ -1,14 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://bo8v2krpj8un5"]
+[gd_scene load_steps=7 format=3 uid="uid://bo8v2krpj8un5"]
 
+[ext_resource type="Script" path="res://scripts/PlayerManager.cs" id="1_ifaoe"]
 [ext_resource type="Script" path="res://scripts/LevelManager.cs" id="1_vfio7"]
-[ext_resource type="PackedScene" uid="uid://dkkboa0pmk8f1" path="res://scenes/mainmenu.tscn" id="2_6i36b"]
+[ext_resource type="PackedScene" uid="uid://bl7exwjna2nwi" path="res://scenes/mainmenu.tscn" id="2_6i36b"]
 [ext_resource type="PackedScene" uid="uid://derkxbhef341u" path="res://scenes/playerMenu.tscn" id="3_46qyl"]
 [ext_resource type="PackedScene" uid="uid://c678fjuhox1q2" path="res://scenes/LevelSelectorMenu.tscn" id="4_gcbph"]
 [ext_resource type="PackedScene" uid="uid://bqgpgxpoqkw6w" path="res://scenes/WorldScene.tscn" id="5_15ar2"]
 
 [node name="Main" type="Node3D"]
+process_mode = 3
 
-[node name="PlayerController" type="Node3D" parent="."]
+[node name="PlayerManager" type="Node3D" parent="." node_paths=PackedStringArray("colorPickers")]
+script = ExtResource("1_ifaoe")
+colorPickers = []
 
 [node name="LevelController" type="Node3D" parent="."]
 script = ExtResource("1_vfio7")

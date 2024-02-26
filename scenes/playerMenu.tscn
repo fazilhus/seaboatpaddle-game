@@ -1,8 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://derkxbhef341u"]
+[gd_scene load_steps=8 format=3 uid="uid://derkxbhef341u"]
 
 [ext_resource type="Script" path="res://scripts/PlayerMenu.cs" id="1_pd8a7"]
 
-[node name="PlayerMenu" type="MarginContainer"]
+[sub_resource type="Gradient" id="Gradient_px0fx"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.020202, 0.484848)
+colors = PackedColorArray(0.922276, 0, 0.201795, 1, 0.921569, 0, 0.2, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_itcek"]
+gradient = SubResource("Gradient_px0fx")
+
+[sub_resource type="Gradient" id="Gradient_xxqhl"]
+offsets = PackedFloat32Array(0.525253)
+colors = PackedColorArray(0, 0.678431, 0.447059, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rqi6b"]
+gradient = SubResource("Gradient_xxqhl")
+
+[sub_resource type="Gradient" id="Gradient_4ibpd"]
+offsets = PackedFloat32Array(0.494949)
+colors = PackedColorArray(0, 0.2, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1vk05"]
+gradient = SubResource("Gradient_4ibpd")
+
+[node name="PlayerMenu" type="MarginContainer" node_paths=PackedStringArray("colorPickers")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -15,6 +37,7 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 10
 script = ExtResource("1_pd8a7")
+colorPickers = [NodePath("VerticalContainer/HorizontalContainer/Player1/Colors"), NodePath("VerticalContainer/HorizontalContainer/Player2/Colors2")]
 
 [node name="VerticalContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -26,6 +49,8 @@ horizontal_alignment = 1
 
 [node name="HorizontalContainer" type="HBoxContainer" parent="VerticalContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 300
 
 [node name="Player1" type="VBoxContainer" parent="VerticalContainer/HorizontalContainer"]
 visible = false
@@ -33,31 +58,71 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VerticalContainer/HorizontalContainer/Player1"]
 layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
 text = "Player1"
+
+[node name="Label2" type="Label" parent="VerticalContainer/HorizontalContainer/Player1"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 25
+text = "Select color"
+horizontal_alignment = 1
+
+[node name="Colors" type="OptionButton" parent="VerticalContainer/HorizontalContainer/Player1"]
+layout_mode = 2
+item_count = 3
+allow_reselect = true
+popup/item_0/text = ""
+popup/item_0/icon = SubResource("GradientTexture2D_itcek")
+popup/item_0/id = 0
+popup/item_1/text = ""
+popup/item_1/icon = SubResource("GradientTexture2D_rqi6b")
+popup/item_1/id = 1
+popup/item_2/text = ""
+popup/item_2/icon = SubResource("GradientTexture2D_1vk05")
+popup/item_2/id = 2
 
 [node name="Player2" type="VBoxContainer" parent="VerticalContainer/HorizontalContainer"]
 visible = false
 layout_mode = 2
+size_flags_horizontal = 10
 
 [node name="Label" type="Label" parent="VerticalContainer/HorizontalContainer/Player2"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 50
 text = "Player2
 "
 
-[node name="Player3" type="VBoxContainer" parent="VerticalContainer/HorizontalContainer"]
-visible = false
+[node name="Label3" type="Label" parent="VerticalContainer/HorizontalContainer/Player2"]
 layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 25
+text = "Select color"
 
-[node name="Player4" type="VBoxContainer" parent="VerticalContainer/HorizontalContainer"]
-visible = false
+[node name="Colors2" type="OptionButton" parent="VerticalContainer/HorizontalContainer/Player2"]
 layout_mode = 2
+item_count = 3
+allow_reselect = true
+popup/item_0/text = ""
+popup/item_0/icon = SubResource("GradientTexture2D_itcek")
+popup/item_0/id = 0
+popup/item_1/text = ""
+popup/item_1/icon = SubResource("GradientTexture2D_rqi6b")
+popup/item_1/id = 1
+popup/item_2/text = ""
+popup/item_2/icon = SubResource("GradientTexture2D_1vk05")
+popup/item_2/id = 2
 
 [node name="ContinueNotice" type="Label" parent="VerticalContainer"]
 layout_mode = 2
-text = "0 / 2 players"
+text = "Press start to select level"
 horizontal_alignment = 2
 
 [node name="ReturnNotice" type="Label" parent="VerticalContainer"]
 layout_mode = 2
 text = "B to Return"
 horizontal_alignment = 2
+
+[connection signal="item_selected" from="VerticalContainer/HorizontalContainer/Player1/Colors" to="." method="OnColor1Select"]
+[connection signal="item_selected" from="VerticalContainer/HorizontalContainer/Player2/Colors2" to="." method="OnColor2Select"]

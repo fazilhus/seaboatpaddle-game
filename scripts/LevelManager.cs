@@ -12,6 +12,8 @@ public partial class LevelManager : Node3D
 	[Export]
 	public PackedScene[] levels;
 
+	public bool GameNotStateReset=false;
+
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -41,7 +43,16 @@ public partial class LevelManager : Node3D
 		}
 		var instance = playerMenu.Instantiate();
 		PlayerMenu menu = (PlayerMenu)instance;
-
+		if(GameNotStateReset)
+		{
+			menu.playerAmount = 0;
+			menu.playerIds[0] = 0;
+            menu.playerIds[1] = 0;
+			PlayerManager.instance.playerColors[0] = Color.Color8(1,1,1,1);
+            PlayerManager.instance.playerColors[1] = Color.Color8(1, 1, 1, 1);
+            GameNotStateReset = false;
+			
+        }
 		AddChild(menu);
 	}
 	public void loadLevelSelector()
@@ -63,6 +74,8 @@ public partial class LevelManager : Node3D
 			RemoveChild(child);
 		}
 		var instance = levels[levelId-1].Instantiate();
+		WorldScene worldScene = (WorldScene)instance;
+		worldScene.level = levelId;
 		Node3D level = (Node3D)instance;
 		AddChild(level);
 	}

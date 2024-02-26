@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://cg547d01tyvv6"]
+
+[ext_resource type="Script" path="res://scripts/Healthbar.cs" id="1_g6gua"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iuv52"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5mnnp"]
+bg_color = Color(0.882353, 0.133333, 0.0705882, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.509804, 0, 0.0784314, 1)
+shadow_size = 3
+
+[sub_resource type="Theme" id="Theme_hjpu8"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_iuv52")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_5mnnp")
+
+[node name="HealthBarControl" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_g6gua")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 337.0
+offset_top = 218.0
+offset_right = 550.0
+offset_bottom = 245.0
+theme = SubResource("Theme_hjpu8")
+step = 1.0
+value = 70.0
+show_percentage = false

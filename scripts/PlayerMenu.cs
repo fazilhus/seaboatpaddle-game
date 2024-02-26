@@ -8,10 +8,22 @@ public partial class PlayerMenu : MarginContainer
    
 	// Called when the node enters the scene tree for the first time.
 
-	public static int playerAmount=0;
-	public static int[] playerIds=new int[4];
+	public  int playerAmount=0;
+	public  int[] playerIds=new int[2];
+	public Color[] playerColors=new Color[2];
+	[Export]
+	public OptionButton[] colorPickers;
+
+	[Export]
+	Color red = Color.FromHtml("eb0033");
+	[Export]
+	Color blue = Color.FromHtml("0033ff");
+	[Export]
+	Color green = Color.FromHtml("00ad72");
+
 	public override void _Ready()
 	{
+		
 	}
    
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -42,7 +54,11 @@ public partial class PlayerMenu : MarginContainer
 			playerIds[playerAmount] = playerId;
 			//GD.Print(playerIds[playerAmount]);
 			GetNode("VerticalContainer/HorizontalContainer").GetChild(playerAmount).Set("visible", true);
-			playerAmount++;
+            if(playerAmount==1)
+			{
+				GetNode<OptionButton>("VerticalContainer/HorizontalContainer/Player1/Colors").GrabFocus();
+			}
+            playerAmount++;
 			
 
 			//GD.Print(playerId);
@@ -59,6 +75,55 @@ public partial class PlayerMenu : MarginContainer
 		   
 		}
 		
+	}
+    public void OnColor1Select(int index)
+    {
+		GD.Print(index);
+	
+        if (index == 0)
+        {
+            playerColors[0] = red;
+            colorPickers[1].SetItemDisabled(1, false);
+            colorPickers[1].SetItemDisabled(2, false);
+        }
+        else if (index == 1)
+        {
+            playerColors[0] = green;
+            colorPickers[1].SetItemDisabled(0, false);
+            colorPickers[1].SetItemDisabled(2, false);
+        }
+        else if (index == 2)
+        {
+            playerColors[0] = blue;
+            colorPickers[1].SetItemDisabled(0, false);
+            colorPickers[1].SetItemDisabled(1, false);
+        }
+        colorPickers[1].SetItemDisabled(index, true);
+        GD.Print(playerColors[0]);
+    }
+    public void OnColor2Select(int index)
+	{
+        if (index == 0)
+        {
+            playerColors[1] = red;
+            colorPickers[0].SetItemDisabled(1, false);
+            colorPickers[0].SetItemDisabled(2, false);
+			
+        }
+		else if (index == 1)
+		{
+            colorPickers[0].SetItemDisabled(0, false);
+            colorPickers[0].SetItemDisabled(2, false);
+            playerColors[1] = green;
+        }
+		else if(index == 2)
+		{
+            colorPickers[0].SetItemDisabled(0, false);
+            colorPickers[0].SetItemDisabled(1, false);
+            playerColors[1] = blue;
+        }
+        colorPickers[0].SetItemDisabled(index, true);
+		GD.Print(playerColors[1]);
 	}
 	public override void _UnhandledInput(InputEvent @event)
 	{
@@ -77,13 +142,21 @@ public partial class PlayerMenu : MarginContainer
 		if(@event.IsActionPressed("ui_continue")) //Need to add this to inputmap if not there already
 		{
 			if (playerAmount == 2) {
+
+				transferDataToPlayerManager();
 				GetParent<LevelManager>().loadLevelSelector();
 			}
 			
 		}
 	   if(Input.IsKeyPressed(Key.F1)) 
 		{
+			transferDataToPlayerManager();
 				GetParent<LevelManager>().loadLevelSelector();
 		} 
+	}
+	void transferDataToPlayerManager()
+	{
+		PlayerManager.instance.playerColors[0]= playerColors[0];
+		PlayerManager.instance.playerColors[1] = playerColors[1];
 	}
 }

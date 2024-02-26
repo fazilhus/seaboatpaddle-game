@@ -1,18 +1,28 @@
-[gd_scene load_steps=15 format=3 uid="uid://bqgpgxpoqkw6w"]
+[gd_scene load_steps=21 format=3 uid="uid://bqgpgxpoqkw6w"]
 
 [ext_resource type="PackedScene" uid="uid://donyuxtadnlyj" path="res://scenes/survivors.tscn" id="1_pprra"]
 [ext_resource type="Script" path="res://scripts/WorldScene.cs" id="1_qx545"]
 [ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
 [ext_resource type="PackedScene" uid="uid://bro3rrf66ro1h" path="res://scenes/boat.tscn" id="2_w1wc2"]
+[ext_resource type="PackedScene" uid="uid://cg547d01tyvv6" path="res://scenes/Healthbar.tscn" id="3_dhanq"]
 [ext_resource type="PackedScene" uid="uid://c0hlnfvbhxilp" path="res://scenes/vortex_3d.tscn" id="4_5wau7"]
 [ext_resource type="PackedScene" uid="uid://y7tqwoj3tmif" path="res://scenes/game_camera.tscn" id="5_rlqlm"]
 [ext_resource type="PackedScene" uid="uid://beoci1a615ffi" path="res://scenes/sea_mine.tscn" id="7_sombh"]
 [ext_resource type="PackedScene" uid="uid://bdohepiggfmms" path="res://scenes/map.tscn" id="8_lgk5l"]
 [ext_resource type="PackedScene" uid="uid://hl4r2ylauhog" path="res://scenes/Modifiers.tscn" id="9_e5cou"]
+[ext_resource type="PackedScene" uid="uid://5scllsnkmpth" path="res://scenes/streams.tscn" id="11_8xjfh"]
+[ext_resource type="PackedScene" uid="uid://b55sx0mje1j5w" path="res://scenes/shark.tscn" id="12_2bx8v"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kspm4"]
+font_size = 30
 outline_color = Color(0, 0, 0, 1)
 shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0yf5"]
+bg_color = Color(0, 0.627451, 0.376471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ph5a"]
+bg_color = Color(0.705882, 0.172549, 0.0235294, 1)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ik3mg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -30,7 +40,11 @@ glow_enabled = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_m45on"]
 size = Vector3(100, 10, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_r8rc0"]
+size = Vector3(1, 20, 20)
+
 [node name="Level" type="Node3D"]
+process_mode = 3
 script = ExtResource("1_qx545")
 
 [node name="GameCamera" parent="." node_paths=PackedStringArray("countdownTimer", "Boat") instance=ExtResource("5_rlqlm")]
@@ -47,18 +61,18 @@ offset_right = 54.0
 offset_bottom = 25.0
 
 [node name="LabelHealth" type="Label" parent="GameCamera/CanvasLayer"]
+visible = false
 offset_right = 180.0
 offset_bottom = 34.0
 theme_override_font_sizes/font_size = 24
 text = "	"
 
 [node name="LabelTime" type="Label" parent="GameCamera/CanvasLayer"]
-offset_left = 1013.0
-offset_top = 3.0
-offset_right = 1150.0
-offset_bottom = 26.0
-text = "
-"
+offset_left = 845.0
+offset_top = 597.0
+offset_right = 982.0
+offset_bottom = 639.0
+text = "0:00"
 label_settings = SubResource("LabelSettings_kspm4")
 
 [node name="LabelModifiers" type="Label" parent="GameCamera/CanvasLayer"]
@@ -66,8 +80,79 @@ offset_left = 3.0
 offset_top = 621.0
 offset_right = 43.0
 offset_bottom = 644.0
+text = "Power"
+
+[node name="GameOverScreen" type="Panel" parent="GameCamera/CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GameCamera/CanvasLayer/GameOverScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.107
+anchor_right = 0.5
+anchor_bottom = 0.107
+offset_left = -147.0
+offset_top = 8.66399
+offset_right = 147.0
+offset_bottom = 117.664
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 70
+text = "GAME OVER
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="GameCamera/CanvasLayer/GameOverScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -187.0
+offset_top = -109.0
+offset_right = 196.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_bottom = NodePath("../QuitButton")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_n0yf5")
+text = "Restart"
+
+[node name="QuitButton" type="Button" parent="GameCamera/CanvasLayer/GameOverScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -188.0
+offset_top = 23.0
+offset_right = 198.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_top = NodePath("../RestartButton")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_6ph5a")
+text = "Quit
+"
+
+[node name="HealthBarControl" parent="GameCamera/CanvasLayer" instance=ExtResource("3_dhanq")]
+offset_left = -337.0
+offset_top = -211.0
+offset_right = -297.0
+offset_bottom = -171.0
 
 [node name="countdownTimer" type="Timer" parent="GameCamera"]
+process_mode = 1
 wait_time = 600.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -87,12 +172,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.9896, 0, -1.29973)
 
 [node name="Boat" parent="." node_paths=PackedStringArray("water") instance=ExtResource("2_w1wc2")]
 transform = Transform3D(0.422682, 0, -0.906278, 0, 1, 0, 0.906278, 0, 0.422682, -4.37886, 1.40901, -1.34093)
+sideways_force_ratio = 0.45
+forward_force_ratio = 50.0
 water = NodePath("../WaterPlane")
 
-[node name="Map" parent="." instance=ExtResource("8_lgk5l")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-
-[node name="Survivors" type="Node3D" parent="."]
+[node name="Survivors" parent="." node_paths=PackedStringArray("water") instance=ExtResource("1_pprra")]
+process_mode = 1
+water = NodePath("../WaterPlane")
 
 [node name="Survivor" parent="Survivors" node_paths=PackedStringArray("water") instance=ExtResource("1_pprra")]
 transform = Transform3D(-0.994794, 0, 0.101907, 0, 1, 0, -0.101907, 0, -0.994794, -10.4886, 1.41551, 39.0129)
@@ -134,6 +220,9 @@ water = NodePath("../../WaterPlane")
 transform = Transform3D(-0.994794, 0, 0.101907, 0, 1, 0, -0.101907, 0, -0.994794, 37.4021, 1.41551, -42.6154)
 water = NodePath("../../WaterPlane")
 
+[node name="Map" parent="." instance=ExtResource("8_lgk5l")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
 [node name="Borders" type="Node3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 60.5004, 0, 0, 0, 2, 0, 280.339, 0)
 
@@ -162,6 +251,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -50, 0
 shape = SubResource("BoxShape3D_m45on")
 
 [node name="Mines" type="Node3D" parent="."]
+process_mode = 1
 
 [node name="SeaMine" parent="Mines" node_paths=PackedStringArray("water") instance=ExtResource("7_sombh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.3468, 0, 23.1206)
@@ -180,6 +270,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.568, 0, -71.8021)
 water = NodePath("../../WaterPlane")
 
 [node name="Modifiers" type="Node3D" parent="."]
+process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.15837, 1.45815, 15.1394)
 
 [node name="Modifier" parent="Modifiers" node_paths=PackedStringArray("boat", "water") instance=ExtResource("9_e5cou")]
@@ -230,5 +321,42 @@ boat = NodePath("../../Boat")
 floatForce = 0.6
 water = NodePath("../../WaterPlane")
 
+[node name="Streams" parent="." instance=ExtResource("11_8xjfh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.1356, 51.0116)
+
+[node name="Streams2" parent="." instance=ExtResource("11_8xjfh")]
+transform = Transform3D(0.0637311, 0, -0.997967, 0, 1, 0, 0.997967, 0, 0.0637311, 5.5085, 0, -74.1501)
+
+[node name="Shark1" parent="." node_paths=PackedStringArray("boat", "path") instance=ExtResource("12_2bx8v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.353, 0, -21.1917)
+velocity = 5.0
+boat = NodePath("../Boat")
+path = NodePath("../Path1")
+velocity = 5.0
+
+[node name="Path1" type="Node3D" parent="."]
+transform = Transform3D(0.422682, 0, -0.906278, 0, 1, 0, 0.906278, 0, 0.422682, -4.37886, 1.40901, -1.34093)
+
+[node name="Marker3D" type="Marker3D" parent="Path1"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -44.0723, 0, 30.784)
+
+[node name="Marker3D2" type="Marker3D" parent="Path1"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -30.8132, 0, 36.6496)
+
+[node name="Marker3D3" type="Marker3D" parent="Path1"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -24.4144, 0.404377, 22.609)
+
+[node name="Marker3D4" type="Marker3D" parent="Path1"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -38.3326, 0, 17.1713)
+
+[node name="Area3D" type="Area3D" parent="Path1"]
+transform = Transform3D(-1.92981e-08, -0.44149, 0.897266, 1, -4.37114e-08, 0, 3.92207e-08, 0.897266, 0.44149, -34.4214, 0, 27.6429)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path1/Area3D"]
+shape = SubResource("BoxShape3D_r8rc0")
+
+[connection signal="CountdownTimerTimeout" from="GameCamera" to="." method="OnCountdownTimerTimeout"]
+[connection signal="pressed" from="GameCamera/CanvasLayer/GameOverScreen/RestartButton" to="." method="RetryButtonPressed"]
+[connection signal="pressed" from="GameCamera/CanvasLayer/GameOverScreen/QuitButton" to="." method="QuitButtonPressed"]
 [connection signal="timeout" from="GameCamera/countdownTimer" to="GameCamera" method="OnCountdownTimerTimeout"]
 [connection signal="NoBoatHealth" from="Boat" to="." method="OnNoBoatHealth"]

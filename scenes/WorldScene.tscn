@@ -50,7 +50,7 @@ script = ExtResource("1_qx545")
 [node name="GameCamera" parent="." node_paths=PackedStringArray("countdownTimer", "Boat") instance=ExtResource("5_rlqlm")]
 countdownTimer = NodePath("countdownTimer")
 Boat = NodePath("../Boat")
-position_offset = Vector3(0, 15, -10)
+position_offset = Vector3(0, 17, -12)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="GameCamera"]
 
@@ -170,11 +170,12 @@ skeleton = NodePath("")
 [node name="Vortex3D" parent="." instance=ExtResource("4_5wau7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.9896, 0, -1.29973)
 
-[node name="Boat" parent="." node_paths=PackedStringArray("water") instance=ExtResource("2_w1wc2")]
-transform = Transform3D(0.422682, 0, -0.906278, 0, 1, 0, 0.906278, 0, 0.422682, -4.37886, 1.40901, -1.34093)
+[node name="Boat" parent="." node_paths=PackedStringArray("water", "survivors") instance=ExtResource("2_w1wc2")]
+transform = Transform3D(0.422682, 0, -0.906278, 0, 1, 0, 0.906278, 0, 0.422682, -4.37886, 3.63161, -1.34093)
 sideways_force_ratio = 0.45
 forward_force_ratio = 50.0
 water = NodePath("../WaterPlane")
+survivors = NodePath("../Survivors")
 
 [node name="Survivors" parent="." node_paths=PackedStringArray("water") instance=ExtResource("1_pprra")]
 process_mode = 1

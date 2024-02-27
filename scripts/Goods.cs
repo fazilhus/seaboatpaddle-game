@@ -8,7 +8,8 @@ public partial class Goods : RigidBody3D
 	[Export] private float WaterAngularDrag = 0.01f;
 	[Export] private bool isSubmerged = false;
 	private float gravity;
-
+	[Signal]
+	public delegate void ObjectivePickedUpEventHandler();
 	private float initialY;
 	private double elapsedTime = 0;
 	[Export] public WaterPlane water;
@@ -56,6 +57,7 @@ public partial class Goods : RigidBody3D
 		if (area.IsInGroup("ThePlayers"))
 		{
 			GD.Print("ThePlayers are colliding with goods");
+			EmitSignal(SignalName.ObjectivePickedUp);
 			QueueFree();
 		}
 	}

@@ -110,18 +110,18 @@ public partial class Boat : RigidBody3D
 
 		healthComp = GetNode<HealthComponent>("HealthComponent");
 
-		MeshInstance3D paddle1 = paddles[0].GetChild(1).GetChild<MeshInstance3D>(0); //Supposed to access the mesh inside each individual paddle
-		MeshInstance3D paddle2 = paddles[1].GetChild(1).GetChild<MeshInstance3D>(0);
-		paddle1.SetSurfaceOverrideMaterial(0, paddleMaterial[0]);
+        MeshInstance3D paddle1 = paddles[0].GetChild(1).GetChild<MeshInstance3D>(0); //Supposed to access the mesh inside each individual paddle
+        MeshInstance3D paddle2 = paddles[1].GetChild(1).GetChild<MeshInstance3D>(0);
+        paddle1.SetSurfaceOverrideMaterial(0, paddleMaterial[0]);
 		paddle2.SetSurfaceOverrideMaterial(0, paddleMaterial[1]);
 		paddle1.GetSurfaceOverrideMaterial(0).Set("albedo_color", PlayerManager.instance.playerColors[0]);
 		paddle2.GetSurfaceOverrideMaterial(0).Set("albedo_color", PlayerManager.instance.playerColors[1]);
 	
 
 
-	}
+    }
  
-	public override void _Process(double delta)
+    public override void _Process(double delta)
 	{
 		if (Input.IsKeyPressed(Key.F2)) 
 		{
@@ -170,8 +170,8 @@ public partial class Boat : RigidBody3D
 				}
 				else if (speedRotation <= 30.0f && _paddles_rotation_old[it.Index] == _paddles_rotation_old[1])
 				{
-					watersplashRight.Emitting = true;
-					watersplashRight.AmountRatio = speedRotation;
+                    watersplashRight.Emitting = true;
+                    watersplashRight.AmountRatio = speedRotation;
 					watersplashRight.Rotate(Vector3.Up, Mathf.Pi * angular_velocity.Sign().Z);
 					GD.Print(speedRotation, "RotationalVelcR");
 				}
@@ -308,6 +308,7 @@ public partial class Boat : RigidBody3D
 		if (area.IsInGroup("Survivors"))
 		{
 			GD.Print("boat is colliding with survivors!");
+
 		}
 		
 		if (area.IsInGroup("SeaMine")) 

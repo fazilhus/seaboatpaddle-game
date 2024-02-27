@@ -8,7 +8,7 @@ public partial class GameCamera : Node3D
 	
 	[Export]
 	public Timer countdownTimer;
-	private int remainingTime = 600;
+	
 	
 	[Export]
 	public Node3D Boat;
@@ -70,24 +70,15 @@ public partial class GameCamera : Node3D
 			countdownTimer.WaitTime += 60;
 			ExtraTime = false;
 		}
-		LabelTime.Text = "Time Left: " + (int)countdownTimer.TimeLeft;
+		TimeSpan time = TimeSpan.FromSeconds(countdownTimer.TimeLeft);
+		string timeString = time.ToString(@"mm\:ss");
+
+		LabelTime.Text = timeString;
 	}
 	
 	private void OnCountdownTimerTimeout()
 	{
-		// Decrement remaining time
-		// if (remainingTime > 0)
-		// {
-		// 	remainingTime--;
-		// }
 		
-		// LabelTime.Text = "Time Left: " + remainingTime.ToString();
-
-		// if (remainingTime <= 0)
-		// {
-		// 	GD.Print("Time's up!");
-		// 	countdownTimer.Stop(); // Stop the timer if needed
-		// }
 		EmitSignal(SignalName.CountdownTimerTimeout);
 	}
 }

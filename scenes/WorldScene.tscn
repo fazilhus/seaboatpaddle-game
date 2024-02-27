@@ -43,9 +43,10 @@ size = Vector3(100, 10, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_r8rc0"]
 size = Vector3(1, 20, 20)
 
-[node name="Level" type="Node3D"]
+[node name="Level" type="Node3D" node_paths=PackedStringArray("objectiveTracker")]
 process_mode = 3
 script = ExtResource("1_qx545")
+objectiveTracker = NodePath("GameCamera/CanvasLayer/ObjectiveLabel")
 
 [node name="GameCamera" parent="." node_paths=PackedStringArray("countdownTimer", "Boat") instance=ExtResource("5_rlqlm")]
 countdownTimer = NodePath("countdownTimer")
@@ -74,6 +75,26 @@ offset_right = 982.0
 offset_bottom = 639.0
 text = "0:00"
 label_settings = SubResource("LabelSettings_kspm4")
+
+[node name="ObjectiveLabel" type="Label" parent="GameCamera/CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.859
+anchor_top = 0.92
+anchor_right = 0.967
+anchor_bottom = 1.0
+offset_left = -0.568054
+offset_top = -0.160034
+offset_right = 0.0158691
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 31
+text = "Cargo "
+label_settings = SubResource("LabelSettings_kspm4")
+
+[node name="DeliveredGoods" type="Label" parent="GameCamera/CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
 
 [node name="LabelModifiers" type="Label" parent="GameCamera/CanvasLayer"]
 offset_left = 3.0
@@ -170,12 +191,11 @@ skeleton = NodePath("")
 [node name="Vortex3D" parent="." instance=ExtResource("4_5wau7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.9896, 0, -1.29973)
 
-[node name="Boat" parent="." node_paths=PackedStringArray("water", "survivors") instance=ExtResource("2_w1wc2")]
+[node name="Boat" parent="." node_paths=PackedStringArray("water") instance=ExtResource("2_w1wc2")]
 transform = Transform3D(0.422682, 0, -0.906278, 0, 1, 0, 0.906278, 0, 0.422682, -4.37886, 3.63161, -1.34093)
 sideways_force_ratio = 0.45
 forward_force_ratio = 50.0
 water = NodePath("../WaterPlane")
-survivors = NodePath("../Survivors")
 
 [node name="Map" parent="." instance=ExtResource("8_lgk5l")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -514,3 +534,13 @@ water = NodePath("../../WaterPlane")
 [connection signal="pressed" from="GameCamera/CanvasLayer/GameOverScreen/QuitButton" to="." method="QuitButtonPressed"]
 [connection signal="timeout" from="GameCamera/countdownTimer" to="GameCamera" method="OnCountdownTimerTimeout"]
 [connection signal="NoBoatHealth" from="Boat" to="." method="OnNoBoatHealth"]
+[connection signal="ObjectivePickedUp" from="Goods/Goods" to="." method="OnObjectivePickup"]
+[connection signal="ObjectivePickedUp" from="Goods/Goods2" to="." method="OnObjectivePickup"]
+[connection signal="ObjectivePickedUp" from="Goods/Goods3" to="." method="OnObjectivePickup"]
+[connection signal="ObjectivePickedUp" from="Goods/Goods4" to="." method="OnObjectivePickup"]
+[connection signal="ObjectivePickedUp" from="Goods/Goods5" to="." method="OnObjectivePickup"]
+[connection signal="ObjectivePickedUp" from="Goods/Goods6" to="." method="OnObjectivePickup"]
+[connection signal="ObjectivePickedUp" from="Goods/Goods7" to="." method="OnObjectivePickup"]
+[connection signal="ObjectivePickedUp" from="Goods/Goods8" to="." method="OnObjectivePickup"]
+[connection signal="ObjectivePickedUp" from="Goods/Goods9" to="." method="OnObjectivePickup"]
+[connection signal="ObjectivePickedUp" from="Goods/Goods10" to="." method="OnObjectivePickup"]

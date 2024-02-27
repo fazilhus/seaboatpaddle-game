@@ -127,6 +127,8 @@ wait_time = 15.0
 [node name="SpeedBoostTimer" type="Timer" parent="."]
 wait_time = 10.0
 
+[node name="CrashCooldown" type="Timer" parent="."]
+
 [node name="GPUParticles3D" parent="." instance=ExtResource("3_ivx5w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.74944)
 
@@ -141,3 +143,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.9)
 [connection signal="timeout" from="VortexDamageTimer" to="." method="OnVortexDamageTimerTimeout"]
 [connection signal="timeout" from="ControlInversionTimer" to="." method="OnControlInversionTimerTimeout"]
 [connection signal="timeout" from="SpeedBoostTimer" to="." method="OnSpeedBoostTimerTimeout"]
+[connection signal="timeout" from="CrashCooldown" to="." method="OnCrashCooldownTimerTimeout"]

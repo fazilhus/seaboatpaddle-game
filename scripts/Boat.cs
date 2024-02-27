@@ -280,6 +280,8 @@ public partial class Boat : RigidBody3D
 	}
 
 	private void LooseStackedGoods() {
+		GetNode<Area3D>("Area3DTriggerGoods").SetDeferred("monitorable", false);
+
 		var count = _goods_stack.GetChildCount();
 		var children_pos = new Vector3[count];
 		for (int i = 0; i < count; i++) {
@@ -297,12 +299,14 @@ public partial class Boat : RigidBody3D
 			var angle = (float)(2 * Mathf.Pi * r.NextDouble() - Mathf.Pi);
 			var vector = Basis.Z.Rotated(Vector3.Up, angle);
 			goods_inst.ApplyCentralImpulse(5 * vector);
-			goods_inst.GetNode<Area3D>("Area3DTrigger").SetDeferred("monitoring", false);
+			goods_inst.SetMonitoring(false);
 			var timer = goods_inst.GetNode<Timer>("CrashCooldown");
 			timer.OneShot = true;
 			timer.Autostart = true;
 			goods_node.CallDeferred("add_child", goods_inst);
 		}
+
+		GetNode<Timer>("CrashCooldown").Start();
 	}
 
 	public void OnBoatArea3dBodyExited(Area3D area)
@@ -423,6 +427,10 @@ public partial class Boat : RigidBody3D
 	public void OnVortexDamageTimerTimeout() 
 	{
 		healthComp.SubtractHealth(10);
+	}
+
+	private void OnCrashCooldownTimerTimeout() {
+		GetNode<Area3D>("Area3DTriggerGoods").SetDeferred("monitorable", true);
 	}
 	
 	public override void _UnhandledInput(InputEvent @event)

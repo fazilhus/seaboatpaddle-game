@@ -22,7 +22,6 @@ public partial class Goods : RigidBody3D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		var parent = GetParent();
 		gravity = (float)ProjectSettings.GetSetting("physics/3d/default_gravity");
 		//water = GetNode<WaterPlane>("/root/Main/WaterPlane");
 		probeContainer = GetNode<Node3D>("ProbeContainer").GetChildren();
@@ -66,6 +65,10 @@ public partial class Goods : RigidBody3D
 			GD.Print("ThePlayers are colliding with goods");
 			QueueFree();
 		}
+	}
+
+	public void SetMonitoring(bool val) {
+		GetNode<Area3D>("Area3DTrigger").SetDeferred("monitoring", val);
 	}
 
 	private void OnCrashCooldownTimerTimeout() {

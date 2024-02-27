@@ -13,8 +13,6 @@ public partial class Survivors : RigidBody3D
 	private float initialY;
 	private double elapsedTime = 0;
 	[Export] public WaterPlane water;
-	[Export] public Area3D boatCollider;
-	[Export] public Area3D survivorsCollider;
 	public double time = 0;
 
 	public Godot.Collections.Array<Node> probeContainer;
@@ -25,14 +23,12 @@ public partial class Survivors : RigidBody3D
 		gravity = (float)ProjectSettings.GetSetting("physics/3d/default_gravity");
 		//water = GetNode<WaterPlane>("/root/Main/WaterPlane");
 		probeContainer = GetNode<Node3D>("ProbeContainer").GetChildren();
-		
 
-	
 		initialY = GlobalPosition.Y;
 	}
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _PhysicsProcess(double delta)
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _PhysicsProcess(double delta)
 	{
 		isSubmerged = false;
 		foreach(Marker3D p in probeContainer)
@@ -46,16 +42,16 @@ public partial class Survivors : RigidBody3D
 			 }
 				
 		}
-    }
-    public override void _IntegrateForces(PhysicsDirectBodyState3D state) // changing the simulation state of the object
-    {
+	}
+	public override void _IntegrateForces(PhysicsDirectBodyState3D state) // changing the simulation state of the object
+	{
 		if(isSubmerged)
 		{
 			state.LinearVelocity *= 1 - waterDrag;
 			state.AngularVelocity *= 1 - WaterAngularDrag;
 		}
-    }
-	public void OnArea3DTiggerAreaEntered(Area3D area)
+	}
+	public void OnArea3DTriggerAreaEntered(Area3D area)
 	{
 		if (area.IsInGroup("ThePlayers"))
 		{

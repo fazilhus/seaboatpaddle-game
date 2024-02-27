@@ -6,80 +6,157 @@ public partial class PlayerMenu : MarginContainer
 {
 
    
-    // Called when the node enters the scene tree for the first time.
+	// Called when the node enters the scene tree for the first time.
 
-    public int playerAmount=0;
-    public int[] playerIds=new int[4];
+	public  int playerAmount=0;
+	public  int[] playerIds=new int[2];
+	public Color[] playerColors=new Color[2];
+	[Export]
+	public OptionButton[] colorPickers;
+
+	[Export]
+	Color red = Color.FromHtml("eb0033");
+	[Export]
+	Color blue = Color.FromHtml("0033ff");
+	[Export]
+	Color green = Color.FromHtml("00ad72");
+
 	public override void _Ready()
 	{
+		
 	}
    
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(double delta)
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
 	{
 		
-       
-    }
-    public void Addplayer(int playerId)
-    {
-        bool playerAlreadyIn = false;
-        GD.Print(playerIds.Length);
-       
-        for(int i = 0; i < playerAmount; i++) 
-        {
-            if (playerIds[i] == playerId)
-            {
-                playerAlreadyIn = true;
-            }
-            if(playerAmount==0)
-            {
-                playerAlreadyIn = false;
-            }
-        }
-        if (!playerAlreadyIn)
-        {
+	   
+	}
+	public void Addplayer(int playerId)
+	{
+		bool playerAlreadyIn = false;
+		GD.Print(playerIds.Length);
+	   
+		for(int i = 0; i < playerAmount; i++) 
+		{
+			if (playerIds[i] == playerId)
+			{
+				playerAlreadyIn = true;
+			}
+			if(playerAmount==0)
+			{
+				playerAlreadyIn = false;
+			}
+		}
+		if (!playerAlreadyIn)
+		{
 
-            playerIds[playerAmount] = playerId;
-            //GD.Print(playerIds[playerAmount]);
-            GetNode("VerticalContainer/HorizontalContainer").GetChild(playerAmount).Set("visible", true);
+			playerIds[playerAmount] = playerId;
+			//GD.Print(playerIds[playerAmount]);
+			GetNode("VerticalContainer/HorizontalContainer").GetChild(playerAmount).Set("visible", true);
+            if(playerAmount==1)
+			{
+				GetNode<OptionButton>("VerticalContainer/HorizontalContainer/Player1/Colors").GrabFocus();
+			}
             playerAmount++;
-            
+			
 
-            //GD.Print(playerId);
-            //GD.Print(playerAmount);
+			//GD.Print(playerId);
+			//GD.Print(playerAmount);
 
-            string playerAmountLabel = "";
-            if (playerAmount != 2) {
-                playerAmountLabel = playerAmount + " / 2 players";
-            }
-            else {
-                playerAmountLabel = "Press 'Start' to play";
-            }
-            GetNode<Label>("VerticalContainer/ContinueNotice").Text = playerAmountLabel;
-           
-        }
-        
-    }
-    public override void _UnhandledInput(InputEvent @event)
+			string playerAmountLabel = "";
+			if (playerAmount != 2) {
+				playerAmountLabel = playerAmount + " / 2 players";
+			}
+			else {
+				playerAmountLabel = "Press 'Start' to play";
+			}
+			GetNode<Label>("VerticalContainer/ContinueNotice").Text = playerAmountLabel;
+		   
+		}
+		
+	}
+    public void OnColor1Select(int index)
     {
-       
-        if(@event.IsActionPressed("ui_accept"))
+		GD.Print(index);
+	
+        if (index == 0)
         {
-            int playerId = @event.Device;
-            Addplayer(playerId);
-            
-
+            playerColors[0] = red;
+            colorPickers[1].SetItemDisabled(1, false);
+            colorPickers[1].SetItemDisabled(2, false);
         }
-        if (@event.IsActionPressed("ui_cancel"))
+        else if (index == 1)
         {
-            GetParent<LevelManager>().loadMainMenu();
+            playerColors[0] = green;
+            colorPickers[1].SetItemDisabled(0, false);
+            colorPickers[1].SetItemDisabled(2, false);
         }
-        if(@event.IsActionPressed("ui_continue")) //Need to add this to inputmap if not there already
+        else if (index == 2)
         {
-            if (playerAmount == 2) {
-                GetParent<LevelManager>().loadLevelSelector();
-            }
+            playerColors[0] = blue;
+            colorPickers[1].SetItemDisabled(0, false);
+            colorPickers[1].SetItemDisabled(1, false);
         }
-        
+        colorPickers[1].SetItemDisabled(index, true);
+        GD.Print(playerColors[0]);
     }
+    public void OnColor2Select(int index)
+	{
+        if (index == 0)
+        {
+            playerColors[1] = red;
+            colorPickers[0].SetItemDisabled(1, false);
+            colorPickers[0].SetItemDisabled(2, false);
+			
+        }
+		else if (index == 1)
+		{
+            colorPickers[0].SetItemDisabled(0, false);
+            colorPickers[0].SetItemDisabled(2, false);
+            playerColors[1] = green;
+        }
+		else if(index == 2)
+		{
+            colorPickers[0].SetItemDisabled(0, false);
+            colorPickers[0].SetItemDisabled(1, false);
+            playerColors[1] = blue;
+        }
+        colorPickers[0].SetItemDisabled(index, true);
+		GD.Print(playerColors[1]);
+	}
+	public override void _UnhandledInput(InputEvent @event)
+	{
+	   
+		if(@event.IsActionPressed("ui_accept"))
+		{
+			int playerId = @event.Device;
+			Addplayer(playerId);
+			
+
+		}
+		if (@event.IsActionPressed("ui_cancel"))
+		{
+			GetParent<LevelManager>().loadMainMenu();
+		}
+		if(@event.IsActionPressed("ui_continue")) //Need to add this to inputmap if not there already
+		{
+			if (playerAmount == 2) {
+
+				transferDataToPlayerManager();
+				GetParent<LevelManager>().loadLevelSelector();
+			}
+			
+		}
+	   if(Input.IsKeyPressed(Key.F1)) 
+		{
+			transferDataToPlayerManager();
+				GetParent<LevelManager>().loadLevelSelector();
+		} 
+	}
+	void transferDataToPlayerManager()
+	{
+		PlayerManager.instance.playerColors[0]= playerColors[0];
+		PlayerManager.instance.playerColors[1] = playerColors[1];
+	}
 }

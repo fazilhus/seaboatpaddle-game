@@ -1,4 +1,5 @@
 shader_type spatial;
+render_mode unshaded;
 
 uniform vec3 albedo : source_color;
 uniform vec3 albedo2 : source_color;
@@ -29,7 +30,6 @@ uniform float near = 1.0;
 uniform float far = 100.0;
 uniform vec3 edgeColor : source_color;
 
-
 //varying variables are used to pass data between vertex shader and the fragment shader.
 varying float height;
 varying vec3 worldPosition;
@@ -50,7 +50,6 @@ void vertex() // Called for every vertex the material is visible on.
 	worldPosition = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 	height = texture(wave, worldPosition.xz / noiseScale + TIME *timeScale).r;
 	VERTEX.y += height * heightScale;
-	//boatHight = VERTEX.y;
 }
 
 void fragment() //Special function, fragment shader is called for every pixel(fragment) that needs to be rendered on the screen
@@ -62,17 +61,17 @@ void fragment() //Special function, fragment shader is called for every pixel(fr
 	
 	// depth variables and calculations
 	float depthTexture = texture(DEPTH_TEXTURE, SCREEN_UV).r * 2.0 -1.0;
-	float depth = PROJECTION_MATRIX[3][2] / (depthTexture + PROJECTION_MATRIX[2][2]);
+	float depth = PROJECTION_MATRIX[3][2] / (depthTexture + PROJECTION_MATRIX[3][2]);
 	float depthBlend = exp((depth+VERTEX.z + depthOffset) * -beersLaw);
 	float depthBlendPower = clamp(pow(depthBlend, 2.5), 0.0, 1.0);
-	vec3 ScreenColor = textureLod(SCREEN_TEXTURE, SCREEN_UV, depthBlendPower * 2.5).rgb;
+	vec3 ScreenColor = textureLod(SCREEN_TEXTURE, SCREEN_UV, depthBlendPower * 1.0).rgb;
 	vec3 depthColor = mix(ColorShallow.rgb, colorDeep.rgb, depthBlendPower);
 	vec3 color = mix(ScreenColor * depthColor, depthColor * 0.25, depthBlendPower * 0.5);
 	//Time Calculations for wave (normal map) movements
-	vec2 time = (TIME * waveDirection) * timeScale; // movement rate of the first wave
-	vec2 time2 = (TIME * waveDirection2) * timeScale; // movement rate of the second wave
+	vec2 time = (TIME * waveDirection) * timeScale/0.03; // movement rate of the first wave
+	vec2 time2 = (TIME * waveDirection2) * timeScale/0.03; // movement rate of the second wave
 	//blending normal maps into one
-	vec3 normalBlend = mix(texture(textureNormal, UV + time).rgb, texture(TextureNormal2,UV + time2).rgb, 0.5);
+	vec3 normalBlend = mix(texture(textureNormal, worldPosition.xz + time).rgb, texture(TextureNormal2, worldPosition.xz + time2).rgb, 0.5);
 	//calculate Fresnel
 	float fresnel = fresnel(5.0, NORMAL, VIEW);
 	vec3 surfaceColor = mix(albedo, albedo2, fresnel); // interpolate albedo values by frensel

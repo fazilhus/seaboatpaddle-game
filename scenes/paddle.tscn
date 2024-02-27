@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyf82rkybl05j"]
+
+[ext_resource type="PackedScene" uid="uid://catt7cfnf4pd1" path="res://CustonAssets/paddle.glb" id="1_pwatr"]
+
+[node name="paddle" instance=ExtResource("1_pwatr")]

@@ -1,0 +1,45 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://dfbmcou71tal5"]
+
+[ext_resource type="Shader" path="res://Shades/vortex.gdshader" id="1_krqbu"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_37dn1"]
+seed = 10
+frequency = 0.02
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3qban"]
+generate_mipmaps = false
+seamless = true
+seamless_blend_skirt = 0.05
+as_normal_map = true
+noise = SubResource("FastNoiseLite_37dn1")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_geuh7"]
+seed = 10
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iu7b6"]
+generate_mipmaps = false
+seamless = true
+as_normal_map = true
+bump_strength = 5.0
+noise = SubResource("FastNoiseLite_geuh7")
+
+[resource]
+render_priority = 1
+shader = ExtResource("1_krqbu")
+shader_parameter/whirlpool_strength = 0.0
+shader_parameter/rotation_speed = 0.17
+shader_parameter/whirlpool_depth = 3.7
+shader_parameter/inner_radius = 9.0
+shader_parameter/albedo = Color(0, 0.572549, 0.701961, 1)
+shader_parameter/albedo2 = Color(0.278431, 0.552941, 0.552941, 1)
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.2
+shader_parameter/edgeScale = 0.1
+shader_parameter/near = 0.1
+shader_parameter/far = 100.0
+shader_parameter/edgeColor = Color(1, 1, 1, 1)
+shader_parameter/circle_radius = 1.0
+shader_parameter/edge_softness = 0.18
+shader_parameter/timeScale = 0.03
+shader_parameter/textureNormal = SubResource("NoiseTexture2D_iu7b6")
+shader_parameter/TextureNormal2 = SubResource("NoiseTexture2D_3qban")

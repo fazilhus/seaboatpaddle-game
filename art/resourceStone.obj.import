@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://wdfcsadsyf3o"
+path="res://.godot/imported/resourceStone.obj-08c0b6c191075edc9e8fb7080e7f9433.mesh"
+
+[deps]
+
+files=["res://.godot/imported/resourceStone.obj-08c0b6c191075edc9e8fb7080e7f9433.mesh"]
+
+source_file="res://art/resourceStone.obj"
+dest_files=["res://.godot/imported/resourceStone.obj-08c0b6c191075edc9e8fb7080e7f9433.mesh", "res://.godot/imported/resourceStone.obj-08c0b6c191075edc9e8fb7080e7f9433.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

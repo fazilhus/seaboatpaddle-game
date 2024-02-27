@@ -10,6 +10,7 @@ public partial class WaterPlane : MeshInstance3D
 	[Export] private float waveSpeed;
 	[Export] private float HeightScale;
 
+	
 	private double time; // just to track time
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -18,7 +19,7 @@ public partial class WaterPlane : MeshInstance3D
 		this.MaterialOverride = this.material;
 		material = (ShaderMaterial)MaterialOverride;
 		noise = GD.Load<NoiseTexture2D>("res://Shades/Water.tres::NoiseTexture2D_cwxk6").GetImage();
-		noiseScale = 1000;//(float)material.GetShaderParameter("noiseScale");
+		noiseScale = 1000.0f;//(float)material.GetShaderParameter("noiseScale");
 		waveSpeed = 0.01f;//(float)material.GetShaderParameter("timeScale");
 		HeightScale = 2;//(float)material.GetShaderParameter("heightSale");
 		time = 0;

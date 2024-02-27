@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://hl4r2ylauhog"]
+
+[ext_resource type="Script" path="res://scripts/Modifiers.cs" id="1_lggjo"]
+[ext_resource type="ArrayMesh" uid="uid://dxeaqkjlw4i1a" path="res://art/chest.obj" id="2_j6eq5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n0r7w"]
+albedo_color = Color(0.470588, 0.309804, 0.239216, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e8ek2"]
+albedo_color = Color(0.67451, 0.662745, 0.658824, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5uo2"]
+albedo_color = Color(0.67451, 0.662745, 0.658824, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0e1ib"]
+albedo_color = Color(0.564706, 0.380392, 0.298039, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ds3dc"]
+points = PackedVector3Array(-0.25, 9.79448e-05, -0.25, 0.249994, 0.499902, 0.25, -0.25, 0.499902, 0.25, 0.249994, 0.499902, -0.25, 0.249994, 9.78964e-05, 0.25, 0.249994, 9.78964e-05, -0.25, -0.25, 9.79448e-05, 0.25, -0.25, 0.499902, -0.25)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_77mby"]
+height = 0.503506
+radius = 0.364843
+
+[node name="Modifiers" type="RigidBody3D"]
+script = ExtResource("1_lggjo")
+
+[node name="Chest" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.213459, 0)
+mesh = ExtResource("2_j6eq5")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_n0r7w")
+surface_material_override/1 = SubResource("StandardMaterial3D_e8ek2")
+surface_material_override/2 = SubResource("StandardMaterial3D_r5uo2")
+surface_material_override/3 = SubResource("StandardMaterial3D_0e1ib")
+
+[node name="modifiersCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.213459, 0)
+shape = SubResource("ConvexPolygonShape3D_ds3dc")
+
+[node name="ProbeContainer" type="Node3D" parent="."]
+
+[node name="Probe1" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.251326, 0.118866, -0.251326)
+
+[node name="Probe2" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24722, 0.118866, -0.248418)
+
+[node name="Probe3" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.341911, 0, 0.345576)
+
+[node name="Probe4" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.344752, 0, 0.340264)
+
+[node name="Area3DTrigger" type="Area3D" parent="." groups=["Modifiers"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.213459, 0)
+
+[node name="TriggerCollider" type="CollisionShape3D" parent="Area3DTrigger"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8.16584e-06, 0.501467, 0.00962448)
+shape = SubResource("CylinderShape3D_77mby")
+
+[connection signal="area_entered" from="Area3DTrigger" to="." method="OnArea3dTriggerAreaEntered"]

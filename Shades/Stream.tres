@@ -39,7 +39,7 @@ noise = SubResource("FastNoiseLite_h8fn1")
 [resource]
 render_priority = 1
 shader = ExtResource("1_6a6im")
-shader_parameter/albedo = Color(0, 0.580392, 0.709804, 1)
+shader_parameter/albedo = Color(0, 0.639216, 0.780392, 1)
 shader_parameter/albedo2 = Color(0, 0.533333, 0.764706, 1)
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 0.2

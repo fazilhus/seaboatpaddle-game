@@ -67,4 +67,8 @@ public partial class Goods : RigidBody3D
 			QueueFree();
 		}
 	}
+
+	private void OnCrashCooldownTimerTimeout() {
+		GetNode<Area3D>("Area3DTrigger").SetDeferred("monitoring", true);
+	}
 }

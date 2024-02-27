@@ -51,4 +51,8 @@ priority = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5048, 0)
 shape = SubResource("CylinderShape3D_nh4m7")
 
+[node name="CrashCooldown" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="area_entered" from="Area3DTrigger" to="." method="OnArea3dTriggerAreaEntered"]
+[connection signal="timeout" from="CrashCooldown" to="." method="OnCrashCooldownTimerTimeout"]

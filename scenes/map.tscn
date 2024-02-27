@@ -3482,6 +3482,455 @@ surface_material_override/1 = SubResource("StandardMaterial3D_ylhtx")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Islands/Island20/Island20cBottom/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_mvnwb")
 
+[node name="Island21" type="Node3D" parent="Islands"]
+transform = Transform3D(-0.912499, 0, -0.409079, 0, 1, 0, 0.409079, 0, -0.912499, 56.7992, 0, -146.127)
+
+[node name="PalmA21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.3, 0, 2.98023e-08, 0, 0.3, 0, -2.98023e-08, 0, 0.3, 14.8286, 0.867891, -11.3486)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="PalmB21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, 19.5862, 0.807714, -12.4062)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="PalmC21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, 24.664, 5.99508, -14.2416)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="PalmD21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, 30.1108, 12.2803, -15.5079)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="PalmE21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.33, 0, -1.2666e-07, 0, 0.33, 0, 1.2666e-07, 0, 0.33, 32.3488, 8.52719, -11.4349)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmF21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, 36.3562, 13.0225, -8.44199)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmG21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, 37.588, 1.15599, 1.0901)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="PalmH21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.27, 0, -2.98023e-08, 0, 0.27, 0, 2.98023e-08, 0, 0.27, 28.8628, 3.92375, -6.19101)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="PalmI21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.0559704, -1.49993e-06, -0.325219, 5.96144e-07, 0.33, -1.41938e-06, 0.325219, -3.46769e-07, 0.0559704, 28.2816, 2.92278, -19.0758)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmJ21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, 19.4671, 3.49741, 0.937424)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmK21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, 17.9139, 3.47471, -1.41321)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="PalmL21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.27, 0, -2.98023e-08, 0, 0.27, 0, 2.98023e-08, 0, 0.27, 19.5405, 6.38341, 4.47294)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="PalmM21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.3, 0, 7.45058e-09, 0, 0.3, 0, -7.45058e-09, 0, 0.3, 16.1863, 7.45186, 3.0128)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="PalmN21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.33, 0, -1.19209e-07, 0, 0.33, 0, 1.19209e-07, 0, 0.33, 21.7115, 7.37295, 5.88994)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="PalmO21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, 11.9508, 3.8948, -0.0956879)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="PalmP21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, 5.80495, 5.91649, -4.08241)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="PalmQ21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.3, 0, 7.45058e-09, 0, 0.3, 0, -7.45058e-09, 0, 0.3, 6.25373, 2.26416, -10.6314)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="PalmR21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.33, 0, -1.04308e-07, 0, 0.33, 0, 1.04308e-07, 0, 0.33, 3.3154, 6.05412, -4.96351)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="PalmS21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, 1.1266, 8.36725, -5.96466)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="PalmT21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, -7.52954, 7.62976, -9.30094)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="PalmU21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.33, 0, -1.3411e-07, 0, 0.33, 0, 1.3411e-07, 0, 0.33, -3.32956, 10.9305, -4.70023)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmV21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, -11.8181, 8.34195, 0.807373)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmW21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, -9.22882, 4.40976, -9.24538)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="PalmX21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.27, 0, -2.98023e-08, 0, 0.27, 0, 2.98023e-08, 0, 0.27, -14.5261, 2.37157, -7.04709)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="PalmY21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.33, 0, -1.19209e-07, 0, 0.33, 0, 1.19209e-07, 0, 0.33, -8.61835, 3.27276, 6.26477)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmZ21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, -8.77993, 7.78391, 5.11777)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmAA21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 4.33553, 3.17678, 7.27367)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="PalmBB21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.33, 0, -1.04308e-07, 0, 0.33, 0, 1.04308e-07, 0, 0.33, 7.81508, 3.28241, 3.8903)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="PalmCC21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, 29.0021, 3.52826, 8.77368)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="PalmDD21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.0867339, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.0867339, 22.8615, 3.03995, 9.47049)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="PalmEE21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.33, 0, -1.3411e-07, 0, 0.33, 0, 1.3411e-07, 0, 0.33, 35.5173, -0.903879, 6.86585)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmFF21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, 33.2409, -0.463678, 15.6453)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmGG21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, 13.8729, 2.88354, 12.8772)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="PalmHH21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.27, 0, -2.98023e-08, 0, 0.27, 0, 2.98023e-08, 0, 0.27, 17.6927, 3.08889, 15.1862)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="PalmII21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(0.0559704, -1.49993e-06, -0.325219, 5.96144e-07, 0.33, -1.41938e-06, 0.325219, -3.46769e-07, 0.0559704, 20.5758, -1.87189, 25.4175)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmJJ21" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, 35.9101, -0.564135, 19.7114)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="Island21a" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(3.5, 0, 0, 0, 1, 0, 0, 0, 3, 16.2741, 0, -15.7883)
+mesh = ExtResource("2_ulpyk")
+surface_material_override/0 = SubResource("StandardMaterial3D_uy60q")
+surface_material_override/1 = SubResource("StandardMaterial3D_j0dfc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Islands/Island21/Island21a"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Islands/Island21/Island21a/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ujws3")
+
+[node name="Island21aBottom" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(3.5, 0, 0, 0, -10, 0, 0, 0, 3, 16.2741, 0, -15.7883)
+mesh = ExtResource("2_ulpyk")
+surface_material_override/0 = SubResource("StandardMaterial3D_uy60q")
+surface_material_override/1 = SubResource("StandardMaterial3D_j0dfc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Islands/Island21/Island21aBottom"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Islands/Island21/Island21aBottom/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_21he2")
+
+[node name="Island21b" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(4.00596, 0, 2.04995, 0, 1, 0, -2.04995, 0, 4.00596, 32.1484, -4.60089, -24.2484)
+mesh = ExtResource("2_ulpyk")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_68muj")
+surface_material_override/1 = SubResource("StandardMaterial3D_er1np")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Islands/Island21/Island21b"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Islands/Island21/Island21b/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_qf0ya")
+
+[node name="Island21bBottom" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(4.00596, 0, 2.04995, 0, -10, 0, -2.04995, 0, 4.00596, 32.1484, -4.60089, -24.2484)
+mesh = ExtResource("2_ulpyk")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_68muj")
+surface_material_override/1 = SubResource("StandardMaterial3D_er1np")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Islands/Island21/Island21bBottom"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Islands/Island21/Island21bBottom/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_pijuk")
+
+[node name="Island21c" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(-0.731103, 0, -3.95309, 0, 1, 0, 1.78261, 0, -1.62128, 37.986, 0, 7.30655)
+mesh = ExtResource("3_gj7vg")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_htvg3")
+surface_material_override/1 = SubResource("StandardMaterial3D_ggknw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Islands/Island21/Island21c"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Islands/Island21/Island21c/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_vhu88")
+
+[node name="Island21cBottom" type="MeshInstance3D" parent="Islands/Island21"]
+transform = Transform3D(-0.731212, 0, -3.95342, 0, -10, 0, 1.78288, 0, -1.62141, 37.986, 0, 7.30655)
+mesh = ExtResource("3_gj7vg")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_htvg3")
+surface_material_override/1 = SubResource("StandardMaterial3D_ggknw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Islands/Island21/Island21cBottom"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Islands/Island21/Island21cBottom/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_vhu88")
+
+[node name="Island22" type="Node3D" parent="Islands"]
+transform = Transform3D(-0.686326, 0, -0.727293, 0, 1, 0, 0.727293, 0, -0.686326, -124.766, 0, 126.473)
+
+[node name="PalmA22" type="MeshInstance3D" parent="Islands/Island22"]
+transform = Transform3D(-0.265145, 0, 0.050973, 0, 0.27, 0, -0.050973, 0, -0.265145, -96.4964, 8.50898, -104.907)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmB22" type="MeshInstance3D" parent="Islands/Island22"]
+transform = Transform3D(-0.265145, 0, 0.050973, 0, 0.27, 0, -0.050973, 0, -0.265145, -89.5076, 12.4478, -110.765)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmC22" type="MeshInstance3D" parent="Islands/Island22"]
+transform = Transform3D(0.0708729, 0, -0.260532, 0, 0.27, 0, 0.260532, 0, 0.0708729, -76.3574, 5.34718, -112.582)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="PalmD22" type="MeshInstance3D" parent="Islands/Island22"]
+transform = Transform3D(0.0866224, 0, -0.318428, 0, 0.33, 0, 0.318428, 0, 0.0866224, -71.3276, 5.12842, -109.859)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmE22" type="MeshInstance3D" parent="Islands/Island22"]
+transform = Transform3D(-0.265145, 0, 0.050973, 0, 0.27, 0, -0.050973, 0, -0.265145, -83.1506, 15.619, -105.938)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmF22" type="MeshInstance3D" parent="Islands/Island22"]
+transform = Transform3D(-0.119539, 0, -0.275156, 0, 0.3, 0, 0.275156, 0, -0.119539, -85.8907, 13.0158, -106.187)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="Island22" type="MeshInstance3D" parent="Islands/Island22"]
+transform = Transform3D(-55.0582, 0, 23.8452, 0, 40, 0, -23.8452, 0, -55.0582, -75.5645, -15.0913, -111.659)
+mesh = ExtResource("7_3qs8o")
+skeleton = NodePath("../../../Land")
+surface_material_override/0 = SubResource("StandardMaterial3D_fj1qr")
+surface_material_override/1 = SubResource("StandardMaterial3D_da6h0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Islands/Island22/Island22"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Islands/Island22/Island22/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_xx2v8")
+
+[node name="Island22a" type="MeshInstance3D" parent="Islands/Island22"]
+transform = Transform3D(49.9267, 0, -2.70661, 0, 30, 0, 2.70661, 0, 49.9267, -88.427, -10.09, -109.067)
+mesh = ExtResource("6_4p1id")
+skeleton = NodePath("../../../Land")
+surface_material_override/0 = SubResource("StandardMaterial3D_7joim")
+surface_material_override/2 = SubResource("StandardMaterial3D_sbunl")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Islands/Island22/Island22a"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Islands/Island22/Island22a/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_xunyy")
+
+[node name="Island22aBottom" type="MeshInstance3D" parent="Islands/Island22"]
+transform = Transform3D(49.9267, 0, -2.70661, 0, -150, 0, 2.70661, 0, 49.9267, -88.427, -10.09, -109.067)
+mesh = ExtResource("6_4p1id")
+skeleton = NodePath("../../../Land")
+surface_material_override/0 = SubResource("StandardMaterial3D_7joim")
+surface_material_override/2 = SubResource("StandardMaterial3D_sbunl")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Islands/Island22/Island22aBottom"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Islands/Island22/Island22aBottom/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_fogp7")
+
+[node name="Island22b" type="MeshInstance3D" parent="Islands/Island22"]
+transform = Transform3D(-25.5954, 1.00989e-06, 42.952, -6.69271e-07, 30, -2.35816e-06, -42.952, -1.06926e-06, -25.5954, -87.0138, -10.09, -108.898)
+mesh = ExtResource("6_4p1id")
+skeleton = NodePath("../../../Land")
+surface_material_override/0 = SubResource("StandardMaterial3D_7joim")
+surface_material_override/2 = SubResource("StandardMaterial3D_sbunl")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Islands/Island22/Island22b"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Islands/Island22/Island22b/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_3t8cb")
+
+[node name="Island22bBotton" type="MeshInstance3D" parent="Islands/Island22"]
+transform = Transform3D(-25.5954, -5.04945e-06, 42.952, -6.69271e-07, -150, -2.35816e-06, -42.952, 5.34628e-06, -25.5954, -87.0138, -10.09, -108.898)
+mesh = ExtResource("6_4p1id")
+skeleton = NodePath("../../../Land")
+surface_material_override/0 = SubResource("StandardMaterial3D_7joim")
+surface_material_override/2 = SubResource("StandardMaterial3D_sbunl")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Islands/Island22/Island22bBotton"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Islands/Island22/Island22bBotton/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_0013k")
+
+[node name="Island23" type="Node3D" parent="Islands"]
+transform = Transform3D(0.795791, 0, -0.605572, 0, 1, 0, 0.605572, 0, 0.795791, 19.1686, 0, 224.197)
+
+[node name="PalmA19" type="MeshInstance3D" parent="Islands/Island23"]
+transform = Transform3D(-0.265145, 0, 0.050973, 0, 0.27, 0, -0.050973, 0, -0.265145, 112.328, 2.63809, -137.321)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmB19" type="MeshInstance3D" parent="Islands/Island23"]
+transform = Transform3D(-0.265145, 0, 0.050973, 0, 0.27, 0, -0.050973, 0, -0.265145, 104.738, 4.59038, -132.137)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmC19" type="MeshInstance3D" parent="Islands/Island23"]
+transform = Transform3D(0.0708729, 0, -0.260532, 0, 0.27, 0, 0.260532, 0, 0.0708729, 113.232, 10.1392, -123.01)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="PalmD19" type="MeshInstance3D" parent="Islands/Island23"]
+transform = Transform3D(0.0866224, 0, -0.318428, 0, 0.33, 0, 0.318428, 0, 0.0866224, 123.627, 2.82693, -125.772)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmE19" type="MeshInstance3D" parent="Islands/Island23"]
+transform = Transform3D(-0.265145, 0, 0.050973, 0, 0.27, 0, -0.050973, 0, -0.265145, 120.241, 2.53504, -133.074)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmF19" type="MeshInstance3D" parent="Islands/Island23"]
+transform = Transform3D(-0.119539, 0, -0.275156, 0, 0.3, 0, 0.275156, 0, -0.119539, 115.345, 10.1947, -117.241)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="Island19" type="MeshInstance3D" parent="Islands/Island23"]
+transform = Transform3D(-79.9883, 0, -1.02411, 0, 15, 0, 1.36547, 0, -59.9913, 115.087, 0, -127.424)
+mesh = ExtResource("10_77noc")
+surface_material_override/0 = SubResource("StandardMaterial3D_fpyvm")
+surface_material_override/1 = SubResource("StandardMaterial3D_sj07q")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Islands/Island23/Island19"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Islands/Island23/Island19/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_k6a10")
+
+[node name="Island19Bottom" type="MeshInstance3D" parent="Islands/Island23"]
+transform = Transform3D(79.9883, 0, -1.02411, 0, -200, 0, -1.36548, 0, -59.9913, 115.087, 0, -127.424)
+mesh = ExtResource("10_77noc")
+surface_material_override/0 = SubResource("StandardMaterial3D_fpyvm")
+surface_material_override/1 = SubResource("StandardMaterial3D_sj07q")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Islands/Island23/Island19Bottom"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Islands/Island23/Island19Bottom/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_sbj3d")
+
 [node name="Rocks" type="Node3D" parent="."]
 
 [node name="Rock1" type="MeshInstance3D" parent="Rocks"]

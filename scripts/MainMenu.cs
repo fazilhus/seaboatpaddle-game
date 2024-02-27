@@ -8,7 +8,7 @@ public partial class MainMenu : MarginContainer
 	public override void _Ready()
 	{
 		GetNode<Button>("HorizontalContainer/MenuContainer/Start").GrabFocus();
-    }
+	}
 	public void onStartButtonPressed()
 	{
 

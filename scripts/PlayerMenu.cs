@@ -54,11 +54,11 @@ public partial class PlayerMenu : MarginContainer
 			playerIds[playerAmount] = playerId;
 			//GD.Print(playerIds[playerAmount]);
 			GetNode("VerticalContainer/HorizontalContainer").GetChild(playerAmount).Set("visible", true);
-            if(playerAmount==1)
+			if(playerAmount==1)
 			{
 				GetNode<OptionButton>("VerticalContainer/HorizontalContainer/Player1/Colors").GrabFocus();
 			}
-            playerAmount++;
+			playerAmount++;
 			
 
 			//GD.Print(playerId);
@@ -76,53 +76,53 @@ public partial class PlayerMenu : MarginContainer
 		}
 		
 	}
-    public void OnColor1Select(int index)
-    {
+	public void OnColor1Select(int index)
+	{
 		GD.Print(index);
 	
-        if (index == 0)
-        {
-            playerColors[0] = red;
-            colorPickers[1].SetItemDisabled(1, false);
-            colorPickers[1].SetItemDisabled(2, false);
-        }
-        else if (index == 1)
-        {
-            playerColors[0] = green;
-            colorPickers[1].SetItemDisabled(0, false);
-            colorPickers[1].SetItemDisabled(2, false);
-        }
-        else if (index == 2)
-        {
-            playerColors[0] = blue;
-            colorPickers[1].SetItemDisabled(0, false);
-            colorPickers[1].SetItemDisabled(1, false);
-        }
-        colorPickers[1].SetItemDisabled(index, true);
-        GD.Print(playerColors[0]);
-    }
-    public void OnColor2Select(int index)
-	{
-        if (index == 0)
-        {
-            playerColors[1] = red;
-            colorPickers[0].SetItemDisabled(1, false);
-            colorPickers[0].SetItemDisabled(2, false);
-			
-        }
+		if (index == 0)
+		{
+			playerColors[0] = red;
+			colorPickers[1].SetItemDisabled(1, false);
+			colorPickers[1].SetItemDisabled(2, false);
+		}
 		else if (index == 1)
 		{
-            colorPickers[0].SetItemDisabled(0, false);
-            colorPickers[0].SetItemDisabled(2, false);
-            playerColors[1] = green;
-        }
+			playerColors[0] = green;
+			colorPickers[1].SetItemDisabled(0, false);
+			colorPickers[1].SetItemDisabled(2, false);
+		}
+		else if (index == 2)
+		{
+			playerColors[0] = blue;
+			colorPickers[1].SetItemDisabled(0, false);
+			colorPickers[1].SetItemDisabled(1, false);
+		}
+		colorPickers[1].SetItemDisabled(index, true);
+		GD.Print(playerColors[0]);
+	}
+	public void OnColor2Select(int index)
+	{
+		if (index == 0)
+		{
+			playerColors[1] = red;
+			colorPickers[0].SetItemDisabled(1, false);
+			colorPickers[0].SetItemDisabled(2, false);
+			
+		}
+		else if (index == 1)
+		{
+			colorPickers[0].SetItemDisabled(0, false);
+			colorPickers[0].SetItemDisabled(2, false);
+			playerColors[1] = green;
+		}
 		else if(index == 2)
 		{
-            colorPickers[0].SetItemDisabled(0, false);
-            colorPickers[0].SetItemDisabled(1, false);
-            playerColors[1] = blue;
-        }
-        colorPickers[0].SetItemDisabled(index, true);
+			colorPickers[0].SetItemDisabled(0, false);
+			colorPickers[0].SetItemDisabled(1, false);
+			playerColors[1] = blue;
+		}
+		colorPickers[0].SetItemDisabled(index, true);
 		GD.Print(playerColors[1]);
 	}
 	public override void _UnhandledInput(InputEvent @event)

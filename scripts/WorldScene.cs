@@ -27,10 +27,10 @@ public partial class WorldScene : Node3D
 	{
 		GetTree().Paused = false;
 		GetParent<LevelManager>().loadMainMenu();
-    }
+	}
 	public void RetryButtonPressed()
 	{
 		GetTree().Paused = false;
 		GetParent<LevelManager>().loadLevel(level);
-    }
+	}
 }

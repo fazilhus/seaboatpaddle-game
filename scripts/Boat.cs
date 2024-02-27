@@ -47,7 +47,6 @@ public partial class Boat : RigidBody3D
 
 	public Godot.Collections.Array<Node> probeContainer;
 	
-	[Export] Survivors survivors;
 	[Export] private bool isVortexCollided;
 	[Export] private bool isStreamCollided;
 	[Export] private float maxDistance = 20.0f; // Example maximum distance from the center
@@ -116,9 +115,6 @@ public partial class Boat : RigidBody3D
 		paddle2.SetSurfaceOverrideMaterial(0, paddleMaterial[1]);
 		paddle1.GetSurfaceOverrideMaterial(0).Set("albedo_color", PlayerManager.instance.playerColors[0]);
 		paddle2.GetSurfaceOverrideMaterial(0).Set("albedo_color", PlayerManager.instance.playerColors[1]);
-	
-
-
 	}
  
 	public override void _Process(double delta)
@@ -251,7 +247,6 @@ public partial class Boat : RigidBody3D
 				isSubmerged = false;
 			}
 		}
-		
 	}
 	
 	public override void _IntegrateForces(PhysicsDirectBodyState3D state) // changing the simulation state of the object
@@ -303,11 +298,6 @@ public partial class Boat : RigidBody3D
 		if (area.IsInGroup("Goods"))
 		{
 			GD.Print("boat is colliding with goods!");
-		}
-		
-		if (area.IsInGroup("Survivors"))
-		{
-			GD.Print("boat is colliding with survivors!");
 		}
 		
 		if (area.IsInGroup("SeaMine")) 
@@ -377,7 +367,6 @@ public partial class Boat : RigidBody3D
 	
 	public override void _UnhandledInput(InputEvent @event)
 	{
-	   
 		if(@event.IsActionPressed("ui_cancel")) //Press B
 		{
 			if(RepairKit)
@@ -397,7 +386,8 @@ public partial class Boat : RigidBody3D
 		}
 	}
 
-	public void AttackedByShark(Vector3 attack_dir) {
+	public void AttackedByShark(Vector3 attack_dir)
+	{
 		healthComp.SubtractHealth(35);
 		ApplyCentralImpulse(50 * attack_dir);
 	}

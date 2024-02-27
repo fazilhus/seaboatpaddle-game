@@ -14,6 +14,9 @@ public partial class Goods : RigidBody3D
 	[Export] public WaterPlane water;
 	public double time = 0;
 
+	[Export]
+	public bool isActive = true;
+
 	public Godot.Collections.Array<Node> probeContainer;
 	
 	// Called when the node enters the scene tree for the first time.
@@ -25,6 +28,11 @@ public partial class Goods : RigidBody3D
 		probeContainer = GetNode<Node3D>("ProbeContainer").GetChildren();
 
 		initialY = GlobalPosition.Y;
+
+		if (!isActive) {
+			ProcessMode = ProcessModeEnum.Disabled;
+			GetNode<Area3D>("Area3DTrigger").ProcessMode = ProcessModeEnum.Disabled;
+		}
 	}
 	
 	public override void _PhysicsProcess(double delta)
@@ -53,7 +61,7 @@ public partial class Goods : RigidBody3D
 	
 	private void OnArea3dTriggerAreaEntered(Area3D area)
 	{
-		if (area.IsInGroup("ThePlayers"))
+		if (area.IsInGroup("ThePlayersGoods"))
 		{
 			GD.Print("ThePlayers are colliding with goods");
 			QueueFree();

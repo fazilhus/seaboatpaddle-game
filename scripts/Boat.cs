@@ -46,7 +46,6 @@ public partial class Boat : RigidBody3D
 
 	public Godot.Collections.Array<Node> probeContainer;
 	
-	[Export] Survivors survivors;
 	[Export] private bool isVortexCollided;
 	[Export] private bool isStreamCollided;
 	[Export] private float maxDistance = 20.0f; // Example maximum distance from the center
@@ -257,7 +256,6 @@ public partial class Boat : RigidBody3D
 				isSubmerged = false;
 			}
 		}
-		
 	}
 	
 	public override void _IntegrateForces(PhysicsDirectBodyState3D state) // changing the simulation state of the object
@@ -435,7 +433,6 @@ public partial class Boat : RigidBody3D
 	
 	public override void _UnhandledInput(InputEvent @event)
 	{
-	   
 		if(@event.IsActionPressed("ui_cancel")) //Press B
 		{
 			if(RepairKit)
@@ -455,7 +452,8 @@ public partial class Boat : RigidBody3D
 		}
 	}
 
-	public void AttackedByShark(Vector3 attack_dir) {
+	public void AttackedByShark(Vector3 attack_dir)
+	{
 		healthComp.SubtractHealth(35);
 		LooseStackedGoods();
 		ApplyCentralImpulse(50 * attack_dir);

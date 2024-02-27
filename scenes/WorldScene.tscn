@@ -1,6 +1,5 @@
 [gd_scene load_steps=21 format=3 uid="uid://bqgpgxpoqkw6w"]
 
-[ext_resource type="PackedScene" uid="uid://donyuxtadnlyj" path="res://scenes/survivors.tscn" id="1_pprra"]
 [ext_resource type="Script" path="res://scripts/WorldScene.cs" id="1_qx545"]
 [ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
 [ext_resource type="PackedScene" uid="uid://bro3rrf66ro1h" path="res://scenes/boat.tscn" id="2_w1wc2"]
@@ -12,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://hl4r2ylauhog" path="res://scenes/Modifiers.tscn" id="9_e5cou"]
 [ext_resource type="PackedScene" uid="uid://5scllsnkmpth" path="res://scenes/streams.tscn" id="11_8xjfh"]
 [ext_resource type="PackedScene" uid="uid://b55sx0mje1j5w" path="res://scenes/shark.tscn" id="12_2bx8v"]
+[ext_resource type="PackedScene" uid="uid://ducw5sm3i87kh" path="res://scenes/Goods.tscn" id="13_yi77v"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kspm4"]
 font_size = 30
@@ -177,50 +177,6 @@ forward_force_ratio = 50.0
 water = NodePath("../WaterPlane")
 survivors = NodePath("../Survivors")
 
-[node name="Survivors" parent="." node_paths=PackedStringArray("water") instance=ExtResource("1_pprra")]
-process_mode = 1
-water = NodePath("../WaterPlane")
-
-[node name="Survivor" parent="Survivors" node_paths=PackedStringArray("water") instance=ExtResource("1_pprra")]
-transform = Transform3D(-0.994794, 0, 0.101907, 0, 1, 0, -0.101907, 0, -0.994794, -10.4886, 1.41551, 39.0129)
-water = NodePath("../../WaterPlane")
-
-[node name="Survivor2" parent="Survivors" node_paths=PackedStringArray("water") instance=ExtResource("1_pprra")]
-transform = Transform3D(-0.994794, 0, 0.101907, 0, 1, 0, -0.101907, 0, -0.994794, 26.3782, 1.41551, 39.0129)
-water = NodePath("../../WaterPlane")
-
-[node name="Survivor3" parent="Survivors" node_paths=PackedStringArray("water") instance=ExtResource("1_pprra")]
-transform = Transform3D(-0.994794, 0, 0.101907, 0, 1, 0, -0.101907, 0, -0.994794, 34.2903, 1.41551, 18.0561)
-water = NodePath("../../WaterPlane")
-
-[node name="Survivor4" parent="Survivors" node_paths=PackedStringArray("water") instance=ExtResource("1_pprra")]
-transform = Transform3D(-0.994794, 0, 0.101907, 0, 1, 0, -0.101907, 0, -0.994794, 34.2903, 1.41551, -5.15347)
-water = NodePath("../../WaterPlane")
-
-[node name="Survivor5" parent="Survivors" node_paths=PackedStringArray("water") instance=ExtResource("1_pprra")]
-transform = Transform3D(-0.994794, 0, 0.101907, 0, 1, 0, -0.101907, 0, -0.994794, 16.3503, 1.41551, -6.77188)
-water = NodePath("../../WaterPlane")
-
-[node name="Survivor6" parent="Survivors" node_paths=PackedStringArray("water") instance=ExtResource("1_pprra")]
-transform = Transform3D(-0.994794, 0, 0.101907, 0, 1, 0, -0.101907, 0, -0.994794, -6.70929, 1.41551, 15.9002)
-water = NodePath("../../WaterPlane")
-
-[node name="Survivor7" parent="Survivors" node_paths=PackedStringArray("water") instance=ExtResource("1_pprra")]
-transform = Transform3D(-0.994794, 0, 0.101907, 0, 1, 0, -0.101907, 0, -0.994794, -35.4666, 1.41551, 15.9002)
-water = NodePath("../../WaterPlane")
-
-[node name="Survivor8" parent="Survivors" node_paths=PackedStringArray("water") instance=ExtResource("1_pprra")]
-transform = Transform3D(-0.994794, 0, 0.101907, 0, 1, 0, -0.101907, 0, -0.994794, -42.079, 1.41551, -32.0788)
-water = NodePath("../../WaterPlane")
-
-[node name="Survivor9" parent="Survivors" node_paths=PackedStringArray("water") instance=ExtResource("1_pprra")]
-transform = Transform3D(-0.994794, 0, 0.101907, 0, 1, 0, -0.101907, 0, -0.994794, 3.18325, 1.41551, -42.6154)
-water = NodePath("../../WaterPlane")
-
-[node name="Survivor10" parent="Survivors" node_paths=PackedStringArray("water") instance=ExtResource("1_pprra")]
-transform = Transform3D(-0.994794, 0, 0.101907, 0, 1, 0, -0.101907, 0, -0.994794, 37.4021, 1.41551, -42.6154)
-water = NodePath("../../WaterPlane")
-
 [node name="Map" parent="." instance=ExtResource("8_lgk5l")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
@@ -259,15 +215,59 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.3468, 0, 23.1206)
 water = NodePath("../../WaterPlane")
 
 [node name="SeaMine2" parent="Mines" node_paths=PackedStringArray("water") instance=ExtResource("7_sombh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.3914, 0, 15.6079)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.6878, 0, 18.687)
 water = NodePath("../../WaterPlane")
 
 [node name="SeaMine3" parent="Mines" node_paths=PackedStringArray("water") instance=ExtResource("7_sombh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.7218, 0, -87.1115)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.6286, 0, -78.0542)
 water = NodePath("../../WaterPlane")
 
 [node name="SeaMine4" parent="Mines" node_paths=PackedStringArray("water") instance=ExtResource("7_sombh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.568, 0, -71.8021)
+water = NodePath("../../WaterPlane")
+
+[node name="SeaMine5" parent="Mines" node_paths=PackedStringArray("water") instance=ExtResource("7_sombh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.3428, 0, 61.4356)
+water = NodePath("../../WaterPlane")
+
+[node name="SeaMine6" parent="Mines" node_paths=PackedStringArray("water") instance=ExtResource("7_sombh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7582, 0, 62.1507)
+water = NodePath("../../WaterPlane")
+
+[node name="SeaMine7" parent="Mines" node_paths=PackedStringArray("water") instance=ExtResource("7_sombh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.2472, 0, 14.1231)
+water = NodePath("../../WaterPlane")
+
+[node name="SeaMine8" parent="Mines" node_paths=PackedStringArray("water") instance=ExtResource("7_sombh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.50375, 0, -52.019)
+water = NodePath("../../WaterPlane")
+
+[node name="SeaMine9" parent="Mines" node_paths=PackedStringArray("water") instance=ExtResource("7_sombh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.5926, 0, -5.18324)
+water = NodePath("../../WaterPlane")
+
+[node name="SeaMine10" parent="Mines" node_paths=PackedStringArray("water") instance=ExtResource("7_sombh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0292358, 0, 82.3774)
+water = NodePath("../../WaterPlane")
+
+[node name="SeaMine11" parent="Mines" node_paths=PackedStringArray("water") instance=ExtResource("7_sombh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.4378, 0, 26.795)
+water = NodePath("../../WaterPlane")
+
+[node name="SeaMine12" parent="Mines" node_paths=PackedStringArray("water") instance=ExtResource("7_sombh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.5183, 0, -57.0896)
+water = NodePath("../../WaterPlane")
+
+[node name="SeaMine13" parent="Mines" node_paths=PackedStringArray("water") instance=ExtResource("7_sombh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.0271, 0, -92.7482)
+water = NodePath("../../WaterPlane")
+
+[node name="SeaMine14" parent="Mines" node_paths=PackedStringArray("water") instance=ExtResource("7_sombh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5229, 0, -23.5766)
+water = NodePath("../../WaterPlane")
+
+[node name="SeaMine15" parent="Mines" node_paths=PackedStringArray("water") instance=ExtResource("7_sombh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.1986, 0, 42.3254)
 water = NodePath("../../WaterPlane")
 
 [node name="Modifiers" type="Node3D" parent="."]
@@ -275,7 +275,7 @@ process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.15837, 1.45815, 15.1394)
 
 [node name="Modifier" parent="Modifiers" node_paths=PackedStringArray("boat", "water") instance=ExtResource("9_e5cou")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.81798, 0, -8.83664)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.668596, 0, -2.8136)
 mass = 2.0
 gravity_scale = 0.3
 boat = NodePath("../../Boat")
@@ -283,7 +283,7 @@ floatForce = 0.6
 water = NodePath("../../WaterPlane")
 
 [node name="Modifier2" parent="Modifiers" node_paths=PackedStringArray("boat", "water") instance=ExtResource("9_e5cou")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.5153, -0.301123, -35.2909)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3335, -0.301123, -56.0274)
 mass = 2.0
 gravity_scale = 0.3
 boat = NodePath("../../Boat")
@@ -291,7 +291,7 @@ floatForce = 0.6
 water = NodePath("../../WaterPlane")
 
 [node name="Modifier3" parent="Modifiers" node_paths=PackedStringArray("boat", "water") instance=ExtResource("9_e5cou")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.6313, -0.301123, -57.4251)
+transform = Transform3D(0.953596, 0, -0.301089, 0, 1, 0, 0.301089, 0, 0.953596, 52.5076, -0.301123, -58.2593)
 mass = 2.0
 gravity_scale = 0.3
 boat = NodePath("../../Boat")
@@ -299,7 +299,7 @@ floatForce = 0.6
 water = NodePath("../../WaterPlane")
 
 [node name="Modifier4" parent="Modifiers" node_paths=PackedStringArray("boat", "water") instance=ExtResource("9_e5cou")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.9279, -0.301123, 15.7403)
+transform = Transform3D(0.97309, 0, 0.230423, 0, 1, 0, -0.230423, 0, 0.97309, 51.9681, -0.301123, 17.9933)
 mass = 2.0
 gravity_scale = 0.3
 boat = NodePath("../../Boat")
@@ -307,7 +307,7 @@ floatForce = 0.6
 water = NodePath("../../WaterPlane")
 
 [node name="Modifier5" parent="Modifiers" node_paths=PackedStringArray("boat", "water") instance=ExtResource("9_e5cou")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.8708, -0.301123, 15.5795)
+transform = Transform3D(0.958735, 0, -0.2843, 0, 1, 0, 0.2843, 0, 0.958735, -78.7293, -0.301123, 2.00955)
 mass = 2.0
 gravity_scale = 0.3
 boat = NodePath("../../Boat")
@@ -315,7 +315,87 @@ floatForce = 0.6
 water = NodePath("../../WaterPlane")
 
 [node name="Modifier6" parent="Modifiers" node_paths=PackedStringArray("boat", "water") instance=ExtResource("9_e5cou")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.4286, -0.301123, -10.6314)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.4859, -0.301123, -2.64667)
+mass = 2.0
+gravity_scale = 0.3
+boat = NodePath("../../Boat")
+floatForce = 0.6
+water = NodePath("../../WaterPlane")
+
+[node name="Modifier7" parent="Modifiers" node_paths=PackedStringArray("boat", "water") instance=ExtResource("9_e5cou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.9626, -0.301123, -88.0952)
+mass = 2.0
+gravity_scale = 0.3
+boat = NodePath("../../Boat")
+floatForce = 0.6
+water = NodePath("../../WaterPlane")
+
+[node name="Modifier16" parent="Modifiers" node_paths=PackedStringArray("boat", "water") instance=ExtResource("9_e5cou")]
+transform = Transform3D(0.788172, 0, 0.615455, 0, 1, 0, -0.615455, 0, 0.788172, 28.3213, -0.301123, -105.771)
+mass = 2.0
+gravity_scale = 0.3
+boat = NodePath("../../Boat")
+floatForce = 0.6
+water = NodePath("../../WaterPlane")
+
+[node name="Modifier8" parent="Modifiers" node_paths=PackedStringArray("boat", "water") instance=ExtResource("9_e5cou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.1644, -0.301123, -45.4477)
+mass = 2.0
+gravity_scale = 0.3
+boat = NodePath("../../Boat")
+floatForce = 0.6
+water = NodePath("../../WaterPlane")
+
+[node name="Modifier9" parent="Modifiers" node_paths=PackedStringArray("boat", "water") instance=ExtResource("9_e5cou")]
+transform = Transform3D(0.976042, 0, -0.217581, 0, 1, 0, 0.217581, 0, 0.976042, 63.445, -0.301123, 69.3689)
+mass = 2.0
+gravity_scale = 0.3
+boat = NodePath("../../Boat")
+floatForce = 0.6
+water = NodePath("../../WaterPlane")
+
+[node name="Modifier10" parent="Modifiers" node_paths=PackedStringArray("boat", "water") instance=ExtResource("9_e5cou")]
+transform = Transform3D(0.975342, 0, 0.220697, 0, 1, 0, -0.220697, 0, 0.975342, -37.9725, -0.301123, 57.8943)
+mass = 2.0
+gravity_scale = 0.3
+boat = NodePath("../../Boat")
+floatForce = 0.6
+water = NodePath("../../WaterPlane")
+
+[node name="Modifier11" parent="Modifiers" node_paths=PackedStringArray("boat", "water") instance=ExtResource("9_e5cou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.1652, -0.301123, 27.9066)
+mass = 2.0
+gravity_scale = 0.3
+boat = NodePath("../../Boat")
+floatForce = 0.6
+water = NodePath("../../WaterPlane")
+
+[node name="Modifier12" parent="Modifiers" node_paths=PackedStringArray("boat", "water") instance=ExtResource("9_e5cou")]
+transform = Transform3D(0.67075, 0, -0.741683, 0, 1, 0, 0.741683, 0, 0.67075, -76.9145, 0, -76.1064)
+mass = 2.0
+gravity_scale = 0.3
+boat = NodePath("../../Boat")
+floatForce = 0.6
+water = NodePath("../../WaterPlane")
+
+[node name="Modifier13" parent="Modifiers" node_paths=PackedStringArray("boat", "water") instance=ExtResource("9_e5cou")]
+transform = Transform3D(0.979631, 0, -0.200804, 0, 1, 0, 0.200804, 0, 0.979631, -29.2444, 0, -89.6923)
+mass = 2.0
+gravity_scale = 0.3
+boat = NodePath("../../Boat")
+floatForce = 0.6
+water = NodePath("../../WaterPlane")
+
+[node name="Modifier14" parent="Modifiers" node_paths=PackedStringArray("boat", "water") instance=ExtResource("9_e5cou")]
+transform = Transform3D(0.829486, 0, -0.558527, 0, 1, 0, 0.558527, 0, 0.829486, -12.0252, 0, 32.0723)
+mass = 2.0
+gravity_scale = 0.3
+boat = NodePath("../../Boat")
+floatForce = 0.6
+water = NodePath("../../WaterPlane")
+
+[node name="Modifier15" parent="Modifiers" node_paths=PackedStringArray("boat", "water") instance=ExtResource("9_e5cou")]
+transform = Transform3D(0.933249, 0, 0.359231, 0, 1, 0, -0.359231, 0, 0.933249, 30.9303, 0, -24.4475)
 mass = 2.0
 gravity_scale = 0.3
 boat = NodePath("../../Boat")
@@ -326,7 +406,10 @@ water = NodePath("../../WaterPlane")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.1356, 51.0116)
 
 [node name="Streams2" parent="." instance=ExtResource("11_8xjfh")]
-transform = Transform3D(0.0637311, 0, -0.997967, 0, 1, 0, 0.997967, 0, 0.0637311, 5.5085, 0, -74.1501)
+transform = Transform3D(0.277482, 0, -0.960731, 0, 1, 0, 0.960731, 0, 0.277482, -82.528, 0, -64.4442)
+
+[node name="Streams3" parent="." instance=ExtResource("11_8xjfh")]
+transform = Transform3D(0.193872, 0, -1.7437, 0, 1, 0, 0.730935, 0, 0.462495, -21.3008, 0, -83.5521)
 
 [node name="Shark1" parent="." node_paths=PackedStringArray("boat", "path") instance=ExtResource("12_2bx8v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.353, 0, -21.1917)
@@ -355,6 +438,76 @@ transform = Transform3D(-1.92981e-08, -0.44149, 0.897266, 1, -4.37114e-08, 0, 3.
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Path1/Area3D"]
 shape = SubResource("BoxShape3D_r8rc0")
+
+[node name="Shark2" parent="." node_paths=PackedStringArray("boat", "path") instance=ExtResource("12_2bx8v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.2057, 0, 47.9299)
+velocity = 5.0
+boat = NodePath("../Boat")
+path = NodePath("../Path2")
+velocity = 5.0
+
+[node name="Path2" type="Node3D" parent="."]
+transform = Transform3D(0.422682, 0, -0.906278, 0, 1, 0, 0.906278, 0, 0.422682, 117.18, 1.40901, 67.7807)
+
+[node name="Marker3D" type="Marker3D" parent="Path2"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -44.0723, 0, 30.784)
+
+[node name="Marker3D2" type="Marker3D" parent="Path2"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -30.8132, 0, 36.6496)
+
+[node name="Marker3D3" type="Marker3D" parent="Path2"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -24.4144, 0.404377, 22.609)
+
+[node name="Marker3D4" type="Marker3D" parent="Path2"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -38.3326, 0, 17.1713)
+
+[node name="Area3D" type="Area3D" parent="Path2"]
+transform = Transform3D(-1.92981e-08, -0.44149, 0.897266, 1, -4.37114e-08, 0, 3.92207e-08, 0.897266, 0.44149, -34.4214, 0, 27.6429)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path2/Area3D"]
+shape = SubResource("BoxShape3D_r8rc0")
+
+[node name="Goods" type="Node3D" parent="."]
+
+[node name="Goods" parent="Goods" node_paths=PackedStringArray("water") instance=ExtResource("13_yi77v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.7348, 0.159419, 87.4501)
+water = NodePath("../../WaterPlane")
+
+[node name="Goods2" parent="Goods" node_paths=PackedStringArray("water") instance=ExtResource("13_yi77v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.2068, 0.159419, -32.5315)
+water = NodePath("../../WaterPlane")
+
+[node name="Goods3" parent="Goods" node_paths=PackedStringArray("water") instance=ExtResource("13_yi77v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.586, 0.159419, -35.7756)
+water = NodePath("../../WaterPlane")
+
+[node name="Goods4" parent="Goods" node_paths=PackedStringArray("water") instance=ExtResource("13_yi77v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.6335, 0.159419, 25.4587)
+water = NodePath("../../WaterPlane")
+
+[node name="Goods5" parent="Goods" node_paths=PackedStringArray("water") instance=ExtResource("13_yi77v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.3896, 0.159419, 57.4204)
+water = NodePath("../../WaterPlane")
+
+[node name="Goods6" parent="Goods" node_paths=PackedStringArray("water") instance=ExtResource("13_yi77v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.7455, 0.159419, 69.1473)
+water = NodePath("../../WaterPlane")
+
+[node name="Goods7" parent="Goods" node_paths=PackedStringArray("water") instance=ExtResource("13_yi77v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85.8456, 0.159419, -73.6732)
+water = NodePath("../../WaterPlane")
+
+[node name="Goods8" parent="Goods" node_paths=PackedStringArray("water") instance=ExtResource("13_yi77v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.29154, 0.159419, -89.6534)
+water = NodePath("../../WaterPlane")
+
+[node name="Goods9" parent="Goods" node_paths=PackedStringArray("water") instance=ExtResource("13_yi77v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.6806, 0.159419, -88.6491)
+water = NodePath("../../WaterPlane")
+
+[node name="Goods10" parent="Goods" node_paths=PackedStringArray("water") instance=ExtResource("13_yi77v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.3155, 0.159419, -16.3435)
+water = NodePath("../../WaterPlane")
 
 [connection signal="CountdownTimerTimeout" from="GameCamera" to="." method="OnCountdownTimerTimeout"]
 [connection signal="pressed" from="GameCamera/CanvasLayer/GameOverScreen/RestartButton" to="." method="RetryButtonPressed"]

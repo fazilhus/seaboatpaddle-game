@@ -27,8 +27,12 @@ public partial class GameCamera : Node3D
 	public static Label LabelPlayers;
 	public static Label LabelTime;
 	public static Label LabelModifiers;
-	
-	public static void ActivateDrunkenCaptain()
+	public static Panel RepairKitModifierPanel;
+    public static Panel SpeedBoostModifierPanel;
+	public static Label SpeedBoostModifierLabel;
+    public static Label RepaitKitModifierLabel;
+
+    public static void ActivateDrunkenCaptain()
 	{
 		DrunkenCaptain = true;
 	}
@@ -45,12 +49,18 @@ public partial class GameCamera : Node3D
 		LabelPlayers = GetNodeOrNull<Label>("CanvasLayer/LabelPlayers");
 		LabelTime = GetNodeOrNull<Label>("CanvasLayer/LabelTime");
 		LabelModifiers = GetNodeOrNull<Label>("CanvasLayer/LabelModifiers");
-		
+        SpeedBoostModifierPanel = GetNodeOrNull<Panel>("CanvasLayer/SpeedBoostModifier");
+        RepairKitModifierPanel = GetNodeOrNull<Panel>("CanvasLayer/RepairKitModifier");
+        SpeedBoostModifierLabel = GetNodeOrNull<Label>("CanvasLayer/SpeedBoostModifier/LabelAmount");
+        RepaitKitModifierLabel = GetNodeOrNull<Label>("CanvasLayer/RepairKitModifier/LabelAmount");
+		RepaitKitModifierLabel.Text = "0";
+        SpeedBoostModifierLabel.Text = "0";
 		//for(int i = 0; i < PlayerMenu.playerAmount; i++){
 		//	LabelPlayers.Text += "\nPlayer " + PlayerMenu.playerIds[i];
 		//}
-				
-	}
+		
+		remainingMinutes--;
+    }
 	
 	public override void _Process(double delta)
 	{

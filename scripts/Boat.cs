@@ -67,13 +67,18 @@ public partial class Boat : RigidBody3D
 	public bool RepairKit { get; private set; } = false;
 	public bool SpeedBoost { get; private set; } = false;
 	public bool UsingSpeedBoost = false;
+	private int amountOfRepaitKits = 0;
+    private int amountOfSpeedBoosts = 0;
 
-	public void ActivateRepairKit()
+    public void ActivateRepairKit(int repairKitAmount)
 	{
 		RepairKit = true;
+		amountOfRepaitKits = repairKitAmount;
 	}
-	public void ActivateSpeedBoost()
+	
+	public void ActivateSpeedBoost(int speedBoostAmount)
 	{
+		amountOfSpeedBoosts = speedBoostAmount;
 		SpeedBoost = true;
 	}
 
@@ -160,20 +165,20 @@ public partial class Boat : RigidBody3D
 				//}
 
 				float speedRotation = angular_velocity.Length();
-				GD.Print(speedRotation);
+				//GD.Print(speedRotation);
 				if (speedRotation <= 30.0f && _paddles_rotation_old[it.Index] == _paddles_rotation_old[0])
 				{
 					watersplashLeft.Emitting = true;
 					watersplashLeft.AmountRatio = speedRotation;
 					watersplashLeft.Rotate(Vector3.Up, Mathf.Pi * angular_velocity.Sign().Z);
-					GD.Print(speedRotation, "RotationalVelcL");
+					//GD.Print(speedRotation, "RotationalVelcL");
 				}
 				else if (speedRotation <= 30.0f && _paddles_rotation_old[it.Index] == _paddles_rotation_old[1])
 				{
                     watersplashRight.Emitting = true;
                     watersplashRight.AmountRatio = speedRotation;
 					watersplashRight.Rotate(Vector3.Up, Mathf.Pi * angular_velocity.Sign().Z);
-					GD.Print(speedRotation, "RotationalVelcR");
+					//GD.Print(speedRotation, "RotationalVelcR");
 				}
 			}
 			else {
@@ -380,21 +385,37 @@ public partial class Boat : RigidBody3D
 	   
 		if(@event.IsActionPressed("ui_cancel")) //Press B
 		{
-			if(RepairKit)
+            if (RepairKit && amountOfRepaitKits > 0)
 			{
-				healthComp.AddHealth(25);
-				RepairKit = false;
+				amountOfRepaitKits--;
+				GameCamera.RepaitKitModifierLabel.Text = "";
+                GameCamera.RepaitKitModifierLabel.Text += amountOfRepaitKits;
+                healthComp.AddHealth(25);
+				if(amountOfRepaitKits <= 0)
+				{
+                    RepairKit = false;
+                }
+				Modifiers.amountOfRepairKits = amountOfRepaitKits;
 			}
 		}
 		if(@event.IsActionPressed("ui_accept")) //Press A
 		{
-			if(SpeedBoost)
+			if(SpeedBoost && amountOfSpeedBoosts > 0)
 			{
-				GetNode<Timer>("SpeedBoostTimer").Start();
+				
+                amountOfSpeedBoosts--;
+				GameCamera.SpeedBoostModifierLabel.Text = "";
+                GameCamera.SpeedBoostModifierLabel.Text += amountOfSpeedBoosts;
+                GetNode<Timer>("SpeedBoostTimer").Start();
 				UsingSpeedBoost = true;
-				SpeedBoost = false;
+				if(amountOfSpeedBoosts <= 0)
+				{
+                    SpeedBoost = false;
+                }
+				Modifiers.amountOfSpeedBoosts = amountOfSpeedBoosts;
 			}
 		}
+		
 	}
 
 	public void AttackedByShark(Vector3 attack_dir) {

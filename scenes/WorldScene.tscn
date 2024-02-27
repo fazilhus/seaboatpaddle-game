@@ -281,7 +281,10 @@ water = NodePath("../../WaterPlane")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.1356, 51.0116)
 
 [node name="Streams2" parent="." instance=ExtResource("11_8xjfh")]
-transform = Transform3D(0.0637311, 0, -0.997967, 0, 1, 0, 0.997967, 0, 0.0637311, 5.5085, 0, -74.1501)
+transform = Transform3D(0.277482, 0, -0.960731, 0, 1, 0, 0.960731, 0, 0.277482, -82.528, 0, -64.4442)
+
+[node name="Streams3" parent="." instance=ExtResource("11_8xjfh")]
+transform = Transform3D(0.193872, 0, -1.7437, 0, 1, 0, 0.730935, 0, 0.462495, -21.3008, 0, -83.5521)
 
 [node name="Shark1" parent="." node_paths=PackedStringArray("boat", "path") instance=ExtResource("12_2bx8v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.353, 0, -21.1917)

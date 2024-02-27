@@ -1,5 +1,4 @@
 using Godot;
-using Microsoft.VisualBasic.FileIO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -87,6 +86,8 @@ public partial class Boat : RigidBody3D
 
 	[Export]
 	public PackedScene goods_scene;
+	[Export]
+	public Node3D goods_node;
 	private Node3D _goods_stack;
 	[Export]
 	public int StackSize = 4;
@@ -278,6 +279,32 @@ public partial class Boat : RigidBody3D
 		return Mathf.Pow(v.Length() / 10, 2);
 	}
 
+	private void LooseStackedGoods() {
+		var count = _goods_stack.GetChildCount();
+		var children_pos = new Vector3[count];
+		for (int i = 0; i < count; i++) {
+			var child = _goods_stack.GetChild<Node3D>(i);
+			children_pos[i] = child.GlobalPosition;
+			children_pos[i].Y += 2;
+			child.CallDeferred("free");
+		}
+
+		foreach (var pos in children_pos) {
+			var goods_inst = goods_scene.Instantiate<Goods>();
+			goods_inst.Position = pos;
+			goods_inst.water = water;
+			Random r = new Random();
+			var angle = (float)(2 * Mathf.Pi * r.NextDouble() - Mathf.Pi);
+			var vector = Basis.Z.Rotated(Vector3.Up, angle);
+			goods_inst.ApplyCentralImpulse(5 * vector);
+			goods_inst.GetNode<Area3D>("Area3DTrigger").SetDeferred("monitoring", false);
+			var timer = goods_inst.GetNode<Timer>("CrashCooldown");
+			timer.OneShot = true;
+			timer.Autostart = true;
+			goods_node.CallDeferred("add_child", goods_inst);
+		}
+	}
+
 	public void OnBoatArea3dBodyExited(Area3D area)
 	{
 		if(area.IsInGroup("Vortex"))
@@ -350,6 +377,7 @@ public partial class Boat : RigidBody3D
 
 		if (area.IsInGroup("VortexDamage")) 
 		{
+			LooseStackedGoods();
 			GetNode<Timer>("VortexDamageTimer").Start();
 		}
 
@@ -379,7 +407,10 @@ public partial class Boat : RigidBody3D
 				return;
 			}
 			GD.Print("Lost ", 3 * (int)speed, " health");
+			ApplyCentralImpulse(-10 * LinearVelocity);
 			healthComp.SubtractHealth(3 * (int)speed);
+
+			LooseStackedGoods();
 		}
 	}
 
@@ -418,6 +449,7 @@ public partial class Boat : RigidBody3D
 
 	public void AttackedByShark(Vector3 attack_dir) {
 		healthComp.SubtractHealth(35);
+		LooseStackedGoods();
 		ApplyCentralImpulse(50 * attack_dir);
 	}
 }

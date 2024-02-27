@@ -104,12 +104,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.661823, -0.446799, -0.8121
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.661134, -0.439855, -0.812198)
 
 [node name="Area3DTriggerGoods" type="Area3D" parent="." groups=["ThePlayersGoods"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25)
 
 [node name="TriggerCollider" type="CollisionShape3D" parent="Area3DTriggerGoods"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0178721, 0.327538, 0.247244)
 shape = SubResource("BoxShape3D_r0jpl")
 
 [node name="Area3DTriggerBoat" type="Area3D" parent="." groups=["ThePlayers"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25)
 
 [node name="TriggerCollider" type="CollisionShape3D" parent="Area3DTriggerBoat"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0178721, 0.327538, 0.247244)

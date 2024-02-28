@@ -1,5 +1,4 @@
 using Godot;
-using Microsoft.VisualBasic.FileIO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -47,7 +46,6 @@ public partial class Boat : RigidBody3D
 
 	public Godot.Collections.Array<Node> probeContainer;
 	
-	[Export] Survivors survivors;
 	[Export] private bool isVortexCollided;
 	[Export] private bool isStreamCollided;
 	[Export] private float maxDistance = 20.0f; // Example maximum distance from the center
@@ -85,6 +83,14 @@ public partial class Boat : RigidBody3D
 	public GpuParticles3D watersplashLeft;
 	public GpuParticles3D watersplashRight;
 
+	[Export]
+	public PackedScene goods_scene;
+	[Export]
+	public Node3D goods_node;
+	private Node3D _goods_stack;
+	[Export]
+	public int StackSize = 4;
+
 
 	public override void _Ready()
 	{
@@ -117,9 +123,8 @@ public partial class Boat : RigidBody3D
 		paddle1.GetSurfaceOverrideMaterial(0).Set("albedo_color", PlayerManager.instance.playerColors[0]);
 		paddle2.GetSurfaceOverrideMaterial(0).Set("albedo_color", PlayerManager.instance.playerColors[1]);
 	
-
-
-    }
+		_goods_stack = GetNode<Node3D>("GoodsStack");
+	}
  
     public override void _Process(double delta)
 	{
@@ -150,30 +155,30 @@ public partial class Boat : RigidBody3D
 
 			Node3D force_point = it.Paddle.GetNode<Node3D>("ForcePoint");
 			if (isSubmerged && force_point.GlobalPosition.Y < GlobalPosition.Y) {
-				//if (!_is_paddle_moving[(it.Index + 1) % 2]) {
-				//	ApplyForce(-sideways_force_ratio * 1.25f * force, it.Paddle.Position);
-				//	ApplyCentralForce(0.25f * -forward_force_ratio * Curve(force) * force.Sign().Z * forward);
-				//}
-				//else {
+				if (!_is_paddle_moving[(it.Index + 1) % 2]) {
+					ApplyForce(-sideways_force_ratio * 1.25f * force, it.Paddle.Position);
+					ApplyCentralForce(0.25f * -forward_force_ratio * Curve(force) * force.Sign().Z * forward);
+				}
+				else {
 					ApplyForce(-sideways_force_ratio * force, it.Paddle.Position);
 					ApplyCentralForce(-forward_force_ratio * Curve(force) * force.Sign().Z * forward);
-				//}
+				}
 
 				float speedRotation = angular_velocity.Length();
-				GD.Print(speedRotation);
+				//GD.Print(speedRotation);
 				if (speedRotation <= 30.0f && _paddles_rotation_old[it.Index] == _paddles_rotation_old[0])
 				{
 					watersplashLeft.Emitting = true;
 					watersplashLeft.AmountRatio = speedRotation;
 					watersplashLeft.Rotate(Vector3.Up, Mathf.Pi * angular_velocity.Sign().Z);
-					GD.Print(speedRotation, "RotationalVelcL");
+					//GD.Print(speedRotation, "RotationalVelcL");
 				}
 				else if (speedRotation <= 30.0f && _paddles_rotation_old[it.Index] == _paddles_rotation_old[1])
 				{
                     watersplashRight.Emitting = true;
                     watersplashRight.AmountRatio = speedRotation;
 					watersplashRight.Rotate(Vector3.Up, Mathf.Pi * angular_velocity.Sign().Z);
-					GD.Print(speedRotation, "RotationalVelcR");
+					//GD.Print(speedRotation, "RotationalVelcR");
 				}
 			}
 			else {
@@ -251,7 +256,6 @@ public partial class Boat : RigidBody3D
 				isSubmerged = false;
 			}
 		}
-		
 	}
 	
 	public override void _IntegrateForces(PhysicsDirectBodyState3D state) // changing the simulation state of the object
@@ -271,6 +275,36 @@ public partial class Boat : RigidBody3D
 	private float Curve(Vector3 v) 
 	{
 		return Mathf.Pow(v.Length() / 10, 2);
+	}
+
+	private void LooseStackedGoods() {
+		GetNode<Area3D>("Area3DTriggerGoods").SetDeferred("monitorable", false);
+
+		var count = _goods_stack.GetChildCount();
+		var children_pos = new Vector3[count];
+		for (int i = 0; i < count; i++) {
+			var child = _goods_stack.GetChild<Node3D>(i);
+			children_pos[i] = child.GlobalPosition;
+			children_pos[i].Y += 2;
+			child.CallDeferred("free");
+		}
+
+		foreach (var pos in children_pos) {
+			var goods_inst = goods_scene.Instantiate<Goods>();
+			goods_inst.Position = pos;
+			goods_inst.water = water;
+			Random r = new Random();
+			var angle = (float)(2 * Mathf.Pi * r.NextDouble() - Mathf.Pi);
+			var vector = Basis.Z.Rotated(Vector3.Up, angle);
+			goods_inst.ApplyCentralImpulse(5 * vector);
+			goods_inst.SetMonitoring(false);
+			var timer = goods_inst.GetNode<Timer>("CrashCooldown");
+			timer.OneShot = true;
+			timer.Autostart = true;
+			goods_node.CallDeferred("add_child", goods_inst);
+		}
+
+		GetNode<Timer>("CrashCooldown").Start();
 	}
 
 	public void OnBoatArea3dBodyExited(Area3D area)
@@ -298,19 +332,32 @@ public partial class Boat : RigidBody3D
 		input.X = Input.GetJoyAxis(device_id, JoyAxis.LeftY);
 		return input;
 	}
-	public void OnArea3dTriggerBoatAreaEntered(Area3D area)
-	{
+
+	public void OnArea3DTriggerGoodsEntered(Area3D area) {
 		if (area.IsInGroup("Goods"))
 		{
 			GD.Print("boat is colliding with goods!");
-		}
-		
-		if (area.IsInGroup("Survivors"))
-		{
-			GD.Print("boat is colliding with survivors!");
+			var count = _goods_stack.GetChildCount();
+			GD.Print("Children count: ", count);
+			if (count < StackSize) {
+				var goods_child = goods_scene.Instantiate<Goods>();
+				goods_child.isActive = false;
+				goods_child.Position = new Vector3(0, count, 0);
+				_goods_stack.AddChild(goods_child);
+				GD.Print("Added to stack");
+			}
 
+			count = _goods_stack.GetChildCount();
+			if (count == StackSize) {
+				var boat_area = GetNode<Area3D>("Area3DTriggerGoods");
+				boat_area.SetDeferred("monitorable", false);
+				GD.Print("Boar area monitorable: ", boat_area.Monitorable);
+			}
 		}
-		
+	}
+
+	public void OnArea3dTriggerBoatAreaEntered(Area3D area)
+	{	
 		if (area.IsInGroup("SeaMine")) 
 		{
 			GD.Print("Boom!!!");
@@ -332,6 +379,7 @@ public partial class Boat : RigidBody3D
 
 		if (area.IsInGroup("VortexDamage")) 
 		{
+			LooseStackedGoods();
 			GetNode<Timer>("VortexDamageTimer").Start();
 		}
 
@@ -361,7 +409,10 @@ public partial class Boat : RigidBody3D
 				return;
 			}
 			GD.Print("Lost ", 3 * (int)speed, " health");
+			ApplyCentralImpulse(-10 * LinearVelocity);
 			healthComp.SubtractHealth(3 * (int)speed);
+
+			LooseStackedGoods();
 		}
 	}
 
@@ -375,10 +426,13 @@ public partial class Boat : RigidBody3D
 	{
 		healthComp.SubtractHealth(10);
 	}
+
+	private void OnCrashCooldownTimerTimeout() {
+		GetNode<Area3D>("Area3DTriggerGoods").SetDeferred("monitorable", true);
+	}
 	
 	public override void _UnhandledInput(InputEvent @event)
 	{
-	   
 		if(@event.IsActionPressed("ui_cancel")) //Press B
 		{
 			if(RepairKit)
@@ -398,8 +452,10 @@ public partial class Boat : RigidBody3D
 		}
 	}
 
-	public void AttackedByShark(Vector3 attack_dir) {
+	public void AttackedByShark(Vector3 attack_dir)
+	{
 		healthComp.SubtractHealth(35);
+		LooseStackedGoods();
 		ApplyCentralImpulse(50 * attack_dir);
 	}
 }

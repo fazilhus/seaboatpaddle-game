@@ -15,17 +15,24 @@ public partial class Goods : RigidBody3D
 	[Export] public WaterPlane water;
 	public double time = 0;
 
+	[Export]
+	public bool isActive = true;
+
 	public Godot.Collections.Array<Node> probeContainer;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		var parent = GetParent();
 		gravity = (float)ProjectSettings.GetSetting("physics/3d/default_gravity");
 		//water = GetNode<WaterPlane>("/root/Main/WaterPlane");
 		probeContainer = GetNode<Node3D>("ProbeContainer").GetChildren();
 
 		initialY = GlobalPosition.Y;
+
+		if (!isActive) {
+			ProcessMode = ProcessModeEnum.Disabled;
+			GetNode<Area3D>("Area3DTrigger").ProcessMode = ProcessModeEnum.Disabled;
+		}
 	}
 	
 	public override void _PhysicsProcess(double delta)
@@ -54,11 +61,19 @@ public partial class Goods : RigidBody3D
 	
 	private void OnArea3dTriggerAreaEntered(Area3D area)
 	{
-		if (area.IsInGroup("ThePlayers"))
+		if (area.IsInGroup("ThePlayersGoods"))
 		{
 			GD.Print("ThePlayers are colliding with goods");
 			EmitSignal(SignalName.ObjectivePickedUp);
 			QueueFree();
 		}
+	}
+
+	public void SetMonitoring(bool val) {
+		GetNode<Area3D>("Area3DTrigger").SetDeferred("monitoring", val);
+	}
+
+	private void OnCrashCooldownTimerTimeout() {
+		GetNode<Area3D>("Area3DTrigger").SetDeferred("monitoring", true);
 	}
 }

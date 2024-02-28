@@ -8,7 +8,8 @@ public partial class shark : CharacterBody3D
 	[Export]
 	public Node3D path;
 
-	enum Behavior {
+	enum Behavior 
+	{
 		Patrol = 0,
 		Chase = 1,
 	}
@@ -40,12 +41,12 @@ public partial class shark : CharacterBody3D
 				var marker = child as Marker3D; // Attempt to cast the child to Marker3D
 				_path_nodes.Add(marker); // Add the valid Marker3D node to the list
 			}
-			else if (child.GetClass() == "Area3D") {
+			else if (child.GetClass() == "Area3D") 
+			{
 				var area = child as Area3D;
 				_trigger_area = area;
 			}
 		}
-		
 		(_next_path_node_idx, _next_path_node) = (-1, null);
 		_behavior = Behavior.Patrol;
 	}
@@ -53,31 +54,37 @@ public partial class shark : CharacterBody3D
 	public override void _Process(double delta)
 	{
 		// Movement along the path
-		if (_trigger_area.OverlapsBody(boat)) {
+		if (_trigger_area.OverlapsBody(boat)) 
+		{
 			_behavior = Behavior.Chase;
 		}
-		else {
+		else 
+		{
 			_behavior = Behavior.Patrol;
 		}
 
-		switch (_behavior) {
-			case Behavior.Patrol: {
+		switch (_behavior) 
+		{
+			case Behavior.Patrol: 
+				{
 				GetNode<AnimationPlayer>("Body/sharkswim/AnimationPlayer").SpeedScale = 1;
 				_PatrolMovement((float)delta);
 				break;
 			}
-			case Behavior.Chase: {
+			case Behavior.Chase: 
+				{
 				GetNode<AnimationPlayer>("Body/sharkswim/AnimationPlayer").SpeedScale = 1.5f;
 				_ChaseMovement((float)delta);
 				break;
 			}
 		}
-
 		MoveAndSlide();
 	}
 
-	private void _PatrolMovement(float delta) {
-		if (_next_path_node == null) {
+	private void _PatrolMovement(float delta) 
+	{
+		if (_next_path_node == null) 
+		{
 			(_next_path_node_idx, _next_path_node) = _GetClosestPathNode();
 		}
 
@@ -98,7 +105,8 @@ public partial class shark : CharacterBody3D
 		}
 	}
 
-	private void _ChaseMovement(float delta) {
+	private void _ChaseMovement(float delta) 
+	{
 		(_next_path_node_idx, _next_path_node) = (-1, null);
 		var rot = Rotation;
 		var target_dir = (boat.GlobalPosition - GlobalPosition).Normalized();
@@ -112,14 +120,17 @@ public partial class shark : CharacterBody3D
 		Velocity = vel;
 	}
 
-	private (int, Marker3D) _GetClosestPathNode() {
+	private (int, Marker3D) _GetClosestPathNode() 
+	{
 		float min_dist = float.MaxValue;
 		int min_idx = 0;
 		int idx = 0;
 		Marker3D closest_marker = null;
-		foreach (var path_node in _path_nodes) {
+		foreach (var path_node in _path_nodes) 
+		{
 			var dist = path_node.GlobalPosition.DistanceTo(GlobalPosition);
-			if (dist < min_dist) {
+			if (dist < min_dist) 
+			{
 				min_dist = dist;
 				closest_marker = path_node;
 				min_idx = idx;
@@ -129,13 +140,16 @@ public partial class shark : CharacterBody3D
 		return (min_idx, closest_marker);
 	}
 
-	private (int, Marker3D) _GetNextPathNode(int idx) {
+	private (int, Marker3D) _GetNextPathNode(int idx) 
+	{
 		idx = (idx + 1) % _path_nodes.Count;
 		return (idx, _path_nodes[idx]);
 	}
 
-	public void OnBiteAreaEntered(Area3D area) {
-		if (area.IsInGroup("ThePlayers")) {
+	public void OnBiteAreaEntered(Area3D area)
+	{
+		if (area.IsInGroup("ThePlayers"))
+		{
 			GD.Print("Chomp");
 			boat.AttackedByShark((area.GlobalPosition - GlobalPosition).Normalized());
 		}

@@ -132,6 +132,12 @@ public partial class Boat : RigidBody3D
 		{
 			GetNode<HealthComponent>("HealthComponent").SubtractHealth(100);
 		}
+		if (Input.IsKeyPressed(Key.F3)) {
+			var rot = Rotation;
+			rot.X = 0;
+			rot.Z = 0;
+			Rotation = rot;
+		}
 		GetParent<Node3D>().GetNode<Label>("GameCamera/CanvasLayer/LabelHealth").Text = "Health: "+ GetNode<HealthComponent>("HealthComponent").health;
 	}
 
@@ -298,11 +304,6 @@ public partial class Boat : RigidBody3D
 			var angle = (float)(2 * Mathf.Pi * r.NextDouble() - Mathf.Pi);
 			var vector = Basis.Z.Rotated(Vector3.Up, angle);
 			goods_inst.ApplyCentralImpulse(5 * vector);
-			goods_inst.SetMonitoring(false);
-			goods_inst.SetMonitorable(false);
-			var timer = goods_inst.GetNode<Timer>("CrashCooldown");
-			timer.OneShot = true;
-			timer.Autostart = true;
 			goods_node.CallDeferred("add_child", goods_inst);
 		}
 
@@ -348,20 +349,21 @@ public partial class Boat : RigidBody3D
 		{
 			GD.Print("boat is colliding with goods!");
 			var count = _goods_stack.GetChildCount();
-			GD.Print("Children count: ", count);
+			//GD.Print("Children count: ", count);
 			if (count < StackSize) {
 				var goods_child = goods_scene.Instantiate<Goods>();
 				goods_child.isActive = false;
 				goods_child.Position = new Vector3(0, count, 0);
 				_goods_stack.AddChild(goods_child);
-				GD.Print("Added to stack");
+				//GD.Print("Added to stack");
+				area.GetParent().CallDeferred("free");
 			}
 
 			count = _goods_stack.GetChildCount();
 			if (count == StackSize) {
 				var boat_area = GetNode<Area3D>("Area3DTriggerGoods");
 				boat_area.SetDeferred("monitorable", false);
-				GD.Print("Boar area monitorable: ", boat_area.Monitorable);
+				//GD.Print("Boar area monitorable: ", boat_area.Monitorable);
 			}
 		}
 	}
@@ -412,13 +414,13 @@ public partial class Boat : RigidBody3D
 		GD.Print(node.Name);
 		if (node.IsInGroup("Rock")) 
 		{
-			GD.Print("Crashed a rock!!!");
+			//GD.Print("Crashed a rock!!!");
 			var speed = LinearVelocity.Length();
 			if (speed < 5) 
 			{
 				return;
 			}
-			GD.Print("Lost ", 3 * (int)speed, " health");
+			//GD.Print("Lost ", 3 * (int)speed, " health");
 			ApplyCentralImpulse(-10 * LinearVelocity);
 			healthComp.SubtractHealth(3 * (int)speed);
 

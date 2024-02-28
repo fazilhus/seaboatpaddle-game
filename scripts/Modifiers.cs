@@ -98,7 +98,7 @@ public class NumberGenerator
 
 	public int GenerateNumber()
 	{
-		// Generate a random number between 1 and 5 (inclusive)
-		return random.Next(1, 4);
+		// Generate a random number between 1 and 5 (exclusive upper bound)
+		return random.Next(1, 5);
 	}
 }

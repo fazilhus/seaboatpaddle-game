@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bro3rrf66ro1h"]
+[gd_scene load_steps=10 format=3 uid="uid://bro3rrf66ro1h"]
 
 [ext_resource type="Script" path="res://scripts/Boat.cs" id="1_tk55w"]
 [ext_resource type="PackedScene" uid="uid://catt7cfnf4pd1" path="res://CustonAssets/paddle.glb" id="2_32au7"]
@@ -6,14 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dlb4avec74ix7" path="res://scenes/WaterParticles.tscn" id="3_ivx5w"]
 [ext_resource type="Material" uid="uid://dm8p44anq2ejj" path="res://Shades/AntiWaterMask.tres" id="4_2xej0"]
 [ext_resource type="PackedScene" uid="uid://bfcmmp24hd7u5" path="res://scenes/HealthComponent.tscn" id="5_oltkq"]
-[ext_resource type="PackedScene" uid="uid://ducw5sm3i87kh" path="res://scenes/Goods.tscn" id="7_xsns6"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7j168"]
 friction = 0.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t77fc"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eyej3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nbbgg"]
 size = Vector3(1.5, 0.6, 2.3)
@@ -30,7 +25,6 @@ physics_material_override = SubResource("PhysicsMaterial_7j168")
 freeze_mode = 1
 script = ExtResource("1_tk55w")
 paddles = [NodePath("LeftPaddlePivot"), NodePath("RightPaddlePivot")]
-paddleMaterial = Array[Material]([SubResource("StandardMaterial3D_t77fc"), SubResource("StandardMaterial3D_eyej3")])
 sideways_force_ratio = 0.4
 forward_force_ratio = 40.0
 floatForce = 1.5
@@ -39,7 +33,6 @@ WaterAngularDrag = 0.03
 baseForceMagnitude = 350.0
 rotationalForceMagnitude = 1.0
 rotationalVelocity = 35.0
-goods_scene = ExtResource("7_xsns6")
 
 [node name="LeftPaddlePivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0.75, 0)

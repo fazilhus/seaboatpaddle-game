@@ -22,7 +22,7 @@ public partial class GameCamera : Node3D
 	public float swaySpeed = 2f;
 	private float swayTimer = 0f;
 	public static bool DrunkenCaptain { get; private set; } = false;
-	public static bool ExtraTime { get; private set; } = true;
+	public static bool ExtraTime { get; private set; } = false;
 	
 	public static Label LabelPlayers;
 	public static Label LabelTime;
@@ -67,7 +67,10 @@ public partial class GameCamera : Node3D
 		}
 		if(ExtraTime)
 		{
-			countdownTimer.WaitTime += 60;
+			var time_left = countdownTimer.TimeLeft;
+			countdownTimer.Stop();
+			countdownTimer.WaitTime = time_left + 60;
+			countdownTimer.Start();
 			ExtraTime = false;
 		}
 		LabelTime.Text = "Time Left: " + (int)countdownTimer.TimeLeft;

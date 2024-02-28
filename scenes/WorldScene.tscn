@@ -11,8 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://d13kv1yadt43j" path="res://KennyInputAssets/xbox_button_a.png" id="6_r1b5y"]
 [ext_resource type="Texture2D" uid="uid://c01f31i0exhek" path="res://KennyInputAssets/xbox_button_b.png" id="7_dpgmx"]
 [ext_resource type="PackedScene" uid="uid://beoci1a615ffi" path="res://scenes/sea_mine.tscn" id="7_sombh"]
+[ext_resource type="Texture2D" uid="uid://ci1vt5wu0d6he" path="res://art/Engineer_24.png" id="7_u1vbh"]
 [ext_resource type="PackedScene" uid="uid://bdohepiggfmms" path="res://scenes/map.tscn" id="8_lgk5l"]
 [ext_resource type="PackedScene" uid="uid://hl4r2ylauhog" path="res://scenes/Modifiers.tscn" id="9_e5cou"]
+[ext_resource type="Texture2D" uid="uid://bhalj48rdov26" path="res://art/genericItem_color_010.png" id="9_g1m41"]
 [ext_resource type="PackedScene" uid="uid://5scllsnkmpth" path="res://scenes/streams.tscn" id="11_8xjfh"]
 [ext_resource type="PackedScene" uid="uid://b55sx0mje1j5w" path="res://scenes/shark.tscn" id="12_2bx8v"]
 [ext_resource type="PackedScene" uid="uid://db44dloe5xeo2" path="res://scenes/text_box.tscn" id="13_cald3"]
@@ -119,6 +121,7 @@ text = "Delivered "
 label_settings = SubResource("LabelSettings_kspm4")
 
 [node name="LabelModifiers" type="Label" parent="GameCamera/CanvasLayer"]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -203,10 +206,10 @@ offset_right = -291.0
 offset_bottom = 434.0
 
 [node name="SpeedBoostModifier" type="Panel" parent="GameCamera/CanvasLayer"]
-offset_left = 484.0
-offset_top = 597.0
-offset_right = 524.0
-offset_bottom = 637.0
+offset_left = 592.0
+offset_top = 595.0
+offset_right = 632.0
+offset_bottom = 635.0
 theme = ExtResource("5_m8qf6")
 
 [node name="LabelAmount" type="Label" parent="GameCamera/CanvasLayer/SpeedBoostModifier"]
@@ -221,15 +224,21 @@ text = "1"
 
 [node name="ButtonPromptA" type="Sprite2D" parent="GameCamera/CanvasLayer/SpeedBoostModifier"]
 modulate = Color(0, 0, 0, 1)
+z_index = 1
 position = Vector2(37, 38)
 scale = Vector2(0.484375, 0.46875)
 texture = ExtResource("6_r1b5y")
 
+[node name="Engineer24" type="Sprite2D" parent="GameCamera/CanvasLayer/SpeedBoostModifier"]
+position = Vector2(20.875, 20.375)
+scale = Vector2(0.0629882, 0.0639649)
+texture = ExtResource("7_u1vbh")
+
 [node name="RepairKitModifier" type="Panel" parent="GameCamera/CanvasLayer"]
-offset_left = 431.0
-offset_top = 598.0
-offset_right = 471.0
-offset_bottom = 638.0
+offset_left = 509.0
+offset_top = 596.0
+offset_right = 549.0
+offset_bottom = 636.0
 theme = ExtResource("5_m8qf6")
 
 [node name="LabelAmount" type="Label" parent="GameCamera/CanvasLayer/RepairKitModifier"]
@@ -244,9 +253,15 @@ text = "1"
 
 [node name="ButtonPromptB" type="Sprite2D" parent="GameCamera/CanvasLayer/RepairKitModifier"]
 modulate = Color(0, 0, 0, 1)
+z_index = 1
 position = Vector2(37, 38)
 scale = Vector2(0.484, 0.469)
 texture = ExtResource("7_dpgmx")
+
+[node name="GenericItemColor010" type="Sprite2D" parent="GameCamera/CanvasLayer/RepairKitModifier"]
+position = Vector2(21, 21.5)
+scale = Vector2(0.428572, 0.298077)
+texture = ExtResource("9_g1m41")
 
 [node name="countdownTimer" type="Timer" parent="GameCamera"]
 process_mode = 1

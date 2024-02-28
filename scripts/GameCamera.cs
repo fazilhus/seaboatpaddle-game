@@ -8,8 +8,7 @@ public partial class GameCamera : Node3D
 	
 	[Export]
 	public Timer countdownTimer;
-	
-	
+
 	[Export]
 	public Node3D Boat;
 	[Export]
@@ -59,7 +58,7 @@ public partial class GameCamera : Node3D
 		//	LabelPlayers.Text += "\nPlayer " + PlayerMenu.playerIds[i];
 		//}
 		
-		remainingMinutes--;
+
     }
 	
 	public override void _Process(double delta)

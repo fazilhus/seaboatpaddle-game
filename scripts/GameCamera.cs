@@ -8,10 +8,6 @@ public partial class GameCamera : Node3D
 	
 	[Export]
 	public Timer countdownTimer;
-	private int remainingTime = 60;
-	private int remainingMinutes = 1;
-	private int currentSeconds = 60;
-	private int currentTime = 60;
 
 	[Export]
 	public Node3D Boat;
@@ -62,7 +58,7 @@ public partial class GameCamera : Node3D
 		//	LabelPlayers.Text += "\nPlayer " + PlayerMenu.playerIds[i];
 		//}
 		
-		remainingMinutes--;
+
     }
 	
 	public override void _Process(double delta)
@@ -83,27 +79,6 @@ public partial class GameCamera : Node3D
 			countdownTimer.WaitTime += 60;
 			ExtraTime = false;
 		}
-		if((int)countdownTimer.TimeLeft != currentTime)
-		{
-            if (currentSeconds <= 0)
-            {
-				currentSeconds = 60;
-				if(remainingMinutes != 0)
-				{
-                    remainingMinutes--;
-                }
-				
-            }
-            if (remainingMinutes != 0 || currentSeconds != 0)
-            {
-                currentSeconds--;
-            }
-			currentTime = (int)countdownTimer.TimeLeft;
-			GD.Print((int)countdownTimer.TimeLeft);
-
-        }
-
-		LabelTime.Text = "Time Left: " + remainingMinutes + " : " + currentSeconds;
 	}
 	
 	private void OnCountdownTimerTimeout()

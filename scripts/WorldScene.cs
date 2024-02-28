@@ -6,36 +6,68 @@ public partial class WorldScene : Node3D
 {
 	public int level=0;
 	public int objectiveScore = 0;
+	int deliveredCargo = 0;
+	string cargoString;
 	string objectiveString;
+	int maxObjectiveAmount = 0;
 	int maxObjectiveStackAmount = 4;
+	bool GameOver = false;
+	[Export]
+	Label cargoTracker;
 	[Export]
 	Label objectiveTracker;
 
     public override void _Ready()
     {
+		cargoString = cargoTracker.Text;
 		objectiveString = objectiveTracker.Text;
-		
-		objectiveTracker.Text = objectiveString + objectiveScore+"/"+maxObjectiveStackAmount;
+		maxObjectiveAmount= GetNode("Goods").GetChildCount();
+		objectiveTracker.Text = objectiveString + deliveredCargo + "/" + maxObjectiveAmount;
+		cargoTracker.Text = cargoString + objectiveScore+"/"+maxObjectiveStackAmount;
     }
+    public override void _Process(double delta)
+    {
+		if(!GameOver)
+		{
+            if (deliveredCargo == maxObjectiveAmount)
+            {
+                GameOver = true;
+                GameOverFunction(true);
+
+            }
+        }
+        
+    }
+    public override void _UnhandledInput(InputEvent @event)
+	{
+		if(@event.IsActionPressed("ui_text_completion_accept"))
+		{
+			deliveredCargo = maxObjectiveAmount;
+		}
+	}
     public void OnNoBoatHealth() {
 
-		GameOverFunction();
+		GameOverFunction(false);
 	}
 	public void OnObjectivePickup()
 	{
 		objectiveScore++;
-        objectiveTracker.Text = objectiveString + objectiveScore + "/" + maxObjectiveStackAmount;
+        cargoTracker.Text = cargoString + objectiveScore + "/" + maxObjectiveStackAmount;
     }
 	public void OnCountdownTimerTimeout() {
 
-
-		GameOverFunction();
+		
+		GameOverFunction(false);
 	}
-	public void GameOverFunction()
+	public void GameOverFunction(bool win)
 	{
+		if(win)
+		{
+			GetNode<Label>("GameCamera/CanvasLayer/GameOverScreen/Label").Text = "You Win";
+		}
 		GetNode<Panel>("GameCamera/CanvasLayer/GameOverScreen").Visible = true;
 		GetNode<Button>("GameCamera/CanvasLayer/GameOverScreen/RestartButton").GrabFocus();
-		GD.Print(level);
+		
 		GetTree().Paused = true;
 		
 	}

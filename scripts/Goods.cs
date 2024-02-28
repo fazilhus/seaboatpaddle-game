@@ -71,7 +71,12 @@ public partial class Goods : RigidBody3D
 		GetNode<Area3D>("Area3DTrigger").SetDeferred("monitoring", val);
 	}
 
+	public void SetMonitorable(bool val) {
+		GetNode<Area3D>("Area3DTrigger").SetDeferred("monitorable", val);
+	}
+
 	private void OnCrashCooldownTimerTimeout() {
-		GetNode<Area3D>("Area3DTrigger").SetDeferred("monitoring", true);
+		SetMonitoring(true);
+		SetMonitorable(true);
 	}
 }

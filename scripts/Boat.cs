@@ -278,7 +278,8 @@ public partial class Boat : RigidBody3D
 	}
 
 	private void LooseStackedGoods() {
-		GetNode<Area3D>("Area3DTriggerGoods").SetDeferred("monitorable", false);
+		SetMonitoringGoods(false);
+		SetMonitorableGoods(false);
 
 		var count = _goods_stack.GetChildCount();
 		var children_pos = new Vector3[count];
@@ -298,6 +299,7 @@ public partial class Boat : RigidBody3D
 			var vector = Basis.Z.Rotated(Vector3.Up, angle);
 			goods_inst.ApplyCentralImpulse(5 * vector);
 			goods_inst.SetMonitoring(false);
+			goods_inst.SetMonitorable(false);
 			var timer = goods_inst.GetNode<Timer>("CrashCooldown");
 			timer.OneShot = true;
 			timer.Autostart = true;
@@ -331,6 +333,14 @@ public partial class Boat : RigidBody3D
 		input.Z = -Input.GetJoyAxis(device_id, JoyAxis.LeftX);
 		input.X = Input.GetJoyAxis(device_id, JoyAxis.LeftY);
 		return input;
+	}
+
+	public void SetMonitoringGoods(bool val) {
+		GetNode<Area3D>("Area3DTriggerGoods").SetDeferred("monitoring", val);
+	}
+
+	public void SetMonitorableGoods(bool val) {
+		GetNode<Area3D>("Area3DTriggerGoods").SetDeferred("monitorable", val);
 	}
 
 	public void OnArea3DTriggerGoodsEntered(Area3D area) {
@@ -428,7 +438,8 @@ public partial class Boat : RigidBody3D
 	}
 
 	private void OnCrashCooldownTimerTimeout() {
-		GetNode<Area3D>("Area3DTriggerGoods").SetDeferred("monitorable", true);
+		SetMonitoringGoods(true);
+		SetMonitorableGoods(true);
 	}
 	
 	public override void _UnhandledInput(InputEvent @event)

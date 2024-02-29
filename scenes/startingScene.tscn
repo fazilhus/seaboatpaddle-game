@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bo8v2krpj8un5"]
+[gd_scene load_steps=8 format=3 uid="uid://bo8v2krpj8un5"]
 
+[ext_resource type="Script" path="res://scripts/startingScene.cs" id="1_210ye"]
 [ext_resource type="Script" path="res://scripts/PlayerManager.cs" id="1_ifaoe"]
 [ext_resource type="Script" path="res://scripts/LevelManager.cs" id="1_vfio7"]
 [ext_resource type="PackedScene" uid="uid://bl7exwjna2nwi" path="res://scenes/mainmenu.tscn" id="2_6i36b"]
@@ -9,6 +10,7 @@
 
 [node name="Main" type="Node3D"]
 process_mode = 3
+script = ExtResource("1_210ye")
 
 [node name="PlayerManager" type="Node3D" parent="." node_paths=PackedStringArray("colorPickers")]
 script = ExtResource("1_ifaoe")

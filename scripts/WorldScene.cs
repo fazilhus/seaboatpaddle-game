@@ -40,7 +40,6 @@ public partial class WorldScene : Node3D
 
             }
         }
-        
     }
 	
     public void OnNoBoatHealth() {

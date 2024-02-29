@@ -11,10 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://hl4r2ylauhog" path="res://scenes/Modifiers.tscn" id="9_e5cou"]
 [ext_resource type="PackedScene" uid="uid://5scllsnkmpth" path="res://scenes/streams.tscn" id="11_8xjfh"]
 [ext_resource type="PackedScene" uid="uid://b55sx0mje1j5w" path="res://scenes/shark.tscn" id="12_2bx8v"]
-[ext_resource type="PackedScene" uid="uid://bpdbyctojhpfi" path="res://scenes/text_box.tscn" id="13_cald3"]
+[ext_resource type="PackedScene" uid="uid://db44dloe5xeo2" path="res://scenes/text_box.tscn" id="13_cald3"]
 [ext_resource type="AudioStream" uid="uid://dy02vsblcoiov" path="res://586831__speakingmusic__seagull.wav" id="13_e0ts7"]
 [ext_resource type="PackedScene" uid="uid://ducw5sm3i87kh" path="res://scenes/Goods.tscn" id="13_yi77v"]
-[ext_resource type="Script" path="res://scenes/SeaGullSound.cs" id="14_ismqw"]
+[ext_resource type="Script" path="res://scripts/SeaGullSound.cs" id="15_d1m7c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kspm4"]
 font_size = 30
@@ -193,6 +193,7 @@ offset_bottom = -171.0
 [node name="countdownTimer" type="Timer" parent="GameCamera"]
 process_mode = 1
 wait_time = 600.0
+one_shot = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_f08u5")
@@ -212,11 +213,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.9896, 0, -1.29973)
 [node name="Vortex3D2" parent="." instance=ExtResource("4_5wau7")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -54.2718, 0, 41.8128)
 
-[node name="Boat" parent="." node_paths=PackedStringArray("water") instance=ExtResource("2_w1wc2")]
+[node name="Boat" parent="." node_paths=PackedStringArray("water", "goods_node") instance=ExtResource("2_w1wc2")]
 transform = Transform3D(0.422682, 0, -0.906278, 0, 1, 0, 0.906278, 0, 0.422682, -2.85646, 0.340135, -1.67002)
 sideways_force_ratio = 0.45
 forward_force_ratio = 50.0
 water = NodePath("../WaterPlane")
+goods_node = NodePath("../Goods")
 
 [node name="Map" parent="." instance=ExtResource("8_lgk5l")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -564,7 +566,7 @@ water = NodePath("../../WaterPlane")
 
 [node name="SeaGullSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_e0ts7")
-script = ExtResource("14_ismqw")
+script = ExtResource("15_d1m7c")
 
 [connection signal="CountdownTimerTimeout" from="GameCamera" to="." method="OnCountdownTimerTimeout"]
 [connection signal="pressed" from="GameCamera/CanvasLayer/GameOverScreen/RestartButton" to="." method="RetryButtonPressed"]

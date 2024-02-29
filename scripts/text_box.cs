@@ -110,6 +110,7 @@ public partial class text_box : CanvasLayer
 		textBoxContainer.Hide();
 		spriteButton.Hide();
 		boat.isReadyPaddle = true;
+		GetParent().GetNode<GameCamera>("GameCamera").StartCountdownTimer();
 		GetParent().GetNode<CanvasLayer>("GameCamera/CanvasLayer").Show();
 	}
 

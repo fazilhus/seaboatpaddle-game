@@ -40,7 +40,7 @@ public partial class GameCamera : Node3D
 	
 	public override void _Ready()
 	{
-		countdownTimer.Start();
+		//countdownTimer.Start();
 		
 		LabelPlayers = GetNodeOrNull<Label>("CanvasLayer/LabelPlayers");
 		LabelTime = GetNodeOrNull<Label>("CanvasLayer/LabelTime");
@@ -77,6 +77,10 @@ public partial class GameCamera : Node3D
 		string timeString = time.ToString(@"mm\:ss");
 
 		LabelTime.Text = timeString;
+	}
+
+	public void StartCountdownTimer() {
+		countdownTimer.Start();
 	}
 	
 	private void OnCountdownTimerTimeout()

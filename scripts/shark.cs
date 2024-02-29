@@ -89,6 +89,7 @@ public partial class shark : CharacterBody3D
 
 	private void _PatrolMovement(float delta) 
 	{
+		DebugDraw3D.DrawSphere(GlobalPosition, 1f, Colors.Black);
 		if (_next_path_node == null) 
 		{
 			(_next_path_node_idx, _next_path_node) = _GetClosestPathNode();
@@ -113,6 +114,7 @@ public partial class shark : CharacterBody3D
 
 	private void _ChaseMovement(float delta) 
 	{
+		DebugDraw3D.DrawSphere(GlobalPosition, 1f, Colors.White);
 		(_next_path_node_idx, _next_path_node) = (-1, null);
 		var rot = Rotation;
 		var target_dir = (boat.GlobalPosition - GlobalPosition).Normalized();

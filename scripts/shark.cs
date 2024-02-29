@@ -20,6 +20,7 @@ public partial class shark : CharacterBody3D
 	private int _next_path_node_idx;
 	private Marker3D _next_path_node;
 	private Area3D _trigger_area;
+	private Area3D _chasing_area;
 
 	[Export]
 	public float velocity = 5;
@@ -44,7 +45,10 @@ public partial class shark : CharacterBody3D
 			else if (child.GetClass() == "Area3D") 
 			{
 				var area = child as Area3D;
-				_trigger_area = area;
+				if (area.Name == "TriggerArea")
+					_trigger_area = area;
+				else if (area.Name == "ChasingArea")
+					_chasing_area = area;
 			}
 		}
 		(_next_path_node_idx, _next_path_node) = (-1, null);
@@ -56,23 +60,25 @@ public partial class shark : CharacterBody3D
 		// Movement along the path
 		if (_trigger_area.OverlapsBody(boat)) 
 		{
+			GD.Print("Shark chasing");
 			_behavior = Behavior.Chase;
 		}
-		else 
+		else if (!_chasing_area.OverlapsBody(boat))
 		{
+			GD.Print("Shark patroling");
 			_behavior = Behavior.Patrol;
 		}
 
 		switch (_behavior) 
 		{
 			case Behavior.Patrol: 
-				{
+			{
 				GetNode<AnimationPlayer>("Body/sharkswim/AnimationPlayer").SpeedScale = 1;
 				_PatrolMovement((float)delta);
 				break;
 			}
 			case Behavior.Chase: 
-				{
+			{
 				GetNode<AnimationPlayer>("Body/sharkswim/AnimationPlayer").SpeedScale = 1.5f;
 				_ChaseMovement((float)delta);
 				break;
@@ -83,6 +89,7 @@ public partial class shark : CharacterBody3D
 
 	private void _PatrolMovement(float delta) 
 	{
+		DebugDraw3D.DrawSphere(GlobalPosition, 1f, Colors.Black);
 		if (_next_path_node == null) 
 		{
 			(_next_path_node_idx, _next_path_node) = _GetClosestPathNode();
@@ -107,6 +114,7 @@ public partial class shark : CharacterBody3D
 
 	private void _ChaseMovement(float delta) 
 	{
+		DebugDraw3D.DrawSphere(GlobalPosition, 1f, Colors.White);
 		(_next_path_node_idx, _next_path_node) = (-1, null);
 		var rot = Rotation;
 		var target_dir = (boat.GlobalPosition - GlobalPosition).Normalized();

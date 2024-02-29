@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bqgpgxpoqkw6w"]
+[gd_scene load_steps=24 format=3 uid="uid://bqgpgxpoqkw6w"]
 
 [ext_resource type="Script" path="res://scripts/WorldScene.cs" id="1_qx545"]
 [ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
@@ -43,7 +43,10 @@ glow_enabled = true
 size = Vector3(100, 10, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r8rc0"]
-size = Vector3(1, 31.9101, 30.7186)
+size = Vector3(1, 29.4852, 30.7186)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hg366"]
+size = Vector3(55.0327, 1, 31.6021)
 
 [node name="Level" type="Node3D"]
 process_mode = 3
@@ -437,11 +440,18 @@ transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -24.4144
 [node name="Marker3D4" type="Marker3D" parent="Path1"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -38.3326, 0, 17.1713)
 
-[node name="Area3D" type="Area3D" parent="Path1"]
+[node name="TriggerArea" type="Area3D" parent="Path1"]
 transform = Transform3D(-1.92981e-08, -0.44149, 0.897266, 1, -4.37114e-08, 0, 3.92207e-08, 0.897266, 0.44149, -34.4214, 0, 27.6429)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Path1/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path1/TriggerArea"]
+transform = Transform3D(1, -1.37078e-08, -3.17879e-08, -1.37078e-08, 0.686402, -0.727222, 3.17879e-08, 0.727222, 0.686402, 0, -1.21245, 7.62939e-06)
 shape = SubResource("BoxShape3D_r8rc0")
+
+[node name="ChasingArea" type="Area3D" parent="Path1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path1/ChasingArea"]
+transform = Transform3D(0.938155, 0, 0.346215, 0, 1, 0, -0.346215, 0, 0.938155, -32.275, 999.715, 26.384)
+shape = SubResource("BoxShape3D_hg366")
 
 [node name="Shark2" parent="." node_paths=PackedStringArray("boat", "path") instance=ExtResource("12_2bx8v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.2057, 0, 47.9299)
@@ -465,16 +475,16 @@ transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -24.4144
 [node name="Marker3D4" type="Marker3D" parent="Path2"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -38.3326, 0, 17.1713)
 
-[node name="Area3D" type="Area3D" parent="Path2"]
+[node name="TriggerArea" type="Area3D" parent="Path2"]
 transform = Transform3D(-1.92981e-08, -0.44149, 0.897266, 1, -4.37114e-08, 0, 3.92207e-08, 0.897266, 0.44149, -34.4214, 0, 27.6429)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Path2/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path2/TriggerArea"]
 shape = SubResource("BoxShape3D_r8rc0")
 
-[node name="Area3D2" type="Area3D" parent="Path2"]
+[node name="ChasingArea" type="Area3D" parent="Path2"]
 transform = Transform3D(-1.92981e-08, -0.44149, 0.897266, 1, -4.37114e-08, 0, 3.92207e-08, 0.897266, 0.44149, -34.4214, 0, 27.6429)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Path2/Area3D2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path2/ChasingArea"]
 transform = Transform3D(1, 2.44596e-16, 1.05471e-15, -4.28477e-16, 1, 2.34693e-07, 0, -2.34693e-07, 1, -2.38419e-07, 6.30573, 2.74386)
 shape = SubResource("BoxShape3D_r8rc0")
 

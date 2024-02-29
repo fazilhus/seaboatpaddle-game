@@ -20,6 +20,7 @@ public partial class shark : CharacterBody3D
 	private int _next_path_node_idx;
 	private Marker3D _next_path_node;
 	private Area3D _trigger_area;
+	private Area3D _chasing_area;
 
 	[Export]
 	public float velocity = 5;
@@ -44,7 +45,10 @@ public partial class shark : CharacterBody3D
 			else if (child.GetClass() == "Area3D") 
 			{
 				var area = child as Area3D;
-				_trigger_area = area;
+				if (area.Name == "TriggerArea")
+					_trigger_area = area;
+				else if (area.Name == "ChasingArea")
+					_chasing_area = area;
 			}
 		}
 		(_next_path_node_idx, _next_path_node) = (-1, null);
@@ -54,12 +58,14 @@ public partial class shark : CharacterBody3D
 	public override void _Process(double delta)
 	{
 		// Movement along the path
-		if (_trigger_area.OverlapsBody(boat)) 
+		if (_trigger_area != null && _trigger_area.OverlapsBody(boat)) 
 		{
+			GD.Print("Shark chasing");
 			_behavior = Behavior.Chase;
 		}
-		else 
+		else if (_chasing_area != null && !_chasing_area.OverlapsBody(boat)) // If boat exits the chasing area
 		{
+			GD.Print("Shark patroling");
 			_behavior = Behavior.Patrol;
 		}
 

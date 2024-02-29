@@ -19,7 +19,7 @@ public partial class streams : Node3D
 		{
 			Vector3 ForceVector = Transform.Basis.Z;
 			boat.ApplyCentralForce(ForceVector * streamSpeed);
-			GD.Print(ForceVector);
+			//GD.Print(ForceVector);
 		}
 
 	}

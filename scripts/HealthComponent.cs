@@ -15,8 +15,8 @@ public partial class HealthComponent : Node3D
 	{
 		health = max_health;
 		healthBar = GetTree().Root.GetNode<Healthbar>("Main/LevelController/Level/GameCamera/CanvasLayer/HealthBarControl");
-        healthBar.Sethealth(health);
-    }
+		healthBar.Sethealth(health);
+	}
 
 	public void AddHealth(int n) {
 		if (health + n > max_health) {
@@ -34,6 +34,6 @@ public partial class HealthComponent : Node3D
 			return;
 		}
 		health -= n;
-        healthBar.Sethealth(health);
-    }
+		healthBar.Sethealth(health);
+	}
 }

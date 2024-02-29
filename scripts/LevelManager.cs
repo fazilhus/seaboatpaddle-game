@@ -47,12 +47,12 @@ public partial class LevelManager : Node3D
 		{
 			menu.playerAmount = 0;
 			menu.playerIds[0] = 0;
-            menu.playerIds[1] = 0;
+			menu.playerIds[1] = 0;
 			PlayerManager.instance.playerColors[0] = Color.Color8(1,1,1,1);
-            PlayerManager.instance.playerColors[1] = Color.Color8(1, 1, 1, 1);
-            GameNotStateReset = false;
+			PlayerManager.instance.playerColors[1] = Color.Color8(1, 1, 1, 1);
+			GameNotStateReset = false;
 			
-        }
+		}
 		AddChild(menu);
 	}
 	public void loadLevelSelector()

@@ -21,7 +21,7 @@ public partial class GameCamera : Node3D
 	public float swaySpeed = 2f;
 	private float swayTimer = 0f;
 	public static bool DrunkenCaptain { get; private set; } = false;
-	public static bool ExtraTime { get; private set; } = true;
+	public static bool ExtraTime { get; private set; } = false;
 	
 	public static Label LabelPlayers;
 	public static Label LabelTime;
@@ -76,26 +76,21 @@ public partial class GameCamera : Node3D
 		}
 		if(ExtraTime)
 		{
-			countdownTimer.WaitTime += 60;
+			var time_left = countdownTimer.TimeLeft;
+			countdownTimer.Stop();
+			countdownTimer.WaitTime = time_left + 60;
+			countdownTimer.Start();
 			ExtraTime = false;
 		}
+		TimeSpan time = TimeSpan.FromSeconds(countdownTimer.TimeLeft);
+		string timeString = time.ToString(@"mm\:ss");
+
+		LabelTime.Text = timeString;
 	}
 	
 	private void OnCountdownTimerTimeout()
 	{
-		// Decrement remaining time
-		// if (remainingTime > 0)
-		// {
-		// 	remainingTime--;
-		// }
 		
-		// LabelTime.Text = "Time Left: " + remainingTime.ToString();
-
-		// if (remainingTime <= 0)
-		// {
-		// 	GD.Print("Time's up!");
-		// 	countdownTimer.Stop(); // Stop the timer if needed
-		// }
 		EmitSignal(SignalName.CountdownTimerTimeout);
 	}
 }

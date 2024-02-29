@@ -523,10 +523,6 @@ water = NodePath("../../WaterPlane")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.29154, 0.159419, -89.6534)
 water = NodePath("../../WaterPlane")
 
-[node name="Goods9" parent="Goods" node_paths=PackedStringArray("water") instance=ExtResource("13_yi77v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.6806, 0.159419, -88.6491)
-water = NodePath("../../WaterPlane")
-
 [node name="Goods10" parent="Goods" node_paths=PackedStringArray("water") instance=ExtResource("13_yi77v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.3155, 0.159419, -16.3435)
 water = NodePath("../../WaterPlane")

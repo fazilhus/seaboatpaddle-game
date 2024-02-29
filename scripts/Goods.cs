@@ -63,15 +63,7 @@ public partial class Goods : RigidBody3D
 		if (area.IsInGroup("ThePlayersGoods"))
 		{
 			GD.Print("ThePlayers are colliding with goods");
-			QueueFree();
+			//QueueFree();
 		}
-	}
-
-	public void SetMonitoring(bool val) {
-		GetNode<Area3D>("Area3DTrigger").SetDeferred("monitoring", val);
-	}
-
-	private void OnCrashCooldownTimerTimeout() {
-		GetNode<Area3D>("Area3DTrigger").SetDeferred("monitoring", true);
 	}
 }

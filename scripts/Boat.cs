@@ -13,6 +13,8 @@ public partial class Boat : RigidBody3D
 {	
 	[Signal]
 	public delegate void NoBoatHealthEventHandler();
+	[Signal]
+	public delegate void ObjectivePickupEventHandler();
 
 	[Export]
 	public Godot.Collections.Array<Node3D> paddles;
@@ -386,6 +388,7 @@ public partial class Boat : RigidBody3D
 				boat_area.SetDeferred("monitorable", false);
 				//GD.Print("Boar area monitorable: ", boat_area.Monitorable);
 			}
+			EmitSignal(SignalName.ObjectivePickup);
 		}
 	}
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bqgpgxpoqkw6w"]
+[gd_scene load_steps=30 format=3 uid="uid://bqgpgxpoqkw6w"]
 
 [ext_resource type="Script" path="res://scripts/WorldScene.cs" id="1_qx545"]
 [ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
@@ -103,7 +103,6 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 31
 text = "Cargo "
-label_settings = SubResource("LabelSettings_kspm4")
 
 [node name="DeliveredGoods" type="Label" parent="GameCamera/CanvasLayer"]
 anchors_preset = -1
@@ -118,7 +117,6 @@ offset_bottom = -15.768
 grow_horizontal = 0
 grow_vertical = 0
 text = "Delivered "
-label_settings = SubResource("LabelSettings_kspm4")
 
 [node name="LabelModifiers" type="Label" parent="GameCamera/CanvasLayer"]
 visible = false
@@ -291,6 +289,7 @@ transform = Transform3D(0.422682, 0, -0.906278, 0, 1, 0, 0.906278, 0, 0.422682, 
 sideways_force_ratio = 0.45
 forward_force_ratio = 50.0
 water = NodePath("../WaterPlane")
+goods_scene = ExtResource("13_yi77v")
 goods_node = NodePath("../Goods")
 
 [node name="Map" parent="." instance=ExtResource("8_lgk5l")]
@@ -646,4 +645,5 @@ script = ExtResource("15_d1m7c")
 [connection signal="pressed" from="GameCamera/CanvasLayer/GameOverScreen/QuitButton" to="." method="QuitButtonPressed"]
 [connection signal="timeout" from="GameCamera/countdownTimer" to="GameCamera" method="OnCountdownTimerTimeout"]
 [connection signal="NoBoatHealth" from="Boat" to="." method="OnNoBoatHealth"]
+[connection signal="ObjectivePickup" from="Boat" to="." method="OnObjectivePickup"]
 [connection signal="finished" from="SeaGullSound" to="SeaGullSound" method="OnSeaGullSoundFinished"]

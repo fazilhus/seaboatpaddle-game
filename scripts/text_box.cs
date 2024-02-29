@@ -1,7 +1,6 @@
 using Godot;
 using System;
 using System.IO;
-using System.Numerics;
 
 public partial class text_box : CanvasLayer
 {
@@ -11,9 +10,10 @@ public partial class text_box : CanvasLayer
 	[Export] public Sprite2D spriteButton;
 	public Boat boat;
 	public bool isAdding;
-	//public int i;
-	//public Vector<string> plainTextArray;
 	private StreamReader sr;
+	private string contents;
+	private string[] lines;
+	private int idx;
 	public override void _Ready()
 	{
 		textBoxContainer = GetNode<MarginContainer>("TextBoxContainer");
@@ -23,7 +23,18 @@ public partial class text_box : CanvasLayer
 		//i = 0;
 		//plainTextArray = new Vector<string>();
 		//AddText(plainTextArray[i]);
-		sr = new StreamReader("textDocuments\\dialog_1.txt");
+		//sr = new StreamReader("textDocuments\\dialog_1.txt");
+		contents = @"Captain: (groaning, slowly regaining consciousness) What... What happened?
+First Mate: Captain! You're awake! Thank the seas, we were worried sick about you.
+Captain: (trying to sit up, wincing) The storm... Did we make it through?
+First Mate: Aye, Captain. But it was a close call. The Ship took quite a beating.
+Captain: (looking around, noticing the crew's worried faces) Why the long faces, lads? What's happened?
+First Mate: It's the cargo, Captain. The storm tossed us about like a toy boat. The hold's taking on water, and some of the crates are already slipping.
+Captain: (eyes widening) Blast it all! We can't lose our goods. We need to salvage what we can before they sink to the abyss. Sound the alarm! Everyone to their stations! We've got work to do!
+First Mate: Aye, Captain! You heard him, lads! Move like the wind and bring up whatever you can salvage!
+Crew:(shouting) AYE AYE!!!";
+		lines = contents.Split("\n");
+		idx=0;
 		spriteButton.Hide();
 		label.VisibleRatio = 0.0f;
 		boat.isReadyPaddle = false;
@@ -58,8 +69,8 @@ public partial class text_box : CanvasLayer
 			HideTextBox();
 		}
 
-		if (!isAdding && !sr.EndOfStream) {
-			AddText(sr.ReadLine());
+		if (!isAdding && (idx < lines.Length)) {
+			AddText(lines[idx]);
 		}
 
 		if(isAdding && label.VisibleRatio <= 1.0f)
@@ -72,11 +83,11 @@ public partial class text_box : CanvasLayer
 				if(Input.IsActionJustPressed("ui_accept"))
 				{
 					label.VisibleRatio = 0.0f;
-					if (!sr.EndOfStream) {
-						AddText(sr.ReadLine());
+					idx++;
+					if (idx < lines.Length) {
+						AddText(lines[idx]);
 					}
-					//GD.Print(i);
-					if(sr.EndOfStream)
+					else 
 					{
 						isAdding = false;
 						HideTextBox();

@@ -89,7 +89,7 @@ public partial class Boat : RigidBody3D
 	public Node3D goods_node;
 	private Node3D _goods_stack;
 	[Export]
-	public int StackSize = 4;
+	public int StackSize = 0;
 
 
 	public override void _Ready()
@@ -104,7 +104,7 @@ public partial class Boat : RigidBody3D
 		watersplashRight = GetNode<Node3D>("RightPaddlePivot").GetNode<GpuParticles3D>("GPUsplashEffect2");
 	
 		initialY = GlobalPosition.Y;
-		
+		StackSize = GetParent<WorldScene>().maxObjectiveStackAmount;
 		_player_inputs = new List<Vector3>();
 		_paddles_rotation_old = new List<Vector3>();
 		_is_paddle_moving = new List<bool>();
@@ -306,7 +306,19 @@ public partial class Boat : RigidBody3D
 
 		GetNode<Timer>("CrashCooldown").Start();
 	}
+	public void EmptyCargo()
+	{
+        var count = _goods_stack.GetChildCount();
+       
+        for (int i = 0; i < count; i++)
+        {
+            var child = _goods_stack.GetChild<Node3D>(i);
+           
+            child.CallDeferred("free");
+        }
+        
 
+    }
 	public void OnBoatArea3dBodyExited(Area3D area)
 	{
 		if(area.IsInGroup("Vortex"))
@@ -450,6 +462,8 @@ public partial class Boat : RigidBody3D
 				SpeedBoost = false;
 			}
 		}
+	
+
 	}
 
 	public void AttackedByShark(Vector3 attack_dir)

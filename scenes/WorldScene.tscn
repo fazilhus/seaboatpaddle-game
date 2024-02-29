@@ -209,6 +209,7 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -54.2718, 0, 41.8128)
 [node name="Boat" parent="." node_paths=PackedStringArray("water", "goods_node") instance=ExtResource("2_w1wc2")]
 transform = Transform3D(0.422682, 0, -0.906278, 0, 1, 0, 0.906278, 0, 0.422682, -4.37886, 1.82657, -1.34093)
 water = NodePath("../WaterPlane")
+goods_scene = ExtResource("13_yi77v")
 goods_node = NodePath("../Goods")
 
 [node name="Map" parent="." instance=ExtResource("8_lgk5l")]
@@ -516,6 +517,10 @@ water = NodePath("../../WaterPlane")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.5387, 0.159423, -24.044)
 water = NodePath("../../WaterPlane")
 
+[node name="Goods11" parent="Goods" node_paths=PackedStringArray("water") instance=ExtResource("13_yi77v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.40332, 0.159421, 1.13181)
+water = NodePath("../../WaterPlane")
+
 [node name="Goods3" parent="Goods" node_paths=PackedStringArray("water") instance=ExtResource("13_yi77v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.586, 0.159419, -35.7756)
 water = NodePath("../../WaterPlane")
@@ -555,6 +560,7 @@ water = NodePath("../../WaterPlane")
 [connection signal="NoBoatHealth" from="Boat" to="." method="OnNoBoatHealth"]
 [connection signal="ObjectivePickedUp" from="Goods/Goods" to="." method="OnObjectivePickup"]
 [connection signal="ObjectivePickedUp" from="Goods/Goods2" to="." method="OnObjectivePickup"]
+[connection signal="ObjectivePickedUp" from="Goods/Goods11" to="." method="OnObjectivePickup"]
 [connection signal="ObjectivePickedUp" from="Goods/Goods3" to="." method="OnObjectivePickup"]
 [connection signal="ObjectivePickedUp" from="Goods/Goods4" to="." method="OnObjectivePickup"]
 [connection signal="ObjectivePickedUp" from="Goods/Goods5" to="." method="OnObjectivePickup"]

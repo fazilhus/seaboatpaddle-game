@@ -5,18 +5,18 @@ using System.Xml.Schema;
 public partial class WorldScene : Node3D
 {
 	public int level=0;
-	public int objectiveScore = 0;
+	public int objectiveScore = 0; //current held cargo
 	int deliveredCargo = 0;
 	string cargoString;
 	string objectiveString;
 	int maxObjectiveAmount = 0;
-	int maxObjectiveStackAmount = 4;
+	public int maxObjectiveStackAmount = 4; //max hold amount
 	bool GameOver = false;
 	[Export]
 	Label cargoTracker;
 	[Export]
 	Label objectiveTracker;
-
+	
     public override void _Ready()
     {
 		cargoString = cargoTracker.Text;
@@ -27,6 +27,10 @@ public partial class WorldScene : Node3D
     }
     public override void _Process(double delta)
     {
+		if(Input.IsKeyPressed(Key.F4))
+		{
+			OnDelivery();
+		}
 		if(!GameOver)
 		{
             if (deliveredCargo == maxObjectiveAmount)
@@ -38,13 +42,7 @@ public partial class WorldScene : Node3D
         }
         
     }
-    public override void _UnhandledInput(InputEvent @event)
-	{
-		if(@event.IsActionPressed("ui_text_completion_accept"))
-		{
-			deliveredCargo = maxObjectiveAmount;
-		}
-	}
+	
     public void OnNoBoatHealth() {
 
 		GameOverFunction(false);
@@ -53,6 +51,14 @@ public partial class WorldScene : Node3D
 	{
 		objectiveScore++;
         cargoTracker.Text = cargoString + objectiveScore + "/" + maxObjectiveStackAmount;
+    }
+	public void OnDelivery()
+	{
+		deliveredCargo += objectiveScore;
+		GetNode<Boat>("Boat").EmptyCargo();
+		
+        cargoTracker.Text = cargoString + objectiveScore + "/" + maxObjectiveStackAmount;
+        objectiveTracker.Text = objectiveString + deliveredCargo + "/" + maxObjectiveAmount;
     }
 	public void OnCountdownTimerTimeout() {
 

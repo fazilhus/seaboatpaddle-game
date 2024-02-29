@@ -390,7 +390,7 @@ process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.15837, 1.45815, 15.1394)
 
 [node name="Modifier" parent="Modifiers" node_paths=PackedStringArray("boat", "water") instance=ExtResource("9_e5cou")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.668596, 0, -2.8136)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0871, 0.113262, -16.4649)
 mass = 2.0
 gravity_scale = 0.3
 boat = NodePath("../../Boat")

@@ -78,6 +78,7 @@ public partial class Boat : RigidBody3D
 	}
 
 	private float strengthFactor; 
+	public bool isReadyPaddle = false;
 	private HealthComponent healthComp;
 	
 	//[Export] Survivors survivors;
@@ -134,6 +135,9 @@ public partial class Boat : RigidBody3D
 	{
 		Vector3 forward = Basis.Z;
 		foreach (var it in paddles.Select((paddle, i) => new {Paddle = paddle, Index = i})) {
+			if (!isReadyPaddle) {
+				continue;
+			}
 			if (it.Index >= _player_inputs.Count) 
 			{
 				continue;
@@ -149,7 +153,7 @@ public partial class Boat : RigidBody3D
 			_is_paddle_moving[it.Index] = force.Length() > 0.01f;
 
 			Node3D force_point = it.Paddle.GetNode<Node3D>("ForcePoint");
-			if (isSubmerged && force_point.GlobalPosition.Y < GlobalPosition.Y) {
+			if (isSubmerged && isReadyPaddle && force_point.GlobalPosition.Y < GlobalPosition.Y) {
 				//if (!_is_paddle_moving[(it.Index + 1) % 2]) {
 				//	ApplyForce(-sideways_force_ratio * 1.25f * force, it.Paddle.Position);
 				//	ApplyCentralForce(0.25f * -forward_force_ratio * Curve(force) * force.Sign().Z * forward);
@@ -160,20 +164,20 @@ public partial class Boat : RigidBody3D
 				//}
 
 				float speedRotation = angular_velocity.Length();
-				GD.Print(speedRotation);
+				//GD.Print(speedRotation);
 				if (speedRotation <= 30.0f && _paddles_rotation_old[it.Index] == _paddles_rotation_old[0])
 				{
 					watersplashLeft.Emitting = true;
 					watersplashLeft.AmountRatio = speedRotation;
 					watersplashLeft.Rotate(Vector3.Up, Mathf.Pi * angular_velocity.Sign().Z);
-					GD.Print(speedRotation, "RotationalVelcL");
+					//GD.Print(speedRotation, "RotationalVelcL");
 				}
 				else if (speedRotation <= 30.0f && _paddles_rotation_old[it.Index] == _paddles_rotation_old[1])
 				{
 					watersplashRight.Emitting = true;
 					watersplashRight.AmountRatio = speedRotation;
 					watersplashRight.Rotate(Vector3.Up, Mathf.Pi * angular_velocity.Sign().Z);
-					GD.Print(speedRotation, "RotationalVelcR");
+					//GD.Print(speedRotation, "RotationalVelcR");
 				}
 			}
 			else {

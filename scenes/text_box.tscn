@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpdbyctojhpfi"]
+
+[ext_resource type="Script" path="res://scenes/text_box.cs" id="1_j17um"]
+[ext_resource type="FontFile" uid="uid://dv7onqp10an4r" path="res://fonts/TreasureMapDeadhand-yLA3.ttf" id="1_kyjab"]
+[ext_resource type="Texture2D" uid="uid://cbjn3oadl512b" path="res://textures/Xbox Series/Double/xbox_button_color_a.png" id="3_8ois2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bcp1s"]
+bg_color = Color(0, 0, 0, 0.67451)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3paj1"]
+bg_color = Color(0.317647, 0.572549, 0.74902, 0.717647)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.392157)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[node name="TextBox" type="CanvasLayer" node_paths=PackedStringArray("textBoxContainer", "label", "spriteButton")]
+script = ExtResource("1_j17um")
+textBoxContainer = NodePath("TextBoxContainer")
+label = NodePath("TextBoxContainer/MarginContainer/Label")
+spriteButton = NodePath("TextBoxContainer/MarginContainer/XboxButtonColorB")
+
+[node name="TextBoxContainer" type="MarginContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -170.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel" type="Panel" parent="TextBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bcp1s")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Panel" type="Panel" parent="TextBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3paj1")
+
+[node name="Label" type="Label" parent="TextBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_kyjab")
+theme_override_font_sizes/font_size = 30
+text = "AAA"
+autowrap_mode = 3
+justification_flags = 35
+
+[node name="XboxButtonColorB" type="Sprite2D" parent="TextBoxContainer/MarginContainer"]
+position = Vector2(1113.5, 141.5)
+scale = Vector2(0.585938, 0.554688)
+texture = ExtResource("3_8ois2")

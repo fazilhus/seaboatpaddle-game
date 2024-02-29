@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bqgpgxpoqkw6w"]
+[gd_scene load_steps=22 format=3 uid="uid://bqgpgxpoqkw6w"]
 
 [ext_resource type="Script" path="res://scripts/WorldScene.cs" id="1_qx545"]
 [ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://hl4r2ylauhog" path="res://scenes/Modifiers.tscn" id="9_e5cou"]
 [ext_resource type="PackedScene" uid="uid://5scllsnkmpth" path="res://scenes/streams.tscn" id="11_8xjfh"]
 [ext_resource type="PackedScene" uid="uid://b55sx0mje1j5w" path="res://scenes/shark.tscn" id="12_2bx8v"]
+[ext_resource type="PackedScene" uid="uid://bpdbyctojhpfi" path="res://scenes/text_box.tscn" id="13_cald3"]
 [ext_resource type="PackedScene" uid="uid://ducw5sm3i87kh" path="res://scenes/Goods.tscn" id="13_yi77v"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kspm4"]
@@ -355,6 +356,8 @@ water = NodePath("../../WaterPlane")
 [node name="Goods10" parent="Goods" node_paths=PackedStringArray("water") instance=ExtResource("13_yi77v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.3155, 0.159419, -16.3435)
 water = NodePath("../../WaterPlane")
+
+[node name="TextBox" parent="." instance=ExtResource("13_cald3")]
 
 [connection signal="CountdownTimerTimeout" from="GameCamera" to="." method="OnCountdownTimerTimeout"]
 [connection signal="pressed" from="GameCamera/CanvasLayer/GameOverScreen/RestartButton" to="." method="RetryButtonPressed"]

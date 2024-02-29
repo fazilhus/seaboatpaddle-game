@@ -27,6 +27,8 @@ public partial class text_box : CanvasLayer
 		spriteButton.Hide();
 		label.VisibleRatio = 0.0f;
 		boat.isReadyPaddle = false;
+
+		GetParent().GetNode<CanvasLayer>("GameCamera/CanvasLayer").Hide();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -108,6 +110,7 @@ public partial class text_box : CanvasLayer
 		textBoxContainer.Hide();
 		spriteButton.Hide();
 		boat.isReadyPaddle = true;
+		GetParent().GetNode<CanvasLayer>("GameCamera/CanvasLayer").Show();
 	}
 
 	public void ShowTextBox()

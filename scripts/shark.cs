@@ -58,12 +58,12 @@ public partial class shark : CharacterBody3D
 	public override void _Process(double delta)
 	{
 		// Movement along the path
-		if (_trigger_area != null && _trigger_area.OverlapsBody(boat)) 
+		if (_trigger_area.OverlapsBody(boat)) 
 		{
 			GD.Print("Shark chasing");
 			_behavior = Behavior.Chase;
 		}
-		else if (_chasing_area != null && !_chasing_area.OverlapsBody(boat)) // If boat exits the chasing area
+		else if (!_chasing_area.OverlapsBody(boat))
 		{
 			GD.Print("Shark patroling");
 			_behavior = Behavior.Patrol;
@@ -72,13 +72,13 @@ public partial class shark : CharacterBody3D
 		switch (_behavior) 
 		{
 			case Behavior.Patrol: 
-				{
+			{
 				GetNode<AnimationPlayer>("Body/sharkswim/AnimationPlayer").SpeedScale = 1;
 				_PatrolMovement((float)delta);
 				break;
 			}
 			case Behavior.Chase: 
-				{
+			{
 				GetNode<AnimationPlayer>("Body/sharkswim/AnimationPlayer").SpeedScale = 1.5f;
 				_ChaseMovement((float)delta);
 				break;

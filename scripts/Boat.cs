@@ -76,6 +76,7 @@ public partial class Boat : RigidBody3D
 	}
 
 	private float strengthFactor; 
+	public bool isReadyPaddle = false;
 	private HealthComponent healthComp;
 	
 	//[Export] Survivors survivors;
@@ -145,6 +146,9 @@ public partial class Boat : RigidBody3D
 	{
 		Vector3 forward = Basis.Z;
 		foreach (var it in paddles.Select((paddle, i) => new {Paddle = paddle, Index = i})) {
+			if (!isReadyPaddle) {
+				continue;
+			}
 			if (it.Index >= _player_inputs.Count) 
 			{
 				continue;

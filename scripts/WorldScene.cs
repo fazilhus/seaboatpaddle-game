@@ -56,7 +56,7 @@ public partial class WorldScene : Node3D
 	{
 		deliveredCargo += objectiveScore;
 		GetNode<Boat>("Boat").EmptyCargo();
-		
+		objectiveScore = 0;
         cargoTracker.Text = cargoString + objectiveScore + "/" + maxObjectiveStackAmount;
         objectiveTracker.Text = objectiveString + deliveredCargo + "/" + maxObjectiveAmount;
     }

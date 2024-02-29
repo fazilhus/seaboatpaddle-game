@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bro3rrf66ro1h"]
+[gd_scene load_steps=13 format=3 uid="uid://bro3rrf66ro1h"]
 
 [ext_resource type="Script" path="res://scripts/Boat.cs" id="1_tk55w"]
 [ext_resource type="PackedScene" uid="uid://catt7cfnf4pd1" path="res://CustonAssets/paddle.glb" id="2_32au7"]
 [ext_resource type="Material" uid="uid://86e052fpxy4m" path="res://paddle1.tres" id="2_jsacg"]
 [ext_resource type="ArrayMesh" uid="uid://b7odym8k47kgf" path="res://KennyWaterCraft/Models/watercraftPack_029.obj" id="3_6y5mw"]
-[ext_resource type="Material" uid="uid://dwl8fs46koq6p" path="res://paddle2.tres" id="3_htk05"]
 [ext_resource type="PackedScene" uid="uid://dlb4avec74ix7" path="res://scenes/WaterParticles.tscn" id="3_ivx5w"]
 [ext_resource type="Material" uid="uid://dwl8fs46koq6p" path="res://paddle2.tres" id="3_rrptr"]
 [ext_resource type="Material" uid="uid://dm8p44anq2ejj" path="res://Shades/AntiWaterMask.tres" id="4_2xej0"]

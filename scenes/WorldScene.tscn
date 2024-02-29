@@ -212,11 +212,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.9896, 0, -1.29973)
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -54.2718, 0, 41.8128)
 
 [node name="Boat" parent="." node_paths=PackedStringArray("water", "goods_node") instance=ExtResource("2_w1wc2")]
-transform = Transform3D(0.422682, 0, -0.906278, 0, 1, 0, 0.906278, 0, 0.422682, 72.884, 1.40901, 48.5736)
+transform = Transform3D(0.422682, 0, -0.906278, 0, 1, 0, 0.906278, 0, 0.422682, -2.85646, 0.340135, -1.67002)
 sideways_force_ratio = 0.45
 forward_force_ratio = 50.0
 water = NodePath("../WaterPlane")
-goods_scene = ExtResource("13_yi77v")
 goods_node = NodePath("../Goods")
 
 [node name="Map" parent="." instance=ExtResource("8_lgk5l")]
@@ -579,6 +578,5 @@ script = ExtResource("14_ismqw")
 [connection signal="ObjectivePickedUp" from="Goods/Goods6" to="." method="OnObjectivePickup"]
 [connection signal="ObjectivePickedUp" from="Goods/Goods7" to="." method="OnObjectivePickup"]
 [connection signal="ObjectivePickedUp" from="Goods/Goods8" to="." method="OnObjectivePickup"]
-[connection signal="ObjectivePickedUp" from="Goods/Goods9" to="." method="OnObjectivePickup"]
 [connection signal="ObjectivePickedUp" from="Goods/Goods10" to="." method="OnObjectivePickup"]
 [connection signal="finished" from="SeaGullSound" to="SeaGullSound" method="OnSeaGullSoundFinished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bqgpgxpoqkw6w"]
+[gd_scene load_steps=31 format=3 uid="uid://bqgpgxpoqkw6w"]
 
 [ext_resource type="Script" path="res://scripts/WorldScene.cs" id="1_qx545"]
 [ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
@@ -45,10 +45,13 @@ glow_enabled = true
 size = Vector3(100, 10, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r8rc0"]
-size = Vector3(3, 29.485, 30.719)
+size = Vector3(3, 30.7065, 29.9278)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hg366"]
-size = Vector3(51.8179, 2, 31.602)
+size = Vector3(58.7477, 3, 57.3074)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t20qg"]
+size = Vector3(58.9246, 3, 54.499)
 
 [node name="Level" type="Node3D" node_paths=PackedStringArray("cargoTracker", "objectiveTracker")]
 process_mode = 3
@@ -555,7 +558,7 @@ shape = SubResource("BoxShape3D_r8rc0")
 [node name="ChasingArea" type="Area3D" parent="Path1"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Path1/ChasingArea"]
-transform = Transform3D(0.938155, 0, 0.346215, 0, 1, 0, -0.346215, 0, 0.938155, -32.5642, 0, 26.4907)
+transform = Transform3D(0.938155, 0, 0.346215, 0, 1, 0, -0.346215, 0, 0.938155, -35.4403, 0, 30.7938)
 shape = SubResource("BoxShape3D_hg366")
 
 [node name="Shark2" parent="." node_paths=PackedStringArray("boat", "path") instance=ExtResource("12_2bx8v")]
@@ -582,14 +585,15 @@ transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -38.3326
 transform = Transform3D(-1.92981e-08, -0.44149, 0.897266, 1, -4.37114e-08, 0, 3.92207e-08, 0.897266, 0.44149, -34.4214, 0, 27.6429)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Path2/TriggerArea"]
+transform = Transform3D(1, 2.44596e-16, 1.05471e-15, -4.28477e-16, 1, 2.34693e-07, 0, -2.34693e-07, 1, -2.38419e-07, 5.36938, 0.880947)
 shape = SubResource("BoxShape3D_r8rc0")
 
 [node name="ChasingArea" type="Area3D" parent="Path2"]
 transform = Transform3D(-1.92981e-08, -0.44149, 0.897266, 1, -4.37114e-08, 0, 3.92207e-08, 0.897266, 0.44149, -34.4214, 0, 27.6429)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Path2/ChasingArea"]
-transform = Transform3D(1.00168, -3.30985e-15, 1.11022e-15, -1.46428e-14, 1.00168, 2.36556e-07, 5.55112e-17, -2.36556e-07, 1.00168, -2.38419e-07, 6.30573, 2.74386)
-shape = SubResource("BoxShape3D_r8rc0")
+transform = Transform3D(-4.37114e-08, -1, 1.05471e-15, 1, -4.37114e-08, 2.34693e-07, -2.34693e-07, 0, 1, -1.3113e-06, 8.69103, -1.17693)
+shape = SubResource("BoxShape3D_t20qg")
 
 [node name="Goods" type="Node3D" parent="."]
 

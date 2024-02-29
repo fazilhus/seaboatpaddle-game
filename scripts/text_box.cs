@@ -54,6 +54,9 @@ public partial class text_box : CanvasLayer
 	// 			}
 	// 		}
 	// 	}
+		if (Input.IsKeyPressed(Key.F5)) {
+			HideTextBox();
+		}
 
 		if (!isAdding && !sr.EndOfStream) {
 			AddText(sr.ReadLine());

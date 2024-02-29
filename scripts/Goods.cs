@@ -65,15 +65,7 @@ public partial class Goods : RigidBody3D
 		{
 			GD.Print("ThePlayers are colliding with goods");
 			EmitSignal(SignalName.ObjectivePickedUp);
-			QueueFree();
+			
 		}
-	}
-
-	public void SetMonitoring(bool val) {
-		GetNode<Area3D>("Area3DTrigger").SetDeferred("monitoring", val);
-	}
-
-	private void OnCrashCooldownTimerTimeout() {
-		GetNode<Area3D>("Area3DTrigger").SetDeferred("monitoring", true);
 	}
 }

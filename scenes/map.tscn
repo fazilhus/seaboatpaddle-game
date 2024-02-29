@@ -1688,97 +1688,97 @@ shape = SubResource("ConcavePolygonShape3D_4pwpr")
 [node name="Island7" type="Node3D" parent="Islands"]
 transform = Transform3D(0.226651, 0, -0.973976, 0, 1, 0, 0.973976, 0, 0.226651, 56.7467, 0, 91.6797)
 
-[node name="PalmA1" type="MeshInstance3D" parent="Islands/Island7"]
+[node name="PalmA7" type="MeshInstance3D" parent="Islands/Island7"]
 transform = Transform3D(0.3, 0, 1.49012e-08, 0, 0.3, 0, -1.49012e-08, 0, 0.3, -7.7865, -0.0790677, 22.4279)
 mesh = ExtResource("2_hu2xk")
 surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
 surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
 
-[node name="PalmB1" type="MeshInstance3D" parent="Islands/Island7"]
+[node name="PalmB7" type="MeshInstance3D" parent="Islands/Island7"]
 transform = Transform3D(0.33, 0, -2.98023e-08, 0, 0.33, 0, 2.98023e-08, 0, 0.33, -8.47359, 1.70966, 18.6486)
 mesh = ExtResource("2_hu2xk")
 surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
 surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
 
-[node name="PalmC1" type="MeshInstance3D" parent="Islands/Island7"]
+[node name="PalmC7" type="MeshInstance3D" parent="Islands/Island7"]
 transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, -10.658, 2.86843, 24.1291)
 mesh = ExtResource("2_hu2xk")
 surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
 surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
 
-[node name="PalmD1" type="MeshInstance3D" parent="Islands/Island7"]
+[node name="PalmD7" type="MeshInstance3D" parent="Islands/Island7"]
 transform = Transform3D(0.086734, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.086734, -16.6882, 1.87562, 23.0558)
 mesh = ExtResource("2_hu2xk")
 surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
 surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
 
-[node name="PalmE1" type="MeshInstance3D" parent="Islands/Island7"]
+[node name="PalmE7" type="MeshInstance3D" parent="Islands/Island7"]
 transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, -16.2585, 3.09836, 21.2982)
 mesh = ExtResource("3_6jyh4")
 surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
 surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
 
-[node name="PalmF1" type="MeshInstance3D" parent="Islands/Island7"]
+[node name="PalmF7" type="MeshInstance3D" parent="Islands/Island7"]
 transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, -21.3236, 4.69095, 26.3688)
 mesh = ExtResource("3_6jyh4")
 surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
 surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
 
-[node name="PalmG1" type="MeshInstance3D" parent="Islands/Island7"]
+[node name="PalmG7" type="MeshInstance3D" parent="Islands/Island7"]
 transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, -21.2823, 3.15948, 23.4115)
 mesh = ExtResource("3_6jyh4")
 surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
 surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
 
-[node name="PalmH1" type="MeshInstance3D" parent="Islands/Island7"]
+[node name="PalmH7" type="MeshInstance3D" parent="Islands/Island7"]
 transform = Transform3D(0.27, 0, -3.72529e-09, 0, 0.27, 0, 3.72529e-09, 0, 0.27, -22.3227, 7.66655, 17.3375)
 mesh = ExtResource("3_6jyh4")
 surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
 surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
 
-[node name="PalmI1" type="MeshInstance3D" parent="Islands/Island7"]
+[node name="PalmI7" type="MeshInstance3D" parent="Islands/Island7"]
 transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, -14.5844, 8.17408, 17.7782)
 mesh = ExtResource("3_6jyh4")
 surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
 surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
 
-[node name="PalmJ1" type="MeshInstance3D" parent="Islands/Island7"]
+[node name="PalmJ7" type="MeshInstance3D" parent="Islands/Island7"]
 transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, -13.0579, 6.51074, 18.1256)
 mesh = ExtResource("3_6jyh4")
 surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
 surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
 
-[node name="PalmK1" type="MeshInstance3D" parent="Islands/Island7"]
+[node name="PalmK7" type="MeshInstance3D" parent="Islands/Island7"]
 transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, -12.1019, 7.35464, 13.3)
 mesh = ExtResource("3_6jyh4")
 surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
 surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
 
-[node name="PalmL1" type="MeshInstance3D" parent="Islands/Island7"]
+[node name="PalmL7" type="MeshInstance3D" parent="Islands/Island7"]
 transform = Transform3D(0.27, 0, -3.72529e-09, 0, 0.27, 0, 3.72529e-09, 0, 0.27, -10.9937, 4.16792, 6.79143)
 mesh = ExtResource("3_6jyh4")
 surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
 surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
 
-[node name="PalmM1" type="MeshInstance3D" parent="Islands/Island7"]
+[node name="PalmM7" type="MeshInstance3D" parent="Islands/Island7"]
 transform = Transform3D(0.3, 0, 2.23517e-08, 0, 0.3, 0, -2.23517e-08, 0, 0.3, -14.634, 4.41016, 7.13704)
 mesh = ExtResource("2_hu2xk")
 surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
 surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
 
-[node name="PalmN1" type="MeshInstance3D" parent="Islands/Island7"]
+[node name="PalmN7" type="MeshInstance3D" parent="Islands/Island7"]
 transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, -24.414, 1.99073, 11.1504)
 mesh = ExtResource("2_hu2xk")
 surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
 surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
 
-[node name="PalmO1" type="MeshInstance3D" parent="Islands/Island7"]
+[node name="PalmO7" type="MeshInstance3D" parent="Islands/Island7"]
 transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, -19.225, 7.11073, 14.9477)
 mesh = ExtResource("2_hu2xk")
 surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
 surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
 
-[node name="PalmP1" type="MeshInstance3D" parent="Islands/Island7"]
+[node name="PalmP7" type="MeshInstance3D" parent="Islands/Island7"]
 transform = Transform3D(0.086734, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.086734, -20.9534, 10.7898, 16.2629)
 mesh = ExtResource("2_hu2xk")
 surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
@@ -3772,7 +3772,7 @@ surface_material_override/1 = SubResource("StandardMaterial3D_ggknw")
 shape = SubResource("ConcavePolygonShape3D_vhu88")
 
 [node name="Island22" type="Node3D" parent="Islands"]
-transform = Transform3D(-0.686326, 0, -0.727293, 0, 1, 0, 0.727293, 0, -0.686326, -124.766, 0, 126.473)
+transform = Transform3D(-0.686326, 0, -0.727293, 0, 1, 0, 0.727293, 0, -0.686326, -82.3832, 0, 141.885)
 
 [node name="PalmA22" type="MeshInstance3D" parent="Islands/Island22"]
 transform = Transform3D(-0.265145, 0, 0.050973, 0, 0.27, 0, -0.050973, 0, -0.265145, -96.4964, 8.50898, -104.907)
@@ -3873,63 +3873,208 @@ shape = SubResource("ConcavePolygonShape3D_0013k")
 [node name="Island23" type="Node3D" parent="Islands"]
 transform = Transform3D(0.795791, 0, -0.605572, 0, 1, 0, 0.605572, 0, 0.795791, 19.1686, 0, 224.197)
 
-[node name="PalmA19" type="MeshInstance3D" parent="Islands/Island23"]
+[node name="PalmA23" type="MeshInstance3D" parent="Islands/Island23"]
 transform = Transform3D(-0.265145, 0, 0.050973, 0, 0.27, 0, -0.050973, 0, -0.265145, 112.328, 2.63809, -137.321)
 mesh = ExtResource("3_6jyh4")
 surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
 surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
 
-[node name="PalmB19" type="MeshInstance3D" parent="Islands/Island23"]
+[node name="PalmB23" type="MeshInstance3D" parent="Islands/Island23"]
 transform = Transform3D(-0.265145, 0, 0.050973, 0, 0.27, 0, -0.050973, 0, -0.265145, 104.738, 4.59038, -132.137)
 mesh = ExtResource("3_6jyh4")
 surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
 surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
 
-[node name="PalmC19" type="MeshInstance3D" parent="Islands/Island23"]
+[node name="PalmC23" type="MeshInstance3D" parent="Islands/Island23"]
 transform = Transform3D(0.0708729, 0, -0.260532, 0, 0.27, 0, 0.260532, 0, 0.0708729, 113.232, 10.1392, -123.01)
 mesh = ExtResource("3_6jyh4")
 surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
 surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
 
-[node name="PalmD19" type="MeshInstance3D" parent="Islands/Island23"]
+[node name="PalmD23" type="MeshInstance3D" parent="Islands/Island23"]
 transform = Transform3D(0.0866224, 0, -0.318428, 0, 0.33, 0, 0.318428, 0, 0.0866224, 123.627, 2.82693, -125.772)
 mesh = ExtResource("3_6jyh4")
 surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
 surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
 
-[node name="PalmE19" type="MeshInstance3D" parent="Islands/Island23"]
+[node name="PalmE23" type="MeshInstance3D" parent="Islands/Island23"]
 transform = Transform3D(-0.265145, 0, 0.050973, 0, 0.27, 0, -0.050973, 0, -0.265145, 120.241, 2.53504, -133.074)
 mesh = ExtResource("3_6jyh4")
 surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
 surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
 
-[node name="PalmF19" type="MeshInstance3D" parent="Islands/Island23"]
+[node name="PalmF23" type="MeshInstance3D" parent="Islands/Island23"]
 transform = Transform3D(-0.119539, 0, -0.275156, 0, 0.3, 0, 0.275156, 0, -0.119539, 115.345, 10.1947, -117.241)
 mesh = ExtResource("3_6jyh4")
 surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
 surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
 
-[node name="Island19" type="MeshInstance3D" parent="Islands/Island23"]
+[node name="Island23" type="MeshInstance3D" parent="Islands/Island23"]
 transform = Transform3D(-79.9883, 0, -1.02411, 0, 15, 0, 1.36547, 0, -59.9913, 115.087, 0, -127.424)
 mesh = ExtResource("10_77noc")
 surface_material_override/0 = SubResource("StandardMaterial3D_fpyvm")
 surface_material_override/1 = SubResource("StandardMaterial3D_sj07q")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Islands/Island23/Island19"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Islands/Island23/Island23"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Islands/Island23/Island19/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Islands/Island23/Island23/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_k6a10")
 
-[node name="Island19Bottom" type="MeshInstance3D" parent="Islands/Island23"]
+[node name="Island23Bottom" type="MeshInstance3D" parent="Islands/Island23"]
 transform = Transform3D(79.9883, 0, -1.02411, 0, -200, 0, -1.36548, 0, -59.9913, 115.087, 0, -127.424)
 mesh = ExtResource("10_77noc")
 surface_material_override/0 = SubResource("StandardMaterial3D_fpyvm")
 surface_material_override/1 = SubResource("StandardMaterial3D_sj07q")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Islands/Island23/Island19Bottom"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Islands/Island23/Island23Bottom"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Islands/Island23/Island19Bottom/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Islands/Island23/Island23Bottom/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_sbj3d")
+
+[node name="Island24" type="Node3D" parent="Islands"]
+transform = Transform3D(-0.0552984, 0, 0.99847, 0, 1, 0, -0.99847, 0, -0.0552984, 170.608, 0, -34.0992)
+
+[node name="PalmA24" type="MeshInstance3D" parent="Islands/Island24"]
+transform = Transform3D(0.3, 0, 1.49012e-08, 0, 0.3, 0, -1.49012e-08, 0, 0.3, -7.7865, -0.0790677, 22.4279)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="PalmB24" type="MeshInstance3D" parent="Islands/Island24"]
+transform = Transform3D(0.33, 0, -2.98023e-08, 0, 0.33, 0, 2.98023e-08, 0, 0.33, -8.47359, 1.70966, 18.6486)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="PalmC24" type="MeshInstance3D" parent="Islands/Island24"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, -10.658, 2.86843, 24.1291)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="PalmD24" type="MeshInstance3D" parent="Islands/Island24"]
+transform = Transform3D(0.086734, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.086734, -16.6882, 1.87562, 23.0558)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="PalmE24" type="MeshInstance3D" parent="Islands/Island24"]
+transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, -16.2585, 3.09836, 21.2982)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmF24" type="MeshInstance3D" parent="Islands/Island24"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, -21.3236, 4.69095, 26.3688)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmG24" type="MeshInstance3D" parent="Islands/Island24"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, -21.2823, 3.15948, 23.4115)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="PalmH24" type="MeshInstance3D" parent="Islands/Island24"]
+transform = Transform3D(0.27, 0, -3.72529e-09, 0, 0.27, 0, 3.72529e-09, 0, 0.27, -22.3227, 7.66655, 17.3375)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="PalmI24" type="MeshInstance3D" parent="Islands/Island24"]
+transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, -14.5844, 8.17408, 17.7782)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
+surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
+
+[node name="PalmJ24" type="MeshInstance3D" parent="Islands/Island24"]
+transform = Transform3D(-0.118784, 0, -0.242467, 0, 0.27, 0, 0.242467, 0, -0.118784, -13.0579, 6.51074, 18.1256)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ueb")
+surface_material_override/1 = SubResource("StandardMaterial3D_f0fes")
+
+[node name="PalmK24" type="MeshInstance3D" parent="Islands/Island24"]
+transform = Transform3D(0.234129, 0, -0.187573, 0, 0.3, 0, 0.187573, 0, 0.234129, -12.1019, 7.35464, 13.3)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rctnv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vefat")
+
+[node name="PalmL24" type="MeshInstance3D" parent="Islands/Island24"]
+transform = Transform3D(0.27, 0, -3.72529e-09, 0, 0.27, 0, 3.72529e-09, 0, 0.27, -10.9937, 4.16792, 6.79143)
+mesh = ExtResource("3_6jyh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_00rbx")
+surface_material_override/1 = SubResource("StandardMaterial3D_tr0yt")
+
+[node name="PalmM24" type="MeshInstance3D" parent="Islands/Island24"]
+transform = Transform3D(0.3, 0, 2.23517e-08, 0, 0.3, 0, -2.23517e-08, 0, 0.3, -14.634, 4.41016, 7.13704)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_12wd7")
+surface_material_override/1 = SubResource("StandardMaterial3D_axvih")
+
+[node name="PalmN24" type="MeshInstance3D" parent="Islands/Island24"]
+transform = Transform3D(0.33, 0, -5.96046e-08, 0, 0.33, 0, 5.96046e-08, 0, 0.33, -24.414, 1.99073, 11.1504)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h6h85")
+surface_material_override/1 = SubResource("StandardMaterial3D_xliur")
+
+[node name="PalmO24" type="MeshInstance3D" parent="Islands/Island24"]
+transform = Transform3D(0.157939, 0, -0.218987, 0, 0.27, 0, 0.218987, 0, 0.157939, -19.225, 7.11073, 14.9477)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_guc47")
+surface_material_override/1 = SubResource("StandardMaterial3D_6h5i0")
+
+[node name="PalmP24" type="MeshInstance3D" parent="Islands/Island24"]
+transform = Transform3D(0.086734, 0, 0.234472, 0, 0.25, 0, -0.234472, 0, 0.086734, -20.9534, 10.7898, 16.2629)
+mesh = ExtResource("2_hu2xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vhtr")
+surface_material_override/1 = SubResource("StandardMaterial3D_nqmg0")
+
+[node name="Island24a" type="MeshInstance3D" parent="Islands/Island24"]
+transform = Transform3D(-0.758912, 0, 2.77563, 0, 1, 0, -1.85042, 0, -1.13837, -37.1603, 0, 10.9374)
+mesh = ExtResource("2_ulpyk")
+surface_material_override/0 = SubResource("StandardMaterial3D_svm8l")
+surface_material_override/1 = SubResource("StandardMaterial3D_ewxg1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Islands/Island24/Island24a"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Islands/Island24/Island24a/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_il2xx")
+
+[node name="Island24aBottom" type="MeshInstance3D" parent="Islands/Island24"]
+transform = Transform3D(-0.758912, 0, 2.77563, 0, -10, 0, -1.85042, 0, -1.13837, -37.1603, 0, 10.9374)
+mesh = ExtResource("2_ulpyk")
+surface_material_override/0 = SubResource("StandardMaterial3D_svm8l")
+surface_material_override/1 = SubResource("StandardMaterial3D_ewxg1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Islands/Island24/Island24aBottom"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Islands/Island24/Island24aBottom/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_026o2")
+
+[node name="Island24b" type="MeshInstance3D" parent="Islands/Island24"]
+transform = Transform3D(1.89665, 0, -0.634609, 0, 0.5, 0, 0.634609, 0, 1.89665, -1.02975, 0, 18.2445)
+mesh = ExtResource("3_gj7vg")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_uqgis")
+surface_material_override/1 = SubResource("StandardMaterial3D_trjhu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Islands/Island24/Island24b"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Islands/Island24/Island24b/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_fqghq")
+
+[node name="Island24bBottom" type="MeshInstance3D" parent="Islands/Island24"]
+transform = Transform3D(1.89665, 0, -0.634609, 0, -10, 0, 0.634609, 0, 1.89665, -1.02975, 0, 18.2445)
+mesh = ExtResource("3_gj7vg")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_uqgis")
+surface_material_override/1 = SubResource("StandardMaterial3D_trjhu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Islands/Island24/Island24bBottom"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Islands/Island24/Island24bBottom/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_j2q1k")
 
 [node name="Rocks" type="Node3D" parent="."]
 
@@ -4792,6 +4937,944 @@ skeleton = NodePath("")
 [node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock43Bottom" groups=["Rock"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock43Bottom/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock44" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.26157, -1.97337e-11, 0.52408, -1.9516e-10, 0.371804, -7.34404e-11, -0.495397, -1.36052e-10, -0.276715, 184.718, -0.606491, -5.42138)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock44" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock44/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock44Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.261472, 5.30754e-10, 0.524392, -1.95086e-10, -10, -7.34841e-11, -0.49521, 3.65922e-09, -0.27688, 184.718, -0.606491, -5.42138)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock44Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock44Bottom/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock45" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.200383, 1.8073e-11, 0.506586, -3.02016e-10, 0.451344, -6.45229e-11, -0.843469, -1.65904e-10, -0.12035, 180.324, -0.60649, -9.4524)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock45" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock45/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock45Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.200396, -4.00429e-10, 0.506892, -3.02035e-10, -10, -6.45619e-11, -0.843523, 3.67577e-09, -0.120422, 180.324, -0.60649, -9.4524)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock45Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock45Bottom/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock46" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.344079, -1.18273e-11, 0.575552, -2.69612e-10, 0.269524, -7.96239e-11, -0.693233, -9.89529e-11, -0.285669, 182.642, -0.606489, -6.51912)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock46" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock46/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock46Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.344112, 4.38824e-10, 0.575957, -2.69638e-10, -10, -7.96803e-11, -0.693299, 3.6714e-09, -0.285871, 182.642, -0.606489, -6.51912)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock46Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock46Bottom/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock47" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.667188, -6.40184e-11, 0.325623, -2.69612e-10, 0.269524, -7.96239e-11, -0.392203, -7.63754e-11, -0.553927, 198.178, -0.606489, -5.49563)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock47" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock47/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock47Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.667251, 2.37524e-09, 0.325853, -2.69638e-10, -10, -7.96797e-11, -0.39224, 2.83371e-09, -0.554318, 198.178, -0.606489, -5.49563)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock47Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock47Bottom/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock48" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.325351, -1.37777e-10, 0.215755, -1.31475e-10, 0.580057, -5.2758e-11, -0.191256, -1.64372e-10, -0.367026, 194.379, -0.606489, -7.52229)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock48" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock48/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock48Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.325005, 2.37523e-09, 0.215884, -1.31335e-10, -10, -5.27898e-11, -0.191053, 2.83372e-09, -0.367247, 194.379, -0.606489, -7.52229)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock48Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock48Bottom/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock49" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.84415, -2.09095e-10, -0.536107, -3.48369e-10, 0.58, -1.23919e-10, 0.536107, 4.76508e-11, -0.84415, 125.135, -0.606489, -120.648)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock49" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock49/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock49Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.84415, 3.60509e-09, -0.536107, -3.48369e-10, -10, -1.23919e-10, 0.536107, -8.21566e-10, -0.84415, 125.135, -0.606489, -120.648)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock49Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock49Bottom/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock50" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.663547, -1.87843e-10, -0.748134, -3.48369e-10, 0.58, -1.23919e-10, 0.748134, 1.03472e-10, -0.663547, 99.5186, -0.606489, -142.092)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock50" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock50/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock50Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.663547, 3.23867e-09, -0.748134, -3.48369e-10, -10, -1.23919e-10, 0.748134, -1.784e-09, -0.663547, 99.5186, -0.606489, -142.092)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock50Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock50Bottom/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock51" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.836764, 2.08427e-10, 0.547564, -3.48369e-10, 0.58, -1.23919e-10, -0.547564, -5.04965e-11, 0.836764, 103.329, -0.606489, -132.604)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock51" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock51/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock51Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.836764, -3.59356e-09, 0.547564, -3.48369e-10, -10, -1.23919e-10, -0.547564, 8.70629e-10, 0.836764, 103.329, -0.606489, -132.604)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock51Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock51Bottom/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock52" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.579389, -2.07573e-10, -0.561174, -2.43858e-10, 0.58, -1.23919e-10, 0.392822, 5.38981e-11, -0.827698, 133.356, -4.39156, -141.953)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock52" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock52/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock52Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.579389, 3.57884e-09, -0.561174, -2.43858e-10, -10, -1.23919e-10, 0.392822, -9.29278e-10, -0.827698, 133.356, -4.39156, -141.953)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock52Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock52Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock53" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.694493, -1.91466e-10, 0.125194, -2.43858e-10, 0.58, -1.23919e-10, -0.0876361, -9.66037e-11, -0.992132, 134.141, -3.40154, -119.424)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock53" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock53/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock53Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.694493, 3.30114e-09, 0.125195, -2.43858e-10, -10, -1.23919e-10, -0.0876362, 1.66558e-09, -0.992132, 134.141, -3.40154, -119.424)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock53Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock53Bottom/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock54" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.694493, -1.91466e-10, 0.125194, -2.43858e-10, 0.58, -1.23919e-10, -0.0876361, -9.66037e-11, -0.992132, 129.446, 0.0103638, -121.615)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock54" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock54/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock55" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.617195, 2.12062e-10, 0.471797, -2.43858e-10, 0.58, -1.23919e-10, -0.330258, -3.19574e-11, 0.881707, 152.948, 0.729797, -143.329)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock55" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock55/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock55Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.617195, -3.65624e-09, 0.471797, -2.43858e-10, -10, -1.23919e-10, -0.330258, 5.50989e-10, 0.881707, 152.948, 0.729797, -143.329)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock55Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock55Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock56" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.687908, -1.85262e-10, 0.185066, -2.43858e-10, 0.58, -1.23919e-10, -0.129546, -1.08025e-10, -0.982726, 168.282, 0.729797, -140.773)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock56" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock56/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock56Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.687908, 3.19418e-09, 0.185066, -2.43858e-10, -10, -1.23919e-10, -0.129546, 1.8625e-09, -0.982726, 168.282, 0.729797, -140.773)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock56Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock56Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock57" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.515929, -1.00347e-10, 0.675847, -2.43858e-10, 0.58, -1.23919e-10, -0.473093, -1.89531e-10, -0.737041, 174.415, 0.729797, -139.386)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock57" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock57/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock57Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.515929, 1.73012e-09, 0.675847, -2.43858e-10, -10, -1.23919e-10, -0.473093, 3.26778e-09, -0.737042, 174.415, 0.729797, -139.386)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock57Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock57Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock58" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.422575, 2.09184e-10, 0.53453, -1.74184e-10, 0.58, -1.23919e-10, -0.267265, -4.72602e-11, 0.84515, 110.143, 0.729797, -59.4168)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock58" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock58/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock58Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.422575, -3.60662e-09, 0.53453, -1.74184e-10, -10, -1.23919e-10, -0.267265, 8.1483e-10, 0.84515, 110.143, 0.729797, -59.4168)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock58Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock58Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock59" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.496111, 2.09429e-10, 0.124485, -1.74184e-10, 0.58, -1.23919e-10, -0.0622425, 4.61614e-11, 0.992222, 110.143, 0.729797, -59.4168)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock59" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock59/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock59Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.496111, -3.61085e-09, 0.124485, -1.74184e-10, -10, -1.23919e-10, -0.0622425, -7.95887e-10, 0.992221, 110.143, 0.729797, -59.4168)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock59Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock59Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock60" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.496111, 2.09429e-10, 0.124485, -1.74184e-10, 0.58, -1.23919e-10, -0.0622425, 4.61614e-11, 0.992222, 168.716, -5.76815, 141.921)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock60" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock60/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock60Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.496111, -3.61085e-09, 0.124485, -1.74184e-10, -10, -1.23919e-10, -0.0622425, -7.95887e-10, 0.992221, 168.716, -5.76815, 141.921)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock60Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock60Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock61" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.593362, 1.77744e-10, 0.804935, -3.48369e-10, 0.58, -1.23919e-10, -0.804935, -1.19993e-10, 0.593362, 180.634, -1.6285, 133.317)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock61" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock61/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock61Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.593362, -3.06456e-09, 0.804935, -3.48369e-10, -10, -1.23919e-10, -0.804935, 2.06885e-09, 0.593362, 180.634, -1.6285, 133.317)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock61Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock61Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock62" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.128453, 2.69495e-11, 0.68377, -2.09021e-10, 0.58, -8.67435e-11, -0.586089, -2.12756e-10, -0.149861, 189.737, -0.764912, 114.651)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock62" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock62/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock62Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.128453, -4.64646e-10, 0.68377, -2.09021e-10, -10, -8.67435e-11, -0.586089, 3.66821e-09, -0.149861, 189.737, -0.764912, 114.651)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock62Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock62Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock63" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.046783, 8.74088e-11, 0.697869, -2.09021e-10, 0.58, -8.67435e-11, -0.598173, -1.95835e-10, 0.0545801, 165.647, -3.98025, 191.853)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock63" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock63/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock63Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.046783, -1.50705e-09, 0.697869, -2.09021e-10, -10, -8.67435e-11, -0.598173, 3.37646e-09, 0.0545801, 165.647, -3.98025, 191.853)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock63Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock63Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock64" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.45343, -1.05626e-10, 0.458429, -2.09021e-10, 0.58, -8.67435e-11, -0.392939, -1.86641e-10, -0.529002, 169.671, -7.87588, 192.918)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock64" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock64/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock64Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.45343, 1.82113e-09, 0.458429, -2.09021e-10, -10, -8.67435e-11, -0.392939, 3.21794e-09, -0.529002, 169.671, -7.87588, 192.918)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock64Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock64Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock65" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.590408, 1.77303e-10, 0.564973, -3.48369e-10, 0.58, -8.67436e-11, -0.807105, -1.20644e-10, 0.413286, 165.45, -5.14403, 187.869)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock65" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock65/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock65Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.590408, -3.05696e-09, 0.564973, -3.48369e-10, -10, -8.67436e-11, -0.807105, 2.08007e-09, 0.413286, 165.45, -5.14403, 187.869)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock65Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock65Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock66" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.818932, -1.24221e-10, 0.401723, -3.48369e-10, 0.58, -8.67436e-11, -0.573891, -1.74816e-10, -0.573252, 171.4, -4.3757, 166.594)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock66" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock66/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock66Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.818932, 2.14174e-09, 0.401723, -3.48369e-10, -10, -8.67436e-11, -0.573891, 3.01407e-09, -0.573252, 171.4, -4.3757, 166.594)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock66Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock66Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock67" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.789005, 2.11152e-10, 0.115654, -2.78695e-10, 0.58, -8.67435e-11, -0.132176, 3.75021e-11, 0.69038, 191.294, -4.12078, 119.213)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock67" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock67/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock67Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.789005, -3.64055e-09, 0.115654, -2.78695e-10, -10, -8.67435e-11, -0.132176, -6.46588e-10, 0.69038, 191.294, -4.12078, 119.213)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock67Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock67Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock68" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.302505, 1.4294e-10, 0.648026, -2.78695e-10, 0.58, -8.67435e-11, -0.740602, -1.59874e-10, 0.264692, 91.2238, -1.76235, 116.878)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock68" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock68/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock68Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.302505, -2.46448e-09, 0.648026, -2.78695e-10, -10, -8.67436e-11, -0.740602, 2.75645e-09, 0.264692, 91.2238, -1.76235, 116.878)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock68Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock68Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock69" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.218214, 1.40341e-11, 0.673456, -2.78695e-10, 0.58, -8.67435e-11, -0.769664, -2.13997e-10, -0.190937, 95.2664, -0.304311, 126.847)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock69" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock69/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock69Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.218214, -2.41967e-10, 0.673456, -2.78695e-10, -10, -8.67435e-11, -0.769664, 3.6896e-09, -0.190937, 95.2664, -0.304311, 126.847)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock69Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock69Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock70" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.639882, -2.04751e-10, -0.420138, -2.78695e-10, 0.58, -8.67435e-11, 0.480158, 6.37841e-11, -0.559896, 107.37, 1.87291, 115.01)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock70" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock70/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock70Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.639882, 3.53019e-09, -0.420138, -2.78695e-10, -10, -8.67436e-11, 0.480158, -1.09973e-09, -0.559896, 107.37, 1.87291, 115.01)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock70Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock70Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock71" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.639882, -2.04751e-10, -0.420138, -2.78695e-10, 0.58, -8.67435e-11, 0.480158, 6.37841e-11, -0.559896, 106.372, -3.93144, 118.213)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock71" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock71/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock71Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.639882, 3.53019e-09, -0.420138, -2.78695e-10, -10, -8.67436e-11, 0.480158, -1.09973e-09, -0.559896, 106.372, -3.93144, 118.213)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock71Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock71Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock72" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.639882, -2.04751e-10, -0.420138, -2.78695e-10, 0.58, -8.67435e-11, 0.480158, 6.37841e-11, -0.559896, 95.605, -4.85561, 191.626)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock72" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock72/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock72Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.639882, 3.53019e-09, -0.420138, -2.78695e-10, -10, -8.67436e-11, 0.480158, -1.09973e-09, -0.559896, 95.605, -4.85561, 191.626)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock72Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock72Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock73" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.585016, 9.87322e-11, -0.477461, -2.78695e-10, 0.58, -8.67435e-11, 0.54567, 1.90377e-10, 0.511889, 83.8941, -3.66319, 192.392)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock73" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock73/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock73Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.585016, -1.70228e-09, -0.477461, -2.78695e-10, -10, -8.67435e-11, 0.54567, -3.28237e-09, 0.511889, 83.8941, -3.66319, 192.392)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock73Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock73Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock74" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.677044, 1.32712e-10, -0.372889, -2.78695e-10, 0.58, -8.67435e-11, 0.426159, 1.6846e-10, 0.592413, -116.501, -1.57661, 173.975)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock74" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock74/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock74Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.677044, -2.28814e-09, -0.372889, -2.78695e-10, -10, -8.67435e-11, 0.426159, -2.90449e-09, 0.592413, -116.501, -1.57661, 173.975)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock74Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock74Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock75" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.669992, 2.08493e-10, 0.382517, -2.78695e-10, 0.58, -8.67435e-11, -0.437162, -5.02198e-11, 0.586243, -121.624, -4.48787, 177.527)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock75" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock75/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock75Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.669992, -3.59471e-09, 0.382517, -2.78695e-10, -10, -8.67435e-11, -0.437162, 8.65859e-10, 0.586243, -121.624, -4.48787, 177.527)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock75Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock75Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock76" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.669992, 2.08493e-10, 0.382517, -2.78695e-10, 0.58, -8.67435e-11, -0.437162, -5.02198e-11, 0.586243, -88.4329, -0.0727603, 193.15)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock76" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock76/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock76Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.669992, -3.59471e-09, 0.382517, -2.78695e-10, -10, -8.67435e-11, -0.437162, 8.65859e-10, 0.586243, -88.4329, -0.0727603, 193.15)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock76Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock76Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock77" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.582486, 1.96383e-10, 0.479824, -2.78695e-10, 0.58, -8.67435e-11, -0.54837, -8.6169e-11, 0.509676, -131.357, -2.16305, 130.532)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock77" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock77/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock77Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.582486, -3.38592e-09, 0.479824, -2.78695e-10, -10, -8.67435e-11, -0.54837, 1.48567e-09, 0.509675, -131.357, -2.16305, 130.532)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock77Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock77Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock78" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.478503, -6.32551e-11, 0.56098, -2.78695e-10, 0.58, -8.67435e-11, -0.64112, -2.04915e-10, -0.41869, -122.379, -3.7412, 146.509)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock78" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock78/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock78Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.478503, 1.0906e-09, 0.56098, -2.78695e-10, -10, -8.67435e-11, -0.64112, 3.53302e-09, -0.41869, -122.379, -3.7412, 146.509)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock78Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock78Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock79" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.159481, 1.1071e-10, 0.68595, -2.78695e-10, 0.58, -8.67435e-11, -0.783943, -1.8367e-10, 0.139546, -120.582, -0.539208, 151.122)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock79" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock79/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock79Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.159481, -1.90879e-09, 0.68595, -2.78695e-10, -10, -8.67435e-11, -0.783943, 3.16673e-09, 0.139546, -120.582, -0.539208, 151.122)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock79Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock79Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock80" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.0205787, -6.66519e-11, -0.699768, -2.78695e-10, 0.58, -8.67435e-11, 0.799736, 2.03836e-10, 0.0180063, -179.643, -0.539208, -66.8548)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock80" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock80/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock80Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.0205787, 1.14917e-09, -0.699768, -2.78695e-10, -10, -8.67434e-11, 0.799735, -3.51441e-09, 0.0180063, -179.643, -0.539208, -66.8548)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock80Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock80Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock81" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.273472, -1.24389e-10, -1.44282, -3.48369e-10, 0.58, -1.85879e-10, 0.96188, 1.74696e-10, -0.410209, -184.344, -0.539208, -61.3075)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock81" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock81/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock81Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.273472, 2.14465e-09, -1.44282, -3.48369e-10, -10, -1.85879e-10, 0.96188, -3.012e-09, -0.410209, -184.344, -0.539208, -61.3075)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock81Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock81Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock82" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.273472, -1.24389e-10, -1.44282, -3.48369e-10, 0.58, -1.85879e-10, 0.96188, 1.74696e-10, -0.410209, -134.911, -0.539208, -87.2667)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock82" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock82/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock82Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.273472, 2.14465e-09, -1.44282, -3.48369e-10, -10, -1.85879e-10, 0.96188, -3.012e-09, -0.410209, -134.911, -0.539208, -87.2667)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock82Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock82Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock83" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.136148, 9.87131e-11, 1.48603, -3.48369e-10, 0.58, -1.85879e-10, -0.990689, -1.90387e-10, 0.204222, -131.238, -0.539208, -68.8197)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock83" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock83/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock83Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.136148, -1.70195e-09, 1.48603, -3.48369e-10, -10, -1.85879e-10, -0.990689, 3.28253e-09, 0.204222, -131.238, -0.539208, -68.8197)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock83Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock83Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock84" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.845858, -2.09247e-10, -0.800111, -3.48369e-10, 0.58, -1.85879e-10, 0.533408, 4.69826e-11, -1.26879, -53.4118, -0.539208, -207.214)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock84" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock84/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock84Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.845858, 3.6077e-09, -0.800112, -3.48369e-10, -10, -1.85879e-10, 0.533408, -8.10045e-10, -1.26879, -53.4118, -0.539208, -207.214)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock84Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock84Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock85" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.845858, -2.09247e-10, -0.800111, -3.48369e-10, 0.58, -1.85879e-10, 0.533408, 4.69826e-11, -1.26879, -178.149, -0.539208, -174.526)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock85" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock85/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock85Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.845858, 3.6077e-09, -0.800112, -3.48369e-10, -10, -1.85879e-10, 0.533408, -8.10045e-10, -1.26879, -178.149, -0.539208, -174.526)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock85Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock85Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock86" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.845858, -2.09247e-10, -0.800111, -3.48369e-10, 0.58, -1.85879e-10, 0.533408, 4.69826e-11, -1.26879, -148.014, -0.539208, -196.866)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock86" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock86/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock86Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(-0.845858, 3.6077e-09, -0.800112, -3.48369e-10, -10, -1.85879e-10, 0.533408, -8.10045e-10, -1.26879, -148.014, -0.539208, -196.866)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock86Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock86Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock87" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.424294, 2.06474e-11, -1.35829, -3.48369e-10, 0.58, -1.85879e-10, 0.905524, 2.1346e-10, 0.636441, -62.4701, -3.15451, -140.325)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock87" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock87/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_suia1")
+
+[node name="Rock87Bottom" type="MeshInstance3D" parent="Rocks"]
+transform = Transform3D(0.424294, -3.55989e-10, -1.35829, -3.48369e-10, -10, -1.85879e-10, 0.905524, -3.68034e-09, 0.636441, -62.4701, -3.15451, -140.325)
+mesh = ExtResource("6_83t24")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks/Rock87Bottom" groups=["Rock"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/Rock87Bottom/StaticBody3D"]
+transform = Transform3D(1, -1.04083e-17, 0, -2.08167e-17, 1, -2.77556e-17, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_suia1")
 
 [node name="OceanBottom" type="MeshInstance3D" parent="."]

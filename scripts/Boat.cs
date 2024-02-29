@@ -89,7 +89,7 @@ public partial class Boat : RigidBody3D
 	public Node3D goods_node;
 	private Node3D _goods_stack;
 	[Export]
-	public int StackSize = 4;
+	public int StackSize = 0;
 
 
 	public override void _Ready()
@@ -104,7 +104,7 @@ public partial class Boat : RigidBody3D
 		watersplashRight = GetNode<Node3D>("RightPaddlePivot").GetNode<GpuParticles3D>("GPUsplashEffect2");
 	
 		initialY = GlobalPosition.Y;
-		
+		StackSize = GetParent<WorldScene>().maxObjectiveStackAmount;
 		_player_inputs = new List<Vector3>();
 		_paddles_rotation_old = new List<Vector3>();
 		_is_paddle_moving = new List<bool>();
@@ -116,9 +116,9 @@ public partial class Boat : RigidBody3D
 
 		healthComp = GetNode<HealthComponent>("HealthComponent");
 
-		MeshInstance3D paddle1 = paddles[0].GetChild(1).GetChild<MeshInstance3D>(0); //Supposed to access the mesh inside each individual paddle
-		MeshInstance3D paddle2 = paddles[1].GetChild(1).GetChild<MeshInstance3D>(0);
-		paddle1.SetSurfaceOverrideMaterial(0, paddleMaterial[0]);
+        MeshInstance3D paddle1 = paddles[0].GetChild(1).GetChild<MeshInstance3D>(0); //Supposed to access the mesh inside each individual paddle
+        MeshInstance3D paddle2 = paddles[1].GetChild(1).GetChild<MeshInstance3D>(0);
+        paddle1.SetSurfaceOverrideMaterial(0, paddleMaterial[0]);
 		paddle2.SetSurfaceOverrideMaterial(0, paddleMaterial[1]);
 		paddle1.GetSurfaceOverrideMaterial(0).Set("albedo_color", PlayerManager.instance.playerColors[0]);
 		paddle2.GetSurfaceOverrideMaterial(0).Set("albedo_color", PlayerManager.instance.playerColors[1]);
@@ -126,7 +126,7 @@ public partial class Boat : RigidBody3D
 		_goods_stack = GetNode<Node3D>("GoodsStack");
 	}
  
-	public override void _Process(double delta)
+    public override void _Process(double delta)
 	{
 		if (Input.IsKeyPressed(Key.F2)) 
 		{
@@ -181,8 +181,8 @@ public partial class Boat : RigidBody3D
 				}
 				else if (speedRotation <= 30.0f && _paddles_rotation_old[it.Index] == _paddles_rotation_old[1])
 				{
-					watersplashRight.Emitting = true;
-					watersplashRight.AmountRatio = speedRotation;
+                    watersplashRight.Emitting = true;
+                    watersplashRight.AmountRatio = speedRotation;
 					watersplashRight.Rotate(Vector3.Up, Mathf.Pi * angular_velocity.Sign().Z);
 					//GD.Print(speedRotation, "RotationalVelcR");
 				}
@@ -309,7 +309,19 @@ public partial class Boat : RigidBody3D
 
 		GetNode<Timer>("CrashCooldown").Start();
 	}
+	public void EmptyCargo()
+	{
+        var count = _goods_stack.GetChildCount();
+       
+        for (int i = 0; i < count; i++)
+        {
+            var child = _goods_stack.GetChild<Node3D>(i);
+           
+            child.CallDeferred("free");
+        }
+        
 
+    }
 	public void OnBoatArea3dBodyExited(Area3D area)
 	{
 		if(area.IsInGroup("Vortex"))
@@ -463,6 +475,8 @@ public partial class Boat : RigidBody3D
 				SpeedBoost = false;
 			}
 		}
+	
+
 	}
 
 	public void AttackedByShark(Vector3 attack_dir)

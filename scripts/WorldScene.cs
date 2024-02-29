@@ -44,8 +44,9 @@ public partial class WorldScene : Node3D
     }
 	
     public void OnNoBoatHealth() {
-
 		GameOverFunction(false);
+		GameCamera.ResetSway();
+		Modifiers.ResetModifiers();
 	}
 	public void OnObjectivePickup()
 	{

@@ -88,6 +88,10 @@ public partial class GameCamera : Node3D
 		LabelTime.Text = timeString;
 	}
 
+	public static void ResetSway() {
+		swayAmount = 0;
+	}
+
 	public void StartCountdownTimer() {
 		countdownTimer.Start();
 	}

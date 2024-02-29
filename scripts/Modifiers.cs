@@ -53,6 +53,11 @@ public partial class Modifiers : RigidBody3D
 			state.AngularVelocity *= 1 - WaterAngularDrag;
 		}
 	}
+
+	public static void ResetModifiers() {
+		amountOfRepairKits = 0;
+		amountOfSpeedBoosts = 0;
+	}
 	
 	public void OnArea3dTriggerAreaEntered(Area3D area)
 	{

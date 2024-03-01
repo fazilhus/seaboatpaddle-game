@@ -8,8 +8,6 @@ public partial class Goods : RigidBody3D
 	[Export] private float WaterAngularDrag = 0.01f;
 	[Export] private bool isSubmerged = false;
 	private float gravity;
-	[Signal]
-	public delegate void ObjectivePickedUpEventHandler();
 	private float initialY;
 	private double elapsedTime = 0;
 	[Export] public WaterPlane water;
@@ -18,15 +16,13 @@ public partial class Goods : RigidBody3D
 	[Export]
 	public bool isActive = true;
 
-	public Godot.Collections.Array<Node> probeContainer;
+	private Godot.Collections.Array<Node> probeContainer;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		gravity = (float)ProjectSettings.GetSetting("physics/3d/default_gravity");
-		//water = GetNode<WaterPlane>("/root/Main/WaterPlane");
 		probeContainer = GetNode<Node3D>("ProbeContainer").GetChildren();
-
 		initialY = GlobalPosition.Y;
 
 		if (!isActive) {
@@ -56,16 +52,6 @@ public partial class Goods : RigidBody3D
 		{
 			state.LinearVelocity *= 1 - waterDrag;
 			state.AngularVelocity *= 1 - WaterAngularDrag;
-		}
-	}
-	
-	private void OnArea3dTriggerAreaEntered(Area3D area)
-	{
-		if (area.IsInGroup("ThePlayersGoods"))
-		{
-			GD.Print("ThePlayers are colliding with goods");
-			EmitSignal(SignalName.ObjectivePickedUp);
-			
 		}
 	}
 }

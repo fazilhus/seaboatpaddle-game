@@ -37,14 +37,11 @@ public partial class Boat : RigidBody3D
 	[Export] private float WaterAngularDrag = 0.01f;
 	[Export] public bool isSubmerged = false;
 	private float gravity;
-
 	private float initialY;
 	private double elapsedTime = 0;
-	
-
 	[Export] public WaterPlane water;
 	
-	public double time = 0;
+	public float time = 1;
 
 	public Godot.Collections.Array<Node> probeContainer;
 	
@@ -69,7 +66,8 @@ public partial class Boat : RigidBody3D
 	public bool UsingSpeedBoost = false;
 	private int amountOfRepaitKits = 0;
     private int amountOfSpeedBoosts = 0;
-
+	public bool isBombed;
+	[Export] public int bombAcceleration = 40;
     public void ActivateRepairKit(int repairKitAmount)
 	{
 		RepairKit = true;
@@ -367,6 +365,11 @@ public partial class Boat : RigidBody3D
 		GetNode<Area3D>("Area3DTriggerGoods").SetDeferred("monitorable", val);
 	}
 
+	private void SeaMineImpact(Vector3 pos) {
+		Vector3 BoomVector = -pos + GlobalPosition;
+		ApplyCentralImpulse(BoomVector.Normalized() * bombAcceleration);
+	}
+
 	public void OnArea3DTriggerGoodsEntered(Area3D area) {
 		if (area.IsInGroup("Goods"))
 		{
@@ -397,7 +400,9 @@ public partial class Boat : RigidBody3D
 		if (area.IsInGroup("SeaMine")) 
 		{
 			GD.Print("Boom!!!");
-			healthComp.SubtractHealth(100);
+			LooseStackedGoods();
+			SeaMineImpact(area.GetParent<Node3D>().GlobalPosition);
+			healthComp.SubtractHealth(50);
 		}
 
 		if(area.IsInGroup("Modifiers")) 

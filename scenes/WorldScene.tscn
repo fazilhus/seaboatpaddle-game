@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://5scllsnkmpth" path="res://scenes/streams.tscn" id="11_8xjfh"]
 [ext_resource type="PackedScene" uid="uid://b55sx0mje1j5w" path="res://scenes/shark.tscn" id="12_2bx8v"]
 [ext_resource type="PackedScene" uid="uid://db44dloe5xeo2" path="res://scenes/text_box.tscn" id="13_cald3"]
-[ext_resource type="AudioStream" uid="uid://dy02vsblcoiov" path="res://586831__speakingmusic__seagull.wav" id="13_e0ts7"]
+[ext_resource type="AudioStream" uid="uid://dy02vsblcoiov" path="res://sounds/586831__speakingmusic__seagull.wav" id="13_e0ts7"]
 [ext_resource type="PackedScene" uid="uid://ducw5sm3i87kh" path="res://scenes/Goods.tscn" id="13_yi77v"]
 [ext_resource type="Script" path="res://scripts/SeaGullSound.cs" id="15_d1m7c"]
 
@@ -336,7 +336,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.6878, 0, 18.687)
 water = NodePath("../../WaterPlane")
 
 [node name="SeaMine3" parent="Mines" node_paths=PackedStringArray("water") instance=ExtResource("7_sombh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.6286, 0, -78.0542)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.6231, -1.90735e-06, -78.0161)
 water = NodePath("../../WaterPlane")
 
 [node name="SeaMine4" parent="Mines" node_paths=PackedStringArray("water") instance=ExtResource("7_sombh")]
@@ -385,6 +385,10 @@ water = NodePath("../../WaterPlane")
 
 [node name="SeaMine15" parent="Mines" node_paths=PackedStringArray("water") instance=ExtResource("7_sombh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.1986, 0, 42.3254)
+water = NodePath("../../WaterPlane")
+
+[node name="SeaMine16" parent="Mines" node_paths=PackedStringArray("water") instance=ExtResource("7_sombh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.09744, 0, -0.0995739)
 water = NodePath("../../WaterPlane")
 
 [node name="Modifiers" type="Node3D" parent="."]
@@ -640,5 +644,4 @@ script = ExtResource("15_d1m7c")
 [connection signal="pressed" from="GameCamera/CanvasLayer/GameOverScreen/QuitButton" to="." method="QuitButtonPressed"]
 [connection signal="timeout" from="GameCamera/countdownTimer" to="GameCamera" method="OnCountdownTimerTimeout"]
 [connection signal="NoBoatHealth" from="Boat" to="." method="OnNoBoatHealth"]
-[connection signal="ObjectivePickup" from="Boat" to="." method="OnObjectivePickup"]
 [connection signal="finished" from="SeaGullSound" to="SeaGullSound" method="OnSeaGullSoundFinished"]

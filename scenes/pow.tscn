@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxdw6nd6nrgny"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k4j8p"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Curve" id="Curve_84w4c"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_u23c6"]
+curve = SubResource("Curve_84w4c")
+
+[sub_resource type="Curve" id="Curve_75ewi"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.749503, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xklmo"]
+curve = SubResource("Curve_75ewi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y6w23"]
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 15.0
+radial_velocity_max = 10.0
+radial_velocity_curve = SubResource("CurveTexture_u23c6")
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_xklmo")
+
+[sub_resource type="SphereMesh" id="SphereMesh_vfbah"]
+rings = 5
+
+[node name="Pow" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_k4j8p")
+emitting = false
+amount = 300
+sub_emitter = NodePath(".")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_y6w23")
+draw_pass_1 = SubResource("SphereMesh_vfbah")

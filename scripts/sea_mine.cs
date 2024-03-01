@@ -7,12 +7,16 @@ public partial class sea_mine : RigidBody3D
 	[Export] private float waterDrag = 0.005f;
 	[Export] private float WaterAngularDrag = 0.01f;
 	[Export] private bool isSubmerged = false;
+
+	private Boat boat;
 	private float gravity;
 
 	private float initialY;
 	private double elapsedTime = 0;
+	private GpuParticles3D particleExplosion;
 	[Export] public WaterPlane water;
-	public double time = 0;
+	private MeshInstance3D mineMaterial;
+	private AudioStreamPlayer3D boomSound;
 
 	public Godot.Collections.Array<Node> probeContainer;
 	// Called when the node enters the scene tree for the first time.
@@ -20,8 +24,12 @@ public partial class sea_mine : RigidBody3D
 	{
 		var parent = GetParent();
 		gravity = (float)ProjectSettings.GetSetting("physics/3d/default_gravity");
-		//water = GetNode<WaterPlane>("/root/Main/WaterPlane");
 		probeContainer = GetNode<Node3D>("ProbeContainer").GetChildren();
+		particleExplosion = GetNode<GpuParticles3D>("Node3D/GPUParticles3D");
+		mineMaterial = GetNode<MeshInstance3D>("MeshInstance3D");
+		boomSound = GetNode<AudioStreamPlayer3D>("Boom");
+
+
 		
 
 	
@@ -43,6 +51,7 @@ public partial class sea_mine : RigidBody3D
 			 }
 				
 		}
+
     }
     public override void _IntegrateForces(PhysicsDirectBodyState3D state) // changing the simulation state of the object
     {
@@ -57,8 +66,24 @@ public partial class sea_mine : RigidBody3D
 		if (area.IsInGroup("ThePlayers"))
 		{
 			GD.Print("ThePlayers are colliding with the mine");
-			QueueFree();
+			mineMaterial.Hide();
+			DisableCollisions();
+			particleExplosion.Emitting = true;
+			boomSound.Playing = true;
+			
 		}
-	
+		
+	}
+
+	private void DisableCollisions() {
+		GetNode<CollisionShape3D>("CollisionShape3D").SetDeferred("disabled", true);
+		var area = GetNode<Area3D>("CollisionTrigger");
+		area.SetDeferred("monitoring", false);
+		area.SetDeferred("monitorable", false);
+	}
+
+	private void OnEmittingFinshed() {
+		GD.Print("Finished emitting, ready to die");
+		QueueFree();
 	}
 }

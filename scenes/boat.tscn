@@ -37,6 +37,7 @@ WaterAngularDrag = 0.03
 baseForceMagnitude = 350.0
 rotationalForceMagnitude = 1.0
 rotationalVelocity = 35.0
+bombAcceleration = 100
 goods_scene = ExtResource("4_e8fkn")
 
 [node name="LeftPaddlePivot" type="Node3D" parent="."]

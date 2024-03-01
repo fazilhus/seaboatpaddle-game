@@ -10,6 +10,7 @@ public partial class WaterPlane : MeshInstance3D
 	[Export] private float waveSpeed;
 	[Export] private float HeightScale;
 
+	
 	private double time; // just to track time
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()

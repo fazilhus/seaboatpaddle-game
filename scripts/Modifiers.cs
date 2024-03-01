@@ -16,8 +16,10 @@ public partial class Modifiers : RigidBody3D
 	private double elapsedTime = 0;
 	[Export] public WaterPlane water;
 	public double time = 0;
-	
-	public Godot.Collections.Array<Node> probeContainer;
+	public static int amountOfRepairKits = 0;
+    public static int amountOfSpeedBoosts = 0;
+
+    public Godot.Collections.Array<Node> probeContainer;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -41,7 +43,7 @@ public partial class Modifiers : RigidBody3D
 				ApplyForce(Vector3.Up * floatForce * gravity * depth, p.GlobalPosition - GlobalPosition);
 			 }	
 		}
-	}
+    }
 	
 	public override void _IntegrateForces(PhysicsDirectBodyState3D state) // changing the simulation state of the object
 	{
@@ -50,6 +52,11 @@ public partial class Modifiers : RigidBody3D
 			state.LinearVelocity *= 1 - waterDrag;
 			state.AngularVelocity *= 1 - WaterAngularDrag;
 		}
+	}
+
+	public static void ResetModifiers() {
+		amountOfRepairKits = 0;
+		amountOfSpeedBoosts = 0;
 	}
 	
 	public void OnArea3dTriggerAreaEntered(Area3D area)
@@ -73,21 +80,25 @@ public partial class Modifiers : RigidBody3D
 			}
 			if (randomNumber == 3)
 			{
-				boat.ActivateRepairKit();
+				amountOfRepairKits += 1;
+				boat.ActivateRepairKit(amountOfRepairKits);
 				GameCamera.LabelModifiers.Text ="Repair kit found, press B to use";
+                GameCamera.RepaitKitModifierLabel.Text = "";
+                GameCamera.RepaitKitModifierLabel.Text += amountOfRepairKits;
 			}
+
 			if (randomNumber == 4)
 			{
-				boat.ActivateControlInversion();
-				GameCamera.LabelModifiers.Text ="'Control Inversion' mode on";
-			}
-			if (randomNumber == 5)
-			{
-				boat.ActivateSpeedBoost();
+				amountOfSpeedBoosts += 1;
+				boat.ActivateSpeedBoost(amountOfSpeedBoosts);
 				GameCamera.LabelModifiers.Text ="Speed Boost found, press A to use";
-			}
+				GameCamera.SpeedBoostModifierLabel.Text = "";
+                GameCamera.SpeedBoostModifierLabel.Text += amountOfSpeedBoosts;
+
+            }
 		}
 	}
+
 }
 
 public class NumberGenerator
@@ -102,7 +113,7 @@ public class NumberGenerator
 
 	public int GenerateNumber()
 	{
-		// Generate a random number between 1 and 5 (inclusive)
-		return random.Next(2, 6);
+		// Generate a random number between 1 and 5 (exclusive upper bound)
+		return random.Next(1, 5);
 	}
 }

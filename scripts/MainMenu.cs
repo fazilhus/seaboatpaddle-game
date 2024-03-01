@@ -3,11 +3,11 @@ using System;
 
 public partial class MainMenu : MarginContainer
 {
-	
+	Vector2I windowSize;
 
 	public override void _Ready()
 	{
-		GetNode<Button>("HorizontalContainer/MenuContainer/Start").GrabFocus(); 
+		GetNode<Button>("HorizontalContainer/MenuContainer/Start").GrabFocus();
 	}
 	public void onStartButtonPressed()
 	{
@@ -19,4 +19,5 @@ public partial class MainMenu : MarginContainer
 
 		GetTree().Quit();
 	}
+
 }

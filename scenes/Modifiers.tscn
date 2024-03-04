@@ -20,7 +20,7 @@ points = PackedVector3Array(-0.25, 9.79448e-05, -0.25, 0.249994, 0.499902, 0.25,
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_77mby"]
 height = 0.503506
-radius = 0.364843
+radius = 0.652769
 
 [node name="Modifiers" type="RigidBody3D"]
 script = ExtResource("1_lggjo")

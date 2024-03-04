@@ -65,10 +65,10 @@ public partial class Boat : RigidBody3D
 	public bool SpeedBoost { get; private set; } = false;
 	public bool UsingSpeedBoost = false;
 	private int amountOfRepaitKits = 0;
-    private int amountOfSpeedBoosts = 0;
+	private int amountOfSpeedBoosts = 0;
 	public bool isBombed;
 	[Export] public int bombAcceleration = 40;
-    public void ActivateRepairKit(int repairKitAmount)
+	public void ActivateRepairKit(int repairKitAmount)
 	{
 		RepairKit = true;
 		amountOfRepaitKits = repairKitAmount;
@@ -122,9 +122,9 @@ public partial class Boat : RigidBody3D
 
 		healthComp = GetNode<HealthComponent>("HealthComponent");
 
-        MeshInstance3D paddle1 = paddles[0].GetChild(1).GetChild<MeshInstance3D>(0); //Supposed to access the mesh inside each individual paddle
-        MeshInstance3D paddle2 = paddles[1].GetChild(1).GetChild<MeshInstance3D>(0);
-        paddle1.SetSurfaceOverrideMaterial(0, paddleMaterial[0]);
+		MeshInstance3D paddle1 = paddles[0].GetChild(1).GetChild<MeshInstance3D>(0); //Supposed to access the mesh inside each individual paddle
+		MeshInstance3D paddle2 = paddles[1].GetChild(1).GetChild<MeshInstance3D>(0);
+		paddle1.SetSurfaceOverrideMaterial(0, paddleMaterial[0]);
 		paddle2.SetSurfaceOverrideMaterial(0, paddleMaterial[1]);
 		paddle1.GetSurfaceOverrideMaterial(0).Set("albedo_color", PlayerManager.instance.playerColors[0]);
 		paddle2.GetSurfaceOverrideMaterial(0).Set("albedo_color", PlayerManager.instance.playerColors[1]);
@@ -132,7 +132,7 @@ public partial class Boat : RigidBody3D
 		_goods_stack = GetNode<Node3D>("GoodsStack");
 	}
  
-    public override void _Process(double delta)
+	public override void _Process(double delta)
 	{
 		if (Input.IsKeyPressed(Key.F2)) 
 		{
@@ -190,8 +190,8 @@ public partial class Boat : RigidBody3D
 				}
 				else if (speedRotation <= 30.0f && _paddles_rotation_old[it.Index] == _paddles_rotation_old[1])
 				{
-                    watersplashRight.Emitting = true;
-                    watersplashRight.AmountRatio = speedRotation;
+					watersplashRight.Emitting = true;
+					watersplashRight.AmountRatio = speedRotation;
 					watersplashRight.Rotate(Vector3.Up, Mathf.Pi * angular_velocity.Sign().Z);
 					//GD.Print(speedRotation, "RotationalVelcR");
 				}
@@ -320,17 +320,17 @@ public partial class Boat : RigidBody3D
 	}
 	public void EmptyCargo()
 	{
-        var count = _goods_stack.GetChildCount();
-       
-        for (int i = 0; i < count; i++)
-        {
-            var child = _goods_stack.GetChild<Node3D>(i);
-           
-            child.CallDeferred("free");
-        }
-        
+		var count = _goods_stack.GetChildCount();
+	   
+		for (int i = 0; i < count; i++)
+		{
+			var child = _goods_stack.GetChild<Node3D>(i);
+		   
+			child.CallDeferred("free");
+		}
+		
 
-    }
+	}
 	public void OnBoatArea3dBodyExited(Area3D area)
 	{
 		if(area.IsInGroup("Vortex"))
@@ -477,16 +477,16 @@ public partial class Boat : RigidBody3D
 	{
 		if(@event.IsActionPressed("ui_cancel")) //Press B
 		{
-            if (RepairKit && amountOfRepaitKits > 0)
+			if (RepairKit && amountOfRepaitKits > 0)
 			{
 				amountOfRepaitKits--;
 				GameCamera.RepaitKitModifierLabel.Text = "";
-                GameCamera.RepaitKitModifierLabel.Text += amountOfRepaitKits;
-                healthComp.AddHealth(25);
+				GameCamera.RepaitKitModifierLabel.Text += amountOfRepaitKits;
+				healthComp.AddHealth(25);
 				if(amountOfRepaitKits <= 0)
 				{
-                    RepairKit = false;
-                }
+					RepairKit = false;
+				}
 				Modifiers.amountOfRepairKits = amountOfRepaitKits;
 			}
 		}
@@ -495,15 +495,15 @@ public partial class Boat : RigidBody3D
 			if(SpeedBoost && amountOfSpeedBoosts > 0)
 			{
 				
-                amountOfSpeedBoosts--;
+				amountOfSpeedBoosts--;
 				GameCamera.SpeedBoostModifierLabel.Text = "";
-                GameCamera.SpeedBoostModifierLabel.Text += amountOfSpeedBoosts;
-                GetNode<Timer>("SpeedBoostTimer").Start();
+				GameCamera.SpeedBoostModifierLabel.Text += amountOfSpeedBoosts;
+				GetNode<Timer>("SpeedBoostTimer").Start();
 				UsingSpeedBoost = true;
 				if(amountOfSpeedBoosts <= 0)
 				{
-                    SpeedBoost = false;
-                }
+					SpeedBoost = false;
+				}
 				Modifiers.amountOfSpeedBoosts = amountOfSpeedBoosts;
 			}
 		}

@@ -13,7 +13,7 @@ albedo_color = Color(0.6, 0.470588, 0.32549, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_nh4m7"]
 height = 1.0004
-radius = 0.978229
+radius = 1.41764
 
 [node name="Goods" type="RigidBody3D"]
 script = ExtResource("1_48uba")

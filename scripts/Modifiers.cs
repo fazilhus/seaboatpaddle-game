@@ -66,7 +66,7 @@ public partial class Modifiers : RigidBody3D
 			QueueFree();
 			
 			NumberGenerator generator = new NumberGenerator();
-			int randomNumber = generator.GenerateNumber();
+			int randomNumber = generator.GenerateNumber(1, 5);
 			if (randomNumber == 1)
 			{
 				GameCamera.ActivateExtraTime();
@@ -99,21 +99,4 @@ public partial class Modifiers : RigidBody3D
 		}
 	}
 
-}
-
-public class NumberGenerator
-{
-	private Random random;
-
-	public NumberGenerator()
-	{
-		// Initialize the random number generator
-		random = new Random();
-	}
-
-	public int GenerateNumber()
-	{
-		// Generate a random number between 1 and 5 (exclusive upper bound)
-		return random.Next(1, 5);
-	}
 }

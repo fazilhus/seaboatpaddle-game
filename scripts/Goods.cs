@@ -26,8 +26,7 @@ public partial class Goods : RigidBody3D
 		initialY = GlobalPosition.Y;
 
 		if (!isActive) {
-			ProcessMode = ProcessModeEnum.Disabled;
-			GetNode<Area3D>("Area3DTrigger").ProcessMode = ProcessModeEnum.Disabled;
+			Disable();
 		}
 	}
 	
@@ -53,5 +52,13 @@ public partial class Goods : RigidBody3D
 			state.LinearVelocity *= 1 - waterDrag;
 			state.AngularVelocity *= 1 - WaterAngularDrag;
 		}
+	}
+
+	public void Disable() {
+		ProcessMode = ProcessModeEnum.Disabled;
+		var area = GetNode<Area3D>("Area3DTrigger");
+		area.ProcessMode = ProcessModeEnum.Disabled;
+		area.SetDeferred("monitoring", false);
+		area.SetDeferred("monitorable", false);
 	}
 }

@@ -393,6 +393,11 @@ public partial class Boat : RigidBody3D
 			}
 			EmitSignal(SignalName.ObjectivePickup);
 		}
+
+		if (area.IsInGroup("Unloading")) {
+			var loc = area.GetParent<StartingLocation>();
+			loc.StartUnloading(_goods_stack);
+		}
 	}
 
 	public void OnArea3dTriggerBoatAreaEntered(Area3D area)

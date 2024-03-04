@@ -3,6 +3,9 @@ using System;
 
 public partial class StartingLocation : StaticBody3D
 {
+    [Signal]
+    public delegate void OnCrateUnloadEventHandler();
+
     private Godot.Collections.Array<Node3D> _unloading_markers;
     private int _unloading_idx;
     private Node3D _stack;
@@ -50,5 +53,7 @@ public partial class StartingLocation : StaticBody3D
         rot.Y = angle;
         child.Rotation = rot;
         _unloading_idx = (_unloading_idx + 1) % _unloading_markers.Count;
+
+        EmitSignal(SignalName.OnCrateUnload);
     }
 }

@@ -29,7 +29,7 @@ public partial class WorldScene : Node3D
     {
 		if(Input.IsKeyPressed(Key.F4))
 		{
-			OnDelivery();
+			OnWholeDelivery();
 		}
 		if(!GameOver)
 		{
@@ -52,7 +52,7 @@ public partial class WorldScene : Node3D
 		objectiveScore++;
         cargoTracker.Text = cargoString + objectiveScore + "/" + maxObjectiveStackAmount;
     }
-	public void OnDelivery()
+	public void OnWholeDelivery()
 	{
 		deliveredCargo += objectiveScore;
 		GetNode<Boat>("Boat").EmptyCargo();
@@ -60,6 +60,12 @@ public partial class WorldScene : Node3D
         cargoTracker.Text = cargoString + objectiveScore + "/" + maxObjectiveStackAmount;
         objectiveTracker.Text = objectiveString + deliveredCargo + "/" + maxObjectiveAmount;
     }
+	public void OnDelivery() {
+		objectiveScore--;
+		deliveredCargo++;
+		cargoTracker.Text = cargoString + objectiveScore + "/" + maxObjectiveStackAmount;
+        objectiveTracker.Text = objectiveString + deliveredCargo + "/" + maxObjectiveAmount;
+	}
 	public void OnCountdownTimerTimeout() {
 
 		

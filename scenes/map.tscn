@@ -1,4 +1,4 @@
-[gd_scene load_steps=307 format=3 uid="uid://bdohepiggfmms"]
+[gd_scene load_steps=306 format=3 uid="uid://bdohepiggfmms"]
 
 [ext_resource type="ArrayMesh" uid="uid://baig6pl5q2d8i" path="res://art/palm_detailed_long.obj" id="2_hu2xk"]
 [ext_resource type="ArrayMesh" uid="uid://1die41imyn83" path="res://art/formation_rock.obj" id="2_ulpyk"]
@@ -19,7 +19,6 @@
 [ext_resource type="ArrayMesh" uid="uid://isfke6ejfwuc" path="res://art/rock_tallA.obj" id="17_u64yy"]
 [ext_resource type="ArrayMesh" uid="uid://da0umkq85upq3" path="res://art/rock_tallE.obj" id="18_0qaf8"]
 [ext_resource type="ArrayMesh" uid="uid://dktul37lcaua3" path="res://art/rock_tallJ.obj" id="19_uu71x"]
-[ext_resource type="PackedScene" uid="uid://cqhp0jks2ivtp" path="res://scenes/starting_location.tscn" id="20_xvr40"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pxtl2"]
 albedo_color = Color(0.329412, 0.203922, 0.0431373, 1)
@@ -7570,6 +7569,3 @@ transform = Transform3D(0.0866224, 0, -0.318428, 0, 0.33, 0, 0.318428, 0, 0.0866
 mesh = ExtResource("3_6jyh4")
 surface_material_override/0 = SubResource("StandardMaterial3D_ocwl8")
 surface_material_override/1 = SubResource("StandardMaterial3D_oy7km")
-
-[node name="StartingLocation" parent="." instance=ExtResource("20_xvr40")]
-transform = Transform3D(9.49113, 0, 3.14937, 0, 10, 0, -3.14937, 0, 9.49113, -174.856, -2.1818, 47.2347)

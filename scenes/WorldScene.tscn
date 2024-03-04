@@ -618,14 +618,6 @@ water = NodePath("../../WaterPlane")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.2303, 0.159419, 20.1991)
 water = NodePath("../../WaterPlane")
 
-[node name="Goods11" parent="Goods" node_paths=PackedStringArray("water") instance=ExtResource("13_yi77v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.1531, 0.159419, 23.4605)
-water = NodePath("../../WaterPlane")
-
-[node name="Goods12" parent="Goods" node_paths=PackedStringArray("water") instance=ExtResource("13_yi77v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.9159, 0.159419, 24.8389)
-water = NodePath("../../WaterPlane")
-
 [node name="Goods6" parent="Goods" node_paths=PackedStringArray("water") instance=ExtResource("13_yi77v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.5542, 0.159419, 60.162)
 water = NodePath("../../WaterPlane")
@@ -657,4 +649,6 @@ script = ExtResource("15_d1m7c")
 [connection signal="pressed" from="GameCamera/CanvasLayer/GameOverScreen/QuitButton" to="." method="QuitButtonPressed"]
 [connection signal="timeout" from="GameCamera/countdownTimer" to="GameCamera" method="OnCountdownTimerTimeout"]
 [connection signal="NoBoatHealth" from="Boat" to="." method="OnNoBoatHealth"]
+[connection signal="ObjectivePickup" from="Boat" to="." method="OnObjectivePickup"]
+[connection signal="OnCrateUnload" from="Map/StartingLocation" to="." method="OnDelivery"]
 [connection signal="finished" from="SeaGullSound" to="SeaGullSound" method="OnSeaGullSoundFinished"]

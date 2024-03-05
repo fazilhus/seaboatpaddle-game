@@ -289,11 +289,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.9896, 0, -1.29973)
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -54.2718, 0, 41.8128)
 
 [node name="Boat" parent="." node_paths=PackedStringArray("water", "goods_node") instance=ExtResource("2_w1wc2")]
-transform = Transform3D(-0.304715, 0, 0.952443, 0, 1, 0, -0.952443, 0, -0.304715, -81.9695, 0.340137, 26.709)
+transform = Transform3D(-0.304715, 0, 0.952443, 0, 1, 0, -0.952443, 0, -0.304715, -37.748, 0.340137, 0.98147)
 sideways_force_ratio = 0.45
 forward_force_ratio = 50.0
 water = NodePath("../WaterPlane")
-bombAcceleration = 40
 goods_node = NodePath("../Goods")
 
 [node name="Map" parent="." instance=ExtResource("8_lgk5l")]
@@ -530,7 +529,7 @@ transform = Transform3D(0.277482, 0, -0.960731, 0, 1, 0, 0.960731, 0, 0.277482, 
 transform = Transform3D(0.193872, 0, -1.7437, 0, 1, 0, 0.730935, 0, 0.462495, -21.3008, 0, -83.5521)
 
 [node name="Shark1" parent="." node_paths=PackedStringArray("boat", "path") instance=ExtResource("12_2bx8v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.353, 0, -21.1917)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.8336, 0, -22.7161)
 boat = NodePath("../Boat")
 path = NodePath("../Path1")
 
@@ -563,7 +562,7 @@ transform = Transform3D(0.938155, 0, 0.346215, 0, 1, 0, -0.346215, 0, 0.938155, 
 shape = SubResource("BoxShape3D_hg366")
 
 [node name="Shark2" parent="." node_paths=PackedStringArray("boat", "path") instance=ExtResource("12_2bx8v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.2057, 0, 47.9299)
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 72.7394, 0, 47.54)
 boat = NodePath("../Boat")
 path = NodePath("../Path2")
 

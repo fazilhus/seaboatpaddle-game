@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://db44dloe5xeo2" path="res://scenes/text_box.tscn" id="13_cald3"]
 [ext_resource type="AudioStream" uid="uid://dy02vsblcoiov" path="res://sounds/586831__speakingmusic__seagull.wav" id="13_e0ts7"]
 [ext_resource type="PackedScene" uid="uid://ducw5sm3i87kh" path="res://scenes/Goods.tscn" id="13_yi77v"]
-[ext_resource type="PackedScene" path="res://scenes/starting_location.tscn" id="14_qesc2"]
+[ext_resource type="PackedScene" uid="uid://cqhp0jks2ivtp" path="res://scenes/starting_location.tscn" id="14_qesc2"]
 [ext_resource type="Script" path="res://scripts/SeaGullSound.cs" id="15_d1m7c"]
 [ext_resource type="AudioStream" uid="uid://b5fhytjwowqgu" path="res://sounds/pirates-5533.mp3" id="22_f6vfe"]
 

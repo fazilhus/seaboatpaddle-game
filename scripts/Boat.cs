@@ -97,9 +97,12 @@ public partial class Boat : RigidBody3D
 	[Export]
 	public int StackSize = 0;
 
+	private AudioStreamPlayer3D crashSounds;
+
 
 	public override void _Ready()
 	{
+		crashSounds = GetNode<AudioStreamPlayer3D>("BoatCrash");
 		//instantiate variables for boat physics
 		var parent = GetParent();
 		gravity = (float)ProjectSettings.GetSetting("physics/3d/default_gravity");
@@ -457,8 +460,11 @@ public partial class Boat : RigidBody3D
 			//GD.Print("Lost ", 3 * (int)speed, " health");
 			ApplyCentralImpulse(-10 * LinearVelocity);
 			healthComp.SubtractHealth(3 * (int)speed);
+			crashSounds.Play();
+			crashSounds.VolumeDb = speed;
 
 			LooseStackedGoods();
+
 		}
 	}
 

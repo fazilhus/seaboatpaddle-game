@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=3 uid="uid://b5q85gk2bf4uw"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lgj0j"]
+top_radius = 0.1
+bottom_radius = 0.4
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nyer4"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_oac2d"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_arvjk"]
+metallic = 1.0
+roughness = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_2fc3m"]
+radius = 0.1
+height = 0.2
+is_hemisphere = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ril0"]
+metallic = 1.0
+roughness = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_ycy4w"]
+size = Vector3(0.1, 0.65, 0.02)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kq5rq"]
+roughness = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_sewdv"]
+radius = 0.2
+height = 0.5
+is_hemisphere = true
+
+[node name="SuperFan" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00184417, 0.00274813, -0.000270844)
+
+[node name="FanBot" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_lgj0j")
+
+[node name="FanPole" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.604532, 0)
+material_override = SubResource("StandardMaterial3D_nyer4")
+mesh = SubResource("CylinderMesh_oac2d")
+
+[node name="FanHandle" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 3.46841e-15, 0.416551, 1.8208e-08, 0.909113, 0.909113, 3.97386e-08, -0.416551, 0.113131, 1.25582, -0.000719607)
+material_override = SubResource("StandardMaterial3D_arvjk")
+mesh = SubResource("SphereMesh_2fc3m")
+
+[node name="Fan" type="MeshInstance3D" parent="FanHandle"]
+transform = Transform3D(1.49012e-07, -1, 4.47035e-08, -0.5, -2.18557e-08, 0.866025, -0.866025, -1.49012e-07, -0.5, -0.25, 0.0679999, -5.96046e-07)
+material_override = SubResource("StandardMaterial3D_5ril0")
+mesh = SubResource("BoxMesh_ycy4w")
+skeleton = NodePath("../..")
+
+[node name="Fan2" type="MeshInstance3D" parent="FanHandle"]
+transform = Transform3D(1.19422e-07, -1, -4.37114e-08, -0.5, -2.18557e-08, -0.866025, 0.866025, 1.25278e-07, -0.5, 0.25, 0.068, 0)
+material_override = SubResource("StandardMaterial3D_5ril0")
+mesh = SubResource("BoxMesh_ycy4w")
+skeleton = NodePath("../..")
+
+[node name="Fan3" type="MeshInstance3D" parent="FanHandle"]
+transform = Transform3D(-0.866025, 8.15666e-08, -0.5, 0.5, -2.18557e-08, -0.866025, -8.15666e-08, -1, -2.18557e-08, 0, 0.068, -0.25)
+material_override = SubResource("StandardMaterial3D_5ril0")
+mesh = SubResource("BoxMesh_ycy4w")
+skeleton = NodePath("../..")
+
+[node name="Fan4" type="MeshInstance3D" parent="FanHandle"]
+transform = Transform3D(0.866025, 5.85622e-09, -0.5, 0.5, -2.18557e-08, 0.866025, -5.85621e-09, -1, -2.18557e-08, 0, 0.068, 0.25)
+material_override = SubResource("StandardMaterial3D_5ril0")
+mesh = SubResource("BoxMesh_ycy4w")
+skeleton = NodePath("../..")
+
+[node name="FanHalfSphere" type="MeshInstance3D" parent="FanHandle"]
+transform = Transform3D(0.41655, 2.55034e-08, 0.909113, -2.55034e-08, -1, 3.97386e-08, 0.909113, -3.97386e-08, -0.41655, 0.00144446, 0.0122994, 0.00142479)
+material_override = SubResource("StandardMaterial3D_kq5rq")
+mesh = SubResource("SphereMesh_sewdv")
+skeleton = NodePath("../..")

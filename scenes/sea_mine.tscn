@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://beoci1a615ffi"]
 
 [ext_resource type="Script" path="res://scripts/sea_mine.cs" id="1_p8gtb"]
-[ext_resource type="Material" uid="uid://dvkngpw30ieju" path="res://Shades/mineMaterial3d.tres" id="2_kh2k8"]
+[ext_resource type="Material" uid="uid://d1ojqwm8n46co" path="res://Shades/mineMaterial3d.tres" id="2_kh2k8"]
 [ext_resource type="AudioStream" uid="uid://bnwxvi735srdi" path="res://sounds/bombSound.mp3" id="3_duibs"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_8yb2u"]
@@ -212,7 +212,7 @@ draw_pass_1 = SubResource("SphereMesh_6q5gn")
 
 [node name="Boom" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_duibs")
-volume_db = 10.0
+volume_db = 20.0
 max_distance = 100.0
 
 [connection signal="area_entered" from="CollisionTrigger" to="." method="OnArea3DTriggerAreaEntered"]

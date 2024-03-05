@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bro3rrf66ro1h"]
+[gd_scene load_steps=14 format=3 uid="uid://bro3rrf66ro1h"]
 
 [ext_resource type="Script" path="res://scripts/Boat.cs" id="1_tk55w"]
 [ext_resource type="PackedScene" uid="uid://catt7cfnf4pd1" path="res://CustonAssets/paddle.glb" id="2_32au7"]
@@ -9,6 +9,7 @@
 [ext_resource type="Material" uid="uid://dm8p44anq2ejj" path="res://Shades/AntiWaterMask.tres" id="4_2xej0"]
 [ext_resource type="PackedScene" uid="uid://ducw5sm3i87kh" path="res://scenes/Goods.tscn" id="4_e8fkn"]
 [ext_resource type="PackedScene" uid="uid://bfcmmp24hd7u5" path="res://scenes/HealthComponent.tscn" id="5_oltkq"]
+[ext_resource type="AudioStream" path="res://sounds/Breaksounds/bfh1_wood_hit_02.ogg" id="10_b0pnb"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7j168"]
 friction = 0.0
@@ -133,6 +134,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.74944)
 
 [node name="GoodsStack" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.9)
+
+[node name="BoatCrash" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_b0pnb")
 
 [connection signal="area_entered" from="Area3DTriggerGoods" to="." method="OnArea3DTriggerGoodsEntered"]
 [connection signal="area_entered" from="Area3DTriggerBoat" to="." method="OnArea3dTriggerBoatAreaEntered"]

@@ -14,12 +14,15 @@ public partial class text_box : CanvasLayer
 	private string contents;
 	private string[] lines;
 	private int idx;
+	private AudioStreamPlayer adventure;
 	public override void _Ready()
 	{
 		textBoxContainer = GetNode<MarginContainer>("TextBoxContainer");
 		label = GetChild(0).GetChild(1).GetNode<Label>("Label");
 		spriteButton = GetChild(0).GetChild(1).GetNode<Sprite2D>("XboxButtonColorB");
 		boat = GetParent().GetNode<Boat>("Boat");
+		adventure = GetParent().GetNode<AudioStreamPlayer>("adventure");
+
 		//i = 0;
 		//plainTextArray = new Vector<string>();
 		//AddText(plainTextArray[i]);
@@ -126,6 +129,7 @@ Crew:(shouting) AYE AYE!!!";
 		boat.isReadyPaddle = true;
 		GetParent().GetNode<GameCamera>("GameCamera").StartCountdownTimer();
 		GetParent().GetNode<CanvasLayer>("GameCamera/CanvasLayer").Show();
+		adventure.Playing = true;
 	}
 
 	public void ShowTextBox()

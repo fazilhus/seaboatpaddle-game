@@ -65,7 +65,7 @@ public partial class shark : CharacterBody3D
 		}
 		else if (!_chasing_area.OverlapsBody(boat))
 		{
-			GD.Print("Shark patroling");
+			//GD.Print("Shark patroling");
 			_behavior = Behavior.Patrol;
 		}
 

@@ -16,7 +16,10 @@ public partial class WorldScene : Node3D
 	Label cargoTracker;
 	[Export]
 	Label objectiveTracker;
-	
+	[Export]
+	StyleBoxFlat deathStyleBox;
+	byte styleBoxTransparency = 0;
+	int i = 0;
     public override void _Ready()
     {
 		cargoString = cargoTracker.Text;
@@ -40,13 +43,30 @@ public partial class WorldScene : Node3D
 
             }
         }
-        
+        if(GetNode<Panel>("GameCamera/CanvasLayer/DeathScreen").Visible == true)
+		{
+			i++;
+			
+			if(i%2==0)
+			{
+				styleBoxTransparency++; ;
+			}
+			deathStyleBox.BgColor = Color.Color8(0, 0, 0, styleBoxTransparency);
+			if(styleBoxTransparency ==120)
+			{
+                GetNode<Panel>("GameCamera/CanvasLayer/DeathScreen").Visible = false;
+
+                GameOverFunction(false);
+				return;
+			}
+		}
     }
 	
-    public void OnNoBoatHealth() {
+    public void OnNoBoatHealth() 
+	{
+        GetNode<Panel>("GameCamera/CanvasLayer/DeathScreen").Visible = true;
 
-		GameOverFunction(false);
-	}
+    }
 	public void OnObjectivePickup()
 	{
 		objectiveScore++;
@@ -60,7 +80,8 @@ public partial class WorldScene : Node3D
         cargoTracker.Text = cargoString + objectiveScore + "/" + maxObjectiveStackAmount;
         objectiveTracker.Text = objectiveString + deliveredCargo + "/" + maxObjectiveAmount;
     }
-	public void OnCountdownTimerTimeout() {
+	public void OnCountdownTimerTimeout() 
+	{
 
 		
 		GameOverFunction(false);

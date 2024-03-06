@@ -522,6 +522,8 @@ water = NodePath("../../WaterPlane")
 stream = ExtResource("13_e0ts7")
 script = ExtResource("15_d1m7c")
 
+[node name="SeaGullPauser" type="Timer" parent="SeaGullSound"]
+
 [node name="adventure" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("22_f6vfe")
 volume_db = -10.0
@@ -618,3 +620,5 @@ collision_mask = 3
 [connection signal="NoBoatHealth" from="Boat" to="." method="OnNoBoatHealth"]
 [connection signal="ObjectivePickup" from="Boat" to="." method="OnObjectivePickup"]
 [connection signal="finished" from="SeaGullSound" to="SeaGullSound" method="OnSeaGullSoundFinished"]
+[connection signal="timeout" from="SeaGullSound/SeaGullPauser" to="SeaGullSound" method="OnTimerTimeout"]
+[connection signal="finished" from="adventure" to="TextBox" method="OnAdventureFinished"]

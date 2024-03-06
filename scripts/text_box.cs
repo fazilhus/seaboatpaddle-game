@@ -144,7 +144,12 @@ Crew:(shouting) AYE AYE!!!";
 		isAdding = true;
 		
 	}
-
+	
+	private void OnAdventureFinished()
+	{
+		adventure.Playing = true;
+	}
+	
 	/*public void scanf()
 	{
 		try
@@ -168,3 +173,6 @@ Crew:(shouting) AYE AYE!!!";
 		
 	}*/
 }
+
+
+

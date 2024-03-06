@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://dgoulgs480htt"
-path="res://.godot/imported/bfh1_wood_breaking_01.ogg-87b81e3a31ab1d9125a6f2306ab848e5.oggvorbisstr"
+path="res://.godot/imported/bfh1_wood_breaking_01.ogg-81d27ebfa14225a770158a4b5cafcecc.oggvorbisstr"
 
 [deps]
 
-source_file="res://sounds/Breaksounds/bfh1_wood_breaking_01.ogg"
-dest_files=["res://.godot/imported/bfh1_wood_breaking_01.ogg-87b81e3a31ab1d9125a6f2306ab848e5.oggvorbisstr"]
+source_file="res://Sounds/Breaksounds/bfh1_wood_breaking_01.ogg"
+dest_files=["res://.godot/imported/bfh1_wood_breaking_01.ogg-81d27ebfa14225a770158a4b5cafcecc.oggvorbisstr"]
 
 [params]
 

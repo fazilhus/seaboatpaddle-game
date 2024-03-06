@@ -83,8 +83,8 @@ public partial class Modifiers : RigidBody3D
 				amountOfRepairKits += 1;
 				boat.ActivateRepairKit(amountOfRepairKits);
 				GameCamera.LabelModifiers.Text ="Repair kit found, press B to use";
-				GameCamera.RepaitKitModifierLabel.Text = "";
-				GameCamera.RepaitKitModifierLabel.Text += amountOfRepairKits;
+				GameCamera.RepairKitModifierLabel.Text = "";
+				GameCamera.RepairKitModifierLabel.Text += amountOfRepairKits;
 			}
 
 			if (randomNumber == 4)

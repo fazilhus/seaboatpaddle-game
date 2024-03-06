@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bqgpgxpoqkw6w"]
+[gd_scene load_steps=37 format=3 uid="uid://bqgpgxpoqkw6w"]
 
 [ext_resource type="Script" path="res://scripts/WorldScene.cs" id="1_qx545"]
 [ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
@@ -20,11 +20,11 @@
 [ext_resource type="PackedScene" uid="uid://5scllsnkmpth" path="res://scenes/streams.tscn" id="11_8xjfh"]
 [ext_resource type="PackedScene" uid="uid://b55sx0mje1j5w" path="res://scenes/shark.tscn" id="12_2bx8v"]
 [ext_resource type="PackedScene" uid="uid://db44dloe5xeo2" path="res://scenes/text_box.tscn" id="13_cald3"]
-[ext_resource type="AudioStream" uid="uid://dy02vsblcoiov" path="res://sounds/586831__speakingmusic__seagull.wav" id="13_e0ts7"]
+[ext_resource type="AudioStream" uid="uid://dy02vsblcoiov" path="res://Sounds/586831__speakingmusic__seagull.wav" id="13_e0ts7"]
 [ext_resource type="PackedScene" uid="uid://ducw5sm3i87kh" path="res://scenes/Goods.tscn" id="13_yi77v"]
 [ext_resource type="PackedScene" uid="uid://cqhp0jks2ivtp" path="res://scenes/starting_location.tscn" id="14_qesc2"]
 [ext_resource type="Script" path="res://scripts/SeaGullSound.cs" id="15_d1m7c"]
-[ext_resource type="AudioStream" uid="uid://b5fhytjwowqgu" path="res://sounds/pirates-5533.mp3" id="22_f6vfe"]
+[ext_resource type="AudioStream" uid="uid://b5fhytjwowqgu" path="res://Sounds/pirates-5533.mp3" id="22_f6vfe"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0yf5"]
 bg_color = Color(0, 0.627451, 0.376471, 1)
@@ -83,19 +83,6 @@ position_offset = Vector3(0, 17, -12)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="GameCamera"]
 
-[node name="LabelPlayers" type="Label" parent="GameCamera/CanvasLayer"]
-offset_left = 14.0
-offset_top = 2.0
-offset_right = 54.0
-offset_bottom = 25.0
-
-[node name="LabelHealth" type="Label" parent="GameCamera/CanvasLayer"]
-visible = false
-offset_right = 180.0
-offset_bottom = 34.0
-theme_override_font_sizes/font_size = 24
-text = "	"
-
 [node name="LabelTime" type="Label" parent="GameCamera/CanvasLayer"]
 anchors_preset = 3
 anchor_left = 1.0
@@ -137,22 +124,6 @@ offset_bottom = -15.768
 grow_horizontal = 0
 grow_vertical = 0
 text = "Delivered "
-
-[node name="LabelModifiers" type="Label" parent="GameCamera/CanvasLayer"]
-visible = false
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -41.0
-offset_top = -44.0
-offset_right = 50.0
-offset_bottom = -2.0
-grow_horizontal = 2
-grow_vertical = 0
-theme = ExtResource("3_e4ovv")
-text = "Power"
 
 [node name="DeathScreen" type="Panel" parent="GameCamera/CanvasLayer"]
 visible = false

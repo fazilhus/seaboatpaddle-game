@@ -147,7 +147,7 @@ public partial class Boat : RigidBody3D
 			rot.Z = 0;
 			Rotation = rot;
 		}
-		GetParent<Node3D>().GetNode<Label>("GameCamera/CanvasLayer/LabelHealth").Text = "Health: "+ GetNode<HealthComponent>("HealthComponent").health;
+		//GetParent<Node3D>().GetNode<Label>("GameCamera/CanvasLayer/LabelHealth").Text = "Health: "+ GetNode<HealthComponent>("HealthComponent").health;
 	}
 
 	public override void _PhysicsProcess(double delta)

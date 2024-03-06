@@ -50,21 +50,21 @@ public partial class WorldScene : Node3D
 	public void OnObjectivePickup()
 	{
 		objectiveScore++;
-        cargoTracker.Text = cargoString + objectiveScore + "/" + maxObjectiveStackAmount;
-    }
+		cargoTracker.Text = cargoString + objectiveScore + "/" + maxObjectiveStackAmount;
+	}
 	public void OnWholeDelivery()
 	{
 		deliveredCargo += objectiveScore;
 		GetNode<Boat>("Boat").EmptyCargo();
 		objectiveScore = 0;
-        cargoTracker.Text = cargoString + objectiveScore + "/" + maxObjectiveStackAmount;
-        objectiveTracker.Text = objectiveString + deliveredCargo + "/" + maxObjectiveAmount;
-    }
+		cargoTracker.Text = cargoString + objectiveScore + "/" + maxObjectiveStackAmount;
+		objectiveTracker.Text = objectiveString + deliveredCargo + "/" + maxObjectiveAmount;
+	}
 	public void OnDelivery() {
 		objectiveScore--;
 		deliveredCargo++;
 		cargoTracker.Text = cargoString + objectiveScore + "/" + maxObjectiveStackAmount;
-        objectiveTracker.Text = objectiveString + deliveredCargo + "/" + maxObjectiveAmount;
+		objectiveTracker.Text = objectiveString + deliveredCargo + "/" + maxObjectiveAmount;
 	}
 	public void OnCountdownTimerTimeout() {
 

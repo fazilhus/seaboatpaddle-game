@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://db44dloe5xeo2"]
 
-[ext_resource type="FontFile" uid="uid://dv7onqp10an4r" path="res://fonts/TreasureMapDeadhand-yLA3.ttf" id="1_kyjab"]
 [ext_resource type="Script" path="res://scripts/text_box.cs" id="1_qkb8k"]
+[ext_resource type="FontFile" uid="uid://ijkpiuddjm56" path="res://fonts/JupiteroidRegular-Rpj6V.ttf" id="2_m1xg0"]
 [ext_resource type="Texture2D" uid="uid://cbjn3oadl512b" path="res://textures/Xbox Series/Double/xbox_button_color_a.png" id="3_8ois2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bcp1s"]
@@ -65,7 +65,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_3paj1")
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_kyjab")
+theme_override_fonts/font = ExtResource("2_m1xg0")
 theme_override_font_sizes/font_size = 30
 text = "AAA"
 autowrap_mode = 3

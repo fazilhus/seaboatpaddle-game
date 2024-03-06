@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bqgpgxpoqkw6w"]
+[gd_scene load_steps=36 format=3 uid="uid://bqgpgxpoqkw6w"]
 
 [ext_resource type="Script" path="res://scripts/WorldScene.cs" id="1_qx545"]
 [ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
@@ -25,6 +25,7 @@
 [ext_resource type="AudioStream" uid="uid://b5fhytjwowqgu" path="res://Sounds/pirates-5533.mp3" id="22_f6vfe"]
 [ext_resource type="PackedScene" uid="uid://bjujslla0wbta" path="res://scenes/hammers_n_planks.tscn" id="24_yxdo2"]
 [ext_resource type="PackedScene" uid="uid://b5q85gk2bf4uw" path="res://scenes/super_fan.tscn" id="25_0m82c"]
+[ext_resource type="PackedScene" uid="uid://tukm4edn02s2" path="res://scenes/clock.tscn" id="26_5i412"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0yf5"]
 bg_color = Color(0, 0.627451, 0.376471, 1)
@@ -617,7 +618,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.6335, 0.159419, 25.4587)
 water = NodePath("../../WaterPlane")
 
 [node name="Goods5" parent="Goods" node_paths=PackedStringArray("water") instance=ExtResource("13_yi77v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.2303, 0.159419, 25.1991)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.5549, 0.159419, 20.7523)
 water = NodePath("../../WaterPlane")
 
 [node name="Goods6" parent="Goods" node_paths=PackedStringArray("water") instance=ExtResource("13_yi77v")]
@@ -660,7 +661,14 @@ water = NodePath("../../WaterPlane")
 [node name="SpeedBoost" type="Node3D" parent="."]
 
 [node name="SuperFan" parent="SpeedBoost" node_paths=PackedStringArray("boat", "water") instance=ExtResource("25_0m82c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.7001, 0.00274813, 26.1978)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.87685, 0.00274813, 47.1956)
+boat = NodePath("../../Boat")
+water = NodePath("../../WaterPlane")
+
+[node name="ExtraTime" type="Node3D" parent="."]
+
+[node name="Clock" parent="ExtraTime" node_paths=PackedStringArray("boat", "water") instance=ExtResource("26_5i412")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.2457, 0, 25.5201)
 boat = NodePath("../../Boat")
 water = NodePath("../../WaterPlane")
 

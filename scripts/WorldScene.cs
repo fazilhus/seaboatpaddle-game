@@ -19,6 +19,7 @@ public partial class WorldScene : Node3D
 	[Export]
 	StyleBoxFlat deathStyleBox;
 	byte styleBoxTransparency = 0;
+	bool transperancyReached = false;
 	int i = 0;
     public override void _Ready()
     {
@@ -43,7 +44,7 @@ public partial class WorldScene : Node3D
 
             }
         }
-        if(GetNode<Panel>("GameCamera/CanvasLayer/DeathScreen").Visible == true)
+        if(GetNode<Panel>("GameCamera/CanvasLayer/GameOverScreen").Visible == true  && !transperancyReached)
 		{
 			i++;
 			
@@ -54,8 +55,8 @@ public partial class WorldScene : Node3D
 			deathStyleBox.BgColor = Color.Color8(0, 0, 0, styleBoxTransparency);
 			if(styleBoxTransparency ==120)
 			{
-                GetNode<Panel>("GameCamera/CanvasLayer/DeathScreen").Visible = false;
-
+                
+				transperancyReached = true;
                 GameOverFunction(false);
 				return;
 			}
@@ -64,7 +65,7 @@ public partial class WorldScene : Node3D
 	
     public void OnNoBoatHealth() 
 	{
-        GetNode<Panel>("GameCamera/CanvasLayer/DeathScreen").Visible = true;
+        GetNode<Panel>("GameCamera/CanvasLayer/GameOverScreen").Visible = true;
 		GameCamera.ResetSway();
 		Modifiers.ResetModifiers();
     }
@@ -96,10 +97,12 @@ public partial class WorldScene : Node3D
 	{
 		if(win)
 		{
-			GetNode<Label>("GameCamera/CanvasLayer/GameOverScreen/Label").Text = "You Win";
+			GetNode<Label>("GameCamera/CanvasLayer/GameOverScreen/Container/Label").Text = "You Win";
 		}
-		GetNode<Panel>("GameCamera/CanvasLayer/GameOverScreen").Visible = true;
-		GetNode<Button>("GameCamera/CanvasLayer/GameOverScreen/RestartButton").GrabFocus();
+        GetNode<Label>("GameCamera/CanvasLayer/GameOverScreen/Container/Label").Text = "GAME OVER";
+        GetNode<Button>("GameCamera/CanvasLayer/GameOverScreen/Container/RestartButton").Visible = true;
+        GetNode<Button>("GameCamera/CanvasLayer/GameOverScreen/Container/QuitButton").Visible = true;
+        GetNode<Button>("GameCamera/CanvasLayer/GameOverScreen/Container/RestartButton").GrabFocus();
 		
 		GetTree().Paused = true;
 		

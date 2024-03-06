@@ -125,7 +125,7 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Delivered "
 
-[node name="DeathScreen" type="Panel" parent="GameCamera/CanvasLayer"]
+[node name="GameOverScreen" type="Panel" parent="GameCamera/CanvasLayer"]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -134,98 +134,41 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("2_5ftvs")
 
-[node name="You died" type="Label" parent="GameCamera/CanvasLayer/DeathScreen"]
+[node name="Container" type="VBoxContainer" parent="GameCamera/CanvasLayer/GameOverScreen"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.107
-anchor_right = 0.5
-anchor_bottom = 0.107
-offset_left = -147.0
-offset_top = 8.66399
-offset_right = 147.0
-offset_bottom = 117.664
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 70
-text = "You died
-"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="You died2" type="Label" parent="GameCamera/CanvasLayer/DeathScreen"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.107
-anchor_right = 0.5
-anchor_bottom = 0.107
-offset_left = -253.0
-offset_top = 113.664
-offset_right = 258.0
-offset_bottom = 222.664
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 20
-text = "Cause of Death: "
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="GameOverScreen" type="Panel" parent="GameCamera/CanvasLayer"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
-[node name="Label" type="Label" parent="GameCamera/CanvasLayer/GameOverScreen"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.107
-anchor_right = 0.5
-anchor_bottom = 0.107
-offset_left = -147.0
-offset_top = 8.66399
-offset_right = 147.0
-offset_bottom = 117.664
-grow_horizontal = 2
+[node name="Label" type="Label" parent="GameCamera/CanvasLayer/GameOverScreen/Container"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 70
-text = "GAME OVER
+text = "YOU DIED
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RestartButton" type="Button" parent="GameCamera/CanvasLayer/GameOverScreen"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -187.0
-offset_top = -109.0
-offset_right = 196.0
-offset_bottom = -15.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="DeathExplenation" type="Label" parent="GameCamera/CanvasLayer/GameOverScreen/Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Cause of Death: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="GameCamera/CanvasLayer/GameOverScreen/Container"]
+visible = false
+layout_mode = 2
 focus_neighbor_bottom = NodePath("../QuitButton")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = SubResource("StyleBoxFlat_n0yf5")
 text = "Restart"
 
-[node name="QuitButton" type="Button" parent="GameCamera/CanvasLayer/GameOverScreen"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -188.0
-offset_top = 23.0
-offset_right = 198.0
-offset_bottom = 100.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="QuitButton" type="Button" parent="GameCamera/CanvasLayer/GameOverScreen/Container"]
+visible = false
+layout_mode = 2
 focus_neighbor_top = NodePath("../RestartButton")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = SubResource("StyleBoxFlat_6ph5a")
@@ -687,8 +630,8 @@ stream = ExtResource("22_f6vfe")
 volume_db = -10.0
 
 [connection signal="CountdownTimerTimeout" from="GameCamera" to="." method="OnCountdownTimerTimeout"]
-[connection signal="pressed" from="GameCamera/CanvasLayer/GameOverScreen/RestartButton" to="." method="RetryButtonPressed"]
-[connection signal="pressed" from="GameCamera/CanvasLayer/GameOverScreen/QuitButton" to="." method="QuitButtonPressed"]
+[connection signal="pressed" from="GameCamera/CanvasLayer/GameOverScreen/Container/RestartButton" to="." method="RetryButtonPressed"]
+[connection signal="pressed" from="GameCamera/CanvasLayer/GameOverScreen/Container/QuitButton" to="." method="QuitButtonPressed"]
 [connection signal="timeout" from="GameCamera/countdownTimer" to="GameCamera" method="OnCountdownTimerTimeout"]
 [connection signal="NoBoatHealth" from="Boat" to="." method="OnNoBoatHealth"]
 [connection signal="ObjectivePickup" from="Boat" to="." method="OnObjectivePickup"]

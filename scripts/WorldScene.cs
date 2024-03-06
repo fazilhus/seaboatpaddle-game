@@ -27,19 +27,19 @@ public partial class WorldScene : Node3D
 		maxObjectiveAmount= GetNode("Goods").GetChildCount();
 		objectiveTracker.Text = objectiveString + deliveredCargo + "/" + maxObjectiveAmount;
 		cargoTracker.Text = cargoString + objectiveScore+"/"+maxObjectiveStackAmount;
-    }
-    public override void _Process(double delta)
-    {
+	}
+	public override void _Process(double delta)
+	{
 		if(Input.IsKeyPressed(Key.F4))
 		{
-			OnDelivery();
+			OnWholeDelivery();
 		}
 		if(!GameOver)
 		{
-            if (deliveredCargo == maxObjectiveAmount)
-            {
-                GameOver = true;
-                GameOverFunction(true);
+			if (deliveredCargo == maxObjectiveAmount)
+			{
+				GameOver = true;
+				GameOverFunction(true);
 
             }
         }
@@ -65,14 +65,15 @@ public partial class WorldScene : Node3D
     public void OnNoBoatHealth() 
 	{
         GetNode<Panel>("GameCamera/CanvasLayer/DeathScreen").Visible = true;
-
+		GameCamera.ResetSway();
+		Modifiers.ResetModifiers();
     }
 	public void OnObjectivePickup()
 	{
 		objectiveScore++;
         cargoTracker.Text = cargoString + objectiveScore + "/" + maxObjectiveStackAmount;
     }
-	public void OnDelivery()
+	public void OnWholeDelivery()
 	{
 		deliveredCargo += objectiveScore;
 		GetNode<Boat>("Boat").EmptyCargo();
@@ -80,8 +81,13 @@ public partial class WorldScene : Node3D
         cargoTracker.Text = cargoString + objectiveScore + "/" + maxObjectiveStackAmount;
         objectiveTracker.Text = objectiveString + deliveredCargo + "/" + maxObjectiveAmount;
     }
-	public void OnCountdownTimerTimeout() 
-	{
+	public void OnDelivery() {
+		objectiveScore--;
+		deliveredCargo++;
+		cargoTracker.Text = cargoString + objectiveScore + "/" + maxObjectiveStackAmount;
+        objectiveTracker.Text = objectiveString + deliveredCargo + "/" + maxObjectiveAmount;
+	}
+	public void OnCountdownTimerTimeout() {
 
 		
 		GameOverFunction(false);

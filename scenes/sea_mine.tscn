@@ -1,10 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://beoci1a615ffi"]
+[gd_scene load_steps=16 format=3 uid="uid://beoci1a615ffi"]
 
 [ext_resource type="Script" path="res://scripts/sea_mine.cs" id="1_p8gtb"]
+[ext_resource type="Material" uid="uid://d1ojqwm8n46co" path="res://Shades/mineMaterial3d.tres" id="2_kh2k8"]
+[ext_resource type="AudioStream" uid="uid://bnwxvi735srdi" path="res://sounds/bombSound.mp3" id="3_duibs"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_8yb2u"]
 radius = 1.0
 height = 2.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gb787"]
+top_radius = 0.17
+bottom_radius = 0.17
+height = 0.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4yhrk"]
+top_radius = 0.3
+bottom_radius = 0.3
+height = 0.1
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_23dtq"]
 radius = 1.0
@@ -12,14 +24,159 @@ radius = 1.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_n4tm5"]
 radius = 1.25
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jekd6"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Curve" id="Curve_celgy"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0ya4h"]
+curve = SubResource("Curve_celgy")
+
+[sub_resource type="Curve" id="Curve_slw8p"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.749503, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_51n3h"]
+curve = SubResource("Curve_slw8p")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v6kml"]
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 15.0
+radial_velocity_max = 10.0
+radial_velocity_curve = SubResource("CurveTexture_0ya4h")
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_51n3h")
+
+[sub_resource type="SphereMesh" id="SphereMesh_6q5gn"]
+rings = 5
+
 [node name="SeaMine" type="RigidBody3D"]
 script = ExtResource("1_p8gtb")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_kh2k8")
 mesh = SubResource("SphereMesh_8yb2u")
 skeleton = NodePath("")
 
+[node name="Spikes" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2272, 0)
+material_override = ExtResource("2_kh2k8")
+mesh = SubResource("CylinderMesh_gb787")
+
+[node name="cylinders" type="MeshInstance3D" parent="MeshInstance3D/Spikes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.232689, 0)
+material_override = ExtResource("2_kh2k8")
+mesh = SubResource("CylinderMesh_4yhrk")
+skeleton = NodePath("../..")
+
+[node name="Spikes6" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, -1.2, 0)
+material_override = ExtResource("2_kh2k8")
+mesh = SubResource("CylinderMesh_gb787")
+
+[node name="cylinders2" type="MeshInstance3D" parent="MeshInstance3D/Spikes6"]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, -0.216144, 1.88959e-08)
+material_override = ExtResource("2_kh2k8")
+mesh = SubResource("CylinderMesh_4yhrk")
+skeleton = NodePath("../..")
+
+[node name="Spikes2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(0.506034, -0.862514, 0, 0.862514, 0.506034, 0, 0, 0, 1, -1.086, 0.572, 0)
+material_override = ExtResource("2_kh2k8")
+mesh = SubResource("CylinderMesh_gb787")
+
+[node name="cylinders3" type="MeshInstance3D" parent="MeshInstance3D/Spikes2"]
+transform = Transform3D(1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, -0.00370604, -0.262054, 0)
+material_override = ExtResource("2_kh2k8")
+mesh = SubResource("CylinderMesh_4yhrk")
+skeleton = NodePath("../..")
+
+[node name="Spikes4" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(-0.505989, 0.86254, -7.54057e-08, 0.86254, 0.505989, -4.42349e-08, -3.82137e-15, -8.74228e-08, -1, 1.08617, 0.572268, 0)
+material_override = ExtResource("2_kh2k8")
+mesh = SubResource("CylinderMesh_gb787")
+
+[node name="cylinders4" type="MeshInstance3D" parent="MeshInstance3D/Spikes4"]
+transform = Transform3D(-1, -2.98023e-08, 8.74228e-08, -2.98023e-08, 1, -7.10543e-15, -8.74228e-08, 7.10543e-15, -1, 0.004, -0.262, 0)
+material_override = ExtResource("2_kh2k8")
+mesh = SubResource("CylinderMesh_4yhrk")
+skeleton = NodePath("../..")
+
+[node name="Spikes3" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(-2.21194e-08, 3.77017e-08, 1, 0.862514, 0.506034, 0, -0.506034, 0.862514, -4.37114e-08, 0, 0.572, 1.086)
+material_override = ExtResource("2_kh2k8")
+mesh = SubResource("CylinderMesh_gb787")
+
+[node name="cylinders5" type="MeshInstance3D" parent="MeshInstance3D/Spikes3"]
+transform = Transform3D(-1, 2.98023e-08, -8.74228e-08, 2.98023e-08, 1, 0, 8.74228e-08, 3.55271e-15, -1, -0.004, -0.262, 0)
+material_override = ExtResource("2_kh2k8")
+mesh = SubResource("CylinderMesh_4yhrk")
+skeleton = NodePath("../..")
+
+[node name="Spikes5" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(-2.21194e-08, 3.77017e-08, -1, 0.862514, 0.506034, 0, 0.506034, -0.862514, -4.37114e-08, 0, 0.572, -1.086)
+material_override = ExtResource("2_kh2k8")
+mesh = SubResource("CylinderMesh_gb787")
+
+[node name="cylinders6" type="MeshInstance3D" parent="MeshInstance3D/Spikes5"]
+transform = Transform3D(1, 1.74846e-07, 0, -1.74846e-07, 1, 0, 0, 0, 1, -0.004, -0.262, 0)
+material_override = ExtResource("2_kh2k8")
+mesh = SubResource("CylinderMesh_4yhrk")
+skeleton = NodePath("../..")
+
+[node name="Spikes10" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(0.506034, 0.862514, 0, -0.862514, 0.506034, 0, 0, 0, 1, -1.086, -0.572, 0)
+material_override = ExtResource("2_kh2k8")
+mesh = SubResource("CylinderMesh_gb787")
+
+[node name="cylinders7" type="MeshInstance3D" parent="MeshInstance3D/Spikes10"]
+transform = Transform3D(-1, 5.24521e-05, -2.49992e-08, 5.24223e-05, 1, -1.60398e-07, 3.74872e-08, -1.56012e-07, -1, 0.004, 0.262, 0)
+material_override = ExtResource("2_kh2k8")
+mesh = SubResource("CylinderMesh_4yhrk")
+skeleton = NodePath("../..")
+
+[node name="Spikes11" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(-0.506034, -0.862514, -1.50996e-07, -0.862514, 0.506034, -4.42349e-08, 1.14562e-07, 1.07852e-07, -1, 1.08617, -0.572, 0)
+material_override = ExtResource("2_kh2k8")
+mesh = SubResource("CylinderMesh_gb787")
+
+[node name="cylinders8" type="MeshInstance3D" parent="MeshInstance3D/Spikes11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.262, 0)
+material_override = ExtResource("2_kh2k8")
+mesh = SubResource("CylinderMesh_4yhrk")
+skeleton = NodePath("../..")
+
+[node name="Spikes12" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(-2.21194e-08, -3.77017e-08, 1, -0.862514, 0.506034, 0, -0.506034, -0.862514, -4.37114e-08, 0, -0.572, 1.086)
+material_override = ExtResource("2_kh2k8")
+mesh = SubResource("CylinderMesh_gb787")
+
+[node name="cylinders9" type="MeshInstance3D" parent="MeshInstance3D/Spikes12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.262, 0)
+material_override = ExtResource("2_kh2k8")
+mesh = SubResource("CylinderMesh_4yhrk")
+skeleton = NodePath("../..")
+
+[node name="Spikes13" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(-2.21194e-08, -3.77017e-08, -1, -0.862514, 0.506034, 0, 0.506034, 0.862514, -4.37114e-08, 0, -0.572, -1.086)
+material_override = ExtResource("2_kh2k8")
+mesh = SubResource("CylinderMesh_gb787")
+
+[node name="cylinders10" type="MeshInstance3D" parent="MeshInstance3D/Spikes13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.262, 0)
+material_override = ExtResource("2_kh2k8")
+mesh = SubResource("CylinderMesh_4yhrk")
+skeleton = NodePath("../..")
+
 [node name="ProbeContainer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.590549, 0)
 
 [node name="Probe" type="Marker3D" parent="ProbeContainer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
@@ -41,4 +198,22 @@ shape = SubResource("SphereShape3D_23dtq")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionTrigger"]
 shape = SubResource("SphereShape3D_n4tm5")
 
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Node3D"]
+material_override = SubResource("StandardMaterial3D_jekd6")
+emitting = false
+amount = 300
+sub_emitter = NodePath(".")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_v6kml")
+draw_pass_1 = SubResource("SphereMesh_6q5gn")
+
+[node name="Boom" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_duibs")
+volume_db = 20.0
+max_distance = 100.0
+
 [connection signal="area_entered" from="CollisionTrigger" to="." method="OnArea3DTriggerAreaEntered"]
+[connection signal="finished" from="Node3D/GPUParticles3D" to="." method="OnEmittingFinshed"]

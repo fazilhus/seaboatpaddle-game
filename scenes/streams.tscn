@@ -9,7 +9,7 @@ subdivide_width = 100
 subdivide_depth = 100
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gxtqq"]
-size = Vector3(40, 20, 80)
+size = Vector3(40, 20, 67.7227)
 
 [node name="Streams" type="Node3D"]
 script = ExtResource("1_noad2")
@@ -24,6 +24,7 @@ mesh = SubResource("PlaneMesh_slx6x")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.335896, 0, -2.85682)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.761719)
 shape = SubResource("BoxShape3D_gxtqq")
 
 [connection signal="area_entered" from="Area3D" to="." method="OnArea3DEntered"]

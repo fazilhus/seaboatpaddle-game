@@ -16,7 +16,9 @@ public partial class Modifiers : RigidBody3D
 	private double elapsedTime = 0;
 	[Export] public WaterPlane water;
 	public double time = 0;
-	
+	public static int amountOfRepairKits = 0;
+	public static int amountOfSpeedBoosts = 0;
+
 	public Godot.Collections.Array<Node> probeContainer;
 	
 	// Called when the node enters the scene tree for the first time.
@@ -51,6 +53,11 @@ public partial class Modifiers : RigidBody3D
 			state.AngularVelocity *= 1 - WaterAngularDrag;
 		}
 	}
+
+	public static void ResetModifiers() {
+		amountOfRepairKits = 0;
+		amountOfSpeedBoosts = 0;
+	}
 	
 	public void OnArea3dTriggerAreaEntered(Area3D area)
 	{
@@ -59,7 +66,7 @@ public partial class Modifiers : RigidBody3D
 			QueueFree();
 			
 			NumberGenerator generator = new NumberGenerator();
-			int randomNumber = generator.GenerateNumber();
+			int randomNumber = generator.GenerateNumber(1, 5);
 			if (randomNumber == 1)
 			{
 				GameCamera.ActivateExtraTime();
@@ -73,32 +80,23 @@ public partial class Modifiers : RigidBody3D
 			}
 			if (randomNumber == 3)
 			{
-				boat.ActivateRepairKit();
+				amountOfRepairKits += 1;
+				boat.ActivateRepairKit(amountOfRepairKits);
 				GameCamera.LabelModifiers.Text ="Repair kit found, press B to use";
+				GameCamera.RepaitKitModifierLabel.Text = "";
+				GameCamera.RepaitKitModifierLabel.Text += amountOfRepairKits;
 			}
 
 			if (randomNumber == 4)
 			{
-				boat.ActivateSpeedBoost();
+				amountOfSpeedBoosts += 1;
+				boat.ActivateSpeedBoost(amountOfSpeedBoosts);
 				GameCamera.LabelModifiers.Text ="Speed Boost found, press A to use";
+				GameCamera.SpeedBoostModifierLabel.Text = "";
+				GameCamera.SpeedBoostModifierLabel.Text += amountOfSpeedBoosts;
+
 			}
 		}
 	}
-}
 
-public class NumberGenerator
-{
-	private Random random;
-
-	public NumberGenerator()
-	{
-		// Initialize the random number generator
-		random = new Random();
-	}
-
-	public int GenerateNumber()
-	{
-		// Generate a random number between 1 and 5 (exclusive upper bound)
-		return random.Next(1, 5);
-	}
 }

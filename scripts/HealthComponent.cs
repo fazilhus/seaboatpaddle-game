@@ -21,6 +21,7 @@ public partial class HealthComponent : Node3D
 	public void AddHealth(int n) {
 		if (health + n > max_health) {
 			health = max_health;
+			healthBar.Sethealth(health);
 			return;
 		}
 		health += n;
@@ -31,6 +32,7 @@ public partial class HealthComponent : Node3D
 		if (health - n <= 0) {
 			EmitSignal(SignalName.NoHealth);
 			health = 0;
+			healthBar.Sethealth(health);
 			return;
 		}
 		health -= n;

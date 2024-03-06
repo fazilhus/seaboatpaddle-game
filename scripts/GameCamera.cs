@@ -8,8 +8,7 @@ public partial class GameCamera : Node3D
 	
 	[Export]
 	public Timer countdownTimer;
-	
-	
+
 	[Export]
 	public Node3D Boat;
 	[Export]
@@ -27,7 +26,11 @@ public partial class GameCamera : Node3D
 	public static Label LabelPlayers;
 	public static Label LabelTime;
 	public static Label LabelModifiers;
-	
+	public static Panel RepairKitModifierPanel;
+	public static Panel SpeedBoostModifierPanel;
+	public static Label SpeedBoostModifierLabel;
+	public static Label RepaitKitModifierLabel;
+
 	public static void ActivateDrunkenCaptain()
 	{
 		DrunkenCaptain = true;
@@ -40,16 +43,22 @@ public partial class GameCamera : Node3D
 	
 	public override void _Ready()
 	{
-		countdownTimer.Start();
+		//countdownTimer.Start();
 		
 		LabelPlayers = GetNodeOrNull<Label>("CanvasLayer/LabelPlayers");
 		LabelTime = GetNodeOrNull<Label>("CanvasLayer/LabelTime");
 		LabelModifiers = GetNodeOrNull<Label>("CanvasLayer/LabelModifiers");
-		
+		SpeedBoostModifierPanel = GetNodeOrNull<Panel>("CanvasLayer/SpeedBoostModifier");
+		RepairKitModifierPanel = GetNodeOrNull<Panel>("CanvasLayer/RepairKitModifier");
+		SpeedBoostModifierLabel = GetNodeOrNull<Label>("CanvasLayer/SpeedBoostModifier/LabelAmount");
+		RepaitKitModifierLabel = GetNodeOrNull<Label>("CanvasLayer/RepairKitModifier/LabelAmount");
+		RepaitKitModifierLabel.Text = "0";
+		SpeedBoostModifierLabel.Text = "0";
 		//for(int i = 0; i < PlayerMenu.playerAmount; i++){
 		//	LabelPlayers.Text += "\nPlayer " + PlayerMenu.playerIds[i];
 		//}
-				
+		
+
 	}
 	
 	public override void _Process(double delta)
@@ -77,6 +86,14 @@ public partial class GameCamera : Node3D
 		string timeString = time.ToString(@"mm\:ss");
 
 		LabelTime.Text = timeString;
+	}
+
+	public static void ResetSway() {
+		swayAmount = 0;
+	}
+
+	public void StartCountdownTimer() {
+		countdownTimer.Start();
 	}
 	
 	private void OnCountdownTimerTimeout()

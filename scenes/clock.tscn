@@ -1,0 +1,96 @@
+[gd_scene load_steps=13 format=3 uid="uid://tukm4edn02s2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wwahc"]
+metallic = 0.21
+roughness = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_4n1fn"]
+height = 0.3
+is_hemisphere = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8l7gs"]
+albedo_color = Color(0.105882, 0.105882, 0.105882, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_h52jx"]
+size = Vector3(0.1, 0.5, 0.01)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2oj4a"]
+albedo_color = Color(0.105882, 0.105882, 0.105882, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_a4dxd"]
+radius = 0.05
+height = 0.07
+is_hemisphere = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pky0m"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qe0og"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1wqkn"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_smjjo"]
+radius = 0.1
+height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gitq1"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yrakd"]
+size = Vector3(0.05, 0.001, 0.15)
+
+[node name="Clock" type="Node3D"]
+
+[node name="Clock" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_wwahc")
+mesh = SubResource("SphereMesh_4n1fn")
+
+[node name="Show" type="MeshInstance3D" parent="Clock"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -6.94754e-10, -0.0158941, 0.251939)
+material_override = SubResource("StandardMaterial3D_8l7gs")
+mesh = SubResource("PrismMesh_h52jx")
+
+[node name="Show2" type="MeshInstance3D" parent="Clock"]
+transform = Transform3D(-0.00663219, 0.799972, -3.49679e-08, 0, -3.49691e-08, -0.8, -0.799972, -0.00663219, 2.89902e-10, 0.232834, -0.0158941, -0.000921011)
+material_override = SubResource("StandardMaterial3D_8l7gs")
+mesh = SubResource("PrismMesh_h52jx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Clock"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -7.61946e-10, -0.0174313, 0)
+material_override = SubResource("StandardMaterial3D_2oj4a")
+mesh = SubResource("SphereMesh_a4dxd")
+
+[node name="Top" type="MeshInstance3D" parent="Clock"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.516574, 0.053824, 0)
+material_override = SubResource("StandardMaterial3D_pky0m")
+mesh = SubResource("CylinderMesh_qe0og")
+
+[node name="TopTop" type="MeshInstance3D" parent="Clock/Top"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.45058e-09, -0.0781119, 0)
+material_override = SubResource("StandardMaterial3D_1wqkn")
+mesh = SubResource("SphereMesh_smjjo")
+
+[node name="TimeMark" type="MeshInstance3D" parent="Clock"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.416479)
+material_override = SubResource("StandardMaterial3D_gitq1")
+mesh = SubResource("BoxMesh_yrakd")
+
+[node name="TimeMark2" type="MeshInstance3D" parent="Clock"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.416)
+material_override = SubResource("StandardMaterial3D_gitq1")
+mesh = SubResource("BoxMesh_yrakd")
+
+[node name="TimeMark3" type="MeshInstance3D" parent="Clock"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.416, 0, 0)
+material_override = SubResource("StandardMaterial3D_gitq1")
+mesh = SubResource("BoxMesh_yrakd")
+
+[node name="TimeMark4" type="MeshInstance3D" parent="Clock"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.416, 0, 0)
+material_override = SubResource("StandardMaterial3D_gitq1")
+mesh = SubResource("BoxMesh_yrakd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]

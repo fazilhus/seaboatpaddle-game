@@ -15,7 +15,7 @@ public partial class Boat : RigidBody3D
 	[Signal]
 	public delegate void NoBoatHealthEventHandler();
 	[Signal]
-	public delegate void ObjectivePickupEventHandler();
+	public delegate void ObjectivePickupEventHandler(int stack_size);
 
 	[Export]
 	public Godot.Collections.Array<Node3D> paddles;
@@ -317,27 +317,37 @@ public partial class Boat : RigidBody3D
 		SetMonitoringGoods(false);
 		SetMonitorableGoods(false);
 
-		var count = _goods_stack.GetChildCount();
-		var children_pos = new Vector3[count];
-		for (int i = 0; i < count; i++) 
-		{
-			var child = _goods_stack.GetChild<Node3D>(i);
-			children_pos[i] = child.GlobalPosition;
-			children_pos[i].Y += 2;
-			child.CallDeferred("free");
+		//var count = _goods_stack.GetChildCount();
+		//var children_pos = new Vector3[count];
+		var nr = new NumberGenerator();
+		for (int i = 0; i < _goods_stack.GetChildCount(); i++) {
+			// var child = _goods_stack.GetChild<Node3D>(i);
+			// children_pos[i] = child.GlobalPosition;
+			// children_pos[i].Y += 2;
+			// child.CallDeferred("free");
+
+			var goods = _goods_stack.GetChild<Goods>(0);
+			goods.Reparent(goods_node);
+			var pos = goods.GlobalPosition;
+			pos.Y += 2;
+			goods.GlobalPosition = pos;
+			var angle = nr.GenerateFloat(-Mathf.Pi, Mathf.Pi);
+			var vector = Basis.Z.Rotated(Vector3.Up, angle);
+			goods.Enable();
+			goods.ApplyCentralImpulse(5 * vector);
+
 		}
 
-		foreach (var pos in children_pos) 
-		{
-			var goods_inst = goods_scene.Instantiate<Goods>();
-			goods_inst.Position = pos;
-			goods_inst.water = water;
-			Random r = new Random();
-			var angle = (float)(2 * Mathf.Pi * r.NextDouble() - Mathf.Pi);
-			var vector = Basis.Z.Rotated(Vector3.Up, angle);
-			goods_inst.ApplyCentralImpulse(5 * vector);
-			goods_node.CallDeferred("add_child", goods_inst);
-		}
+		// foreach (var pos in children_pos) {
+		// 	var goods_inst = goods_scene.Instantiate<Goods>();
+		// 	goods_inst.Position = pos;
+		// 	goods_inst.water = water;
+		// 	Random r = new Random();
+		// 	var angle = (float)(2 * Mathf.Pi * r.NextDouble() - Mathf.Pi);
+		// 	var vector = Basis.Z.Rotated(Vector3.Up, angle);
+		// 	goods_inst.ApplyCentralImpulse(5 * vector);
+		// 	goods_node.CallDeferred("add_child", goods_inst);
+		// }
 
 		GetNode<Timer>("CrashCooldown").Start();
 	}
@@ -403,14 +413,18 @@ public partial class Boat : RigidBody3D
 			GD.Print("boat is colliding with goods!");
 			var count = _goods_stack.GetChildCount();
 			//GD.Print("Children count: ", count);
-			if (count < StackSize) 
-			{
-				var goods_child = goods_scene.Instantiate<Goods>();
-				goods_child.isActive = false;
-				goods_child.Position = new Vector3(0, count, 0);
-				_goods_stack.AddChild(goods_child);
-				//GD.Print("Added to stack");
-				area.GetParent().CallDeferred("free");
+			if (count < StackSize) {
+				// var goods_child = goods_scene.Instantiate<Goods>();
+				// goods_child.isActive = false;
+				// goods_child.Position = new Vector3(0, count, 0);
+				// _goods_stack.AddChild(goods_child);
+				// GD.Print("Added to stack");
+				// area.GetParent().CallDeferred("free");
+
+				var goods = area.GetParent<Goods>();
+				goods.Disable();
+				goods.Reparent(_goods_stack, false);
+				goods.Position = new Vector3(0, count, 0);
 			}
 
 			count = _goods_stack.GetChildCount();
@@ -420,7 +434,7 @@ public partial class Boat : RigidBody3D
 				boat_area.SetDeferred("monitorable", false);
 				//GD.Print("Boar area monitorable: ", boat_area.Monitorable);
 			}
-			EmitSignal(SignalName.ObjectivePickup);
+			EmitSignal(SignalName.ObjectivePickup, count);
 		}
 
 		if (area.IsInGroup("Unloading")) 

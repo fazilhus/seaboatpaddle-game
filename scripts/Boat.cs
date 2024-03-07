@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
-enum PaddleSide {
+enum PaddleSide 
+{
 	Left = 0,
 	Right = 1,
 }
@@ -14,7 +15,7 @@ public partial class Boat : RigidBody3D
 	[Signal]
 	public delegate void NoBoatHealthEventHandler();
 	[Signal]
-	public delegate void ObjectivePickupEventHandler();
+	public delegate void ObjectivePickupEventHandler(int stack_size);
 
 	[Export]
 	public Godot.Collections.Array<Node3D> paddles;
@@ -66,14 +67,15 @@ public partial class Boat : RigidBody3D
 	public bool RepairKit { get; private set; } = false;
 	public bool SpeedBoost { get; private set; } = false;
 	public bool UsingSpeedBoost = false;
-	private int amountOfRepaitKits = 0;
+	private int amountOfRepairKits = 0;
 	private int amountOfSpeedBoosts = 0;
 	public bool isBombed;
 	[Export] public int bombAcceleration = 40;
 	public void ActivateRepairKit(int repairKitAmount)
 	{
 		RepairKit = true;
-		amountOfRepaitKits = repairKitAmount;
+		amountOfRepairKits = repairKitAmount;
+		GetNode<AudioStreamPlayer>("RepairKitFound").Play();
 	}
 	
 	public void ActivateSpeedBoost(int speedBoostAmount)
@@ -105,6 +107,9 @@ public partial class Boat : RigidBody3D
 	public override void _Ready()
 	{
 		seaGull = GetParent<Node3D>().GetNode<seagull>("Seagull");
+		GetNode<AnimationPlayer>("FanOn/AnimationPlayer").Stop();
+		var fanOn = GetNode<Node3D>("FanOn");
+		fanOn.Visible = false;
 		crashSounds = GetNode<AudioStreamPlayer3D>("BoatCrash");
 		//instantiate variables for boat physics
 		var parent = GetParent();
@@ -120,7 +125,8 @@ public partial class Boat : RigidBody3D
 		_player_inputs = new List<Vector3>();
 		_paddles_rotation_old = new List<Vector3>();
 		_is_paddle_moving = new List<bool>();
-		foreach (var _ in paddles) {
+		foreach (var _ in paddles) 
+		{
 			_player_inputs.Add(Vector3.Zero);
 			_paddles_rotation_old.Add(Vector3.Zero);
 			_is_paddle_moving.Add(false);
@@ -140,11 +146,17 @@ public partial class Boat : RigidBody3D
  
 	public override void _Process(double delta)
 	{
+		if(amountOfSpeedBoosts > 0)
+		{
+			var fanOn = GetNode<Node3D>("FanOn");
+			fanOn.Visible = true;
+		}
 		if (Input.IsKeyPressed(Key.F2)) 
 		{
 			GetNode<HealthComponent>("HealthComponent").SubtractHealth(100);
 		}
-		if (Input.IsKeyPressed(Key.F3)) {
+		if (Input.IsKeyPressed(Key.F3)) 
+		{
 			var rot = Rotation;
 			rot.X = 0;
 			rot.Z = 0;
@@ -159,8 +171,10 @@ public partial class Boat : RigidBody3D
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector3 forward = Basis.Z;
-		foreach (var it in paddles.Select((paddle, i) => new {Paddle = paddle, Index = i})) {
-			if (!isReadyPaddle) {
+		foreach (var it in paddles.Select((paddle, i) => new {Paddle = paddle, Index = i})) 
+		{
+			if (!isReadyPaddle) 
+			{
 				continue;
 			}
 			if (it.Index >= _player_inputs.Count) 
@@ -178,34 +192,35 @@ public partial class Boat : RigidBody3D
 			_is_paddle_moving[it.Index] = force.Length() > 0.01f;
 
 			Node3D force_point = it.Paddle.GetNode<Node3D>("ForcePoint");
-			if (isSubmerged && force_point.GlobalPosition.Y < GlobalPosition.Y) {
-				if (!_is_paddle_moving[(it.Index + 1) % 2]) {
-					ApplyForce(-sideways_force_ratio * 1.25f * force, it.Paddle.Position);
+			if (isSubmerged && force_point.GlobalPosition.Y < GlobalPosition.Y) 
+			{
+				if (!_is_paddle_moving[(it.Index + 1) % 2]) 
+				{
+					ApplyForce(-sideways_force_ratio * 1.35f * force, it.Paddle.Position);
 					ApplyCentralForce(0.25f * -forward_force_ratio * Curve(force) * force.Sign().Z * forward);
 				}
-				else {
+				else 
+				{
 					ApplyForce(-sideways_force_ratio * force, it.Paddle.Position);
 					ApplyCentralForce(-forward_force_ratio * Curve(force) * force.Sign().Z * forward);
 				}
 
 				float speedRotation = angular_velocity.Length();
-				//GD.Print(speedRotation);
 				if (speedRotation <= 30.0f && _paddles_rotation_old[it.Index] == _paddles_rotation_old[0])
 				{
 					watersplashLeft.Emitting = true;
 					watersplashLeft.AmountRatio = speedRotation;
 					watersplashLeft.Rotate(Vector3.Up, Mathf.Pi * angular_velocity.Sign().Z);
-					//GD.Print(speedRotation, "RotationalVelcL");
 				}
 				else if (speedRotation <= 30.0f && _paddles_rotation_old[it.Index] == _paddles_rotation_old[1])
 				{
 					watersplashRight.Emitting = true;
 					watersplashRight.AmountRatio = speedRotation;
 					watersplashRight.Rotate(Vector3.Up, Mathf.Pi * angular_velocity.Sign().Z);
-					//GD.Print(speedRotation, "RotationalVelcR");
 				}
 			}
-			else {
+			else 
+			{
 				watersplashLeft.AmountRatio = 0;
 				watersplashRight.AmountRatio = 0;
 			}
@@ -213,18 +228,8 @@ public partial class Boat : RigidBody3D
 			if (UsingSpeedBoost) 
 			{
 				ApplyCentralForce(1000 * forward * (float)delta);
+				GetNode<AnimationPlayer>("FanOn/AnimationPlayer").Play();
 			}
-			/*if(WaterSplashRatio.AmountRatio <= 10.0f && isSubmerged && LinearVelocity.Length() > 0.4f)
-			{
-				var speed = LinearVelocity.Length();
-				WaterSplashRatio.AmountRatio = speed/10;
-				//GD.Print(speed, "speedUp");
-				
-			}
-			else
-			{
-				WaterSplashRatio.AmountRatio = 0.0f;
-			}*/
 		}              
 		
 		// checking marker3d in the probe container for simulating the water physics
@@ -267,12 +272,6 @@ public partial class Boat : RigidBody3D
 					depth += -2.5f * strengthFactor;
 				} 
 
-				/*if(isStreamCollided)
-				{			
-					var velocityApply = Transform.* relativePosition * 10.0f;
-					ApplyCentralForce(velocityApply);
-
-				}*/
 				ApplyForce(Vector3.Up * floatForce * gravity * depth, p.GlobalPosition - GlobalPosition);
 			}
 			else 
@@ -301,30 +300,25 @@ public partial class Boat : RigidBody3D
 		return Mathf.Pow(v.Length() / 10, 2);
 	}
 
-	private void LooseStackedGoods() {
+	private void LooseStackedGoods() 
+	{
 		SetMonitoringGoods(false);
 		SetMonitorableGoods(false);
 
-		var count = _goods_stack.GetChildCount();
-		var children_pos = new Vector3[count];
-		for (int i = 0; i < count; i++) {
-			var child = _goods_stack.GetChild<Node3D>(i);
-			children_pos[i] = child.GlobalPosition;
-			children_pos[i].Y += 2;
-			child.CallDeferred("free");
-		}
-
-		foreach (var pos in children_pos) {
-			var goods_inst = goods_scene.Instantiate<Goods>();
-			goods_inst.Position = pos;
-			goods_inst.water = water;
-			Random r = new Random();
-			var angle = (float)(2 * Mathf.Pi * r.NextDouble() - Mathf.Pi);
+		var nr = new NumberGenerator();
+		for (int i = 0; i < _goods_stack.GetChildCount(); i++) {
+			var goods = _goods_stack.GetChild<Goods>(_goods_stack.GetChildCount() - 1);
+			goods.Reparent(goods_node);
+			var pos = goods.GlobalPosition;
+			pos.Y += 2;
+			goods.GlobalPosition = pos;
+			var angle = nr.GenerateFloat(-Mathf.Pi, Mathf.Pi);
 			var vector = Basis.Z.Rotated(Vector3.Up, angle);
-			goods_inst.ApplyCentralImpulse(5 * vector);
-			goods_node.CallDeferred("add_child", goods_inst);
-		}
+			goods.Enable();
+			goods.ApplyCentralImpulse(5 * vector);
 
+		}
+		EmitSignal(SignalName.ObjectivePickup, 0);
 		GetNode<Timer>("CrashCooldown").Start();
 	}
 	public void EmptyCargo()
@@ -351,11 +345,6 @@ public partial class Boat : RigidBody3D
 		{
 			GetNode<Timer>("VortexDamageTimer").Stop();
 		}
-		
-		/*if(area.IsInGroup("Streams"))
-		{
-			isStreamCollided = false;
-		}*/
 	}
 
 	private Vector3 GetPlayerInput(int device_id) 
@@ -366,46 +355,48 @@ public partial class Boat : RigidBody3D
 		return input;
 	}
 
-	public void SetMonitoringGoods(bool val) {
+	public void SetMonitoringGoods(bool val) 
+	{
 		GetNode<Area3D>("Area3DTriggerGoods").SetDeferred("monitoring", val);
 	}
 
-	public void SetMonitorableGoods(bool val) {
+	public void SetMonitorableGoods(bool val) 
+	{
 		GetNode<Area3D>("Area3DTriggerGoods").SetDeferred("monitorable", val);
 	}
 
-	private void SeaMineImpact(Vector3 pos) {
+	private void SeaMineImpact(Vector3 pos) 
+	{
 		Vector3 BoomVector = -pos + GlobalPosition;
 		ApplyCentralImpulse(BoomVector.Normalized() * bombAcceleration);
 	}
 
-	public void OnArea3DTriggerGoodsEntered(Area3D area) {
+	public void OnArea3DTriggerGoodsEntered(Area3D area) 
+	{
 		if (area.IsInGroup("Goods"))
 		{
 			GD.Print("boat is colliding with goods!");
 			var count = _goods_stack.GetChildCount();
-			//GD.Print("Children count: ", count);
 			if (count < StackSize) {
-				var goods_child = goods_scene.Instantiate<Goods>();
-				goods_child.isActive = false;
-				goods_child.Position = new Vector3(0, count, 0);
-				_goods_stack.AddChild(goods_child);
-				//GD.Print("Added to stack");
-				area.GetParent().CallDeferred("free");
+				var goods = area.GetParent<Goods>();
+				goods.Disable();
+				goods.Reparent(_goods_stack, false);
+				goods.Position = new Vector3(0, count, 0);
 				seaGull.isSeagull = true;
 				seaGull.isGoods = false;
 			}
 
 			count = _goods_stack.GetChildCount();
-			if (count == StackSize) {
+			if (count == StackSize) 
+			{
 				var boat_area = GetNode<Area3D>("Area3DTriggerGoods");
 				boat_area.SetDeferred("monitorable", false);
-				//GD.Print("Boar area monitorable: ", boat_area.Monitorable);
 			}
-			EmitSignal(SignalName.ObjectivePickup);
+			EmitSignal(SignalName.ObjectivePickup, count);
 		}
 
-		if (area.IsInGroup("Unloading")) {
+		if (area.IsInGroup("Unloading")) 
+		{
 			var loc = area.GetParent<StartingLocation>();
 			loc.StartUnloading(_goods_stack);
 		}
@@ -439,13 +430,6 @@ public partial class Boat : RigidBody3D
 			LooseStackedGoods();
 			GetNode<Timer>("VortexDamageTimer").Start();
 		}
-
-		/*if(area.IsInGroup("Streams"))
-		{
-			 streamGlobalPosition = area.GlobalPosition;
-			isStreamCollided = true;
-			GD.Print("you are streaming!");
-		}*/
 	}
 
 	public void OnHealthComponentNoHealthEvent() 
@@ -459,20 +443,17 @@ public partial class Boat : RigidBody3D
 		GD.Print(node.Name);
 		if (node.IsInGroup("Rock")) 
 		{
-			//GD.Print("Crashed a rock!!!");
 			var speed = LinearVelocity.Length();
 			if (speed < 5) 
 			{
 				return;
 			}
-			//GD.Print("Lost ", 3 * (int)speed, " health");
 			ApplyCentralImpulse(-10 * LinearVelocity);
 			healthComp.SubtractHealth(3 * (int)speed);
 			crashSounds.Play();
 			crashSounds.VolumeDb = speed;
 
 			LooseStackedGoods();
-
 		}
 	}
 
@@ -480,6 +461,9 @@ public partial class Boat : RigidBody3D
 	{
 		GD.Print("'Speed Boost' modifier has ended");
 		UsingSpeedBoost = false;
+		var fanOn = GetNode<Node3D>("FanOn");
+		GetNode<AnimationPlayer>("FanOn/AnimationPlayer").Stop();
+		fanOn.Visible = false;
 	}
 
 	public void OnVortexDamageTimerTimeout() 
@@ -496,42 +480,42 @@ public partial class Boat : RigidBody3D
 	{
 		if(@event.IsActionPressed("ui_cancel")) //Press B
 		{
-			if (RepairKit && amountOfRepaitKits > 0)
+			if (RepairKit && HammersNPlanks.amountOfRepairKits > 0)
 			{
-				amountOfRepaitKits--;
-				GameCamera.RepaitKitModifierLabel.Text = "";
-				GameCamera.RepaitKitModifierLabel.Text += amountOfRepaitKits;
+				HammersNPlanks.amountOfRepairKits--;
+				GameCamera.RepairKitModifierLabel.Text = "";
+				GameCamera.RepairKitModifierLabel.Text += HammersNPlanks.amountOfRepairKits;
 				healthComp.AddHealth(25);
-				if(amountOfRepaitKits <= 0)
+				GetNode<AudioStreamPlayer>("Repearing").Play();
+				if(HammersNPlanks.amountOfRepairKits <= 0)
 				{
 					RepairKit = false;
 				}
-				Modifiers.amountOfRepairKits = amountOfRepaitKits;
-			}
-		}
-		if(@event.IsActionPressed("ui_accept")) //Press A
-		{
-			if(SpeedBoost && amountOfSpeedBoosts > 0)
-			{
-				
-				amountOfSpeedBoosts--;
-				GameCamera.SpeedBoostModifierLabel.Text = "";
-				GameCamera.SpeedBoostModifierLabel.Text += amountOfSpeedBoosts;
-				GetNode<Timer>("SpeedBoostTimer").Start();
-				UsingSpeedBoost = true;
-				if(amountOfSpeedBoosts <= 0)
-				{
-					SpeedBoost = false;
-				}
-				Modifiers.amountOfSpeedBoosts = amountOfSpeedBoosts;
+				//Modifiers.amountOfRepairKits = amountOfRepairKits;
 			}
 		}
 		
+		if(@event.IsActionPressed("ui_accept")) //Press A
+		{
+			if(SpeedBoost && SuperFan.amountOfSpeedBoosts > 0)
+			{
+				SuperFan.amountOfSpeedBoosts--;
+				GameCamera.SpeedBoostModifierLabel.Text = "";
+				GameCamera.SpeedBoostModifierLabel.Text += SuperFan.amountOfSpeedBoosts;
+				GetNode<Timer>("SpeedBoostTimer").Start();
+				UsingSpeedBoost = true;
+				if(SuperFan.amountOfSpeedBoosts <= 0)
+				{
+					SpeedBoost = false;
+				}
+				//Modifiers.amountOfSpeedBoosts = amountOfSpeedBoosts;
+			}
+		}
 	}
-
+	
 	public void AttackedByShark(Vector3 attack_dir)
 	{
-		healthComp.SubtractHealth(35);
+		healthComp.SubtractHealth(17);
 		LooseStackedGoods();
 		ApplyCentralImpulse(50 * attack_dir);
 	}

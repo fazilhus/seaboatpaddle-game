@@ -3,9 +3,9 @@ using System;
 
 public partial class startingScene : Node3D
 {
-    public override void _UnhandledInput(InputEvent @event)
-    {
-        if (@event.IsActionPressed("change_window_mode")) {
+	public override void _UnhandledInput(InputEvent @event)
+	{
+		if (@event.IsActionPressed("change_window_mode")) {
 			var win = GetWindow();
 			switch (win.Mode) {
 				case Window.ModeEnum.Windowed: {
@@ -17,6 +17,6 @@ public partial class startingScene : Node3D
 					break;
 				}
 			}
-        }
-    }
+		}
+	}
 }

@@ -47,9 +47,9 @@ public partial class WorldScene : Node3D
 		GameCamera.ResetSway();
 		Modifiers.ResetModifiers();
 	}
-	public void OnObjectivePickup()
+	public void OnObjectivePickup(int stack_size)
 	{
-		objectiveScore++;
+		objectiveScore = stack_size;
         cargoTracker.Text = cargoString + objectiveScore + "/" + maxObjectiveStackAmount;
     }
 	public void OnWholeDelivery()
@@ -57,18 +57,16 @@ public partial class WorldScene : Node3D
 		deliveredCargo += objectiveScore;
 		GetNode<Boat>("Boat").EmptyCargo();
 		objectiveScore = 0;
-        cargoTracker.Text = cargoString + objectiveScore + "/" + maxObjectiveStackAmount;
-        objectiveTracker.Text = objectiveString + deliveredCargo + "/" + maxObjectiveAmount;
-    }
+		cargoTracker.Text = cargoString + objectiveScore + "/" + maxObjectiveStackAmount;
+		objectiveTracker.Text = objectiveString + deliveredCargo + "/" + maxObjectiveAmount;
+	}
 	public void OnDelivery() {
 		objectiveScore--;
 		deliveredCargo++;
 		cargoTracker.Text = cargoString + objectiveScore + "/" + maxObjectiveStackAmount;
-        objectiveTracker.Text = objectiveString + deliveredCargo + "/" + maxObjectiveAmount;
+		objectiveTracker.Text = objectiveString + deliveredCargo + "/" + maxObjectiveAmount;
 	}
 	public void OnCountdownTimerTimeout() {
-
-		
 		GameOverFunction(false);
 	}
 	public void GameOverFunction(bool win)

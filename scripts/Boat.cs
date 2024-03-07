@@ -102,6 +102,8 @@ public partial class Boat : RigidBody3D
 
 	public override void _Ready()
 	{
+		var fanOn = GetNode<Node3D>("FanOn");
+		fanOn.Visible = false;
 		crashSounds = GetNode<AudioStreamPlayer3D>("BoatCrash");
 		//instantiate variables for boat physics
 		var parent = GetParent();
@@ -137,6 +139,11 @@ public partial class Boat : RigidBody3D
  
 	public override void _Process(double delta)
 	{
+		if(amountOfSpeedBoosts > 0)
+		{
+			var fanOn = GetNode<Node3D>("FanOn");
+			fanOn.Visible = true;
+		}
 		if (Input.IsKeyPressed(Key.F2)) 
 		{
 			GetNode<HealthComponent>("HealthComponent").SubtractHealth(100);
@@ -472,6 +479,8 @@ public partial class Boat : RigidBody3D
 	{
 		GD.Print("'Speed Boost' modifier has ended");
 		UsingSpeedBoost = false;
+		var fanOn = GetNode<Node3D>("FanOn");
+		fanOn.Visible = false;
 	}
 
 	public void OnVortexDamageTimerTimeout() 
@@ -505,7 +514,6 @@ public partial class Boat : RigidBody3D
 		{
 			if(SpeedBoost && amountOfSpeedBoosts > 0)
 			{
-				
 				amountOfSpeedBoosts--;
 				GameCamera.SpeedBoostModifierLabel.Text = "";
 				GameCamera.SpeedBoostModifierLabel.Text += amountOfSpeedBoosts;

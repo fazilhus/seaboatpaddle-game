@@ -71,6 +71,7 @@ Crew:(shouting) AYE AYE!!!";
 		if (Input.IsKeyPressed(Key.F5)) {
 			HideTextBox();
 		}
+		//Adding the posibility to press start to skip intro-text
 		if (Input.IsActionPressed("ui_continue")) {
 			HideTextBox();
 		}

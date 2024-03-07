@@ -522,6 +522,8 @@ water = NodePath("../../WaterPlane")
 stream = ExtResource("13_e0ts7")
 script = ExtResource("15_d1m7c")
 
+[node name="SeaGullPauser" type="Timer" parent="SeaGullSound"]
+
 [node name="adventure" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("22_f6vfe")
 volume_db = -10.0
@@ -581,7 +583,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5966, 0.00274813, -90.8266
 boat = NodePath("../../Boat")
 
 [node name="SuperFan6" parent="SpeedBoost" node_paths=PackedStringArray("boat") instance=ExtResource("25_0m82c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.7273, 0.00274813, 79.9053)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.4804, 0.00274813, 24.7963)
 boat = NodePath("../../Boat")
 
 [node name="ExtraTime" type="Node3D" parent="."]
@@ -592,7 +594,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.4596, 3.04135, 43.1186)
 collision_mask = 3
 
 [node name="Clock2" parent="ExtraTime" instance=ExtResource("26_5i412")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.1898, 3.04135, 57.8744)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.5612, 3.04135, 57.8744)
 collision_mask = 3
 
 [node name="Clock3" parent="ExtraTime" instance=ExtResource("26_5i412")]
@@ -618,3 +620,5 @@ collision_mask = 3
 [connection signal="NoBoatHealth" from="Boat" to="." method="OnNoBoatHealth"]
 [connection signal="ObjectivePickup" from="Boat" to="." method="OnObjectivePickup"]
 [connection signal="finished" from="SeaGullSound" to="SeaGullSound" method="OnSeaGullSoundFinished"]
+[connection signal="timeout" from="SeaGullSound/SeaGullPauser" to="SeaGullSound" method="OnTimerTimeout"]
+[connection signal="finished" from="adventure" to="TextBox" method="OnAdventureFinished"]

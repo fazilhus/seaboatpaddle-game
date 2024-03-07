@@ -67,8 +67,6 @@ public partial class WorldScene : Node3D
 		objectiveTracker.Text = objectiveString + deliveredCargo + "/" + maxObjectiveAmount;
 	}
 	public void OnCountdownTimerTimeout() {
-
-		
 		GameOverFunction(false);
 	}
 	public void GameOverFunction(bool win)

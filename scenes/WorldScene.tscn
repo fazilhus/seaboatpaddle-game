@@ -536,7 +536,7 @@ volume_db = -10.0
 [node name="RepairKit" type="Node3D" parent="."]
 
 [node name="HammersNPlanks" parent="RepairKit" node_paths=PackedStringArray("boat", "water") instance=ExtResource("24_yxdo2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.1916, 0, 24.0915)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.6926, 0, 14.6598)
 boat = NodePath("../../Boat")
 water = NodePath("../../WaterPlane")
 
@@ -561,7 +561,7 @@ boat = NodePath("../../Boat")
 water = NodePath("../../WaterPlane")
 
 [node name="HammersNPlanks6" parent="RepairKit" node_paths=PackedStringArray("boat", "water") instance=ExtResource("24_yxdo2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.1005, 0, 25.0954)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85.1062, 0, -20.2829)
 boat = NodePath("../../Boat")
 water = NodePath("../../WaterPlane")
 

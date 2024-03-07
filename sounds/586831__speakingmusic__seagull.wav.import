@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dy02vsblcoiov"
-path="res://.godot/imported/586831__speakingmusic__seagull.wav-b94e37a1705797e4c6326d626519d299.sample"
+path="res://.godot/imported/586831__speakingmusic__seagull.wav-9faffd884b105ab015dfd2dc4ffdf37b.sample"
 
 [deps]
 
-source_file="res://Sounds/586831__speakingmusic__seagull.wav"
-dest_files=["res://.godot/imported/586831__speakingmusic__seagull.wav-b94e37a1705797e4c6326d626519d299.sample"]
+source_file="res://sounds/586831__speakingmusic__seagull.wav"
+dest_files=["res://.godot/imported/586831__speakingmusic__seagull.wav-9faffd884b105ab015dfd2dc4ffdf37b.sample"]
 
 [params]
 

@@ -93,6 +93,7 @@ position_offset = Vector3(0, 17, -12)
 [node name="CanvasLayer" type="CanvasLayer" parent="GameCamera"]
 
 [node name="DamageFlash" type="TextureRect" parent="GameCamera/CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

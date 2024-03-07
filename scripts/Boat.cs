@@ -5,8 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Reflection.Metadata;
 
-enum PaddleSide 
-{
+enum PaddleSide {
 	Left = 0,
 	Right = 1,
 }
@@ -106,8 +105,6 @@ public partial class Boat : RigidBody3D
 
 	public override void _Ready()
 	{
-		var fanOn = GetNode<Node3D>("FanOn");
-		fanOn.Visible = false;
 		crashSounds = GetNode<AudioStreamPlayer3D>("BoatCrash");
 		//instantiate variables for boat physics
 		var parent = GetParent();
@@ -123,8 +120,7 @@ public partial class Boat : RigidBody3D
 		_player_inputs = new List<Vector3>();
 		_paddles_rotation_old = new List<Vector3>();
 		_is_paddle_moving = new List<bool>();
-		foreach (var _ in paddles) 
-		{
+		foreach (var _ in paddles) {
 			_player_inputs.Add(Vector3.Zero);
 			_paddles_rotation_old.Add(Vector3.Zero);
 			_is_paddle_moving.Add(false);
@@ -144,17 +140,11 @@ public partial class Boat : RigidBody3D
  
 	public override void _Process(double delta)
 	{
-		if(amountOfSpeedBoosts > 0)
-		{
-			var fanOn = GetNode<Node3D>("FanOn");
-			fanOn.Visible = true;
-		}
 		if (Input.IsKeyPressed(Key.F2)) 
 		{
 			GetNode<HealthComponent>("HealthComponent").SubtractHealth(100,"Debug");
 		}
-		if (Input.IsKeyPressed(Key.F3)) 
-		{
+		if (Input.IsKeyPressed(Key.F3)) {
 			var rot = Rotation;
 			rot.X = 0;
 			rot.Z = 0;
@@ -166,10 +156,8 @@ public partial class Boat : RigidBody3D
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector3 forward = Basis.Z;
-		foreach (var it in paddles.Select((paddle, i) => new {Paddle = paddle, Index = i})) 
-		{
-			if (!isReadyPaddle) 
-			{
+		foreach (var it in paddles.Select((paddle, i) => new {Paddle = paddle, Index = i})) {
+			if (!isReadyPaddle) {
 				continue;
 			}
 			if (it.Index >= _player_inputs.Count) 
@@ -187,15 +175,12 @@ public partial class Boat : RigidBody3D
 			_is_paddle_moving[it.Index] = force.Length() > 0.01f;
 
 			Node3D force_point = it.Paddle.GetNode<Node3D>("ForcePoint");
-			if (isSubmerged && force_point.GlobalPosition.Y < GlobalPosition.Y) 
-			{
-				if (!_is_paddle_moving[(it.Index + 1) % 2]) 
-				{
+			if (isSubmerged && force_point.GlobalPosition.Y < GlobalPosition.Y) {
+				if (!_is_paddle_moving[(it.Index + 1) % 2]) {
 					ApplyForce(-sideways_force_ratio * 1.25f * force, it.Paddle.Position);
 					ApplyCentralForce(0.25f * -forward_force_ratio * Curve(force) * force.Sign().Z * forward);
 				}
-				else 
-				{
+				else {
 					ApplyForce(-sideways_force_ratio * force, it.Paddle.Position);
 					ApplyCentralForce(-forward_force_ratio * Curve(force) * force.Sign().Z * forward);
 				}
@@ -217,8 +202,7 @@ public partial class Boat : RigidBody3D
 					//GD.Print(speedRotation, "RotationalVelcR");
 				}
 			}
-			else 
-			{
+			else {
 				watersplashLeft.AmountRatio = 0;
 				watersplashRight.AmountRatio = 0;
 			}
@@ -314,23 +298,20 @@ public partial class Boat : RigidBody3D
 		return Mathf.Pow(v.Length() / 10, 2);
 	}
 
-	private void LooseStackedGoods() 
-	{
+	private void LooseStackedGoods() {
 		SetMonitoringGoods(false);
 		SetMonitorableGoods(false);
 
 		var count = _goods_stack.GetChildCount();
 		var children_pos = new Vector3[count];
-		for (int i = 0; i < count; i++) 
-		{
+		for (int i = 0; i < count; i++) {
 			var child = _goods_stack.GetChild<Node3D>(i);
 			children_pos[i] = child.GlobalPosition;
 			children_pos[i].Y += 2;
 			child.CallDeferred("free");
 		}
 
-		foreach (var pos in children_pos) 
-		{
+		foreach (var pos in children_pos) {
 			var goods_inst = goods_scene.Instantiate<Goods>();
 			goods_inst.Position = pos;
 			goods_inst.water = water;
@@ -382,31 +363,26 @@ public partial class Boat : RigidBody3D
 		return input;
 	}
 
-	public void SetMonitoringGoods(bool val) 
-	{
+	public void SetMonitoringGoods(bool val) {
 		GetNode<Area3D>("Area3DTriggerGoods").SetDeferred("monitoring", val);
 	}
 
-	public void SetMonitorableGoods(bool val) 
-	{
+	public void SetMonitorableGoods(bool val) {
 		GetNode<Area3D>("Area3DTriggerGoods").SetDeferred("monitorable", val);
 	}
 
-	private void SeaMineImpact(Vector3 pos) 
-	{
+	private void SeaMineImpact(Vector3 pos) {
 		Vector3 BoomVector = -pos + GlobalPosition;
 		ApplyCentralImpulse(BoomVector.Normalized() * bombAcceleration);
 	}
 
-	public void OnArea3DTriggerGoodsEntered(Area3D area) 
-	{
+	public void OnArea3DTriggerGoodsEntered(Area3D area) {
 		if (area.IsInGroup("Goods"))
 		{
 			GD.Print("boat is colliding with goods!");
 			var count = _goods_stack.GetChildCount();
 			//GD.Print("Children count: ", count);
-			if (count < StackSize) 
-			{
+			if (count < StackSize) {
 				var goods_child = goods_scene.Instantiate<Goods>();
 				goods_child.isActive = false;
 				goods_child.Position = new Vector3(0, count, 0);
@@ -416,8 +392,7 @@ public partial class Boat : RigidBody3D
 			}
 
 			count = _goods_stack.GetChildCount();
-			if (count == StackSize) 
-			{
+			if (count == StackSize) {
 				var boat_area = GetNode<Area3D>("Area3DTriggerGoods");
 				boat_area.SetDeferred("monitorable", false);
 				//GD.Print("Boar area monitorable: ", boat_area.Monitorable);
@@ -425,8 +400,7 @@ public partial class Boat : RigidBody3D
 			EmitSignal(SignalName.ObjectivePickup);
 		}
 
-		if (area.IsInGroup("Unloading")) 
-		{
+		if (area.IsInGroup("Unloading")) {
 			var loc = area.GetParent<StartingLocation>();
 			loc.StartUnloading(_goods_stack);
 		}
@@ -498,6 +472,7 @@ public partial class Boat : RigidBody3D
 			crashSounds.VolumeDb = speed;
 
 			LooseStackedGoods();
+
 		}
 	}
 
@@ -505,8 +480,6 @@ public partial class Boat : RigidBody3D
 	{
 		GD.Print("'Speed Boost' modifier has ended");
 		UsingSpeedBoost = false;
-		var fanOn = GetNode<Node3D>("FanOn");
-		fanOn.Visible = false;
 	}
 
 	public void OnVortexDamageTimerTimeout() 
@@ -536,11 +509,11 @@ public partial class Boat : RigidBody3D
 				Modifiers.amountOfRepairKits = amountOfRepaitKits;
 			}
 		}
-		
 		if(@event.IsActionPressed("ui_accept")) //Press A
 		{
 			if(SpeedBoost && amountOfSpeedBoosts > 0)
 			{
+				
 				amountOfSpeedBoosts--;
 				GameCamera.SpeedBoostModifierLabel.Text = "";
 				GameCamera.SpeedBoostModifierLabel.Text += amountOfSpeedBoosts;
@@ -553,6 +526,7 @@ public partial class Boat : RigidBody3D
 				Modifiers.amountOfSpeedBoosts = amountOfSpeedBoosts;
 			}
 		}
+		
 	}
 
 	public void AttackedByShark(Vector3 attack_dir)

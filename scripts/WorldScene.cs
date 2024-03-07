@@ -47,11 +47,11 @@ public partial class WorldScene : Node3D
 		GameCamera.ResetSway();
 		Modifiers.ResetModifiers();
 	}
-	public void OnObjectivePickup()
+	public void OnObjectivePickup(int stack_size)
 	{
-		objectiveScore++;
-		cargoTracker.Text = cargoString + objectiveScore + "/" + maxObjectiveStackAmount;
-	}
+		objectiveScore = stack_size;
+        cargoTracker.Text = cargoString + objectiveScore + "/" + maxObjectiveStackAmount;
+    }
 	public void OnWholeDelivery()
 	{
 		deliveredCargo += objectiveScore;

@@ -9,9 +9,9 @@
 [ext_resource type="Material" uid="uid://dm8p44anq2ejj" path="res://Shades/AntiWaterMask.tres" id="4_2xej0"]
 [ext_resource type="PackedScene" uid="uid://ducw5sm3i87kh" path="res://scenes/Goods.tscn" id="4_e8fkn"]
 [ext_resource type="PackedScene" uid="uid://bfcmmp24hd7u5" path="res://scenes/HealthComponent.tscn" id="5_oltkq"]
-[ext_resource type="AudioStream" uid="uid://bqt1c56p1o3t3" path="res://Sounds/Breaksounds/bfh1_wood_hit_02.ogg" id="10_b0pnb"]
-[ext_resource type="AudioStream" uid="uid://d2r8eneuqn2g7" path="res://Sounds/106481__robinhood76__02052-wooden-hammering.wav" id="11_slq5g"]
-[ext_resource type="AudioStream" uid="uid://7hkj3amg11xp" path="res://Sounds/Repair kit found 1.wav" id="16_gnr4a"]
+[ext_resource type="AudioStream" uid="uid://bqt1c56p1o3t3" path="res://sounds/Breaksounds/bfh1_wood_hit_02.ogg" id="10_b0pnb"]
+[ext_resource type="AudioStream" uid="uid://d2r8eneuqn2g7" path="res://sounds/106481__robinhood76__02052-wooden-hammering.wav" id="11_slq5g"]
+[ext_resource type="AudioStream" uid="uid://7hkj3amg11xp" path="res://sounds/Repair kit found 1.wav" id="16_gnr4a"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7j168"]
 friction = 0.0
@@ -70,7 +70,6 @@ _data = {
 
 [node name="Boat" type="RigidBody3D" node_paths=PackedStringArray("paddles")]
 process_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_mask = 3
 mass = 2.0
 physics_material_override = SubResource("PhysicsMaterial_7j168")

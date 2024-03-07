@@ -23,6 +23,7 @@ public partial class HammersNPlanks : RigidBody3D
 	public override void _Ready()
 	{
 		gravity = (float)ProjectSettings.GetSetting("physics/3d/default_gravity");
+		//water = GetTree().GetNode<WaterPlane>("Main/LevelController/Level/WaterPlane");
 		probeContainer = GetNode<Node3D>("ProbeContainer").GetChildren();
 		initialY = GlobalPosition.Y;
 	}
@@ -64,8 +65,8 @@ public partial class HammersNPlanks : RigidBody3D
 			amountOfRepairKits += 1;
 			boat.ActivateRepairKit(amountOfRepairKits);
 			GameCamera.LabelModifiers.Text ="Repair kit found, press B to use";
-			GameCamera.RepaitKitModifierLabel.Text = "";
-			GameCamera.RepaitKitModifierLabel.Text += amountOfRepairKits;
+			GameCamera.RepairKitModifierLabel.Text = "";
+			GameCamera.RepairKitModifierLabel.Text += amountOfRepairKits;
 		}
 	}
 }

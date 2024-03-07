@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://tukm4edn02s2"]
 
-[ext_resource type="Script" path="res://scenes/Clock.cs" id="1_87ivc"]
+[ext_resource type="Script" path="res://scripts/Clock.cs" id="1_4j66t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wwahc"]
 metallic = 0.21
@@ -85,7 +85,8 @@ _data = {
 }
 
 [node name="Clock" type="RigidBody3D"]
-script = ExtResource("1_87ivc")
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0)
+script = ExtResource("1_4j66t")
 
 [node name="Clock" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, 1.74846e-07, 1, -4.37114e-08, 0, 7.64274e-15, 1.74846e-07, 1, 0, 0.576, 0)

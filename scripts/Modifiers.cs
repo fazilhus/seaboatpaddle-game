@@ -55,8 +55,8 @@ public partial class Modifiers : RigidBody3D
 	}
 
 	public static void ResetModifiers() {
-		amountOfRepairKits = 0;
-		amountOfSpeedBoosts = 0;
+		HammersNPlanks.amountOfRepairKits = 0;
+		SuperFan.amountOfSpeedBoosts = 0;
 	}
 	
 	public void OnArea3dTriggerAreaEntered(Area3D area)

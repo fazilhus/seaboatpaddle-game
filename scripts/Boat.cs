@@ -72,7 +72,7 @@ public partial class Boat : RigidBody3D
 	public void ActivateRepairKit(int repairKitAmount)
 	{
 		RepairKit = true;
-		amountOfRepaitKits = repairKitAmount;
+		amountOfRepairKits = repairKitAmount;
 		GetNode<AudioStreamPlayer>("RepairKitFound").Play();
 	}
 	
@@ -189,7 +189,7 @@ public partial class Boat : RigidBody3D
 			{
 				if (!_is_paddle_moving[(it.Index + 1) % 2]) 
 				{
-					ApplyForce(-sideways_force_ratio * 1.25f * force, it.Paddle.Position);
+					ApplyForce(-sideways_force_ratio * 1.35f * force, it.Paddle.Position);
 					ApplyCentralForce(0.25f * -forward_force_ratio * Curve(force) * force.Sign().Z * forward);
 				}
 				else 
@@ -299,7 +299,7 @@ public partial class Boat : RigidBody3D
 
 		var nr = new NumberGenerator();
 		for (int i = 0; i < _goods_stack.GetChildCount(); i++) {
-			var goods = _goods_stack.GetChild<Goods>(0);
+			var goods = _goods_stack.GetChild<Goods>(_goods_stack.GetChildCount() - 1);
 			goods.Reparent(goods_node);
 			var pos = goods.GlobalPosition;
 			pos.Y += 2;
@@ -310,7 +310,7 @@ public partial class Boat : RigidBody3D
 			goods.ApplyCentralImpulse(5 * vector);
 
 		}
-
+		EmitSignal(SignalName.ObjectivePickup, 0);
 		GetNode<Timer>("CrashCooldown").Start();
 	}
 	public void EmptyCargo()
@@ -469,35 +469,35 @@ public partial class Boat : RigidBody3D
 	{
 		if(@event.IsActionPressed("ui_cancel")) //Press B
 		{
-			if (RepairKit && amountOfRepairKits > 0)
+			if (RepairKit && HammersNPlanks.amountOfRepairKits > 0)
 			{
-				amountOfRepairKits--;
+				HammersNPlanks.amountOfRepairKits--;
 				GameCamera.RepairKitModifierLabel.Text = "";
-				GameCamera.RepairKitModifierLabel.Text += amountOfRepairKits;
+				GameCamera.RepairKitModifierLabel.Text += HammersNPlanks.amountOfRepairKits;
 				healthComp.AddHealth(25);
 				GetNode<AudioStreamPlayer>("Repearing").Play();
-				if(amountOfRepaitKits <= 0)
+				if(HammersNPlanks.amountOfRepairKits <= 0)
 				{
 					RepairKit = false;
 				}
-				Modifiers.amountOfRepairKits = amountOfRepairKits;
+				//Modifiers.amountOfRepairKits = amountOfRepairKits;
 			}
 		}
 		
 		if(@event.IsActionPressed("ui_accept")) //Press A
 		{
-			if(SpeedBoost && amountOfSpeedBoosts > 0)
+			if(SpeedBoost && SuperFan.amountOfSpeedBoosts > 0)
 			{
-				amountOfSpeedBoosts--;
+				SuperFan.amountOfSpeedBoosts--;
 				GameCamera.SpeedBoostModifierLabel.Text = "";
-				GameCamera.SpeedBoostModifierLabel.Text += amountOfSpeedBoosts;
+				GameCamera.SpeedBoostModifierLabel.Text += SuperFan.amountOfSpeedBoosts;
 				GetNode<Timer>("SpeedBoostTimer").Start();
 				UsingSpeedBoost = true;
-				if(amountOfSpeedBoosts <= 0)
+				if(SuperFan.amountOfSpeedBoosts <= 0)
 				{
 					SpeedBoost = false;
 				}
-				Modifiers.amountOfSpeedBoosts = amountOfSpeedBoosts;
+				//Modifiers.amountOfSpeedBoosts = amountOfSpeedBoosts;
 			}
 		}
 	}

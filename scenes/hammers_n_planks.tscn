@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bjujslla0wbta"]
 
-[ext_resource type="Script" path="res://scenes/HammersNPlanks.cs" id="1_bfo6m"]
+[ext_resource type="Script" path="res://scripts/HammersNPlanks.cs" id="1_1yabx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ld3ku"]
 albedo_color = Color(1, 0.639216, 0.360784, 1)
@@ -34,7 +34,8 @@ size = Vector3(3, 0.45, 1.7)
 radius = 2.1449
 
 [node name="HammersNPlanks" type="RigidBody3D"]
-script = ExtResource("1_bfo6m")
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0)
+script = ExtResource("1_1yabx")
 
 [node name="Plank" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_ld3ku")

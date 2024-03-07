@@ -45,6 +45,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0, 0.4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0, -0.4)
 
 [node name="Area3DTrigger" type="Area3D" parent="." groups=["Goods"]]
+collision_layer = 3
 priority = 1
 
 [node name="TriggerCollider" type="CollisionShape3D" parent="Area3DTrigger"]

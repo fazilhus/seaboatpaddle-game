@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bqgpgxpoqkw6w"]
+[gd_scene load_steps=36 format=3 uid="uid://bqgpgxpoqkw6w"]
 
 [ext_resource type="Script" path="res://scripts/WorldScene.cs" id="1_qx545"]
 [ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]

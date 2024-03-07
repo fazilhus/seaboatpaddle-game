@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://dn08k3bl2n74"
-path="res://.godot/imported/bfh1_metal_falling_02.ogg-54f653532623906a761d0d149204d983.oggvorbisstr"
+path="res://.godot/imported/bfh1_metal_falling_02.ogg-5299ff20cbb84aaa4e543de4ae5ac11d.oggvorbisstr"
 
 [deps]
 
-source_file="res://Sounds/Breaksounds/bfh1_metal_falling_02.ogg"
-dest_files=["res://.godot/imported/bfh1_metal_falling_02.ogg-54f653532623906a761d0d149204d983.oggvorbisstr"]
+source_file="res://sounds/Breaksounds/bfh1_metal_falling_02.ogg"
+dest_files=["res://.godot/imported/bfh1_metal_falling_02.ogg-5299ff20cbb84aaa4e543de4ae5ac11d.oggvorbisstr"]
 
 [params]
 

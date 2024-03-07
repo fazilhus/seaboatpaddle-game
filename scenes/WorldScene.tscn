@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bqgpgxpoqkw6w"]
+[gd_scene load_steps=36 format=3 uid="uid://bqgpgxpoqkw6w"]
 
 [ext_resource type="Script" path="res://scripts/WorldScene.cs" id="1_qx545"]
 [ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://ci1vt5wu0d6he" path="res://art/Engineer_24.png" id="7_u1vbh"]
 [ext_resource type="PackedScene" uid="uid://bdohepiggfmms" path="res://scenes/map.tscn" id="8_lgk5l"]
 [ext_resource type="Texture2D" uid="uid://bhalj48rdov26" path="res://art/genericItem_color_010.png" id="9_g1m41"]
+[ext_resource type="AudioStream" uid="uid://c0l51018flq2l" path="res://Sounds/Clocksound.mp3" id="10_prmta"]
 [ext_resource type="PackedScene" uid="uid://5scllsnkmpth" path="res://scenes/streams.tscn" id="11_8xjfh"]
 [ext_resource type="PackedScene" uid="uid://b55sx0mje1j5w" path="res://scenes/shark.tscn" id="12_2bx8v"]
 [ext_resource type="PackedScene" uid="uid://db44dloe5xeo2" path="res://scenes/text_box.tscn" id="13_cald3"]
@@ -273,6 +274,10 @@ process_mode = 1
 wait_time = 600.0
 one_shot = true
 
+[node name="ClockSound" type="AudioStreamPlayer" parent="GameCamera"]
+stream = ExtResource("10_prmta")
+volume_db = 4.685
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_f08u5")
 
@@ -531,7 +536,7 @@ volume_db = -10.0
 [node name="RepairKit" type="Node3D" parent="."]
 
 [node name="HammersNPlanks" parent="RepairKit" node_paths=PackedStringArray("boat", "water") instance=ExtResource("24_yxdo2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.3771, 0, 12.4689)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.1916, 0, 24.0915)
 boat = NodePath("../../Boat")
 water = NodePath("../../WaterPlane")
 
@@ -556,7 +561,7 @@ boat = NodePath("../../Boat")
 water = NodePath("../../WaterPlane")
 
 [node name="HammersNPlanks6" parent="RepairKit" node_paths=PackedStringArray("boat", "water") instance=ExtResource("24_yxdo2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85.091, 0, -21.5632)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.1005, 0, 25.0954)
 boat = NodePath("../../Boat")
 water = NodePath("../../WaterPlane")
 
@@ -583,7 +588,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5966, 0.00274813, -90.8266
 boat = NodePath("../../Boat")
 
 [node name="SuperFan6" parent="SpeedBoost" node_paths=PackedStringArray("boat") instance=ExtResource("25_0m82c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.4804, 0.00274813, 24.7963)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.0296, 0.00274813, 79.6122)
 boat = NodePath("../../Boat")
 
 [node name="ExtraTime" type="Node3D" parent="."]
@@ -594,7 +599,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.4596, 3.04135, 43.1186)
 collision_mask = 3
 
 [node name="Clock2" parent="ExtraTime" instance=ExtResource("26_5i412")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.5612, 3.04135, 57.8744)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.2015, 3.04135, 57.3343)
 collision_mask = 3
 
 [node name="Clock3" parent="ExtraTime" instance=ExtResource("26_5i412")]

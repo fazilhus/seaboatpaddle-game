@@ -73,6 +73,7 @@ public partial class Boat : RigidBody3D
 	{
 		RepairKit = true;
 		amountOfRepaitKits = repairKitAmount;
+		GetNode<AudioStreamPlayer>("RepairKitFound").Play();
 	}
 	
 	public void ActivateSpeedBoost(int speedBoostAmount)
@@ -521,6 +522,7 @@ public partial class Boat : RigidBody3D
 				GameCamera.RepaitKitModifierLabel.Text = "";
 				GameCamera.RepaitKitModifierLabel.Text += amountOfRepaitKits;
 				healthComp.AddHealth(25);
+				GetNode<AudioStreamPlayer>("Repearing").Play();
 				if(amountOfRepaitKits <= 0)
 				{
 					RepairKit = false;
@@ -546,7 +548,7 @@ public partial class Boat : RigidBody3D
 			}
 		}
 	}
-
+	
 	public void AttackedByShark(Vector3 attack_dir)
 	{
 		healthComp.SubtractHealth(35);

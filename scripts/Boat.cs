@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection.Metadata;
 
 enum PaddleSide {
 	Left = 0,
@@ -139,7 +140,7 @@ public partial class Boat : RigidBody3D
 	{
 		if (Input.IsKeyPressed(Key.F2)) 
 		{
-			GetNode<HealthComponent>("HealthComponent").SubtractHealth(100);
+			GetNode<HealthComponent>("HealthComponent").SubtractHealth(100,"Debug");
 		}
 		if (Input.IsKeyPressed(Key.F3)) {
 			var rot = Rotation;
@@ -410,7 +411,7 @@ public partial class Boat : RigidBody3D
 			GD.Print("Boom!!!");
 			LooseStackedGoods();
 			SeaMineImpact(area.GetParent<Node3D>().GlobalPosition);
-			healthComp.SubtractHealth(50);
+			healthComp.SubtractHealth(50,"Seamine");
 		}
 
 		if(area.IsInGroup("Modifiers")) 
@@ -440,10 +441,11 @@ public partial class Boat : RigidBody3D
 		}*/
 	}
 
-	public void OnHealthComponentNoHealthEvent() 
+	public void OnHealthComponentNoHealthEvent(string cause) 
 	{
 		GD.Print("Boat lost all durability: You Lose");
-		EmitSignal(SignalName.NoBoatHealth);
+		
+		EmitSignal(SignalName.NoBoatHealth,cause);
 	}
 
 	public void OnBodyEntered(Node node) 
@@ -459,7 +461,7 @@ public partial class Boat : RigidBody3D
 			}
 			//GD.Print("Lost ", 3 * (int)speed, " health");
 			ApplyCentralImpulse(-10 * LinearVelocity);
-			healthComp.SubtractHealth(3 * (int)speed);
+			healthComp.SubtractHealth(3 * (int)speed,"Rocks");
 			crashSounds.Play();
 			crashSounds.VolumeDb = speed;
 
@@ -476,7 +478,7 @@ public partial class Boat : RigidBody3D
 
 	public void OnVortexDamageTimerTimeout() 
 	{
-		healthComp.SubtractHealth(10);
+		healthComp.SubtractHealth(10,"Vortex");
 	}
 
 	private void OnCrashCooldownTimerTimeout() {
@@ -523,7 +525,7 @@ public partial class Boat : RigidBody3D
 
 	public void AttackedByShark(Vector3 attack_dir)
 	{
-		healthComp.SubtractHealth(35);
+		healthComp.SubtractHealth(35, "Shark");
 		LooseStackedGoods();
 		ApplyCentralImpulse(50 * attack_dir);
 	}

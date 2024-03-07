@@ -63,10 +63,13 @@ public partial class WorldScene : Node3D
 		}
     }
 	
-    public void OnNoBoatHealth() 
+    public void OnNoBoatHealth(string cause) 
 	{
         GetNode<Panel>("GameCamera/CanvasLayer/GameOverScreen").Visible = true;
-		GameCamera.ResetSway();
+		string deathText = GetNode<Label>("GameCamera/CanvasLayer/GameOverScreen/Container/DeathExplenation").Text;
+		GetNode<Label>("GameCamera/CanvasLayer/GameOverScreen/Container/DeathExplenation").Text = deathText + " " + cause;
+        GetTree().Paused = true;
+        GameCamera.ResetSway();
 		Modifiers.ResetModifiers();
     }
 	public void OnObjectivePickup()
@@ -104,7 +107,7 @@ public partial class WorldScene : Node3D
         GetNode<Button>("GameCamera/CanvasLayer/GameOverScreen/Container/QuitButton").Visible = true;
         GetNode<Button>("GameCamera/CanvasLayer/GameOverScreen/Container/RestartButton").GrabFocus();
 		
-		GetTree().Paused = true;
+		
 		
 	}
 	public void QuitButtonPressed()

@@ -28,9 +28,9 @@ public partial class HealthComponent : Node3D
 		healthBar.Sethealth(health);
 	}
 
-	public void SubtractHealth(int n) {
+	public void SubtractHealth(int n,string cause) {
 		if (health - n <= 0) {
-			EmitSignal(SignalName.NoHealth);
+			EmitSignal(SignalName.NoHealth,cause);
 			health = 0;
 			healthBar.Sethealth(health);
 			return;

@@ -104,6 +104,7 @@ public partial class Boat : RigidBody3D
 
 	public override void _Ready()
 	{
+		GetNode<AnimationPlayer>("FanOn/AnimationPlayer").Stop();
 		var fanOn = GetNode<Node3D>("FanOn");
 		fanOn.Visible = false;
 		crashSounds = GetNode<AudioStreamPlayer3D>("BoatCrash");
@@ -224,6 +225,7 @@ public partial class Boat : RigidBody3D
 			if (UsingSpeedBoost) 
 			{
 				ApplyCentralForce(1000 * forward * (float)delta);
+				GetNode<AnimationPlayer>("FanOn/AnimationPlayer").Play();
 			}
 			/*if(WaterSplashRatio.AmountRatio <= 10.0f && isSubmerged && LinearVelocity.Length() > 0.4f)
 			{
@@ -499,6 +501,7 @@ public partial class Boat : RigidBody3D
 		GD.Print("'Speed Boost' modifier has ended");
 		UsingSpeedBoost = false;
 		var fanOn = GetNode<Node3D>("FanOn");
+		GetNode<AnimationPlayer>("FanOn/AnimationPlayer").Stop();
 		fanOn.Visible = false;
 	}
 

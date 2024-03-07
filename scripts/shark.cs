@@ -38,8 +38,8 @@ public partial class shark : CharacterBody3D
 		//GD.Print(_timer);
 		_path_nodes = new List<Marker3D>(); // Create an empty list to hold Marker3D nodes
 		var children = path.GetChildren();
-        _timer.WaitTime = 3;
-        foreach (var child in children)
+		_timer.WaitTime = 3;
+		foreach (var child in children)
 		{
 			if (child.GetClass() == "Marker3D")
 			{
@@ -85,12 +85,12 @@ public partial class shark : CharacterBody3D
 			}
 			case Behavior.Chase: 
 			{
-                
-                GetNode<AnimationPlayer>("Body/sharkswim/AnimationPlayer").SpeedScale = 1.5f;
+				
+				GetNode<AnimationPlayer>("Body/sharkswim/AnimationPlayer").SpeedScale = 1.5f;
 				_ChaseMovement((float)delta);
 				break;
 			}
-        }
+		}
 		MoveAndSlide();
 	}
 
@@ -132,15 +132,15 @@ public partial class shark : CharacterBody3D
 		var vel = Basis.Z * velocity * chasing_mul * delta;
 		if (isRecharging)
 		{
-            Velocity = vel/3;
+			Velocity = vel/3;
 		}
 		else
 		{
-            Velocity = vel;
-        }
-    }
+			Velocity = vel;
+		}
+	}
 
-    private (int, Marker3D) _GetClosestPathNode() 
+	private (int, Marker3D) _GetClosestPathNode() 
 	{
 		float min_dist = float.MaxValue;
 		int min_idx = 0;
@@ -169,15 +169,15 @@ public partial class shark : CharacterBody3D
 	public void OnBiteAreaEntered(Area3D area)
 	{
 		if (area.IsInGroup("ThePlayers"))
-        {
-            _timer.Start();
-            isRecharging = true;
-            //GD.Print("SlowChase");
-            GD.Print("Chomp");
+		{
+			_timer.Start();
+			isRecharging = true;
+			//GD.Print("SlowChase");
+			GD.Print("Chomp");
 			boat.AttackedByShark((area.GlobalPosition - GlobalPosition).Normalized());
 			
 
-        }
+		}
 	}
 
 	public void OnTimerTimeOut()

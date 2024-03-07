@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bnwxvi735srdi"
-path="res://.godot/imported/bombSound.mp3-ffb43c73a37207b0261a58348de07046.mp3str"
+path="res://.godot/imported/bombSound.mp3-1858e5a0fb558418b80dc13847478300.mp3str"
 
 [deps]
 
-source_file="res://Sounds/bombSound.mp3"
-dest_files=["res://.godot/imported/bombSound.mp3-ffb43c73a37207b0261a58348de07046.mp3str"]
+source_file="res://sounds/bombSound.mp3"
+dest_files=["res://.godot/imported/bombSound.mp3-1858e5a0fb558418b80dc13847478300.mp3str"]
 
 [params]
 

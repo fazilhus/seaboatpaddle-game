@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://b5fhytjwowqgu"
-path="res://.godot/imported/pirates-5533.mp3-fb89f65e3d124d12859e4246cf5a5e14.mp3str"
+path="res://.godot/imported/pirates-5533.mp3-a784131cc96d1d0a1f488036dc164add.mp3str"
 
 [deps]
 
-source_file="res://Sounds/pirates-5533.mp3"
-dest_files=["res://.godot/imported/pirates-5533.mp3-fb89f65e3d124d12859e4246cf5a5e14.mp3str"]
+source_file="res://sounds/pirates-5533.mp3"
+dest_files=["res://.godot/imported/pirates-5533.mp3-a784131cc96d1d0a1f488036dc164add.mp3str"]
 
 [params]
 

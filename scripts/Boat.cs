@@ -54,6 +54,8 @@ public partial class Boat : RigidBody3D
 	private Vector3 vortexCenter = new Vector3(10, 5, 0); // Example vortex center position
 	private Vector3 streamGlobalPosition;
 
+	[Export] public seagull seaGull;
+
 	// Define the base force magnitude
 	[Export]
 	public float baseForceMagnitude = 100.0f; // Example base force magnitude
@@ -104,6 +106,7 @@ public partial class Boat : RigidBody3D
 
 	public override void _Ready()
 	{
+		seaGull = GetParent<Node3D>().GetNode<seagull>("Seagull");
 		GetNode<AnimationPlayer>("FanOn/AnimationPlayer").Stop();
 		var fanOn = GetNode<Node3D>("FanOn");
 		fanOn.Visible = false;
@@ -160,6 +163,9 @@ public partial class Boat : RigidBody3D
 			Rotation = rot;
 		}
 		GetParent<Node3D>().GetNode<Label>("GameCamera/CanvasLayer/LabelHealth").Text = "Health: "+ GetNode<HealthComponent>("HealthComponent").health;
+
+		
+
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -376,6 +382,8 @@ public partial class Boat : RigidBody3D
 				goods.Disable();
 				goods.Reparent(_goods_stack, false);
 				goods.Position = new Vector3(0, count, 0);
+				seaGull.isSeagull = true;
+				seaGull.isGoods = false;
 			}
 
 			count = _goods_stack.GetChildCount();
@@ -510,5 +518,17 @@ public partial class Boat : RigidBody3D
 		healthComp.SubtractHealth(17);
 		LooseStackedGoods();
 		ApplyCentralImpulse(50 * attack_dir);
+	}
+
+	public void OnSeagullAreaEntered(Area3D area)
+	{
+		if(area.IsInGroup("Goods"))
+		{
+			GD.Print("ass");
+			seaGull.isSeagull = false;
+			seaGull.isGoods = true;
+			
+		}
+
 	}
 }

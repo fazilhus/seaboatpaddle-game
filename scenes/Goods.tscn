@@ -16,6 +16,7 @@ height = 1.0004
 radius = 0.978229
 
 [node name="Goods" type="RigidBody3D"]
+collision_layer = 2
 script = ExtResource("1_48uba")
 waterDrag = 0.01
 

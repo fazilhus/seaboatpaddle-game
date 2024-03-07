@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bqgpgxpoqkw6w"]
+[gd_scene load_steps=36 format=3 uid="uid://bqgpgxpoqkw6w"]
 
 [ext_resource type="Script" path="res://scripts/WorldScene.cs" id="1_qx545"]
 [ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://cqhp0jks2ivtp" path="res://scenes/starting_location.tscn" id="14_qesc2"]
 [ext_resource type="Script" path="res://scripts/SeaGullSound.cs" id="15_d1m7c"]
 [ext_resource type="AudioStream" uid="uid://b5fhytjwowqgu" path="res://sounds/pirates-5533.mp3" id="22_f6vfe"]
+[ext_resource type="PackedScene" uid="uid://ib7vsb4wk3m5" path="res://scenes/seagull.tscn" id="24_j0ah0"]
 [ext_resource type="PackedScene" uid="uid://bjujslla0wbta" path="res://scenes/hammers_n_planks.tscn" id="24_yxdo2"]
 [ext_resource type="PackedScene" uid="uid://b5q85gk2bf4uw" path="res://scenes/super_fan.tscn" id="25_0m82c"]
 [ext_resource type="PackedScene" uid="uid://tukm4edn02s2" path="res://scenes/clock.tscn" id="26_5i412"]
@@ -292,11 +293,12 @@ transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -39.8521, 0, -9.0806)
 [node name="Vortex3D2" parent="." instance=ExtResource("4_5wau7")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.26967, 0, 70.6885)
 
-[node name="Boat" parent="." node_paths=PackedStringArray("water", "goods_node") instance=ExtResource("2_w1wc2")]
-transform = Transform3D(-0.304715, 0, 0.952443, 0, 1, 0, -0.952443, 0, -0.304715, -82.3805, 0.340137, 26.115)
+[node name="Boat" parent="." node_paths=PackedStringArray("water", "seaGull", "goods_node") instance=ExtResource("2_w1wc2")]
+transform = Transform3D(-0.304715, 0, 0.952443, 0, 1, 0, -0.952443, 0, -0.304715, -75.115, 0.340137, 20.4466)
 sideways_force_ratio = 0.45
 forward_force_ratio = 50.0
 water = NodePath("../WaterPlane")
+seaGull = NodePath("../Seagull")
 goods_node = NodePath("../Goods")
 
 [node name="Map" parent="." instance=ExtResource("8_lgk5l")]
@@ -510,6 +512,9 @@ script = ExtResource("15_d1m7c")
 [node name="adventure" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("22_f6vfe")
 volume_db = -20.0
+
+[node name="Seagull" parent="." instance=ExtResource("24_j0ah0")]
+transform = Transform3D(-0.254568, 0, 0.967055, 0, 1, 0, -0.967055, 0, -0.254568, -83.7699, 6.32982, 29.4439)
 
 [connection signal="CountdownTimerTimeout" from="GameCamera" to="." method="OnCountdownTimerTimeout"]
 [connection signal="pressed" from="GameCamera/CanvasLayer/GameOverScreen/RestartButton" to="." method="RetryButtonPressed"]

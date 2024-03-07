@@ -76,6 +76,7 @@ public partial class GameCamera : Node3D
 		}
 		if(ExtraTime)
 		{
+			GetNode<AudioStreamPlayer>("ClockSound").Play();
 			var time_left = countdownTimer.TimeLeft;
 			countdownTimer.Stop();
 			countdownTimer.WaitTime = time_left + 60;

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bro3rrf66ro1h"]
+[gd_scene load_steps=22 format=3 uid="uid://bro3rrf66ro1h"]
 
 [ext_resource type="Script" path="res://scripts/Boat.cs" id="1_tk55w"]
 [ext_resource type="PackedScene" uid="uid://catt7cfnf4pd1" path="res://CustonAssets/paddle.glb" id="2_32au7"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://ducw5sm3i87kh" path="res://scenes/Goods.tscn" id="4_e8fkn"]
 [ext_resource type="PackedScene" uid="uid://bfcmmp24hd7u5" path="res://scenes/HealthComponent.tscn" id="5_oltkq"]
 [ext_resource type="AudioStream" uid="uid://bqt1c56p1o3t3" path="res://Sounds/Breaksounds/bfh1_wood_hit_02.ogg" id="10_b0pnb"]
+[ext_resource type="AudioStream" uid="uid://d2r8eneuqn2g7" path="res://Sounds/106481__robinhood76__02052-wooden-hammering.wav" id="11_slq5g"]
+[ext_resource type="AudioStream" uid="uid://7hkj3amg11xp" path="res://Sounds/Repair kit found 1.wav" id="16_gnr4a"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7j168"]
 friction = 0.0
@@ -159,9 +161,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.74944)
 [node name="GoodsStack" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.9)
 
-[node name="BoatCrash" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("10_b0pnb")
-
 [node name="FanOn" type="Node3D" parent="."]
 
 [node name="FanHandle" type="MeshInstance3D" parent="FanOn"]
@@ -198,6 +197,15 @@ transform = Transform3D(0.41655, 2.55034e-08, 0.909113, -2.55034e-08, -1, 3.9738
 material_override = SubResource("StandardMaterial3D_70njd")
 mesh = SubResource("SphereMesh_rxdvy")
 skeleton = NodePath("../..")
+
+[node name="BoatCrash" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_b0pnb")
+
+[node name="Repearing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_slq5g")
+
+[node name="RepairKitFound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_gnr4a")
 
 [connection signal="area_entered" from="Area3DTriggerGoods" to="." method="OnArea3DTriggerGoodsEntered"]
 [connection signal="area_entered" from="Area3DTriggerBoat" to="." method="OnArea3dTriggerBoatAreaEntered"]

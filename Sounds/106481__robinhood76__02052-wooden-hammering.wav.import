@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://d2r8eneuqn2g7"
-path="res://.godot/imported/106481__robinhood76__02052-wooden-hammering.wav-33a55f2955062417ba6a131e6ab56f68.sample"
+path="res://.godot/imported/106481__robinhood76__02052-wooden-hammering.wav-18d1ccc30cba37f935b21378fc85a2bb.sample"
 
 [deps]
 
-source_file="res://sounds/106481__robinhood76__02052-wooden-hammering.wav"
-dest_files=["res://.godot/imported/106481__robinhood76__02052-wooden-hammering.wav-33a55f2955062417ba6a131e6ab56f68.sample"]
+source_file="res://Sounds/106481__robinhood76__02052-wooden-hammering.wav"
+dest_files=["res://.godot/imported/106481__robinhood76__02052-wooden-hammering.wav-18d1ccc30cba37f935b21378fc85a2bb.sample"]
 
 [params]
 

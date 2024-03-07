@@ -273,7 +273,6 @@ one_shot = true
 
 [node name="ClockSound" type="AudioStreamPlayer" parent="GameCamera"]
 stream = ExtResource("10_prmta")
-volume_db = 5.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_f08u5")
@@ -294,7 +293,7 @@ transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -39.8521, 0, -9.0806)
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.26967, 0, 70.6885)
 
 [node name="Boat" parent="." node_paths=PackedStringArray("water", "goods_node") instance=ExtResource("2_w1wc2")]
-transform = Transform3D(-0.304715, 0, 0.952443, 0, 1, 0, -0.952443, 0, -0.304715, 36.8416, 0.340137, -21.4981)
+transform = Transform3D(-0.304715, 0, 0.952443, 0, 1, 0, -0.952443, 0, -0.304715, -82.3805, 0.340137, 26.115)
 sideways_force_ratio = 0.45
 forward_force_ratio = 50.0
 water = NodePath("../WaterPlane")
@@ -503,13 +502,14 @@ collision_mask = 3
 
 [node name="SeaGullSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_e0ts7")
+volume_db = -5.0
 script = ExtResource("15_d1m7c")
 
 [node name="SeaGullPauser" type="Timer" parent="SeaGullSound"]
 
 [node name="adventure" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("22_f6vfe")
-volume_db = -15.0
+volume_db = -20.0
 
 [connection signal="CountdownTimerTimeout" from="GameCamera" to="." method="OnCountdownTimerTimeout"]
 [connection signal="pressed" from="GameCamera/CanvasLayer/GameOverScreen/RestartButton" to="." method="RetryButtonPressed"]

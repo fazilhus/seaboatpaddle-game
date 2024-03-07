@@ -16,8 +16,10 @@ public partial class Boat : RigidBody3D
 	public delegate void NoBoatHealthEventHandler();
 	[Signal]
 	public delegate void ObjectivePickupEventHandler();
+    [Signal]
+    public delegate void DamageEffectEventHandler();
 
-	[Export]
+    [Export]
 	public Godot.Collections.Array<Node3D> paddles;
 
 	private List<Vector3> _player_inputs;
@@ -446,6 +448,10 @@ public partial class Boat : RigidBody3D
 		GD.Print("Boat lost all durability: You Lose");
 		
 		EmitSignal(SignalName.NoBoatHealth,cause);
+	}
+	public void DamageTaken()
+	{
+		EmitSignal(SignalName.DamageEffect);
 	}
 
 	public void OnBodyEntered(Node node) 

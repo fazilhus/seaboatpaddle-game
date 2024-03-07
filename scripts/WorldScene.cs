@@ -20,7 +20,9 @@ public partial class WorldScene : Node3D
 	StyleBoxFlat deathStyleBox;
 	byte styleBoxTransparency = 0;
 	bool transperancyReached = false;
-	int i = 0;
+	int transperancyTimer = 0;
+
+	int damageEffectTimer = 0;
     public override void _Ready()
     {
 		cargoString = cargoTracker.Text;
@@ -44,11 +46,21 @@ public partial class WorldScene : Node3D
 
             }
         }
+		if(GetNode<TextureRect>("GameCamera/CanvasLayer/DamageFlash").Visible == true)
+		{
+			damageEffectTimer++;
+			if(damageEffectTimer==20)
+			{
+				damageEffectTimer = 0;
+				GetNode<TextureRect>("GameCamera/CanvasLayer/DamageFlash").Visible = false;
+
+            }
+		}
         if(GetNode<Panel>("GameCamera/CanvasLayer/GameOverScreen").Visible == true  && !transperancyReached)
 		{
-			i++;
+			transperancyTimer++;
 			
-			if(i%2==0)
+			if(transperancyTimer%2==0)
 			{
 				styleBoxTransparency++; ;
 			}
@@ -62,7 +74,11 @@ public partial class WorldScene : Node3D
 			}
 		}
     }
-	
+	public void OnDamageEffect()
+	{
+		GD.Print("Damage Taken");
+		GetNode<TextureRect>("GameCamera/CanvasLayer/DamageFlash").Visible = true;
+	}
     public void OnNoBoatHealth(string cause) 
 	{
         GetNode<Panel>("GameCamera/CanvasLayer/GameOverScreen").Visible = true;

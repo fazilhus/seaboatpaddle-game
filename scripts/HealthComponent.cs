@@ -5,6 +5,9 @@ public partial class HealthComponent : Node3D
 {
 	[Signal]
 	public delegate void NoHealthEventHandler();
+    [Signal]
+    public delegate void DamageTakenEventHandler();
+    
 	Healthbar healthBar;
 
 	[Export]
@@ -35,6 +38,7 @@ public partial class HealthComponent : Node3D
 			healthBar.Sethealth(health);
 			return;
 		}
+		EmitSignal(SignalName.DamageTaken);
 		health -= n;
 		healthBar.Sethealth(health);
 	}

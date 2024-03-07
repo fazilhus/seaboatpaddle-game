@@ -20,7 +20,6 @@ public partial class Clock : RigidBody3D
 			GameCamera.ActivateExtraTime();
 			GameCamera.LabelModifiers.Text ="Extra time added";
 			clockSound.Playing = true;
-			clockSound.Play();
 		}
 	}
 }

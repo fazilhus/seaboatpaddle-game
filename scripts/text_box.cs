@@ -71,6 +71,9 @@ Crew:(shouting) AYE AYE!!!";
 		if (Input.IsKeyPressed(Key.F5)) {
 			HideTextBox();
 		}
+		if (Input.IsActionPressed("ui_continue")) {
+			HideTextBox();
+		}
 
 		if (!isAdding && (idx < lines.Length)) {
 			AddText(lines[idx]);

@@ -5,11 +5,12 @@ public partial class HammersNPlanks : RigidBody3D
 {
 	[Export]
 	public Boat boat;
-	
 	public static int amountOfRepairKits = 0;
-
+	
+	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		GD.Print("Spawned repairkit");
 		GravityScale = 0;
 	}
 
@@ -22,6 +23,7 @@ public partial class HammersNPlanks : RigidBody3D
 	{
 		if (area.IsInGroup("ThePlayers"))
 		{
+			GD.Print("Removed repairkit");
 			QueueFree();
 			amountOfRepairKits += 1;
 			boat.ActivateRepairKit(amountOfRepairKits);

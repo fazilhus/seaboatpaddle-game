@@ -81,7 +81,7 @@ _data = {
 }
 
 [node name="SuperFan" type="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00184417, 0.00274813, -0.000270844)
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, -0.00184417, 0.00274813, -0.000270844)
 script = ExtResource("1_6ojfj")
 
 [node name="FanBot" type="MeshInstance3D" parent="."]
@@ -95,7 +95,7 @@ material_override = SubResource("StandardMaterial3D_nyer4")
 mesh = SubResource("CylinderMesh_oac2d")
 
 [node name="FanHandle" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2.02687e-07, -1, 7.27849e-08, 0.416281, -1.81962e-08, 0.909237, -0.909237, 2.1459e-07, 0.416281, 0.113, 1.256, -0.001)
+transform = Transform3D(1.31491e-06, 1, 1.05534e-06, 0.416277, -1.50692e-06, 0.909239, 0.909239, -7.56251e-07, -0.416277, 0.113, 1.056, -0.001)
 material_override = SubResource("StandardMaterial3D_arvjk")
 mesh = SubResource("SphereMesh_2fc3m")
 

@@ -16,7 +16,6 @@ public partial class Clock : RigidBody3D
 			QueueFree();
 			GD.Print("Extra time added");
 			GameCamera.ActivateExtraTime();
-			GameCamera.LabelModifiers.Text ="Extra time added";
 		}
 	}
 }

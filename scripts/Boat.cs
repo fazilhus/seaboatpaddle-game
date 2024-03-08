@@ -83,6 +83,8 @@ public partial class Boat : RigidBody3D
 		SpeedBoost = true;
 		amountOfSpeedBoosts = speedBoostAmount;
 		GetNode<AudioStreamPlayer>("SpeedBoostFound").Play();
+		var fanOn = GetNode<Node3D>("FanOn");
+		fanOn.Visible = true;
 	}
 
 	private float strengthFactor; 

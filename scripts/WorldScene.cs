@@ -50,8 +50,8 @@ public partial class WorldScene : Node3D
 	public void OnObjectivePickup(int stack_size)
 	{
 		objectiveScore = stack_size;
-        cargoTracker.Text = cargoString + objectiveScore + "/" + maxObjectiveStackAmount;
-    }
+		cargoTracker.Text = cargoString + objectiveScore + "/" + maxObjectiveStackAmount;
+	}
 	public void OnWholeDelivery()
 	{
 		deliveredCargo += objectiveScore;

@@ -80,8 +80,9 @@ public partial class Boat : RigidBody3D
 	
 	public void ActivateSpeedBoost(int speedBoostAmount)
 	{
-		amountOfSpeedBoosts = speedBoostAmount;
 		SpeedBoost = true;
+		amountOfSpeedBoosts = speedBoostAmount;
+		GetNode<AudioStreamPlayer>("SpeedBoostFound").Play();
 	}
 
 	private float strengthFactor; 

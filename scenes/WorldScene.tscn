@@ -461,40 +461,40 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.1682, 0.159423, 69.5701)
 water = NodePath("../../WaterPlane")
 
 [node name="RepairKit" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
-[node name="HammersNPlanks" parent="RepairKit" node_paths=PackedStringArray("boat", "water") instance=ExtResource("24_yxdo2")]
-transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, -17.7868, -1.14441e-05, 76.794)
+[node name="HammersNPlanks" parent="RepairKit" node_paths=PackedStringArray("boat") instance=ExtResource("24_yxdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.0031, -1.14441e-05, 27.497)
 boat = NodePath("../../Boat")
-water = NodePath("../../WaterPlane")
 
-[node name="HammersNPlanks2" parent="RepairKit" node_paths=PackedStringArray("boat", "water") instance=ExtResource("24_yxdo2")]
-transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 79.7985, -1.14441e-05, 6.45962)
+[node name="HammersNPlanks2" parent="RepairKit" node_paths=PackedStringArray("boat") instance=ExtResource("24_yxdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.7985, -1.14441e-05, 6.45962)
 boat = NodePath("../../Boat")
-water = NodePath("../../WaterPlane")
 
 [node name="SpeedBoost" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="SuperFan" parent="SpeedBoost" node_paths=PackedStringArray("boat") instance=ExtResource("25_0m82c")]
-transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, -26.398, 0.00274813, 31.9396)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.5482, 0.00274813, 9.07756)
 boat = NodePath("../../Boat")
 
 [node name="SuperFan2" parent="SpeedBoost" node_paths=PackedStringArray("boat") instance=ExtResource("25_0m82c")]
-transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 42.3108, 0.00274813, -67.6628)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.3108, 0.00274813, -67.6628)
 boat = NodePath("../../Boat")
 
 [node name="ExtraTime" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.67317, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
 
 [node name="Clock" parent="ExtraTime" instance=ExtResource("26_5i412")]
-transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, -75.7587, 3.04134, -41.8749)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.6512, 3.04134, -49.2923)
 collision_mask = 3
 
 [node name="Clock3" parent="ExtraTime" instance=ExtResource("26_5i412")]
-transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 35.5879, 3.04134, -29.6267)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5879, 3.04134, -29.6267)
 collision_mask = 3
 
 [node name="Clock2" parent="ExtraTime" instance=ExtResource("26_5i412")]
-transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 23.1804, 3.04134, 27.1906)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.1804, 3.04134, 27.1906)
 collision_mask = 3
 
 [node name="TextBox" parent="." instance=ExtResource("13_cald3")]

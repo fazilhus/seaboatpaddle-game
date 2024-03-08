@@ -43,6 +43,7 @@ height = 1.55839
 radius = 0.406719
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_hi1e0"]
+height = 3.2645
 radius = 2.1449
 
 [sub_resource type="Animation" id="Animation_07ffm"]
@@ -80,7 +81,7 @@ _data = {
 }
 
 [node name="SuperFan" type="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, -0.00184417, 0.00274813, -0.000270844)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00184417, 0.00274813, -0.000270844)
 script = ExtResource("1_6ojfj")
 
 [node name="FanBot" type="MeshInstance3D" parent="."]

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://drhbimwegqodh"
-path="res://.godot/imported/grandfather-clock.wav-86b547fb58c014dc7f14a5e96d1e5080.sample"
+path="res://.godot/imported/grandfather-clock.wav-bca4e2e68cd7c38f89af15c24ff7797c.sample"
 
 [deps]
 
-source_file="res://sounds/grandfather-clock.wav"
-dest_files=["res://.godot/imported/grandfather-clock.wav-86b547fb58c014dc7f14a5e96d1e5080.sample"]
+source_file="res://Sounds/grandfather-clock.wav"
+dest_files=["res://.godot/imported/grandfather-clock.wav-bca4e2e68cd7c38f89af15c24ff7797c.sample"]
 
 [params]
 

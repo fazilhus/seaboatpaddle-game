@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bro3rrf66ro1h"]
+[gd_scene load_steps=25 format=3 uid="uid://bro3rrf66ro1h"]
 
 [ext_resource type="Script" path="res://scripts/Boat.cs" id="1_tk55w"]
 [ext_resource type="PackedScene" uid="uid://catt7cfnf4pd1" path="res://CustonAssets/paddle.glb" id="2_32au7"]

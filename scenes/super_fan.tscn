@@ -1,18 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://b5q85gk2bf4uw"]
+[gd_scene load_steps=12 format=3 uid="uid://b5q85gk2bf4uw"]
 
 [ext_resource type="Script" path="res://scripts/SuperFan.cs" id="1_6ojfj"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_lgj0j"]
-top_radius = 0.1
-bottom_radius = 0.4
-height = 0.2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nyer4"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_oac2d"]
-top_radius = 0.1
-bottom_radius = 0.1
-height = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_arvjk"]
 metallic = 1.0
@@ -81,21 +69,11 @@ _data = {
 }
 
 [node name="SuperFan" type="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, -0.00184417, 0.00274813, -0.000270844)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00184417, 0.00274813, -0.000270844)
 script = ExtResource("1_6ojfj")
 
-[node name="FanBot" type="MeshInstance3D" parent="."]
-visible = false
-mesh = SubResource("CylinderMesh_lgj0j")
-
-[node name="FanPole" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.604532, 0)
-visible = false
-material_override = SubResource("StandardMaterial3D_nyer4")
-mesh = SubResource("CylinderMesh_oac2d")
-
 [node name="FanHandle" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.31491e-06, 1, 1.05534e-06, 0.416277, -1.50692e-06, 0.909239, 0.909239, -7.56251e-07, -0.416277, 0.113, 1.056, -0.001)
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 0.113, 1.056, -0.001)
 material_override = SubResource("StandardMaterial3D_arvjk")
 mesh = SubResource("SphereMesh_2fc3m")
 

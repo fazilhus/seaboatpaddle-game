@@ -69,11 +69,11 @@ _data = {
 }
 
 [node name="HammersNPlanks" type="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_1yabx")
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(-0.993725, 0, 0.111854, 0, 1, 0, -0.111854, 0, -0.993725, 0, -0.675025, 0)
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0)
 
 [node name="Plank" type="MeshInstance3D" parent="Node3D"]
 material_override = SubResource("StandardMaterial3D_ld3ku")
@@ -104,7 +104,7 @@ material_override = SubResource("StandardMaterial3D_drpxx")
 mesh = SubResource("CylinderMesh_eg7jj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.179527, 0)
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0)
 shape = SubResource("BoxShape3D_37vxc")
 
 [node name="Area3DTrigger" type="Area3D" parent="." groups=["Modifiers"]]

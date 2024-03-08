@@ -21,6 +21,7 @@ public partial class shark : CharacterBody3D
 	private Marker3D _next_path_node;
 	private Area3D _trigger_area;
 	private Area3D _chasing_area;
+	private Timer _timer;
 
 	[Export]
 	public float velocity = 5;
@@ -28,13 +29,16 @@ public partial class shark : CharacterBody3D
 	public float chasing_mul = 1.5f;
 	[Export]
 	public float rotation_follow_speed = Mathf.Tau / 6;
+	public bool isRecharging = false;
 
 
 	public override void _Ready()
 	{
+		_timer = GetNode<Timer>("Timer");
+		//GD.Print(_timer);
 		_path_nodes = new List<Marker3D>(); // Create an empty list to hold Marker3D nodes
 		var children = path.GetChildren();
-
+		_timer.WaitTime = 3;
 		foreach (var child in children)
 		{
 			if (child.GetClass() == "Marker3D")
@@ -53,10 +57,12 @@ public partial class shark : CharacterBody3D
 		}
 		(_next_path_node_idx, _next_path_node) = (-1, null);
 		_behavior = Behavior.Patrol;
+		
 	}
 
 	public override void _Process(double delta)
 	{
+		//GD.Print(_behavior);
 		// Movement along the path
 		if (_trigger_area.OverlapsBody(boat)) 
 		{
@@ -68,7 +74,7 @@ public partial class shark : CharacterBody3D
 			//GD.Print("Shark patroling");
 			_behavior = Behavior.Patrol;
 		}
-
+		//GD.Print(_timer.TimeLeft);
 		switch (_behavior) 
 		{
 			case Behavior.Patrol: 
@@ -79,6 +85,7 @@ public partial class shark : CharacterBody3D
 			}
 			case Behavior.Chase: 
 			{
+				
 				GetNode<AnimationPlayer>("Body/sharkswim/AnimationPlayer").SpeedScale = 1.5f;
 				_ChaseMovement((float)delta);
 				break;
@@ -123,7 +130,14 @@ public partial class shark : CharacterBody3D
 		Rotation = rot;
 
 		var vel = Basis.Z * velocity * chasing_mul * delta;
-		Velocity = vel;
+		if (isRecharging)
+		{
+			Velocity = vel/3;
+		}
+		else
+		{
+			Velocity = vel;
+		}
 	}
 
 	private (int, Marker3D) _GetClosestPathNode() 
@@ -156,8 +170,20 @@ public partial class shark : CharacterBody3D
 	{
 		if (area.IsInGroup("ThePlayers"))
 		{
+			_timer.Start();
+			isRecharging = true;
+			//GD.Print("SlowChase");
 			GD.Print("Chomp");
 			boat.AttackedByShark((area.GlobalPosition - GlobalPosition).Normalized());
+			
+
 		}
+	}
+
+	public void OnTimerTimeOut()
+	{
+		//GD.Print("Normal");
+		isRecharging = false; 
+		_timer.Stop();
 	}
 }

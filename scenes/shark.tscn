@@ -492,4 +492,8 @@ autoplay = "swimmingshark"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 shape = SubResource("SphereShape3D_4jvbu")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
 [connection signal="area_entered" from="Area3D" to="." method="OnBiteAreaEntered"]
+[connection signal="timeout" from="Timer" to="." method="OnTimerTimeOut"]

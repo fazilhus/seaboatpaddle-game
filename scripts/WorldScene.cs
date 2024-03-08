@@ -87,10 +87,10 @@ public partial class WorldScene : Node3D
         GetTree().Paused = true;
         GameCamera.ResetSway();
 		Modifiers.ResetModifiers();
-    }
-	public void OnObjectivePickup()
+	}
+	public void OnObjectivePickup(int stack_size)
 	{
-		objectiveScore++;
+		objectiveScore = stack_size;
         cargoTracker.Text = cargoString + objectiveScore + "/" + maxObjectiveStackAmount;
     }
 	public void OnWholeDelivery()

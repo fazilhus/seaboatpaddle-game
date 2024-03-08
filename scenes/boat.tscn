@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://ducw5sm3i87kh" path="res://scenes/Goods.tscn" id="4_e8fkn"]
 [ext_resource type="PackedScene" uid="uid://bfcmmp24hd7u5" path="res://scenes/HealthComponent.tscn" id="5_oltkq"]
 [ext_resource type="AudioStream" uid="uid://bqt1c56p1o3t3" path="res://Sounds/Breaksounds/bfh1_wood_hit_02.ogg" id="10_b0pnb"]
+[ext_resource type="AudioStream" uid="uid://d2r8eneuqn2g7" path="res://Sounds/106481__robinhood76__02052-wooden-hammering.wav" id="11_slq5g"]
+[ext_resource type="AudioStream" uid="uid://7hkj3amg11xp" path="res://Sounds/Repair kit found 1.wav" id="16_gnr4a"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7j168"]
 friction = 0.0
@@ -19,6 +21,56 @@ size = Vector3(1.5, 0.6, 2.3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r0jpl"]
 size = Vector3(1.74646, 1, 3.0321)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0llbl"]
+metallic = 1.0
+roughness = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_8yap6"]
+radius = 0.1
+height = 0.2
+is_hemisphere = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1g0o8"]
+metallic = 1.0
+roughness = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_76g3t"]
+size = Vector3(0.1, 0.65, 0.02)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_70njd"]
+roughness = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_rxdvy"]
+radius = 0.2
+height = 0.5
+is_hemisphere = true
+
+[sub_resource type="Animation" id="Animation_klkaq"]
+resource_name = "SpeedBoostOn"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FanHandle:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.14145, -1.5708, 1.5708), Vector3(1.14904, -1.5708, 1.5708)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_peopp"]
+_data = {
+"SpeedBoostOn": SubResource("Animation_klkaq")
+}
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gx6ji"]
+height = 4.0
+radius = 20.0
 
 [node name="Boat" type="RigidBody3D" node_paths=PackedStringArray("paddles")]
 process_mode = 1
@@ -105,7 +157,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.661134, -0.439855, -0.81219
 [node name="Area3DTriggerGoods" type="Area3D" parent="." groups=["ThePlayersGoods"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25)
 collision_layer = 3
-collision_mask = 2
+collision_mask = 3
 
 [node name="TriggerCollider" type="CollisionShape3D" parent="Area3DTriggerGoods"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0178721, 0.327538, 0.247244)
@@ -136,8 +188,63 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.74944)
 [node name="GoodsStack" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.9)
 
+[node name="FanOn" type="Node3D" parent="."]
+
+[node name="FanHandle" type="MeshInstance3D" parent="FanOn"]
+transform = Transform3D(0.909237, 3.96741e-09, -0.416281, 0.416281, -1.81962e-08, 0.909237, -3.96741e-09, -1, -1.81962e-08, -0.0029792, 0.577966, -1.7853)
+material_override = SubResource("StandardMaterial3D_0llbl")
+mesh = SubResource("SphereMesh_8yap6")
+
+[node name="Fan" type="MeshInstance3D" parent="FanOn/FanHandle"]
+transform = Transform3D(1.74478e-07, -1, 7.54979e-08, -0.5, -2.18557e-08, 0.866025, -0.866025, -1.88851e-07, -0.5, -0.25, 0.0679999, -5.96046e-07)
+material_override = SubResource("StandardMaterial3D_1g0o8")
+mesh = SubResource("BoxMesh_76g3t")
+skeleton = NodePath("../..")
+
+[node name="Fan2" type="MeshInstance3D" parent="FanOn/FanHandle"]
+transform = Transform3D(1.74478e-07, -1, -7.54979e-08, -0.5, -2.18557e-08, -0.866025, 0.866025, 1.88851e-07, -0.5, 0.25, 0.068, 0)
+material_override = SubResource("StandardMaterial3D_1g0o8")
+mesh = SubResource("BoxMesh_76g3t")
+skeleton = NodePath("../..")
+
+[node name="Fan3" type="MeshInstance3D" parent="FanOn/FanHandle"]
+transform = Transform3D(-0.866025, 8.15666e-08, -0.5, 0.5, -2.18557e-08, -0.866025, -8.15665e-08, -1, -2.18557e-08, 0, 0.068, -0.25)
+material_override = SubResource("StandardMaterial3D_1g0o8")
+mesh = SubResource("BoxMesh_76g3t")
+skeleton = NodePath("../..")
+
+[node name="Fan4" type="MeshInstance3D" parent="FanOn/FanHandle"]
+transform = Transform3D(0.866025, 5.85622e-09, -0.5, 0.5, -2.18557e-08, 0.866025, -5.85622e-09, -1, -2.18557e-08, 0, 0.068, 0.25)
+material_override = SubResource("StandardMaterial3D_1g0o8")
+mesh = SubResource("BoxMesh_76g3t")
+skeleton = NodePath("../..")
+
+[node name="FanHalfSphere" type="MeshInstance3D" parent="FanOn/FanHandle"]
+transform = Transform3D(0.41655, 2.55034e-08, 0.909113, -2.55034e-08, -1, 3.97386e-08, 0.909113, -3.97386e-08, -0.41655, 0.00144446, 0.0122994, 0.00142479)
+material_override = SubResource("StandardMaterial3D_70njd")
+mesh = SubResource("SphereMesh_rxdvy")
+skeleton = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FanOn"]
+libraries = {
+"": SubResource("AnimationLibrary_peopp")
+}
+autoplay = "SpeedBoostOn"
+
 [node name="BoatCrash" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("10_b0pnb")
+
+[node name="SeagullArea" type="Area3D" parent="."]
+collision_layer = 0
+
+[node name="CollisionSphere" type="CollisionShape3D" parent="SeagullArea"]
+shape = SubResource("CylinderShape3D_gx6ji")
+
+[node name="Repearing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_slq5g")
+
+[node name="RepairKitFound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_gnr4a")
 
 [connection signal="area_entered" from="Area3DTriggerGoods" to="." method="OnArea3DTriggerGoodsEntered"]
 [connection signal="area_entered" from="Area3DTriggerBoat" to="." method="OnArea3dTriggerBoatAreaEntered"]
@@ -149,3 +256,4 @@ stream = ExtResource("10_b0pnb")
 [connection signal="timeout" from="ControlInversionTimer" to="." method="OnControlInversionTimerTimeout"]
 [connection signal="timeout" from="SpeedBoostTimer" to="." method="OnSpeedBoostTimerTimeout"]
 [connection signal="timeout" from="CrashCooldown" to="." method="OnCrashCooldownTimerTimeout"]
+[connection signal="area_entered" from="SeagullArea" to="." method="OnSeagullAreaEntered"]

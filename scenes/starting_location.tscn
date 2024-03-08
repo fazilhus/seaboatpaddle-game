@@ -54,7 +54,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -2.23326, 0)
 shape = SubResource("BoxShape3D_5eikk")
 
 [node name="UnloadAreaTrigger" type="Area3D" parent="." groups=["Unloading"]]
-collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="UnloadAreaTrigger"]

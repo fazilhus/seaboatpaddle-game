@@ -25,7 +25,10 @@ public partial class Goods : RigidBody3D
 		probeContainer = GetNode<Node3D>("ProbeContainer").GetChildren();
 		initialY = GlobalPosition.Y;
 
-		if (!isActive) {
+		if (isActive) {
+			Enable();
+		}
+		else {
 			Disable();
 		}
 	}
@@ -37,11 +40,11 @@ public partial class Goods : RigidBody3D
 		{
 			float depth = (float)water.getHeight(GlobalPosition) - p.GlobalPosition.Y;
 
-			 if(depth > 0)
-			 {
+			if(depth > 0)
+			{
 				isSubmerged = true;
 				ApplyForce(Godot.Vector3.Up * floatForce * gravity * depth, p.GlobalPosition - GlobalPosition);
-			 }
+			}
 		}
 	}
 	
@@ -52,6 +55,14 @@ public partial class Goods : RigidBody3D
 			state.LinearVelocity *= 1 - waterDrag;
 			state.AngularVelocity *= 1 - WaterAngularDrag;
 		}
+	}
+
+	public void Enable() {
+		ProcessMode = ProcessModeEnum.Inherit;
+		var area = GetNode<Area3D>("Area3DTrigger");
+		area.ProcessMode = ProcessModeEnum.Inherit;
+		area.SetDeferred("monitoring", true);
+		area.SetDeferred("monitorable", true);
 	}
 
 	public void Disable() {

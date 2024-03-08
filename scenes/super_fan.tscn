@@ -1,4 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://b5q85gk2bf4uw"]
+[gd_scene load_steps=15 format=3 uid="uid://b5q85gk2bf4uw"]
+
+[ext_resource type="Script" path="res://scripts/SuperFan.cs" id="1_6ojfj"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_lgj0j"]
 top_radius = 0.1
@@ -36,8 +38,50 @@ radius = 0.2
 height = 0.5
 is_hemisphere = true
 
-[node name="SuperFan" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00184417, 0.00274813, -0.000270844)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nl0dy"]
+height = 1.55839
+radius = 0.406719
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hi1e0"]
+radius = 2.1449
+
+[sub_resource type="Animation" id="Animation_07ffm"]
+resource_name = "Turn"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FanHandle:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.14145, 0, 1.5708), Vector3(-1.14145, 1.5708, 1.5708), Vector3(-1.14145, 3.14159, 1.5708), Vector3(-1.14145, 4.71239, 1.5708), Vector3(-1.14145, 6.28319, 1.5708)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FanHandle:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.113131, 1.25582, -0.000719607), Vector3(0.113, 1.056, -0.001), Vector3(0.113, 1.256, -0.001)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s1u4q"]
+_data = {
+"Turn": SubResource("Animation_07ffm")
+}
+
+[node name="SuperFan" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, -0.00184417, 0.00274813, -0.000270844)
+script = ExtResource("1_6ojfj")
 
 [node name="FanBot" type="MeshInstance3D" parent="."]
 mesh = SubResource("CylinderMesh_lgj0j")

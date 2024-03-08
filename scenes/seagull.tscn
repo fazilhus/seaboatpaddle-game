@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ib7vsb4wk3m5"]
+[gd_scene load_steps=12 format=3 uid="uid://ib7vsb4wk3m5"]
 
 [ext_resource type="Script" path="res://scripts/seagull.cs" id="1_1q5ea"]
 [ext_resource type="Texture2D" uid="uid://dj3fmqqm1ap6l" path="res://scripts/birdflap1_bsptD.jpg" id="2_aj7qm"]
+[ext_resource type="AudioStream" uid="uid://dy02vsblcoiov" path="res://sounds/586831__speakingmusic__seagull.wav" id="3_mgrbx"]
+[ext_resource type="Script" path="res://scripts/SeaGullSound.cs" id="4_jck1g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rb0el"]
 resource_name = "Material"
@@ -208,3 +210,16 @@ autoplay = "birdflap"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_ldwi3")
+
+[node name="SeagullSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_mgrbx")
+volume_db = 80.0
+unit_size = 100.0
+max_db = 6.0
+max_distance = 50.0
+script = ExtResource("4_jck1g")
+
+[node name="SeaGullPauser" type="Timer" parent="SeagullSound"]
+
+[connection signal="finished" from="SeagullSound" to="SeagullSound" method="OnSeaGullSoundFinished"]
+[connection signal="timeout" from="SeagullSound/SeaGullPauser" to="SeagullSound" method="OnTimerTimeout"]

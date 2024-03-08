@@ -6,6 +6,7 @@ public partial class seagull : CharacterBody3D
 	public Boat boat;
 	public Goods goods;
 	private Quaternion quaternion;
+	private AudioStreamPlayer3D seagullSound;
 
 	public bool isSeagull;
 	public bool isGoods;
@@ -16,6 +17,7 @@ public partial class seagull : CharacterBody3D
 	public override void _Ready()
 	{
 		boat = GetParent<Node3D>().GetNode<Boat>("Boat");
+		seagullSound = GetNode<AudioStreamPlayer3D>("SeagullSound");
 		target = Vector3.Zero;
 	}
 
@@ -26,11 +28,19 @@ public partial class seagull : CharacterBody3D
 		if(isSeagull)
 		{
 			Vector3 boatCordinate = boat.GlobalPosition;
-			
 			quaternion =  new Quaternion(Vector3.Up,boatCordinate.SignedAngleTo(this.GlobalPosition.DirectionTo(boatCordinate), Vector3.Up));
 			float distance = boatCordinate.DistanceTo(this.GlobalPosition);
 			GlobalPosition += Transform.Basis.Z * 10 *(float)delta;
 			Quaternion += Quaternion.Slerp(quaternion, (float)delta*5);
+			GD.Print("isSealgull", seagullSound.Playing);
+			seagullSound.PitchScale = 1.0f;
+			/*if(seagullSound.PitchScale <= distance/10)
+						{
+							seagullSound.PitchScale -= distance/100* (float)delta;
+						}
+			GD.Print(seagullSound.PitchScale);
+			GD.Print(seagullSound.Playing);*/
+			
 
 		}
 
@@ -39,6 +49,7 @@ public partial class seagull : CharacterBody3D
 			//seagull
 			var seagullArea = boat.GetNode<Area3D>("SeagullArea");
 			var min_dist = float.MaxValue;
+			//seagullSound.Autoplay = true;
 			//ode3D seagull_target = null;
 			foreach (var area in seagullArea.GetOverlappingAreas()) {
 				if (area.IsInGroup("Goods"))
@@ -47,13 +58,23 @@ public partial class seagull : CharacterBody3D
 					var dist = GlobalPosition.DistanceTo(area.GlobalPosition);
 					if (dist < min_dist) 
 					{
-
+						
 						Vector3 goodsCordinate = area.GlobalPosition + yAxelVector;
 						//seagull_target = area.GetParent<Node3D>();
 						quaternion =  new Quaternion(Vector3.Up, goodsCordinate.SignedAngleTo(this.GlobalPosition.DirectionTo(goodsCordinate), Vector3.Up));
 						float distance = goodsCordinate.DistanceTo(this.GlobalPosition);
 						GlobalPosition += Transform.Basis.Z *  5 * (float)delta;
 						Quaternion += Quaternion.Slerp(quaternion, (float)delta*15.0f);
+						GD.Print("isGoods", seagullSound.Playing);
+						//GD.Print(distance);
+						if(seagullSound.PitchScale <= distance/10)
+						{
+							seagullSound.PitchScale += distance/100* (float)delta;
+						}
+						
+						
+						
+
 						//GD.Print(GlobalPosition, "globalposition");
 						//GD.Print(Quaternion, "qiatermopm");
 						//GD.Print(GlobalPosition, "globalposition");

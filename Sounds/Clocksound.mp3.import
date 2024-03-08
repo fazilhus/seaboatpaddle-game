@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://c0l51018flq2l"
-path="res://.godot/imported/Clocksound.mp3-07f06965321a313857c1c297e65d0767.mp3str"
+path="res://.godot/imported/Clocksound.mp3-ae6b98eeda41e0383f2204d23c41da11.mp3str"
 
 [deps]
 
-source_file="res://sounds/Clocksound.mp3"
-dest_files=["res://.godot/imported/Clocksound.mp3-07f06965321a313857c1c297e65d0767.mp3str"]
+source_file="res://Sounds/Clocksound.mp3"
+dest_files=["res://.godot/imported/Clocksound.mp3-ae6b98eeda41e0383f2204d23c41da11.mp3str"]
 
 [params]
 

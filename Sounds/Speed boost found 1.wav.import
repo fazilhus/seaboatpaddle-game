@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cyhnavjqtgxn1"
-path="res://.godot/imported/Speed boost found 1.wav-3f378ccfd5212ed85d345d65f512b003.sample"
+path="res://.godot/imported/Speed boost found 1.wav-318f7205e92ddd1a78392865fde68757.sample"
 
 [deps]
 
-source_file="res://sounds/Speed boost found 1.wav"
-dest_files=["res://.godot/imported/Speed boost found 1.wav-3f378ccfd5212ed85d345d65f512b003.sample"]
+source_file="res://Sounds/Speed boost found 1.wav"
+dest_files=["res://.godot/imported/Speed boost found 1.wav-318f7205e92ddd1a78392865fde68757.sample"]
 
 [params]
 

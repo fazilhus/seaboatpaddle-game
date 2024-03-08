@@ -256,3 +256,4 @@ stream = ExtResource("16_gnr4a")
 [connection signal="timeout" from="SpeedBoostTimer" to="." method="OnSpeedBoostTimerTimeout"]
 [connection signal="timeout" from="CrashCooldown" to="." method="OnCrashCooldownTimerTimeout"]
 [connection signal="area_entered" from="SeagullArea" to="." method="OnSeagullAreaEntered"]
+[connection signal="area_exited" from="SeagullArea" to="." method="OnSeagullAreaExit"]

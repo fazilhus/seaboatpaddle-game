@@ -520,11 +520,19 @@ public partial class Boat : RigidBody3D
 	{
 		if(area.IsInGroup("Goods"))
 		{
-			GD.Print("ass");
+			//GD.Print("ass");
 			seaGull.isSeagull = false;
 			seaGull.isGoods = true;
 			
 		}
 
+	}
+	public void OnSeagullAreaExit(Area3D area)
+	{
+		if(area.IsInGroup("Goods"))
+		{
+			seaGull.isSeagull = true;
+			seaGull.isGoods = false;
+		}
 	}
 }

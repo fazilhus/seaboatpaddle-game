@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c678fjuhox1q2"]
+[gd_scene load_steps=4 format=3 uid="uid://c678fjuhox1q2"]
 
 [ext_resource type="Script" path="res://scripts/LevelSelectorMenu.cs" id="1_sv6xd"]
+[ext_resource type="Texture2D" uid="uid://cgijkq0f48od7" path="res://art/Background.png" id="2_wafpn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jrsh8"]
 bg_color = Color(0.0823529, 0.686275, 0.678431, 1)
@@ -15,6 +16,10 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 10
 script = ExtResource("1_sv6xd")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_wafpn")
 
 [node name="LevelContainer" type="HBoxContainer" parent="."]
 layout_mode = 2

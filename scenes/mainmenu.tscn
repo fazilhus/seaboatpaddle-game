@@ -1,11 +1,17 @@
 [gd_scene load_steps=8 format=3 uid="uid://bl7exwjna2nwi"]
 
 [ext_resource type="Script" path="res://scripts/MainMenu.cs" id="1_3nrlc"]
+[ext_resource type="Texture2D" uid="uid://cgijkq0f48od7" path="res://art/Background.png" id="2_lbqmk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bl78w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kj62w"]
-bg_color = Color(0.419608, 0.596078, 0.917647, 1)
+bg_color = Color(0.913725, 0.352941, 0.737255, 0.356863)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_55jxm"]
 
@@ -14,13 +20,14 @@ bg_color = Color(0.952941, 0.4, 0.301961, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0agtk"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vfhfh"]
-bg_color = Color(0.635294, 0, 0.537255, 1)
-
 [node name="MainMenu" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -19.0
+offset_right = 10.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -31,32 +38,38 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 20
 script = ExtResource("1_3nrlc")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_lbqmk")
+
 [node name="HorizontalContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 
 [node name="MenuContainer" type="VBoxContainer" parent="HorizontalContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
 
 [node name="Title" type="Label" parent="HorizontalContainer/MenuContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 48
-text = "\"Insert Game Name\"
-"
+text = "Cargo Quest"
 horizontal_alignment = 1
 
 [node name="Start" type="Button" parent="HorizontalContainer/MenuContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_bottom = NodePath("../Options")
+focus_neighbor_bottom = NodePath("../Exit")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_bl78w")
 theme_override_styles/focus = SubResource("StyleBoxFlat_kj62w")
 keep_pressed_outside = true
 text = "Start Game"
 vertical_icon_alignment = 0
 
-[node name="Options" type="Button" parent="HorizontalContainer/MenuContainer"]
+[node name="Help" type="Button" parent="HorizontalContainer/MenuContainer"]
+process_mode = 4
+visible = false
 custom_minimum_size = Vector2(0, 46)
 layout_mode = 2
 size_flags_vertical = 3
@@ -64,16 +77,15 @@ focus_neighbor_top = NodePath("../Start")
 focus_neighbor_bottom = NodePath("../Exit")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_55jxm")
 theme_override_styles/focus = SubResource("StyleBoxFlat_rlxwq")
-text = "Options
-"
+text = "Help"
 
 [node name="Exit" type="Button" parent="HorizontalContainer/MenuContainer"]
 custom_minimum_size = Vector2(0, 46)
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_top = NodePath("../Options")
+focus_neighbor_top = NodePath("../Start")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_0agtk")
-theme_override_styles/focus = SubResource("StyleBoxFlat_vfhfh")
+theme_override_styles/focus = SubResource("StyleBoxFlat_kj62w")
 text = "Exit Game
 "
 

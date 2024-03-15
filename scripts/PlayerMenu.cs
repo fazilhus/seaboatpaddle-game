@@ -54,13 +54,31 @@ public partial class PlayerMenu : MarginContainer
 			playerIds[playerAmount] = playerId;
 			//GD.Print(playerIds[playerAmount]);
 			GetNode("VerticalContainer/HorizontalContainer").GetChild(playerAmount).Set("visible", true);
-			if(playerAmount==1)
+            /*if(playerAmount==1)
 			{
 				GetNode<OptionButton>("VerticalContainer/HorizontalContainer/Player1/Colors").GrabFocus();
-			}
-			playerAmount++;
-			
+			}*/
+            if (playerAmount == 0 && playerId == 0)
+            {
+				GetNode<Label>("VerticalContainer/HorizontalContainer/Player1/Label").AddThemeColorOverride("font_color", red);
+            }
+			else if(playerAmount == 1 && playerId ==0)
+			{
+                GetNode<Label>("VerticalContainer/HorizontalContainer/Player2/Label").AddThemeColorOverride("font_color", red);
 
+            }
+            else if (playerAmount == 0 && playerId == 1)
+            {
+                GetNode<Label>("VerticalContainer/HorizontalContainer/Player1/Label").AddThemeColorOverride("font_color", blue);
+            }
+            else
+            {
+                GetNode<Label>("VerticalContainer/HorizontalContainer/Player2/Label").AddThemeColorOverride("font_color", blue);
+
+            }
+            playerAmount++;
+			
+			
 			//GD.Print(playerId);
 			//GD.Print(playerAmount);
 
@@ -144,19 +162,21 @@ public partial class PlayerMenu : MarginContainer
 			if (playerAmount == 2) {
 
 				transferDataToPlayerManager();
-				GetParent<LevelManager>().loadLevelSelector();
-			}
+                GetParent<LevelManager>().loadLevel(1);
+            }
 			
 		}
 	   if(Input.IsKeyPressed(Key.F1)) 
 		{
 			transferDataToPlayerManager();
-				GetParent<LevelManager>().loadLevelSelector();
-		} 
+            GetParent<LevelManager>().loadLevel(1);
+        } 
 	}
 	void transferDataToPlayerManager()
 	{
-		PlayerManager.instance.playerColors[0]= playerColors[0];
-		PlayerManager.instance.playerColors[1] = playerColors[1];
+		//PlayerManager.instance.playerColors[0]= playerColors[0];
+		//PlayerManager.instance.playerColors[1] = playerColors[1];
+		PlayerManager.instance.playerColors[0] = red;
+		PlayerManager.instance.playerColors[1] = blue;
 	}
 }

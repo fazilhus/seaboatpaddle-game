@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://derkxbhef341u"]
+[gd_scene load_steps=9 format=3 uid="uid://derkxbhef341u"]
 
 [ext_resource type="Script" path="res://scripts/PlayerMenu.cs" id="1_pd8a7"]
+[ext_resource type="Texture2D" uid="uid://cgijkq0f48od7" path="res://art/Background.png" id="2_fb1ub"]
 
 [sub_resource type="Gradient" id="Gradient_px0fx"]
 interpolation_mode = 1
@@ -39,6 +40,10 @@ theme_override_constants/margin_bottom = 10
 script = ExtResource("1_pd8a7")
 colorPickers = [NodePath("VerticalContainer/HorizontalContainer/Player1/Colors"), NodePath("VerticalContainer/HorizontalContainer/Player2/Colors2")]
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_fb1ub")
+
 [node name="VerticalContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
@@ -63,6 +68,7 @@ theme_override_font_sizes/font_size = 50
 text = "Player1"
 
 [node name="Label2" type="Label" parent="VerticalContainer/HorizontalContainer/Player1"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 25
@@ -70,6 +76,7 @@ text = "Select color"
 horizontal_alignment = 1
 
 [node name="Colors" type="OptionButton" parent="VerticalContainer/HorizontalContainer/Player1"]
+visible = false
 layout_mode = 2
 item_count = 3
 allow_reselect = true
@@ -95,12 +102,14 @@ text = "Player2
 "
 
 [node name="Label3" type="Label" parent="VerticalContainer/HorizontalContainer/Player2"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 25
 text = "Select color"
 
 [node name="Colors2" type="OptionButton" parent="VerticalContainer/HorizontalContainer/Player2"]
+visible = false
 layout_mode = 2
 item_count = 3
 allow_reselect = true
@@ -116,7 +125,8 @@ popup/item_2/id = 2
 
 [node name="ContinueNotice" type="Label" parent="VerticalContainer"]
 layout_mode = 2
-text = "Press start to select level"
+text = "Press start to start
+"
 horizontal_alignment = 2
 
 [node name="ReturnNotice" type="Label" parent="VerticalContainer"]

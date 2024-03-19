@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bqgpgxpoqkw6w"]
+[gd_scene load_steps=41 format=3 uid="uid://bqgpgxpoqkw6w"]
 
 [ext_resource type="Script" path="res://scripts/WorldScene.cs" id="1_qx545"]
 [ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
@@ -42,6 +42,9 @@ bg_color = Color(0, 0.627451, 0.376471, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ph5a"]
 bg_color = Color(0.705882, 0.172549, 0.0235294, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ln74"]
+bg_color = Color(0, 0, 0, 0.470588)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ik3mg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -188,6 +191,48 @@ text = "Restart"
 visible = false
 layout_mode = 2
 focus_neighbor_top = NodePath("../RestartButton")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_6ph5a")
+text = "Quit
+"
+
+[node name="Pausescreen" type="Panel" parent="GameCamera/CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6ln74")
+
+[node name="Container" type="VBoxContainer" parent="GameCamera/CanvasLayer/Pausescreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Label" type="Label" parent="GameCamera/CanvasLayer/Pausescreen/Container"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 70
+text = "Game Paused
+"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="GameCamera/CanvasLayer/Pausescreen/Container"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../QuitButton")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_n0yf5")
+text = "Resume"
+
+[node name="QuitButton" type="Button" parent="GameCamera/CanvasLayer/Pausescreen/Container"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../ResumeButton")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = SubResource("StyleBoxFlat_6ph5a")
 text = "Quit
@@ -498,6 +543,7 @@ collision_mask = 3
 [node name="TextBox" parent="." instance=ExtResource("13_cald3")]
 
 [node name="adventure" type="AudioStreamPlayer" parent="."]
+process_mode = 1
 stream = ExtResource("22_f6vfe")
 volume_db = -20.0
 
@@ -507,6 +553,8 @@ transform = Transform3D(-0.254568, 0, 0.967055, 0, 1, 0, -0.967055, 0, -0.254568
 [connection signal="CountdownTimerTimeout" from="GameCamera" to="." method="OnCountdownTimerTimeout"]
 [connection signal="pressed" from="GameCamera/CanvasLayer/GameOverScreen/Container/RestartButton" to="." method="RetryButtonPressed"]
 [connection signal="pressed" from="GameCamera/CanvasLayer/GameOverScreen/Container/QuitButton" to="." method="QuitButtonPressed"]
+[connection signal="pressed" from="GameCamera/CanvasLayer/Pausescreen/Container/ResumeButton" to="." method="ResumeButtonPressed"]
+[connection signal="pressed" from="GameCamera/CanvasLayer/Pausescreen/Container/QuitButton" to="." method="QuitButtonPressed"]
 [connection signal="timeout" from="GameCamera/countdownTimer" to="GameCamera" method="OnCountdownTimerTimeout"]
 [connection signal="DamageEffect" from="Boat" to="." method="OnDamageEffect"]
 [connection signal="NoBoatHealth" from="Boat" to="." method="OnNoBoatHealth"]

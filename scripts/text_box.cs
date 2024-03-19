@@ -72,9 +72,9 @@ Crew:(shouting) AYE AYE!!!";
 			HideTextBox();
 		}
 		//Adding the posibility to press start to skip intro-text
-		if (Input.IsActionPressed("ui_continue")) {
+		/*if (Input.IsActionPressed("ui_continue")) {
 			HideTextBox();
-		}
+		}*/
 
 		if (!isAdding && (idx < lines.Length)) {
 			AddText(lines[idx]);

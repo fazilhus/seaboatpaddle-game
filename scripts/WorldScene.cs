@@ -138,4 +138,26 @@ public partial class WorldScene : Node3D
         GetTree().Paused = false;
         GetParent<LevelManager>().loadLevel(level);
     }
+    public void ResumeButtonPressed()
+    {
+        GetTree().Paused = false;
+        GetNode<Panel>("GameCamera/CanvasLayer/Pausescreen").Visible = false;
+        
+    }
+    public void Pause()
+    {
+        GetTree().Paused = true;
+        
+        GetNode<Panel>("GameCamera/CanvasLayer/Pausescreen").Visible = true;
+        GetNode<Button>("GameCamera/CanvasLayer/Pausescreen/Container/ResumeButton").GrabFocus();
+       
+    }
+    public override void _UnhandledInput(InputEvent @event)
+    {
+        if(@event.IsActionPressed("ui_continue"))
+        {
+            Pause();
+        }
+    }
 }
+

@@ -33,10 +33,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 10
 script = ExtResource("1_pd8a7")
 colorPickers = [NodePath("VerticalContainer/HorizontalContainer/Player1/Colors"), NodePath("VerticalContainer/HorizontalContainer/Player2/Colors2")]
 
@@ -46,6 +42,7 @@ texture = ExtResource("2_fb1ub")
 
 [node name="VerticalContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
+theme_override_constants/separation = 5
 
 [node name="JoinNotice" type="Label" parent="VerticalContainer"]
 layout_mode = 2

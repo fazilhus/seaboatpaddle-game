@@ -54,29 +54,29 @@ public partial class PlayerMenu : MarginContainer
 			playerIds[playerAmount] = playerId;
 			//GD.Print(playerIds[playerAmount]);
 			GetNode("VerticalContainer/HorizontalContainer").GetChild(playerAmount).Set("visible", true);
-            /*if(playerAmount==1)
+			/*if(playerAmount==1)
 			{
 				GetNode<OptionButton>("VerticalContainer/HorizontalContainer/Player1/Colors").GrabFocus();
 			}*/
-            if (playerAmount == 0 && playerId == 0)
-            {
+			if (playerAmount == 0 && playerId == 0)
+			{
 				GetNode<Label>("VerticalContainer/HorizontalContainer/Player1/Label").AddThemeColorOverride("font_color", red);
-            }
+			}
 			else if(playerAmount == 1 && playerId ==0)
 			{
-                GetNode<Label>("VerticalContainer/HorizontalContainer/Player2/Label").AddThemeColorOverride("font_color", red);
+				GetNode<Label>("VerticalContainer/HorizontalContainer/Player2/Label").AddThemeColorOverride("font_color", red);
 
-            }
-            else if (playerAmount == 0 && playerId == 1)
-            {
-                GetNode<Label>("VerticalContainer/HorizontalContainer/Player1/Label").AddThemeColorOverride("font_color", blue);
-            }
-            else
-            {
-                GetNode<Label>("VerticalContainer/HorizontalContainer/Player2/Label").AddThemeColorOverride("font_color", blue);
+			}
+			else if (playerAmount == 0 && playerId == 1)
+			{
+				GetNode<Label>("VerticalContainer/HorizontalContainer/Player1/Label").AddThemeColorOverride("font_color", blue);
+			}
+			else
+			{
+				GetNode<Label>("VerticalContainer/HorizontalContainer/Player2/Label").AddThemeColorOverride("font_color", blue);
 
-            }
-            playerAmount++;
+			}
+			playerAmount++;
 			
 			
 			//GD.Print(playerId);
@@ -162,15 +162,15 @@ public partial class PlayerMenu : MarginContainer
 			if (playerAmount == 2) {
 
 				transferDataToPlayerManager();
-                GetParent<LevelManager>().loadLevel(1);
-            }
+				GetParent<LevelManager>().loadLevel(1);
+			}
 			
 		}
 	   if(Input.IsKeyPressed(Key.F1)) 
 		{
 			transferDataToPlayerManager();
-            GetParent<LevelManager>().loadLevel(1);
-        } 
+			GetParent<LevelManager>().loadLevel(1);
+		} 
 	}
 	void transferDataToPlayerManager()
 	{

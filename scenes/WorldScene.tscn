@@ -259,7 +259,7 @@ texture = ExtResource("9_g1m41")
 
 [node name="countdownTimer" type="Timer" parent="GameCamera"]
 process_mode = 1
-wait_time = 300.0
+wait_time = 600.0
 one_shot = true
 
 [node name="ClockSound" type="AudioStreamPlayer" parent="GameCamera"]

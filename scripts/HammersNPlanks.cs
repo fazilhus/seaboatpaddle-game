@@ -27,7 +27,7 @@ public partial class HammersNPlanks : RigidBody3D
 			QueueFree();
 			amountOfRepairKits += 1;
 			boat.ActivateRepairKit(amountOfRepairKits);
-			GameCamera.LabelModifiers.Text ="Repair kit found, press B to use";
+			//GameCamera.LabelModifiers.Text ="Repair kit found, press B to use";
 			GameCamera.RepairKitModifierLabel.Text = "";
 			GameCamera.RepairKitModifierLabel.Text += amountOfRepairKits;
 		}

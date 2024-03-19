@@ -25,7 +25,7 @@ public partial class SuperFan : RigidBody3D
 			QueueFree();
 			amountOfSpeedBoosts += 1;
 			boat.ActivateSpeedBoost(amountOfSpeedBoosts);
-			GameCamera.LabelModifiers.Text ="Speed Boost found, press A to use";
+			//GameCamera.LabelModifiers.Text ="Speed Boost found, press A to use";
 			GameCamera.SpeedBoostModifierLabel.Text = "";
 			GameCamera.SpeedBoostModifierLabel.Text += amountOfSpeedBoosts;
 		}

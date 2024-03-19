@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/WorldScene.cs" id="1_qx545"]
 [ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
-[ext_resource type="StyleBox" path="res://DeathStyleBox.tres" id="2_5ftvs"]
+[ext_resource type="StyleBox" uid="uid://co6ucbymh87ab" path="res://DeathStyleBox.tres" id="2_5ftvs"]
 [ext_resource type="PackedScene" uid="uid://bro3rrf66ro1h" path="res://scenes/boat.tscn" id="2_w1wc2"]
 [ext_resource type="PackedScene" uid="uid://cg547d01tyvv6" path="res://scenes/Healthbar.tscn" id="3_dhanq"]
 [ext_resource type="Theme" uid="uid://cfgkhw82eggsb" path="res://Themes/TextTheme.tres" id="3_e4ovv"]
@@ -16,13 +16,13 @@
 [ext_resource type="PackedScene" uid="uid://bdohepiggfmms" path="res://scenes/map.tscn" id="8_lgk5l"]
 [ext_resource type="Texture2D" uid="uid://duqa4bs21hbfw" path="res://pngtree-skull-icon-vector-logo-template-png-image_5359438.png" id="8_ok64f"]
 [ext_resource type="Texture2D" uid="uid://bhalj48rdov26" path="res://art/genericItem_color_010.png" id="9_g1m41"]
-[ext_resource type="AudioStream" uid="uid://c0l51018flq2l" path="res://Sounds/Clocksound.mp3" id="10_prmta"]
+[ext_resource type="AudioStream" uid="uid://c0l51018flq2l" path="res://sounds/Clocksound.mp3" id="10_prmta"]
 [ext_resource type="PackedScene" uid="uid://5scllsnkmpth" path="res://scenes/streams.tscn" id="11_8xjfh"]
 [ext_resource type="PackedScene" uid="uid://b55sx0mje1j5w" path="res://scenes/shark.tscn" id="12_2bx8v"]
 [ext_resource type="PackedScene" uid="uid://db44dloe5xeo2" path="res://scenes/text_box.tscn" id="13_cald3"]
 [ext_resource type="PackedScene" uid="uid://ducw5sm3i87kh" path="res://scenes/Goods.tscn" id="13_yi77v"]
 [ext_resource type="PackedScene" uid="uid://cqhp0jks2ivtp" path="res://scenes/starting_location.tscn" id="14_qesc2"]
-[ext_resource type="AudioStream" uid="uid://b5fhytjwowqgu" path="res://Sounds/pirates-5533.mp3" id="22_f6vfe"]
+[ext_resource type="AudioStream" uid="uid://b5fhytjwowqgu" path="res://sounds/pirates-5533.mp3" id="22_f6vfe"]
 [ext_resource type="PackedScene" uid="uid://ib7vsb4wk3m5" path="res://scenes/seagull.tscn" id="24_j0ah0"]
 [ext_resource type="PackedScene" uid="uid://bjujslla0wbta" path="res://scenes/hammers_n_planks.tscn" id="24_yxdo2"]
 [ext_resource type="PackedScene" uid="uid://b5q85gk2bf4uw" path="res://scenes/super_fan.tscn" id="25_0m82c"]
@@ -328,11 +328,12 @@ transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -39.8521, 0, -9.0806)
 [node name="Vortex3D2" parent="." instance=ExtResource("4_5wau7")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.26967, 0, 70.6885)
 
-[node name="Boat" parent="." node_paths=PackedStringArray("water", "goods_node") instance=ExtResource("2_w1wc2")]
+[node name="Boat" parent="." node_paths=PackedStringArray("water", "seaGull", "goods_node") instance=ExtResource("2_w1wc2")]
 transform = Transform3D(-0.304715, 0, 0.952443, 0, 1, 0, -0.952443, 0, -0.304715, -81.5275, 0.340137, 27.0741)
 sideways_force_ratio = 0.45
 forward_force_ratio = 50.0
 water = NodePath("../WaterPlane")
+seaGull = NodePath("../Seagull")
 goods_node = NodePath("../Goods")
 
 [node name="Node3D" type="Node3D" parent="Boat"]
@@ -394,29 +395,37 @@ water = NodePath("../../WaterPlane")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1779, 0, -0.654328)
 water = NodePath("../../WaterPlane")
 
-[node name="Streams" parent="." instance=ExtResource("11_8xjfh")]
+[node name="Streams" parent="." node_paths=PackedStringArray("boat") instance=ExtResource("11_8xjfh")]
 transform = Transform3D(0.140798, 0, -0.990038, 0, 1, 0, 0.990038, 0, 0.140798, -79.9296, -5.13559, -65.5987)
+boat = NodePath("../Boat")
 
-[node name="Streams2" parent="." instance=ExtResource("11_8xjfh")]
+[node name="Streams2" parent="." node_paths=PackedStringArray("boat") instance=ExtResource("11_8xjfh")]
 transform = Transform3D(0.354666, 0, -0.934993, 0, 1, 0, 0.934993, 0, 0.354666, -30.9693, -5.13558, -78.4397)
+boat = NodePath("../Boat")
 
-[node name="Streams3" parent="." instance=ExtResource("11_8xjfh")]
+[node name="Streams3" parent="." node_paths=PackedStringArray("boat") instance=ExtResource("11_8xjfh")]
 transform = Transform3D(0.537859, 0, -0.843035, 0, 1, 0, 0.843035, 0, 0.537859, 0.0225334, -5.13558, -95.4583)
+boat = NodePath("../Boat")
 
-[node name="Streams4" parent="." instance=ExtResource("11_8xjfh")]
+[node name="Streams4" parent="." node_paths=PackedStringArray("boat") instance=ExtResource("11_8xjfh")]
 transform = Transform3D(-0.99996, 0, 0.00895327, 0, 1, 0, -0.00895327, 0, -0.99996, 59.8686, -5.13558, 101.293)
+boat = NodePath("../Boat")
 
-[node name="Streams5" parent="." instance=ExtResource("11_8xjfh")]
+[node name="Streams5" parent="." node_paths=PackedStringArray("boat") instance=ExtResource("11_8xjfh")]
 transform = Transform3D(-0.981674, 0, 0.190569, 0, 1, 0, -0.190569, 0, -0.981674, 63.3421, -5.13558, 65.1856)
+boat = NodePath("../Boat")
 
-[node name="Streams6" parent="." instance=ExtResource("11_8xjfh")]
+[node name="Streams6" parent="." node_paths=PackedStringArray("boat") instance=ExtResource("11_8xjfh")]
 transform = Transform3D(-0.98184, 0, -0.189713, 0, 1, 0, 0.189713, 0, -0.98184, 63.7149, -5.13558, 27.7945)
+boat = NodePath("../Boat")
 
-[node name="Streams7" parent="." instance=ExtResource("11_8xjfh")]
+[node name="Streams7" parent="." node_paths=PackedStringArray("boat") instance=ExtResource("11_8xjfh")]
 transform = Transform3D(-0.912006, 0, 0.410178, 0, 1, 0, -0.410178, 0, -0.912006, 62.391, -5.13558, -5.57535)
+boat = NodePath("../Boat")
 
-[node name="Streams8" parent="." instance=ExtResource("11_8xjfh")]
+[node name="Streams8" parent="." node_paths=PackedStringArray("boat") instance=ExtResource("11_8xjfh")]
 transform = Transform3D(-0.57037, 0, 0.821388, 0, 1, 0, -0.821388, 0, -0.57037, 79.002, -5.13558, -34.0313)
+boat = NodePath("../Boat")
 
 [node name="Shark1" parent="." node_paths=PackedStringArray("boat", "path") instance=ExtResource("12_2bx8v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.2829, 7.62939e-06, 46.1496)
@@ -507,13 +516,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.1682, 0.159423, 69.5701)
 water = NodePath("../../WaterPlane")
 
 [node name="RepairKit" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.02211, 0)
 
 [node name="HammersNPlanks" parent="RepairKit" node_paths=PackedStringArray("boat") instance=ExtResource("24_yxdo2")]
-transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, -17.7868, -1.14441e-05, 76.794)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7868, -1.14441e-05, 76.794)
 boat = NodePath("../../Boat")
 
 [node name="HammersNPlanks2" parent="RepairKit" node_paths=PackedStringArray("boat") instance=ExtResource("24_yxdo2")]
-transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 79.7985, -1.14441e-05, 6.45962)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.7985, -1.14441e-05, 6.45962)
 boat = NodePath("../../Boat")
 
 [node name="SpeedBoost" type="Node3D" parent="."]

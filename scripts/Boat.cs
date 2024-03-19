@@ -379,6 +379,7 @@ public partial class Boat : RigidBody3D
                 goods.Disable();
                 goods.Reparent(_goods_stack, false);
                 goods.Position = new Vector3(0, count, 0);
+                goods.Rotation = new Vector3(0, 0, 0);
                 seaGull.isSeagull = true;
                 seaGull.isGoods = false;
             }

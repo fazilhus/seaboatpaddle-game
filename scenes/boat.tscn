@@ -254,6 +254,7 @@ stream = ExtResource("13_ein40")
 [connection signal="area_entered" from="Area3DTriggerBoat" to="." method="OnArea3dTriggerBoatAreaEntered"]
 [connection signal="area_exited" from="Area3DTriggerBoat" to="." method="OnBoatArea3dBodyExited"]
 [connection signal="body_entered" from="Area3DTriggerBoat" to="." method="OnBodyEntered"]
+[connection signal="DamageTaken" from="HealthComponent" to="." method="DamageTaken"]
 [connection signal="NoHealth" from="HealthComponent" to="." method="OnHealthComponentNoHealthEvent"]
 [connection signal="timeout" from="VortexDamageTimer" to="." method="OnVortexDamageTimerTimeout"]
 [connection signal="timeout" from="ControlInversionTimer" to="." method="OnControlInversionTimerTimeout"]

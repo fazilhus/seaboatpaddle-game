@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bl7exwjna2nwi"]
 
 [ext_resource type="Script" path="res://scripts/MainMenu.cs" id="1_3nrlc"]
-[ext_resource type="Texture2D" uid="uid://cgijkq0f48od7" path="res://art/Background.png" id="2_lbqmk"]
+[ext_resource type="Texture2D" path="res://art/Background.png" id="2_lbqmk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bl78w"]
 

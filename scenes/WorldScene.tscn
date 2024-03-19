@@ -1,7 +1,8 @@
-[gd_scene load_steps=34 format=3 uid="uid://bqgpgxpoqkw6w"]
+[gd_scene load_steps=40 format=3 uid="uid://bqgpgxpoqkw6w"]
 
 [ext_resource type="Script" path="res://scripts/WorldScene.cs" id="1_qx545"]
 [ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
+[ext_resource type="StyleBox" path="res://DeathStyleBox.tres" id="2_5ftvs"]
 [ext_resource type="PackedScene" uid="uid://bro3rrf66ro1h" path="res://scenes/boat.tscn" id="2_w1wc2"]
 [ext_resource type="PackedScene" uid="uid://cg547d01tyvv6" path="res://scenes/Healthbar.tscn" id="3_dhanq"]
 [ext_resource type="Theme" uid="uid://cfgkhw82eggsb" path="res://Themes/TextTheme.tres" id="3_e4ovv"]
@@ -13,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://beoci1a615ffi" path="res://scenes/sea_mine.tscn" id="7_sombh"]
 [ext_resource type="Texture2D" uid="uid://ci1vt5wu0d6he" path="res://art/Engineer_24.png" id="7_u1vbh"]
 [ext_resource type="PackedScene" uid="uid://bdohepiggfmms" path="res://scenes/map.tscn" id="8_lgk5l"]
+[ext_resource type="Texture2D" uid="uid://duqa4bs21hbfw" path="res://pngtree-skull-icon-vector-logo-template-png-image_5359438.png" id="8_ok64f"]
 [ext_resource type="Texture2D" uid="uid://bhalj48rdov26" path="res://art/genericItem_color_010.png" id="9_g1m41"]
 [ext_resource type="AudioStream" uid="uid://c0l51018flq2l" path="res://Sounds/Clocksound.mp3" id="10_prmta"]
 [ext_resource type="PackedScene" uid="uid://5scllsnkmpth" path="res://scenes/streams.tscn" id="11_8xjfh"]
@@ -25,6 +27,15 @@
 [ext_resource type="PackedScene" uid="uid://bjujslla0wbta" path="res://scenes/hammers_n_planks.tscn" id="24_yxdo2"]
 [ext_resource type="PackedScene" uid="uid://b5q85gk2bf4uw" path="res://scenes/super_fan.tscn" id="25_0m82c"]
 [ext_resource type="PackedScene" uid="uid://tukm4edn02s2" path="res://scenes/clock.tscn" id="26_5i412"]
+
+[sub_resource type="Gradient" id="Gradient_djovf"]
+offsets = PackedFloat32Array(0.0126984)
+colors = PackedColorArray(0.988235, 0.0862745, 0.14902, 0.121569)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nduyg"]
+gradient = SubResource("Gradient_djovf")
+fill_from = Vector2(1, 0.441595)
+fill_to = Vector2(0.917379, 0.441595)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0yf5"]
 bg_color = Color(0, 0.627451, 0.376471, 1)
@@ -45,6 +56,18 @@ sky = SubResource("Sky_8v34c")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5qxgf"]
+render_priority = 50
+transparency = 1
+albedo_texture = ExtResource("8_ok64f")
+metallic = 0.85
+emission = Color(0.121569, 0.121569, 0.121569, 1)
+emission_energy_multiplier = 0.0
+texture_repeat = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bsmcj"]
+material = SubResource("StandardMaterial3D_5qxgf")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_m45on"]
 size = Vector3(100, 10, 1)
 
@@ -59,6 +82,7 @@ process_mode = 3
 script = ExtResource("1_qx545")
 cargoTracker = NodePath("GameCamera/CanvasLayer/ObjectiveLabel")
 objectiveTracker = NodePath("GameCamera/CanvasLayer/DeliveredGoods")
+deathStyleBox = ExtResource("2_5ftvs")
 
 [node name="GameCamera" parent="." node_paths=PackedStringArray("countdownTimer", "Boat") instance=ExtResource("5_rlqlm")]
 countdownTimer = NodePath("countdownTimer")
@@ -67,18 +91,14 @@ position_offset = Vector3(0, 17, -12)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="GameCamera"]
 
-[node name="LabelPlayers" type="Label" parent="GameCamera/CanvasLayer"]
-offset_left = 14.0
-offset_top = 2.0
-offset_right = 54.0
-offset_bottom = 25.0
-
-[node name="LabelHealth" type="Label" parent="GameCamera/CanvasLayer"]
+[node name="DamageFlash" type="TextureRect" parent="GameCamera/CanvasLayer"]
 visible = false
-offset_right = 180.0
-offset_bottom = 34.0
-theme_override_font_sizes/font_size = 24
-text = "	"
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_nduyg")
 
 [node name="LabelTime" type="Label" parent="GameCamera/CanvasLayer"]
 anchors_preset = 3
@@ -122,22 +142,6 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Delivered "
 
-[node name="LabelModifiers" type="Label" parent="GameCamera/CanvasLayer"]
-visible = false
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -41.0
-offset_top = -44.0
-offset_right = 50.0
-offset_bottom = -2.0
-grow_horizontal = 2
-grow_vertical = 0
-theme = ExtResource("3_e4ovv")
-text = "Power"
-
 [node name="GameOverScreen" type="Panel" parent="GameCamera/CanvasLayer"]
 visible = false
 anchors_preset = 15
@@ -145,56 +149,44 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_5ftvs")
 
-[node name="Label" type="Label" parent="GameCamera/CanvasLayer/GameOverScreen"]
+[node name="Container" type="VBoxContainer" parent="GameCamera/CanvasLayer/GameOverScreen"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.107
-anchor_right = 0.5
-anchor_bottom = 0.107
-offset_left = -147.0
-offset_top = 8.66399
-offset_right = 147.0
-offset_bottom = 117.664
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Label" type="Label" parent="GameCamera/CanvasLayer/GameOverScreen/Container"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 70
-text = "GAME OVER
+text = "YOU DIED
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RestartButton" type="Button" parent="GameCamera/CanvasLayer/GameOverScreen"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -187.0
-offset_top = -109.0
-offset_right = 196.0
-offset_bottom = -15.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="DeathExplenation" type="Label" parent="GameCamera/CanvasLayer/GameOverScreen/Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Cause of Death: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="GameCamera/CanvasLayer/GameOverScreen/Container"]
+visible = false
+layout_mode = 2
 focus_neighbor_bottom = NodePath("../QuitButton")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = SubResource("StyleBoxFlat_n0yf5")
 text = "Restart"
 
-[node name="QuitButton" type="Button" parent="GameCamera/CanvasLayer/GameOverScreen"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -188.0
-offset_top = 23.0
-offset_right = 198.0
-offset_bottom = 100.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="QuitButton" type="Button" parent="GameCamera/CanvasLayer/GameOverScreen/Container"]
+visible = false
+layout_mode = 2
 focus_neighbor_top = NodePath("../RestartButton")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = SubResource("StyleBoxFlat_6ph5a")
@@ -292,11 +284,19 @@ transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -39.8521, 0, -9.0806)
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.26967, 0, 70.6885)
 
 [node name="Boat" parent="." node_paths=PackedStringArray("water", "goods_node") instance=ExtResource("2_w1wc2")]
-transform = Transform3D(-0.304715, 0, 0.952443, 0, 1, 0, -0.952443, 0, -0.304715, -75.115, 0.340137, 20.4466)
+transform = Transform3D(-0.304715, 0, 0.952443, 0, 1, 0, -0.952443, 0, -0.304715, 28.9529, 0.340137, -28.7573)
 sideways_force_ratio = 0.45
 forward_force_ratio = 50.0
 water = NodePath("../WaterPlane")
 goods_node = NodePath("../Goods")
+
+[node name="Node3D" type="Node3D" parent="Boat"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 2.93761, 0)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boat/Node3D"]
+transform = Transform3D(-0.999679, 0, -0.0253569, 0, 1, 0, 0.0253569, 0, -0.999679, 0.21528, 0, -0.10414)
+mesh = SubResource("PlaneMesh_bsmcj")
 
 [node name="Map" parent="." instance=ExtResource("8_lgk5l")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -461,48 +461,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.1682, 0.159423, 69.5701)
 water = NodePath("../../WaterPlane")
 
 [node name="RepairKit" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="HammersNPlanks" parent="RepairKit" node_paths=PackedStringArray("boat") instance=ExtResource("24_yxdo2")]
-transform = Transform3D(0.860742, 0, -0.509041, 0, 1, 0, 0.509041, 0, 0.860742, 42.272, -0.0511208, 77.3508)
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, -17.7868, -1.14441e-05, 76.794)
 boat = NodePath("../../Boat")
 
 [node name="HammersNPlanks2" parent="RepairKit" node_paths=PackedStringArray("boat") instance=ExtResource("24_yxdo2")]
-transform = Transform3D(0.860742, 0, -0.509041, 0, 1, 0, 0.509041, 0, 0.860742, -7.40895, -0.0511208, -24.2406)
-boat = NodePath("../../Boat")
-
-[node name="HammersNPlanks3" parent="RepairKit" node_paths=PackedStringArray("boat") instance=ExtResource("24_yxdo2")]
-transform = Transform3D(0.860742, 0, -0.509041, 0, 1, 0, 0.509041, 0, 0.860742, 77.7655, -0.0511208, 6.54268)
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 79.7985, -1.14441e-05, 6.45962)
 boat = NodePath("../../Boat")
 
 [node name="SpeedBoost" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="SuperFan" parent="SpeedBoost" node_paths=PackedStringArray("boat") instance=ExtResource("25_0m82c")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -40.9594, 0.00274813, 12.3953)
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, -26.398, 0.00274813, 31.9396)
 boat = NodePath("../../Boat")
 
 [node name="SuperFan2" parent="SpeedBoost" node_paths=PackedStringArray("boat") instance=ExtResource("25_0m82c")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 42.3108, 0.00274813, -67.6628)
-boat = NodePath("../../Boat")
-
-[node name="SuperFan3" parent="SpeedBoost" node_paths=PackedStringArray("boat") instance=ExtResource("25_0m82c")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.53214, 0.00274813, 84.3706)
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 42.3108, 0.00274813, -67.6628)
 boat = NodePath("../../Boat")
 
 [node name="ExtraTime" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.67317, 0)
 
 [node name="Clock" parent="ExtraTime" instance=ExtResource("26_5i412")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -77.6512, 3.04134, -49.2923)
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, -75.7587, 3.04134, -41.8749)
 collision_mask = 3
 
 [node name="Clock3" parent="ExtraTime" instance=ExtResource("26_5i412")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35.5879, 3.04134, -29.6267)
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 35.5879, 3.04134, -29.6267)
 collision_mask = 3
 
 [node name="Clock2" parent="ExtraTime" instance=ExtResource("26_5i412")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 23.1804, 3.04134, 27.1906)
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 23.1804, 3.04134, 27.1906)
 collision_mask = 3
 
 [node name="TextBox" parent="." instance=ExtResource("13_cald3")]
@@ -515,9 +505,10 @@ volume_db = -20.0
 transform = Transform3D(-0.254568, 0, 0.967055, 0, 1, 0, -0.967055, 0, -0.254568, -83.7699, 6.32982, 29.4439)
 
 [connection signal="CountdownTimerTimeout" from="GameCamera" to="." method="OnCountdownTimerTimeout"]
-[connection signal="pressed" from="GameCamera/CanvasLayer/GameOverScreen/RestartButton" to="." method="RetryButtonPressed"]
-[connection signal="pressed" from="GameCamera/CanvasLayer/GameOverScreen/QuitButton" to="." method="QuitButtonPressed"]
+[connection signal="pressed" from="GameCamera/CanvasLayer/GameOverScreen/Container/RestartButton" to="." method="RetryButtonPressed"]
+[connection signal="pressed" from="GameCamera/CanvasLayer/GameOverScreen/Container/QuitButton" to="." method="QuitButtonPressed"]
 [connection signal="timeout" from="GameCamera/countdownTimer" to="GameCamera" method="OnCountdownTimerTimeout"]
+[connection signal="DamageEffect" from="Boat" to="." method="OnDamageEffect"]
 [connection signal="NoBoatHealth" from="Boat" to="." method="OnNoBoatHealth"]
 [connection signal="ObjectivePickup" from="Boat" to="." method="OnObjectivePickup"]
 [connection signal="OnCrateUnload" from="Map/StartingLocation" to="." method="OnDelivery"]

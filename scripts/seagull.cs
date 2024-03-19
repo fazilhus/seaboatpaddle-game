@@ -32,7 +32,7 @@ public partial class seagull : CharacterBody3D
 			float distance = boatCordinate.DistanceTo(this.GlobalPosition);
 			GlobalPosition += Transform.Basis.Z * 10 *(float)delta;
 			Quaternion += Quaternion.Slerp(quaternion, (float)delta*5);
-			GD.Print("isSealgull", seagullSound.Playing);
+			//GD.Print("isSealgull", seagullSound.Playing);
 			seagullSound.PitchScale = 1.0f;
 			/*if(seagullSound.PitchScale <= distance/10)
 						{
@@ -65,7 +65,7 @@ public partial class seagull : CharacterBody3D
 						float distance = goodsCordinate.DistanceTo(this.GlobalPosition);
 						GlobalPosition += Transform.Basis.Z *  5 * (float)delta;
 						Quaternion += Quaternion.Slerp(quaternion, (float)delta*15.0f);
-						GD.Print("isGoods", seagullSound.Playing);
+						//GD.Print("isGoods", seagullSound.Playing);
 						//GD.Print(distance);
 						if(seagullSound.PitchScale <= distance/10)
 						{

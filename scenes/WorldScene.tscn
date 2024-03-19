@@ -452,6 +452,7 @@ transform = Transform3D(0.938155, 0, 0.346215, 0, 1, 0, -0.346215, 0, 0.938155, 
 shape = SubResource("BoxShape3D_hg366")
 
 [node name="Goods" type="Node3D" parent="."]
+process_mode = 1
 
 [node name="Goods" parent="Goods" node_paths=PackedStringArray("water") instance=ExtResource("13_yi77v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.1588, 0.159419, 24.0474)

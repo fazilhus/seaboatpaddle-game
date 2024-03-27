@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bro3rrf66ro1h"]
+[gd_scene load_steps=27 format=3 uid="uid://bro3rrf66ro1h"]
 
 [ext_resource type="Script" path="res://scripts/Boat.cs" id="1_tk55w"]
 [ext_resource type="PackedScene" uid="uid://catt7cfnf4pd1" path="res://CustonAssets/paddle.glb" id="2_32au7"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://bqt1c56p1o3t3" path="res://sounds/Breaksounds/bfh1_wood_hit_02.ogg" id="10_b0pnb"]
 [ext_resource type="AudioStream" uid="uid://d2r8eneuqn2g7" path="res://sounds/106481__robinhood76__02052-wooden-hammering.wav" id="11_slq5g"]
 [ext_resource type="AudioStream" uid="uid://cyhnavjqtgxn1" path="res://sounds/Speed boost found 1.wav" id="13_ein40"]
+[ext_resource type="PackedScene" uid="uid://2pis6ghh3mv0" path="res://scenes/particle_effect_death.tscn" id="14_j61pp"]
 [ext_resource type="AudioStream" uid="uid://7hkj3amg11xp" path="res://sounds/Repair kit found 1.wav" id="16_gnr4a"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7j168"]
@@ -249,6 +250,9 @@ stream = ExtResource("16_gnr4a")
 
 [node name="SpeedBoostFound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_ein40")
+
+[node name="ParticleEffectDeath" parent="." instance=ExtResource("14_j61pp")]
+transform = Transform3D(-1.48, 0, 0, 0, -1.48, 0, 0, 0, -1.48, 0, 0, 0)
 
 [connection signal="area_entered" from="Area3DTriggerGoods" to="." method="OnArea3DTriggerGoodsEntered"]
 [connection signal="area_entered" from="Area3DTriggerBoat" to="." method="OnArea3dTriggerBoatAreaEntered"]

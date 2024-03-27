@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/seagull.cs" id="1_1q5ea"]
 [ext_resource type="Texture2D" uid="uid://dj3fmqqm1ap6l" path="res://scripts/birdflap1_bsptD.jpg" id="2_aj7qm"]
-[ext_resource type="AudioStream" uid="uid://dy02vsblcoiov" path="res://Sounds/586831__speakingmusic__seagull.wav" id="3_mgrbx"]
+[ext_resource type="AudioStream" uid="uid://dy02vsblcoiov" path="res://sounds/586831__speakingmusic__seagull.wav" id="3_mgrbx"]
 [ext_resource type="Script" path="res://scripts/SeaGullSound.cs" id="4_jck1g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rb0el"]

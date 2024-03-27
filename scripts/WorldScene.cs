@@ -18,6 +18,8 @@ public partial class WorldScene : Node3D
     Label objectiveTracker;
     [Export]
     StyleBoxFlat deathStyleBox;
+    [Export]
+    GpuParticles3D boatDeathParticle;
     byte styleBoxTransparency = 0;
     bool transperancyReached = false;
     int transperancyTimer = 0;
@@ -25,6 +27,7 @@ public partial class WorldScene : Node3D
     int damageEffectTimer = 0;
     public override void _Ready()
     {
+        boatDeathParticle = GetNode<Boat>("Boat").GetNode<Node3D>("ParticleEffectDeath").GetChild<GpuParticles3D>(0);
         cargoString = cargoTracker.Text;
         objectiveString = objectiveTracker.Text;
         maxObjectiveAmount = GetNode("Goods").GetChildCount();
@@ -84,6 +87,7 @@ public partial class WorldScene : Node3D
         GetNode<Panel>("GameCamera/CanvasLayer/GameOverScreen").Visible = true;
         string deathText = GetNode<Label>("GameCamera/CanvasLayer/GameOverScreen/Container/DeathExplenation").Text;
         GetNode<Label>("GameCamera/CanvasLayer/GameOverScreen/Container/DeathExplenation").Text = deathText + " " + cause;
+        boatDeathParticle.Emitting = true;
         GetTree().Paused = true;
         GameCamera.ResetSway();
         Modifiers.ResetModifiers();

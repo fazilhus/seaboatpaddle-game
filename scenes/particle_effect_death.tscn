@@ -22,8 +22,12 @@ linear_accel_max = 5.5
 [node name="ParticleEffectDeath" type="Node3D"]
 
 [node name="Ghost" type="GPUParticles3D" parent="."]
+process_mode = 3
+cast_shadow = 0
+emitting = false
 amount = 1
 sub_emitter = NodePath(".")
 lifetime = 5.0
+one_shot = true
 process_material = SubResource("ParticleProcessMaterial_4dqny")
 draw_pass_1 = ExtResource("1_0xf16")

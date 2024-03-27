@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/WorldScene.cs" id="1_qx545"]
 [ext_resource type="PackedScene" uid="uid://c2vect7ivwk5t" path="res://scenes/WaterPlane.tscn" id="1_v56uw"]
-[ext_resource type="StyleBox" uid="uid://co6ucbymh87ab" path="res://DeathStyleBox.tres" id="2_5ftvs"]
+[ext_resource type="StyleBox" path="res://DeathStyleBox.tres" id="2_5ftvs"]
 [ext_resource type="PackedScene" uid="uid://bro3rrf66ro1h" path="res://scenes/boat.tscn" id="2_w1wc2"]
 [ext_resource type="PackedScene" uid="uid://cg547d01tyvv6" path="res://scenes/Healthbar.tscn" id="3_dhanq"]
 [ext_resource type="Theme" uid="uid://cfgkhw82eggsb" path="res://Themes/TextTheme.tres" id="3_e4ovv"]

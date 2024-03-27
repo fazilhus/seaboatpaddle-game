@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://derkxbhef341u"]
 
 [ext_resource type="Script" path="res://scripts/PlayerMenu.cs" id="1_pd8a7"]
-[ext_resource type="Texture2D" path="res://art/Background.png" id="2_fb1ub"]
+[ext_resource type="Texture2D" uid="uid://cgijkq0f48od7" path="res://art/Background.png" id="2_fb1ub"]
 
 [sub_resource type="Gradient" id="Gradient_px0fx"]
 interpolation_mode = 1
